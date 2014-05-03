@@ -1,0 +1,294 @@
+2014/05/03 01:47:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.mail' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `mail`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.manager' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `manager`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.assignee' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `assignee`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.mail' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `mail`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.manager' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `manager`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.assignee' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `assignee`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.mail' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `mail`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.manager' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `manager`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.assignee' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `assignee`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:47:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.mail' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `mail`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.manager' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `manager`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.assignee' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `assignee`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.mail' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `mail`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.manager' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `manager`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.nationality' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `nationality`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.assignee' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `assignee`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:49:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.owner' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `owner`.
+in /var/www/alsadaqat/index.php (13)
+2014/05/03 01:59:06 [error] [exception.CException] exception 'CException' with message 'Alias "admin.AdminModule" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/yii-1.1.14/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/YiiBase.php(196): YiiBase::import('admin.AdminModu...', true)
+#1 /var/www/yii-1.1.14/framework/base/CModule.php(282): YiiBase::createComponent('admin.AdminModu...', 'admin', NULL, Array)
+#2 /var/www/yii-1.1.14/framework/gii/generators/crud/CrudCode.php(121): CModule->getModule('admin')
+#3 /var/www/yii-1.1.14/framework/gii/generators/crud/CrudCode.php(152): CrudCode->getModule()
+#4 /var/www/yii-1.1.14/framework/base/CComponent.php(111): CrudCode->getControllerFile()
+#5 /var/www/yii-1.1.14/framework/gii/generators/crud/CrudCode.php(86): CComponent->__get('controllerFile')
+#6 /var/www/yii-1.1.14/framework/gii/CCodeGenerator.php(162): CrudCode->prepare()
+#7 /var/www/yii-1.1.14/framework/gii/CCodeGenerator.php(63): CCodeGenerator->prepare()
+#8 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): CCodeGenerator->actionIndex()
+#9 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('index')
+#13 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('gii/crud/index')
+#14 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/alsadaqat/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gii/crud/index
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 02:00:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 02:00:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType/index".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType/index
+---
+2014/05/03 02:00:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 02:02:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype
+---
+2014/05/03 02:02:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+---
+2014/05/03 02:02:28 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "index".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(128): CController->render('index', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionIndex()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationType
+---
