@@ -292,3 +292,1443 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/admin/organizationType
 ---
+2014/05/03 22:35:00 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:02 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:02 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:02 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:03 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:03 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:03 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_form.php(48): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/create.php(18): CController->renderPartial('_form', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(79): CController->render('create', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionCreate()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('create')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/site/login
+---
+2014/05/03 22:35:18 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_search.php(41): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/admin.php(40): CController->renderPartial('_search', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:35:35 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_search.php(41): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/admin.php(40): CController->renderPartial('_search', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationType/admin
+---
+2014/05/03 22:35:38 [error] [exception.CException] exception 'CException' with message 'Property "OrganizationType.notes" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/ar/CActiveRecord.php(145): CComponent->__get('notes')
+#1 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('notes')
+#2 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(OrganizationType), 'notes')
+#3 /var/www/yii-1.1.14/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(OrganizationType), 'notes', Array)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(OrganizationType), 'notes', Array)
+#5 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/_search.php(41): CActiveForm->textField(Object(OrganizationType), 'notes', Array)
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#8 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#9 /var/www/alsadaqat/protected/modules/admin/views/organizationtype/admin.php(40): CController->renderPartial('_search', Array)
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#14 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#15 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#16 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#23 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#25 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#26 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /var/www/alsadaqat/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:37:11 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "admin".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:37:12 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "admin".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:37:12 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "admin".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:37:12 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "admin".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:37:23 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "admin".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationType/admin
+---
+2014/05/03 22:37:25 [error] [exception.CException] exception 'CException' with message 'OrganizationtypeController cannot find the requested view "admin".' in /var/www/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#1 /var/www/alsadaqat/protected/modules/admin/controllers/OrganizationtypeController.php(143): CController->render('admin', Array)
+#2 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): OrganizationtypeController->actionAdmin()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii-1.1.14/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('admin')
+#12 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#13 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/alsadaqat/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:37:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype/admin".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:38:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype/create".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype/create
+---
+2014/05/03 22:38:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype
+---
+2014/05/03 22:38:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+---
+2014/05/03 22:38:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+---
+2014/05/03 22:38:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+---
+2014/05/03 22:38:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype
+---
+2014/05/03 22:38:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype/create".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype/create
+---
+2014/05/03 22:38:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype/admin".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/03 22:38:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationtype
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:40:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:40:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:40:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:40:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:40:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:40:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/03 22:41:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "graphs" was not found.' in /var/www/yii-1.1.14/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('graphs')
+#1 /var/www/yii-1.1.14/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/yii-1.1.14/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/alsadaqat/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/site/page?view=graphs
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype
+---
+2014/05/04 01:11:32 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.TbHeroUnit" is invalid. Make sure it points to an existing directory or file.' in /var/www/yii-1.1.14/framework/YiiBase.php:347
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 /var/www/yii-1.1.14/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 /var/www/yii-1.1.14/framework/web/CBaseController.php(189): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /var/www/alsadaqat/themes/bootstrap/views/site/index.php(9): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#5 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#6 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#7 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('index', NULL, true)
+#8 /var/www/alsadaqat/protected/controllers/SiteController.php(32): CController->render('index')
+#9 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/alsadaqat/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/
+---
+2014/05/04 01:11:32 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.TbHeroUnit" is invalid. Make sure it points to an existing directory or file.' in /var/www/yii-1.1.14/framework/YiiBase.php:347
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 /var/www/yii-1.1.14/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 /var/www/yii-1.1.14/framework/web/CBaseController.php(189): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /var/www/alsadaqat/themes/bootstrap/views/site/index.php(9): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#5 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#6 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#7 /var/www/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('index', NULL, true)
+#8 /var/www/alsadaqat/protected/controllers/SiteController.php(32): CController->render('index')
+#9 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#10 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/alsadaqat/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/
+---
+2014/05/04 01:12:06 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.bootstrap" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/base/CModule.php(105): CComponent->__get('bootstrap')
+#1 /var/www/alsadaqat/themes/bootstrap/views/layouts/main.php(12): CModule->__get('bootstrap')
+#2 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#5 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): COutputProcessor->run()
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 /var/www/alsadaqat/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/alsadaqat/protected/controllers/SiteController.php(32): CController->render('index')
+#14 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#15 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#19 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#20 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/alsadaqat/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/
+---
+2014/05/04 01:12:07 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.bootstrap" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/base/CModule.php(105): CComponent->__get('bootstrap')
+#1 /var/www/alsadaqat/themes/bootstrap/views/layouts/main.php(12): CModule->__get('bootstrap')
+#2 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#4 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#5 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): COutputProcessor->run()
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 /var/www/alsadaqat/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#10 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#11 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#12 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#13 /var/www/alsadaqat/protected/controllers/SiteController.php(32): CController->render('index')
+#14 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#15 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#19 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#20 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/alsadaqat/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/
+---
+2014/05/04 01:13:34 [error] [exception.CException] exception 'CException' with message 'Alias "gii.GiiModule" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/yii-1.1.14/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/YiiBase.php(196): YiiBase::import('gii.GiiModule', true)
+#1 /var/www/yii-1.1.14/framework/base/CModule.php(282): YiiBase::createComponent('gii.GiiModule', 'gii', NULL, Array)
+#2 /var/www/yii-1.1.14/framework/web/CWebApplication.php(337): CModule->getModule('gii')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(276): CWebApplication->createController('gii/crud/index')
+#4 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('gii/crud/index')
+#5 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/alsadaqat/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/gii/crud/index
+HTTP_REFERER=http://alsadaqat.local/gii/crud/index
+---
+2014/05/04 01:19:25 [error] [php] include(ContactForm.php): failed to open stream: No such file or directory (/var/www/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /var/www/alsadaqat/protected/controllers/SiteController.php(54): spl_autoload_call()
+#1 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): SiteController->actionContact()
+#2 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/yii-1.1.14/framework/web/CController.php(286): SiteController->runAction()
+#4 /var/www/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/site/contact
+in /var/www/alsadaqat/protected/controllers/SiteController.php (54)
+in /var/www/alsadaqat/index.php (13)
+2014/05/04 09:59:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/05/04 09:59:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/05/04 13:59:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/05/04 23:54:10 [error] [exception.CException] exception 'CException' with message 'Alias "ext.localeurls.LocaleHttpRequest" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /var/www/yii-1.1.14/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/YiiBase.php(196): YiiBase::import('ext.localeurls....', true)
+#1 /var/www/yii-1.1.14/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/yii-1.1.14/framework/base/CApplication.php(513): CModule->getComponent('request')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(545): CApplication->getRequest()
+#4 /var/www/yii-1.1.14/framework/base/CApplication.php(165): CWebApplication->init()
+#5 /var/www/yii-1.1.14/framework/YiiBase.php(125): CApplication->__construct('/var/www/alsada...')
+#6 /var/www/yii-1.1.14/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/alsada...')
+#7 /var/www/alsadaqat/index.php(13): YiiBase::createWebApplication('/var/www/alsada...')
+#8 {main}
+REQUEST_URI=/admin/organizationtype/create
+HTTP_REFERER=http://alsadaqat.local/admin/organizationtype/create
+---
+2014/05/04 23:57:13 [error] [php] include(WebUser.php): failed to open stream: No such file or directory (/var/www/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/YiiBase.php(196): import()
+#1 /var/www/yii-1.1.14/framework/base/CModule.php(386): createComponent()
+#2 /var/www/yii-1.1.14/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /var/www/alsadaqat/protected/extensions/localeurls/LocaleHttpRequest.php(126): CWebApplication->__get()
+#4 /var/www/yii-1.1.14/framework/web/CUrlManager.php(364): LocaleHttpRequest->getPathInfo()
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(140): LocaleUrlManager->parseUrl()
+#6 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/admin/organizationtype/create
+in /var/www/alsadaqat/protected/extensions/localeurls/LocaleHttpRequest.php (126)
+in /var/www/alsadaqat/index.php (13)
+2014/05/05 00:16:58 [error] [exception.CException] exception 'CException' with message 'Property "DefaultController.isGuest" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(34): CComponent->__get('isGuest')
+#1 /var/www/yii-1.1.14/framework/web/CController.php(263): AdminModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#2 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#4 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/alsadaqat/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 00:16:59 [error] [exception.CException] exception 'CException' with message 'Property "DefaultController.isGuest" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(34): CComponent->__get('isGuest')
+#1 /var/www/yii-1.1.14/framework/web/CController.php(263): AdminModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#2 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#4 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/alsadaqat/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 00:16:59 [error] [exception.CException] exception 'CException' with message 'Property "DefaultController.isGuest" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(34): CComponent->__get('isGuest')
+#1 /var/www/yii-1.1.14/framework/web/CController.php(263): AdminModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#2 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#4 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/alsadaqat/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 00:16:59 [error] [exception.CException] exception 'CException' with message 'Property "DefaultController.isGuest" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(34): CComponent->__get('isGuest')
+#1 /var/www/yii-1.1.14/framework/web/CController.php(263): AdminModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#2 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#4 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/alsadaqat/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 00:16:59 [error] [exception.CException] exception 'CException' with message 'Property "DefaultController.isGuest" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(34): CComponent->__get('isGuest')
+#1 /var/www/yii-1.1.14/framework/web/CController.php(263): AdminModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#2 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#3 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#4 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/alsadaqat/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 01:17:02 [error] [exception.CException] exception 'CException' with message 'The layout path "/var/www/alsadaqat/protected/modules/admin/views/layouts" is not a valid directory.' in /var/www/yii-1.1.14/framework/web/CWebModule.php:161
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/base/CComponent.php(152): CWebModule->setLayoutPath('/var/www/alsada...')
+#1 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(7): CComponent->__set('layoutPath', '/var/www/alsada...')
+#2 /var/www/yii-1.1.14/framework/base/CModule.php(90): AdminModule->init()
+#3 /var/www/yii-1.1.14/framework/YiiBase.php(206): CModule->__construct('admin', NULL, Array)
+#4 /var/www/yii-1.1.14/framework/base/CModule.php(282): YiiBase::createComponent('admin.AdminModu...', 'admin', NULL, Array)
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(337): CModule->getModule('admin')
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(276): CWebApplication->createController('admin')
+#7 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#8 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/alsadaqat/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 01:17:58 [error] [exception.CException] exception 'CException' with message 'The layout path "/var/www/alsadaqat/protected/modules/admin/views/layouts" is not a valid directory.' in /var/www/yii-1.1.14/framework/web/CWebModule.php:161
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/base/CComponent.php(152): CWebModule->setLayoutPath('/var/www/alsada...')
+#1 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(7): CComponent->__set('layoutPath', '/var/www/alsada...')
+#2 /var/www/yii-1.1.14/framework/base/CModule.php(90): AdminModule->init()
+#3 /var/www/yii-1.1.14/framework/YiiBase.php(206): CModule->__construct('admin', NULL, Array)
+#4 /var/www/yii-1.1.14/framework/base/CModule.php(282): YiiBase::createComponent('admin.AdminModu...', 'admin', NULL, Array)
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(337): CModule->getModule('admin')
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(276): CWebApplication->createController('admin')
+#7 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#8 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/alsadaqat/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/en/admin/
+---
+2014/05/05 01:33:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/favicon.ico
+---
+2014/05/05 01:36:51 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:36:52 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:37:05 [error] [php] Trying to get property of non-object (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:17)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#5 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#8 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#9 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#10 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#11 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/default/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (17)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+in /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php (7)
+2014/05/05 01:37:06 [error] [php] Trying to get property of non-object (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:17)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#5 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#8 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#9 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#10 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#11 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/default/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (17)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+in /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php (7)
+2014/05/05 01:37:46 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:37:56 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:38:00 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:42:13 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:42:14 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.__userInfo" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/auth/CWebUser.php(146): CComponent->__get('__userInfo')
+#1 /var/www/alsadaqat/protected/components/WebUser.php(15): CWebUser->__get('__userInfo')
+#2 /var/www/alsadaqat/protected/modules/admin/views/layouts/_navigationBar.php(14): WebUser->__get('__userInfo')
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', NULL, true)
+#5 /var/www/yii-1.1.14/framework/web/CController.php(869): CBaseController->renderFile('/var/www/alsada...', NULL, true)
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(6): CController->renderPartial('/layouts/_navig...')
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require('/var/www/alsada...')
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/alsada...', Array, true)
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): CBaseController->renderFile('/var/www/alsada...', Array, true)
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): CController->render('index')
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('')
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:42:27 [error] [php] Trying to get property of non-object (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:17)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#5 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#8 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#9 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#10 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#11 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/default/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (17)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+in /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php (7)
+2014/05/05 01:43:05 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.themePath" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/base/CModule.php(105): CComponent->__get('themePath')
+#1 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(9): CModule->__get('themePath')
+#2 /var/www/yii-1.1.14/framework/base/CModule.php(90): AdminModule->init()
+#3 /var/www/yii-1.1.14/framework/YiiBase.php(206): CModule->__construct('admin', NULL, Array)
+#4 /var/www/yii-1.1.14/framework/base/CModule.php(282): YiiBase::createComponent('admin.AdminModu...', 'admin', NULL, Array)
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(337): CModule->getModule('admin')
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/default')
+#7 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#8 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/alsadaqat/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:43:05 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.themePath" is not defined.' in /var/www/yii-1.1.14/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/base/CModule.php(105): CComponent->__get('themePath')
+#1 /var/www/alsadaqat/protected/modules/admin/AdminModule.php(9): CModule->__get('themePath')
+#2 /var/www/yii-1.1.14/framework/base/CModule.php(90): AdminModule->init()
+#3 /var/www/yii-1.1.14/framework/YiiBase.php(206): CModule->__construct('admin', NULL, Array)
+#4 /var/www/yii-1.1.14/framework/base/CModule.php(282): YiiBase::createComponent('admin.AdminModu...', 'admin', NULL, Array)
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(337): CModule->getModule('admin')
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/default')
+#7 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default')
+#8 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/alsadaqat/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/en/admin/default/
+HTTP_REFERER=http://alsadaqat.local/en/site/login
+---
+2014/05/05 01:49:06 [error] [php] Trying to get property of non-object (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:17)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#5 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#8 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#9 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#10 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#11 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (17)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+in /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php (7)
+2014/05/05 01:49:37 [error] [php] require_once(tpl_navigation.php): failed to open stream: No such file or directory (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:56)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#2 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#5 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (56)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (56)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+2014/05/05 02:03:03 [error] [php] require_once(tpl_navigation.php): failed to open stream: No such file or directory (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:56)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#2 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#5 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (56)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (56)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+2014/05/05 02:03:21 [error] [php] require_once(tpl_footer.php): failed to open stream: No such file or directory (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:67)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#2 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#5 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#6 /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php(6): DefaultController->endContent()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#8 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#9 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#10 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#11 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#14 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#16 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin/
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (67)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (67)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column1.php (6)
+2014/05/05 02:14:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "graphs" was not found.' in /var/www/yii-1.1.14/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('graphs')
+#1 /var/www/yii-1.1.14/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /var/www/yii-1.1.14/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /var/www/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /var/www/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/alsadaqat/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/en/site/page?view=graphs
+HTTP_REFERER=http://alsadaqat.local/en/admin/
+---
+2014/05/05 02:17:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype/admin".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationtype/admin
+HTTP_REFERER=http://alsadaqat.local/en/admin/organizationtype/index
+---
+2014/05/05 02:18:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:19:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:19:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:19:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:19:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationtype
+---
+2014/05/05 02:19:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+---
+2014/05/05 02:20:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationtype/create".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationtype/create
+---
+2014/05/05 02:20:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType/create".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType/create
+---
+2014/05/05 02:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType/create".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType/create
+---
+2014/05/05 02:21:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:21:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:21:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/organizationType".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/organizat...')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/organizationType
+HTTP_REFERER=http://alsadaqat.local/en/gii/bootstrap/index
+---
+2014/05/05 02:29:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/d".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/d')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/d
+---
+2014/05/05 02:33:30 [error] [php] Trying to get property of non-object (/var/www/alsadaqat/protected/modules/admin/views/layouts/main.php:16)
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(76): DefaultController->renderFile()
+#1 /var/www/yii-1.1.14/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /var/www/yii-1.1.14/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /var/www/yii-1.1.14/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /var/www/yii-1.1.14/framework/web/CBaseController.php(300): DefaultController->endWidget()
+#5 /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php(90): DefaultController->endContent()
+#6 /var/www/yii-1.1.14/framework/web/CBaseController.php(126): require()
+#7 /var/www/yii-1.1.14/framework/web/CBaseController.php(95): DefaultController->renderInternal()
+#8 /var/www/yii-1.1.14/framework/web/CController.php(784): DefaultController->renderFile()
+#9 /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php(7): DefaultController->render()
+#10 /var/www/yii-1.1.14/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#11 /var/www/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/yii-1.1.14/framework/web/CController.php(286): DefaultController->runAction()
+#13 /var/www/yii-1.1.14/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#14 /var/www/yii-1.1.14/framework/web/CWebApplication.php(282): DefaultController->run()
+#15 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/alsadaqat/index.php(13): CWebApplication->run()
+REQUEST_URI=/en/admin
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/main.php (16)
+in /var/www/alsadaqat/protected/modules/admin/views/layouts/column2.php (90)
+in /var/www/alsadaqat/protected/modules/admin/controllers/DefaultController.php (7)
+2014/05/05 02:34:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/defaulr".' in /var/www/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/defaulr')
+#1 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/alsadaqat/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/en/admin/defaulr
+HTTP_REFERER=http://alsadaqat.local/en/admin/organizationtype/index
+---
