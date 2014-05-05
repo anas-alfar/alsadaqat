@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.event_activity".
+ * This is the model class for table "event_activity".
  *
- * The followings are the available columns in table 'alsadaqat.event_activity':
+ * The followings are the available columns in table 'event_activity':
  * @property string $id
  * @property string $event_id
  * @property string $title
@@ -13,8 +13,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property Owner $owner
  * @property Event $event
+ * @property Owner $owner
  */
 class EventActivity extends CActiveRecord
 {
@@ -23,7 +23,7 @@ class EventActivity extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.event_activity';
+		return 'event_activity';
 	}
 
 	/**
@@ -34,10 +34,11 @@ class EventActivity extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, title, description, owner_id, created_at, updated_at', 'required'),
+			array('event_id, title, description, owner_id', 'required'),
 			array('event_id, owner_id', 'length', 'max'=>11),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>1024),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, event_id, title, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -52,8 +53,8 @@ class EventActivity extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
+			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 		);
 	}
 
@@ -63,13 +64,13 @@ class EventActivity extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'event_id' => 'Event',
-			'title' => 'Title',
-			'description' => 'Description',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('event_activity','ID'),
+			'event_id' => Yii::t('event_activity','Event'),
+			'title' => Yii::t('event_activity','Title'),
+			'description' => Yii::t('event_activity','Description'),
+			'owner_id' => Yii::t('event_activity','Owner'),
+			'created_at' => Yii::t('event_activity','Created At'),
+			'updated_at' => Yii::t('event_activity','Updated At'),
 		);
 	}
 

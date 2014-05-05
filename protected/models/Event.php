@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.event".
+ * This is the model class for table "event".
  *
- * The followings are the available columns in table 'alsadaqat.event':
+ * The followings are the available columns in table 'event':
  * @property string $id
  * @property string $organization_id
  * @property string $title
@@ -25,11 +25,11 @@
  * @property string $options
  *
  * The followings are the available model relations:
- * @property City $city
  * @property Organization $organization
  * @property EventType $eventType
  * @property Country $country
  * @property Owner $owner
+ * @property City $city
  * @property EventActivity[] $eventActivities
  * @property EventAgenda[] $eventAgendas
  * @property EventPhoto[] $eventPhotos
@@ -41,7 +41,7 @@ class Event extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.event';
+		return 'event';
 	}
 
 	/**
@@ -52,12 +52,13 @@ class Event extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, event_type_id, country_id, city_id, address, start_at, end_at, owner_id, created_at, updated_at, notes, options', 'required'),
+			array('organization_id, title, description, event_type_id, country_id, city_id, address, start_at, end_at, owner_id, notes, options', 'required'),
 			array('number_of_days', 'numerical', 'integerOnly'=>true),
 			array('organization_id, event_type_id, country_id, city_id, status, owner_id', 'length', 'max'=>11),
 			array('title, address', 'length', 'max'=>255),
 			array('description, notes, options', 'length', 'max'=>1024),
 			array('published, approved', 'length', 'max'=>3),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, number_of_days, event_type_id, country_id, city_id, address, status, start_at, end_at, published, approved, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
@@ -72,11 +73,11 @@ class Event extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'eventType' => array(self::BELONGS_TO, 'EventType', 'event_type_id'),
 			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
 			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 			'eventActivities' => array(self::HAS_MANY, 'EventActivity', 'event_id'),
 			'eventAgendas' => array(self::HAS_MANY, 'EventAgenda', 'event_id'),
 			'eventPhotos' => array(self::HAS_MANY, 'EventPhoto', 'event_id'),
@@ -89,25 +90,25 @@ class Event extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'title' => 'Title',
-			'description' => 'Description',
-			'number_of_days' => 'Number Of Days',
-			'event_type_id' => 'Event Type',
-			'country_id' => 'Country',
-			'city_id' => 'City',
-			'address' => 'Address',
-			'status' => 'Status',
-			'start_at' => 'Start At',
-			'end_at' => 'End At',
-			'published' => 'Published',
-			'approved' => 'Approved',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
-			'notes' => 'Notes',
-			'options' => 'Options',
+			'id' => Yii::t('event','ID'),
+			'organization_id' => Yii::t('event','Organization'),
+			'title' => Yii::t('event','Title'),
+			'description' => Yii::t('event','Description'),
+			'number_of_days' => Yii::t('event','Number Of Days'),
+			'event_type_id' => Yii::t('event','Event Type'),
+			'country_id' => Yii::t('event','Country'),
+			'city_id' => Yii::t('event','City'),
+			'address' => Yii::t('event','Address'),
+			'status' => Yii::t('event','Status'),
+			'start_at' => Yii::t('event','Start At'),
+			'end_at' => Yii::t('event','End At'),
+			'published' => Yii::t('event','Published'),
+			'approved' => Yii::t('event','Approved'),
+			'owner_id' => Yii::t('event','Owner'),
+			'created_at' => Yii::t('event','Created At'),
+			'updated_at' => Yii::t('event','Updated At'),
+			'notes' => Yii::t('event','Notes'),
+			'options' => Yii::t('event','Options'),
 		);
 	}
 

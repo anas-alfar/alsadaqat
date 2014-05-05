@@ -1,14 +1,15 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.city".
+ * This is the model class for table "city".
  *
- * The followings are the available columns in table 'alsadaqat.city':
+ * The followings are the available columns in table 'city':
  * @property string $id
  * @property string $country_id
  * @property string $name
  * @property string $name_ar
  * @property string $published
+ * @property string $created_at
  * @property string $updated_at
  *
  * The followings are the available model relations:
@@ -26,7 +27,7 @@ class City extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.city';
+		return 'city';
 	}
 
 	/**
@@ -37,14 +38,15 @@ class City extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('country_id, name, name_ar, updated_at', 'required'),
+			array('country_id, name, name_ar', 'required'),
 			array('country_id', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>128),
 			array('name_ar', 'length', 'max'=>255),
 			array('published', 'length', 'max'=>3),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, country_id, name, name_ar, published, updated_at', 'safe', 'on'=>'search'),
+			array('id, country_id, name, name_ar, published, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,12 +73,13 @@ class City extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'country_id' => 'Country',
-			'name' => 'Name',
-			'name_ar' => 'Name Ar',
-			'published' => 'Published',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('city','ID'),
+			'country_id' => Yii::t('city','Country'),
+			'name' => Yii::t('city','Name'),
+			'name_ar' => Yii::t('city','Name Ar'),
+			'published' => Yii::t('city','Published'),
+			'created_at' => Yii::t('city','Created At'),
+			'updated_at' => Yii::t('city','Updated At'),
 		);
 	}
 
@@ -103,6 +106,7 @@ class City extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('name_ar',$this->name_ar,true);
 		$criteria->compare('published',$this->published,true);
+		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 
 		return new CActiveDataProvider($this, array(

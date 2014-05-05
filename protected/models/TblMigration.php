@@ -1,27 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "organization_user_access_level".
+ * This is the model class for table "tbl_migration".
  *
- * The followings are the available columns in table 'organization_user_access_level':
- * @property string $id
- * @property string $user_id
- * @property string $organization_access_level_id
- * @property string $created_at
- * @property string $updated_at
- *
- * The followings are the available model relations:
- * @property User $user
- * @property OrganizationAccessLevel $organizationAccessLevel
+ * The followings are the available columns in table 'tbl_migration':
+ * @property string $version
+ * @property integer $apply_time
  */
-class OrganizationUserAccessLevel extends CActiveRecord
+class TblMigration extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'organization_user_access_level';
+		return 'tbl_migration';
 	}
 
 	/**
@@ -32,12 +25,12 @@ class OrganizationUserAccessLevel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, organization_access_level_id', 'required'),
-			array('user_id, organization_access_level_id', 'length', 'max'=>11),
-			array('created_at, updated_at', 'safe'),
+			array('version', 'required'),
+			array('apply_time', 'numerical', 'integerOnly'=>true),
+			array('version', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, organization_access_level_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('version, apply_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,8 +42,6 @@ class OrganizationUserAccessLevel extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-			'organizationAccessLevel' => array(self::BELONGS_TO, 'OrganizationAccessLevel', 'organization_access_level_id'),
 		);
 	}
 
@@ -60,11 +51,8 @@ class OrganizationUserAccessLevel extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => Yii::t('organization_user_access_level','ID'),
-			'user_id' => Yii::t('organization_user_access_level','User'),
-			'organization_access_level_id' => Yii::t('organization_user_access_level','Organization Access Level'),
-			'created_at' => Yii::t('organization_user_access_level','Created At'),
-			'updated_at' => Yii::t('organization_user_access_level','Updated At'),
+			'version' => Yii::t('tbl_migration','Version'),
+			'apply_time' => Yii::t('tbl_migration','Apply Time'),
 		);
 	}
 
@@ -86,11 +74,8 @@ class OrganizationUserAccessLevel extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('user_id',$this->user_id,true);
-		$criteria->compare('organization_access_level_id',$this->organization_access_level_id,true);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('updated_at',$this->updated_at,true);
+		$criteria->compare('version',$this->version,true);
+		$criteria->compare('apply_time',$this->apply_time);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -101,7 +86,7 @@ class OrganizationUserAccessLevel extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return OrganizationUserAccessLevel the static model class
+	 * @return TblMigration the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

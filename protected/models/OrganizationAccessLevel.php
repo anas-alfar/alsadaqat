@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_access_level".
+ * This is the model class for table "organization_access_level".
  *
- * The followings are the available columns in table 'alsadaqat.organization_access_level':
+ * The followings are the available columns in table 'organization_access_level':
  * @property string $id
  * @property string $organization_id
  * @property string $title
@@ -23,7 +23,7 @@ class OrganizationAccessLevel extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_access_level';
+		return 'organization_access_level';
 	}
 
 	/**
@@ -34,10 +34,11 @@ class OrganizationAccessLevel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, created_at, updated_at', 'required'),
+			array('organization_id, title, description', 'required'),
 			array('organization_id', 'length', 'max'=>11),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -64,12 +65,12 @@ class OrganizationAccessLevel extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'title' => 'Title',
-			'description' => 'Description',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_access_level','ID'),
+			'organization_id' => Yii::t('organization_access_level','Organization'),
+			'title' => Yii::t('organization_access_level','Title'),
+			'description' => Yii::t('organization_access_level','Description'),
+			'created_at' => Yii::t('organization_access_level','Created At'),
+			'updated_at' => Yii::t('organization_access_level','Updated At'),
 		);
 	}
 

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_user".
+ * This is the model class for table "organization_user".
  *
- * The followings are the available columns in table 'alsadaqat.organization_user':
+ * The followings are the available columns in table 'organization_user':
  * @property string $id
  * @property string $username
  * @property string $password
@@ -31,11 +31,15 @@
  * The followings are the available model relations:
  * @property Beneficiary[] $beneficiaries
  * @property Beneficiary[] $beneficiaries1
+ * @property BeneficiaryDisabled[] $beneficiaryDisableds
+ * @property BeneficiaryFamilyMembers[] $beneficiaryFamilyMembers
  * @property BeneficiaryFinance[] $beneficiaryFinances
  * @property BeneficiaryHome[] $beneficiaryHomes
  * @property BeneficiaryOrphan[] $beneficiaryOrphans
  * @property BeneficiaryPaterfamilias[] $beneficiaryPaterfamiliases
+ * @property BeneficiaryPoor[] $beneficiaryPoors
  * @property BeneficiaryRelation[] $beneficiaryRelations
+ * @property BeneficiaryResearchNotes[] $beneficiaryResearchNotes
  * @property BeneficiaryStudent[] $beneficiaryStudents
  * @property BeneficiaryStudentClass[] $beneficiaryStudentClasses
  * @property BeneficiaryTeacher[] $beneficiaryTeachers
@@ -57,7 +61,7 @@ class OrganizationUser extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_user';
+		return 'organization_user';
 	}
 
 	/**
@@ -68,7 +72,7 @@ class OrganizationUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, fullname, ssn, email, date_of_birth, home_phone, work_phone, local_mobile, international_mobile, nationality_id, organization_id, organization_branch_id, personal_photo_path, passport_photo_path, last_login_date, last_login_ip, created_at, updated_at', 'required'),
+			array('username, password, fullname, ssn, email, date_of_birth, home_phone, work_phone, local_mobile, international_mobile, nationality_id, organization_id, organization_branch_id, personal_photo_path, passport_photo_path, last_login_date, last_login_ip', 'required'),
 			array('username, password, ssn', 'length', 'max'=>32),
 			array('title', 'length', 'max'=>4),
 			array('fullname, email, personal_photo_path, passport_photo_path', 'length', 'max'=>255),
@@ -77,6 +81,7 @@ class OrganizationUser extends CActiveRecord
 			array('nationality_id, organization_id, organization_branch_id', 'length', 'max'=>11),
 			array('blocked', 'length', 'max'=>3),
 			array('last_login_ip', 'length', 'max'=>15),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, username, password, title, fullname, ssn, gender, email, date_of_birth, home_phone, work_phone, local_mobile, international_mobile, nationality_id, organization_id, organization_branch_id, personal_photo_path, passport_photo_path, blocked, last_login_date, last_login_ip, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -91,13 +96,17 @@ class OrganizationUser extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'beneficiaries' => array(self::HAS_MANY, 'Beneficiary', 'owner_id'),
-			'beneficiaries1' => array(self::HAS_MANY, 'Beneficiary', 'donator_id'),
+			'beneficiaries' => array(self::HAS_MANY, 'Beneficiary', 'donator_id'),
+			'beneficiaries1' => array(self::HAS_MANY, 'Beneficiary', 'owner_id'),
+			'beneficiaryDisableds' => array(self::HAS_MANY, 'BeneficiaryDisabled', 'owner_id'),
+			'beneficiaryFamilyMembers' => array(self::HAS_MANY, 'BeneficiaryFamilyMembers', 'owner_id'),
 			'beneficiaryFinances' => array(self::HAS_MANY, 'BeneficiaryFinance', 'owner_id'),
 			'beneficiaryHomes' => array(self::HAS_MANY, 'BeneficiaryHome', 'owner_id'),
 			'beneficiaryOrphans' => array(self::HAS_MANY, 'BeneficiaryOrphan', 'owner_id'),
 			'beneficiaryPaterfamiliases' => array(self::HAS_MANY, 'BeneficiaryPaterfamilias', 'owner_id'),
+			'beneficiaryPoors' => array(self::HAS_MANY, 'BeneficiaryPoor', 'owner_id'),
 			'beneficiaryRelations' => array(self::HAS_MANY, 'BeneficiaryRelation', 'owner_id'),
+			'beneficiaryResearchNotes' => array(self::HAS_MANY, 'BeneficiaryResearchNotes', 'owner_id'),
 			'beneficiaryStudents' => array(self::HAS_MANY, 'BeneficiaryStudent', 'owner_id'),
 			'beneficiaryStudentClasses' => array(self::HAS_MANY, 'BeneficiaryStudentClass', 'owner_id'),
 			'beneficiaryTeachers' => array(self::HAS_MANY, 'BeneficiaryTeacher', 'owner_id'),
@@ -120,29 +129,29 @@ class OrganizationUser extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
-			'title' => 'Title',
-			'fullname' => 'Fullname',
-			'ssn' => 'Ssn',
-			'gender' => 'Gender',
-			'email' => 'Email',
-			'date_of_birth' => 'Date Of Birth',
-			'home_phone' => 'Home Phone',
-			'work_phone' => 'Work Phone',
-			'local_mobile' => 'Local Mobile',
-			'international_mobile' => 'International Mobile',
-			'nationality_id' => 'Nationality',
-			'organization_id' => 'Organization',
-			'organization_branch_id' => 'Organization Branch',
-			'personal_photo_path' => 'Personal Photo Path',
-			'passport_photo_path' => 'Passport Photo Path',
-			'blocked' => 'Blocked',
-			'last_login_date' => 'Last Login Date',
-			'last_login_ip' => 'Last Login Ip',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_user','ID'),
+			'username' => Yii::t('organization_user','Username'),
+			'password' => Yii::t('organization_user','Password'),
+			'title' => Yii::t('organization_user','Title'),
+			'fullname' => Yii::t('organization_user','Fullname'),
+			'ssn' => Yii::t('organization_user','Ssn'),
+			'gender' => Yii::t('organization_user','Gender'),
+			'email' => Yii::t('organization_user','Email'),
+			'date_of_birth' => Yii::t('organization_user','Date Of Birth'),
+			'home_phone' => Yii::t('organization_user','Home Phone'),
+			'work_phone' => Yii::t('organization_user','Work Phone'),
+			'local_mobile' => Yii::t('organization_user','Local Mobile'),
+			'international_mobile' => Yii::t('organization_user','International Mobile'),
+			'nationality_id' => Yii::t('organization_user','Nationality'),
+			'organization_id' => Yii::t('organization_user','Organization'),
+			'organization_branch_id' => Yii::t('organization_user','Organization Branch'),
+			'personal_photo_path' => Yii::t('organization_user','Personal Photo Path'),
+			'passport_photo_path' => Yii::t('organization_user','Passport Photo Path'),
+			'blocked' => Yii::t('organization_user','Blocked'),
+			'last_login_date' => Yii::t('organization_user','Last Login Date'),
+			'last_login_ip' => Yii::t('organization_user','Last Login Ip'),
+			'created_at' => Yii::t('organization_user','Created At'),
+			'updated_at' => Yii::t('organization_user','Updated At'),
 		);
 	}
 

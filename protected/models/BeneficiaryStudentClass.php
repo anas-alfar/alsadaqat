@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary_student_class".
+ * This is the model class for table "beneficiary_student_class".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary_student_class':
+ * The followings are the available columns in table 'beneficiary_student_class':
  * @property string $id
  * @property string $class_name
  * @property string $major_name
@@ -17,8 +17,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Beneficiary $beneficiary
+ * @property OrganizationUser $owner
  */
 class BeneficiaryStudentClass extends CActiveRecord
 {
@@ -27,7 +27,7 @@ class BeneficiaryStudentClass extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary_student_class';
+		return 'beneficiary_student_class';
 	}
 
 	/**
@@ -38,9 +38,10 @@ class BeneficiaryStudentClass extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('class_name, major_name, school_name, address, start_at, end_at, beneficiary_id, owner_id, created_at, updated_at', 'required'),
+			array('class_name, major_name, school_name, address, start_at, end_at, beneficiary_id, owner_id', 'required'),
 			array('class_name, major_name, school_name, address', 'length', 'max'=>255),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, class_name, major_name, school_name, address, start_at, end_at, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -55,8 +56,8 @@ class BeneficiaryStudentClass extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'beneficiary' => array(self::BELONGS_TO, 'Beneficiary', 'beneficiary_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 
@@ -66,17 +67,17 @@ class BeneficiaryStudentClass extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'class_name' => 'Class Name',
-			'major_name' => 'Major Name',
-			'school_name' => 'School Name',
-			'address' => 'Address',
-			'start_at' => 'Start At',
-			'end_at' => 'End At',
-			'beneficiary_id' => 'Beneficiary',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('beneficiary_student_class','ID'),
+			'class_name' => Yii::t('beneficiary_student_class','Class Name'),
+			'major_name' => Yii::t('beneficiary_student_class','Major Name'),
+			'school_name' => Yii::t('beneficiary_student_class','School Name'),
+			'address' => Yii::t('beneficiary_student_class','Address'),
+			'start_at' => Yii::t('beneficiary_student_class','Start At'),
+			'end_at' => Yii::t('beneficiary_student_class','End At'),
+			'beneficiary_id' => Yii::t('beneficiary_student_class','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_student_class','Owner'),
+			'created_at' => Yii::t('beneficiary_student_class','Created At'),
+			'updated_at' => Yii::t('beneficiary_student_class','Updated At'),
 		);
 	}
 

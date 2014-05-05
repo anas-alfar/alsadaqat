@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.tasks".
+ * This is the model class for table "tasks".
  *
- * The followings are the available columns in table 'alsadaqat.tasks':
+ * The followings are the available columns in table 'tasks':
  * @property string $id
  * @property string $organization_id
  * @property string $title
@@ -17,9 +17,9 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property Assignee $assignee
  * @property Organization $organization
  * @property Owner $owner
+ * @property Assignee $assignee
  */
 class Tasks extends CActiveRecord
 {
@@ -28,7 +28,7 @@ class Tasks extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.tasks';
+		return 'tasks';
 	}
 
 	/**
@@ -39,11 +39,11 @@ class Tasks extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, owner_id, assignee_id, created_at, updated_at', 'required'),
+			array('organization_id, title, description, owner_id, assignee_id', 'required'),
 			array('organization_id, owner_id, assignee_id, status', 'length', 'max'=>11),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>1024),
-			array('start_at, end_at', 'safe'),
+			array('start_at, end_at, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, owner_id, assignee_id, status, start_at, end_at, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -58,9 +58,9 @@ class Tasks extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'assignee' => array(self::BELONGS_TO, 'Assignee', 'assignee_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'assignee' => array(self::BELONGS_TO, 'Assignee', 'assignee_id'),
 		);
 	}
 
@@ -70,17 +70,17 @@ class Tasks extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'title' => 'Title',
-			'description' => 'Description',
-			'owner_id' => 'Owner',
-			'assignee_id' => 'Assignee',
-			'status' => 'Status',
-			'start_at' => 'Start At',
-			'end_at' => 'End At',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('tasks','ID'),
+			'organization_id' => Yii::t('tasks','Organization'),
+			'title' => Yii::t('tasks','Title'),
+			'description' => Yii::t('tasks','Description'),
+			'owner_id' => Yii::t('tasks','Owner'),
+			'assignee_id' => Yii::t('tasks','Assignee'),
+			'status' => Yii::t('tasks','Status'),
+			'start_at' => Yii::t('tasks','Start At'),
+			'end_at' => Yii::t('tasks','End At'),
+			'created_at' => Yii::t('tasks','Created At'),
+			'updated_at' => Yii::t('tasks','Updated At'),
 		);
 	}
 

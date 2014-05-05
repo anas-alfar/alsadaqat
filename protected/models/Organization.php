@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization".
+ * This is the model class for table "organization".
  *
- * The followings are the available columns in table 'alsadaqat.organization':
+ * The followings are the available columns in table 'organization':
  * @property string $id
  * @property string $organization_type_id
  * @property string $name
@@ -37,7 +37,7 @@ class Organization extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization';
+		return 'organization';
 	}
 
 	/**
@@ -48,11 +48,12 @@ class Organization extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_type_id, name, description, created_at, updated_at, notes, options', 'required'),
+			array('organization_type_id, name, description, notes, options', 'required'),
 			array('organization_type_id', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
 			array('notes, options', 'length', 'max'=>1024),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_type_id, name, description, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
@@ -91,14 +92,14 @@ class Organization extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_type_id' => 'Organization Type',
-			'name' => 'Name',
-			'description' => 'Description',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
-			'notes' => 'Notes',
-			'options' => 'Options',
+			'id' => Yii::t('organization','ID'),
+			'organization_type_id' => Yii::t('organization','Organization Type'),
+			'name' => Yii::t('organization','Name'),
+			'description' => Yii::t('organization','Description'),
+			'created_at' => Yii::t('organization','Created At'),
+			'updated_at' => Yii::t('organization','Updated At'),
+			'notes' => Yii::t('organization','Notes'),
+			'options' => Yii::t('organization','Options'),
 		);
 	}
 

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mosque".
+ * This is the model class for table "mosque".
  *
- * The followings are the available columns in table 'alsadaqat.mosque':
+ * The followings are the available columns in table 'mosque':
  * @property string $id
  * @property string $name
  * @property string $address
@@ -37,7 +37,7 @@ class Mosque extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mosque';
+		return 'mosque';
 	}
 
 	/**
@@ -48,10 +48,11 @@ class Mosque extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id, created_at, updated_at, notes, options', 'required'),
+			array('name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id, notes, options', 'required'),
 			array('name, address, contract_photo_path', 'length', 'max'=>255),
 			array('construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'length', 'max'=>11),
 			array('notes, options', 'length', 'max'=>1024),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
@@ -82,22 +83,22 @@ class Mosque extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'address' => 'Address',
-			'contract_date' => 'Contract Date',
-			'contract_photo_path' => 'Contract Photo Path',
-			'construction_progress' => 'Construction Progress',
-			'donator_id' => 'Donator',
-			'agent_id' => 'Agent',
-			'mosque_type_id' => 'Mosque Type',
-			'country_id' => 'Country',
-			'city_id' => 'City',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
-			'notes' => 'Notes',
-			'options' => 'Options',
+			'id' => Yii::t('mosque','ID'),
+			'name' => Yii::t('mosque','Name'),
+			'address' => Yii::t('mosque','Address'),
+			'contract_date' => Yii::t('mosque','Contract Date'),
+			'contract_photo_path' => Yii::t('mosque','Contract Photo Path'),
+			'construction_progress' => Yii::t('mosque','Construction Progress'),
+			'donator_id' => Yii::t('mosque','Donator'),
+			'agent_id' => Yii::t('mosque','Agent'),
+			'mosque_type_id' => Yii::t('mosque','Mosque Type'),
+			'country_id' => Yii::t('mosque','Country'),
+			'city_id' => Yii::t('mosque','City'),
+			'owner_id' => Yii::t('mosque','Owner'),
+			'created_at' => Yii::t('mosque','Created At'),
+			'updated_at' => Yii::t('mosque','Updated At'),
+			'notes' => Yii::t('mosque','Notes'),
+			'options' => Yii::t('mosque','Options'),
 		);
 	}
 

@@ -1,15 +1,16 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.country".
+ * This is the model class for table "country".
  *
- * The followings are the available columns in table 'alsadaqat.country':
+ * The followings are the available columns in table 'country':
  * @property string $id
  * @property string $name
  * @property string $name_ar
  * @property string $iso_code_2
  * @property string $iso_code_3
  * @property string $published
+ * @property string $created_at
  * @property string $updated_at
  *
  * The followings are the available model relations:
@@ -29,7 +30,7 @@ class Country extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.country';
+		return 'country';
 	}
 
 	/**
@@ -40,14 +41,15 @@ class Country extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, name_ar, updated_at', 'required'),
+			array('name, name_ar', 'required'),
 			array('name', 'length', 'max'=>128),
 			array('name_ar', 'length', 'max'=>255),
 			array('iso_code_2', 'length', 'max'=>2),
 			array('iso_code_3, published', 'length', 'max'=>3),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, name_ar, iso_code_2, iso_code_3, published, updated_at', 'safe', 'on'=>'search'),
+			array('id, name, name_ar, iso_code_2, iso_code_3, published, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,13 +78,14 @@ class Country extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'name_ar' => 'Name Ar',
-			'iso_code_2' => 'Iso Code 2',
-			'iso_code_3' => 'Iso Code 3',
-			'published' => 'Published',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('country','ID'),
+			'name' => Yii::t('country','Name'),
+			'name_ar' => Yii::t('country','Name Ar'),
+			'iso_code_2' => Yii::t('country','Iso Code 2'),
+			'iso_code_3' => Yii::t('country','Iso Code 3'),
+			'published' => Yii::t('country','Published'),
+			'created_at' => Yii::t('country','Created At'),
+			'updated_at' => Yii::t('country','Updated At'),
 		);
 	}
 
@@ -110,6 +113,7 @@ class Country extends CActiveRecord
 		$criteria->compare('iso_code_2',$this->iso_code_2,true);
 		$criteria->compare('iso_code_3',$this->iso_code_3,true);
 		$criteria->compare('published',$this->published,true);
+		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 
 		return new CActiveDataProvider($this, array(

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary_home".
+ * This is the model class for table "beneficiary_home".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary_home':
+ * The followings are the available columns in table 'beneficiary_home':
  * @property string $id
  * @property string $description
  * @property string $owner_name
@@ -34,8 +34,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Beneficiary $beneficiary
+ * @property OrganizationUser $owner
  */
 class BeneficiaryHome extends CActiveRecord
 {
@@ -44,7 +44,7 @@ class BeneficiaryHome extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary_home';
+		return 'beneficiary_home';
 	}
 
 	/**
@@ -55,7 +55,7 @@ class BeneficiaryHome extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('description, owner_name, construction_type, number_of_rooms, number_of_residents, rent_cost, beneficiary_id, owner_id, created_at, updated_at', 'required'),
+			array('description, owner_name, construction_type, number_of_rooms, number_of_residents, rent_cost, beneficiary_id, owner_id', 'required'),
 			array('number_of_rooms, number_of_residents', 'numerical', 'integerOnly'=>true),
 			array('rent_cost', 'numerical'),
 			array('description', 'length', 'max'=>512),
@@ -64,6 +64,7 @@ class BeneficiaryHome extends CActiveRecord
 			array('rent_type', 'length', 'max'=>9),
 			array('has_tv, has_refrigerator, has_washer, has_dryer, has_video_player, has_telephone, has_mobile, has_gas, has_oven, has_microwave, has_air_conditioner, has_water_solar_heater, has_water_electrical_heater, has_gas_heater, has_electrical_heater', 'length', 'max'=>3),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, description, owner_name, construction_type, number_of_rooms, number_of_residents, contract_type, rent_cost, rent_type, has_tv, has_refrigerator, has_washer, has_dryer, has_video_player, has_telephone, has_mobile, has_gas, has_oven, has_microwave, has_air_conditioner, has_water_solar_heater, has_water_electrical_heater, has_gas_heater, has_electrical_heater, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -78,8 +79,8 @@ class BeneficiaryHome extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'beneficiary' => array(self::BELONGS_TO, 'Beneficiary', 'beneficiary_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 
@@ -89,34 +90,34 @@ class BeneficiaryHome extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'description' => 'Description',
-			'owner_name' => 'Owner Name',
-			'construction_type' => 'Construction Type',
-			'number_of_rooms' => 'Number Of Rooms',
-			'number_of_residents' => 'Number Of Residents',
-			'contract_type' => 'Contract Type',
-			'rent_cost' => 'Rent Cost',
-			'rent_type' => 'Rent Type',
-			'has_tv' => 'Has Tv',
-			'has_refrigerator' => 'Has Refrigerator',
-			'has_washer' => 'Has Washer',
-			'has_dryer' => 'Has Dryer',
-			'has_video_player' => 'Has Video Player',
-			'has_telephone' => 'Has Telephone',
-			'has_mobile' => 'Has Mobile',
-			'has_gas' => 'Has Gas',
-			'has_oven' => 'Has Oven',
-			'has_microwave' => 'Has Microwave',
-			'has_air_conditioner' => 'Has Air Conditioner',
-			'has_water_solar_heater' => 'Has Water Solar Heater',
-			'has_water_electrical_heater' => 'Has Water Electrical Heater',
-			'has_gas_heater' => 'Has Gas Heater',
-			'has_electrical_heater' => 'Has Electrical Heater',
-			'beneficiary_id' => 'Beneficiary',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('beneficiary_home','ID'),
+			'description' => Yii::t('beneficiary_home','Description'),
+			'owner_name' => Yii::t('beneficiary_home','Owner Name'),
+			'construction_type' => Yii::t('beneficiary_home','Construction Type'),
+			'number_of_rooms' => Yii::t('beneficiary_home','Number Of Rooms'),
+			'number_of_residents' => Yii::t('beneficiary_home','Number Of Residents'),
+			'contract_type' => Yii::t('beneficiary_home','Contract Type'),
+			'rent_cost' => Yii::t('beneficiary_home','Rent Cost'),
+			'rent_type' => Yii::t('beneficiary_home','Rent Type'),
+			'has_tv' => Yii::t('beneficiary_home','Has Tv'),
+			'has_refrigerator' => Yii::t('beneficiary_home','Has Refrigerator'),
+			'has_washer' => Yii::t('beneficiary_home','Has Washer'),
+			'has_dryer' => Yii::t('beneficiary_home','Has Dryer'),
+			'has_video_player' => Yii::t('beneficiary_home','Has Video Player'),
+			'has_telephone' => Yii::t('beneficiary_home','Has Telephone'),
+			'has_mobile' => Yii::t('beneficiary_home','Has Mobile'),
+			'has_gas' => Yii::t('beneficiary_home','Has Gas'),
+			'has_oven' => Yii::t('beneficiary_home','Has Oven'),
+			'has_microwave' => Yii::t('beneficiary_home','Has Microwave'),
+			'has_air_conditioner' => Yii::t('beneficiary_home','Has Air Conditioner'),
+			'has_water_solar_heater' => Yii::t('beneficiary_home','Has Water Solar Heater'),
+			'has_water_electrical_heater' => Yii::t('beneficiary_home','Has Water Electrical Heater'),
+			'has_gas_heater' => Yii::t('beneficiary_home','Has Gas Heater'),
+			'has_electrical_heater' => Yii::t('beneficiary_home','Has Electrical Heater'),
+			'beneficiary_id' => Yii::t('beneficiary_home','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_home','Owner'),
+			'created_at' => Yii::t('beneficiary_home','Created At'),
+			'updated_at' => Yii::t('beneficiary_home','Updated At'),
 		);
 	}
 

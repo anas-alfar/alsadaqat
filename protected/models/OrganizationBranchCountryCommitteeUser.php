@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_branch_country_committee_user".
+ * This is the model class for table "organization_branch_country_committee_user".
  *
- * The followings are the available columns in table 'alsadaqat.organization_branch_country_committee_user':
+ * The followings are the available columns in table 'organization_branch_country_committee_user':
  * @property string $id
  * @property string $organization_branch_country_committee_id
  * @property string $organization_user_id
@@ -13,10 +13,10 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property Owner $owner
  * @property OrganizationBranchCountryCommittee $organizationBranchCountryCommittee
  * @property OrganizationUser $organizationUser
  * @property OrganizationPosition $organizationPosition
+ * @property Owner $owner
  */
 class OrganizationBranchCountryCommitteeUser extends CActiveRecord
 {
@@ -25,7 +25,7 @@ class OrganizationBranchCountryCommitteeUser extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_branch_country_committee_user';
+		return 'organization_branch_country_committee_user';
 	}
 
 	/**
@@ -36,8 +36,9 @@ class OrganizationBranchCountryCommitteeUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id, created_at, updated_at', 'required'),
+			array('organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id', 'required'),
 			array('organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -52,10 +53,10 @@ class OrganizationBranchCountryCommitteeUser extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organizationBranchCountryCommittee' => array(self::BELONGS_TO, 'OrganizationBranchCountryCommittee', 'organization_branch_country_committee_id'),
 			'organizationUser' => array(self::BELONGS_TO, 'OrganizationUser', 'organization_user_id'),
 			'organizationPosition' => array(self::BELONGS_TO, 'OrganizationPosition', 'organization_position_id'),
+			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 		);
 	}
 
@@ -65,13 +66,13 @@ class OrganizationBranchCountryCommitteeUser extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_branch_country_committee_id' => 'Organization Branch Country Committee',
-			'organization_user_id' => 'Organization User',
-			'organization_position_id' => 'Organization Position',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_branch_country_committee_user','ID'),
+			'organization_branch_country_committee_id' => Yii::t('organization_branch_country_committee_user','Organization Branch Country Committee'),
+			'organization_user_id' => Yii::t('organization_branch_country_committee_user','Organization User'),
+			'organization_position_id' => Yii::t('organization_branch_country_committee_user','Organization Position'),
+			'owner_id' => Yii::t('organization_branch_country_committee_user','Owner'),
+			'created_at' => Yii::t('organization_branch_country_committee_user','Created At'),
+			'updated_at' => Yii::t('organization_branch_country_committee_user','Updated At'),
 		);
 	}
 

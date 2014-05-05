@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary_finance".
+ * This is the model class for table "beneficiary_finance".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary_finance':
+ * The followings are the available columns in table 'beneficiary_finance':
  * @property string $id
  * @property string $has_supplies_card
  * @property double $income_from_paterfamilias
@@ -37,8 +37,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Beneficiary $beneficiary
+ * @property OrganizationUser $owner
  */
 class BeneficiaryFinance extends CActiveRecord
 {
@@ -47,7 +47,7 @@ class BeneficiaryFinance extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary_finance';
+		return 'beneficiary_finance';
 	}
 
 	/**
@@ -58,11 +58,12 @@ class BeneficiaryFinance extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_kerosene, spending_other, spending_total, beneficiary_id, owner_id, created_at, updated_at', 'required'),
+			array('income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_kerosene, spending_other, spending_total, beneficiary_id, owner_id', 'required'),
 			array('income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_other, spending_total', 'numerical'),
 			array('has_supplies_card', 'length', 'max'=>3),
 			array('spending_kerosene', 'length', 'max'=>10),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, has_supplies_card, income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_kerosene, spending_other, spending_total, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -77,8 +78,8 @@ class BeneficiaryFinance extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'beneficiary' => array(self::BELONGS_TO, 'Beneficiary', 'beneficiary_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 
@@ -88,37 +89,37 @@ class BeneficiaryFinance extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'has_supplies_card' => 'Has Supplies Card',
-			'income_from_paterfamilias' => 'Income From Paterfamilias',
-			'income_from_beneficiary_business' => 'Income From Beneficiary Business',
-			'income_from_beneficiary_family_business' => 'Income From Beneficiary Family Business',
-			'income_from_social_security' => 'Income From Social Security',
-			'income_from_retirement' => 'Income From Retirement',
-			'income_from_lands' => 'Income From Lands',
-			'income_from_property' => 'Income From Property',
-			'income_from_agriculture' => 'Income From Agriculture',
-			'income_from_national_aid_fund' => 'Income From National Aid Fund',
-			'income_from_zakat_fund' => 'Income From Zakat Fund',
-			'income_from_charity_fund' => 'Income From Charity Fund',
-			'income_total' => 'Income Total',
-			'spending_home_rent' => 'Spending Home Rent',
-			'spending_food' => 'Spending Food',
-			'spending_clothes' => 'Spending Clothes',
-			'spending_medication' => 'Spending Medication',
-			'spending_smoking' => 'Spending Smoking',
-			'spending_education' => 'Spending Education',
-			'spending_transportation' => 'Spending Transportation',
-			'spending_gas_invoice' => 'Spending Gas Invoice',
-			'spending_water_invoice' => 'Spending Water Invoice',
-			'spending_elctricity_invoice' => 'Spending Elctricity Invoice',
-			'spending_kerosene' => 'Spending Kerosene',
-			'spending_other' => 'Spending Other',
-			'spending_total' => 'Spending Total',
-			'beneficiary_id' => 'Beneficiary',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('beneficiary_finance','ID'),
+			'has_supplies_card' => Yii::t('beneficiary_finance','Has Supplies Card'),
+			'income_from_paterfamilias' => Yii::t('beneficiary_finance','Income From Paterfamilias'),
+			'income_from_beneficiary_business' => Yii::t('beneficiary_finance','Income From Beneficiary Business'),
+			'income_from_beneficiary_family_business' => Yii::t('beneficiary_finance','Income From Beneficiary Family Business'),
+			'income_from_social_security' => Yii::t('beneficiary_finance','Income From Social Security'),
+			'income_from_retirement' => Yii::t('beneficiary_finance','Income From Retirement'),
+			'income_from_lands' => Yii::t('beneficiary_finance','Income From Lands'),
+			'income_from_property' => Yii::t('beneficiary_finance','Income From Property'),
+			'income_from_agriculture' => Yii::t('beneficiary_finance','Income From Agriculture'),
+			'income_from_national_aid_fund' => Yii::t('beneficiary_finance','Income From National Aid Fund'),
+			'income_from_zakat_fund' => Yii::t('beneficiary_finance','Income From Zakat Fund'),
+			'income_from_charity_fund' => Yii::t('beneficiary_finance','Income From Charity Fund'),
+			'income_total' => Yii::t('beneficiary_finance','Income Total'),
+			'spending_home_rent' => Yii::t('beneficiary_finance','Spending Home Rent'),
+			'spending_food' => Yii::t('beneficiary_finance','Spending Food'),
+			'spending_clothes' => Yii::t('beneficiary_finance','Spending Clothes'),
+			'spending_medication' => Yii::t('beneficiary_finance','Spending Medication'),
+			'spending_smoking' => Yii::t('beneficiary_finance','Spending Smoking'),
+			'spending_education' => Yii::t('beneficiary_finance','Spending Education'),
+			'spending_transportation' => Yii::t('beneficiary_finance','Spending Transportation'),
+			'spending_gas_invoice' => Yii::t('beneficiary_finance','Spending Gas Invoice'),
+			'spending_water_invoice' => Yii::t('beneficiary_finance','Spending Water Invoice'),
+			'spending_elctricity_invoice' => Yii::t('beneficiary_finance','Spending Elctricity Invoice'),
+			'spending_kerosene' => Yii::t('beneficiary_finance','Spending Kerosene'),
+			'spending_other' => Yii::t('beneficiary_finance','Spending Other'),
+			'spending_total' => Yii::t('beneficiary_finance','Spending Total'),
+			'beneficiary_id' => Yii::t('beneficiary_finance','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_finance','Owner'),
+			'created_at' => Yii::t('beneficiary_finance','Created At'),
+			'updated_at' => Yii::t('beneficiary_finance','Updated At'),
 		);
 	}
 

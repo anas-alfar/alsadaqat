@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mail_inbox".
+ * This is the model class for table "mail_inbox".
  *
- * The followings are the available columns in table 'alsadaqat.mail_inbox':
+ * The followings are the available columns in table 'mail_inbox':
  * @property integer $id
  * @property string $organization_id
  * @property string $mail_type_id
@@ -18,10 +18,10 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property MailType $mailType
  * @property Organization $organization
  * @property Owner $owner
  * @property MailAttachment $mailAttachment
+ * @property MailType $mailType
  */
 class MailInbox extends CActiveRecord
 {
@@ -30,7 +30,7 @@ class MailInbox extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mail_inbox';
+		return 'mail_inbox';
 	}
 
 	/**
@@ -41,9 +41,10 @@ class MailInbox extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, mail_type_id, number, from_name, from_department, subject, received_at, owner_id, mail_attachment_id, created_at, updated_at', 'required'),
+			array('organization_id, mail_type_id, number, from_name, from_department, subject, received_at, owner_id, mail_attachment_id', 'required'),
 			array('organization_id, mail_type_id, owner_id, mail_attachment_id', 'length', 'max'=>11),
 			array('number, from_name, from_department, subject', 'length', 'max'=>255),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, number, from_name, from_department, subject, received_at, owner_id, mail_attachment_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -58,10 +59,10 @@ class MailInbox extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'mailAttachment' => array(self::BELONGS_TO, 'MailAttachment', 'mail_attachment_id'),
+			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 		);
 	}
 
@@ -71,18 +72,18 @@ class MailInbox extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'mail_type_id' => 'Mail Type',
-			'number' => 'Number',
-			'from_name' => 'From Name',
-			'from_department' => 'From Department',
-			'subject' => 'Subject',
-			'received_at' => 'Received At',
-			'owner_id' => 'Owner',
-			'mail_attachment_id' => 'Mail Attachment',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('mail_inbox','ID'),
+			'organization_id' => Yii::t('mail_inbox','Organization'),
+			'mail_type_id' => Yii::t('mail_inbox','Mail Type'),
+			'number' => Yii::t('mail_inbox','Number'),
+			'from_name' => Yii::t('mail_inbox','From Name'),
+			'from_department' => Yii::t('mail_inbox','From Department'),
+			'subject' => Yii::t('mail_inbox','Subject'),
+			'received_at' => Yii::t('mail_inbox','Received At'),
+			'owner_id' => Yii::t('mail_inbox','Owner'),
+			'mail_attachment_id' => Yii::t('mail_inbox','Mail Attachment'),
+			'created_at' => Yii::t('mail_inbox','Created At'),
+			'updated_at' => Yii::t('mail_inbox','Updated At'),
 		);
 	}
 

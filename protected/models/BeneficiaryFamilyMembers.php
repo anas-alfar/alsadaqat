@@ -1,17 +1,19 @@
 <?php
 
 /**
- * This is the model class for table "beneficiary_paterfamilias".
+ * This is the model class for table "beneficiary_family_members".
  *
- * The followings are the available columns in table 'beneficiary_paterfamilias':
+ * The followings are the available columns in table 'beneficiary_family_members':
  * @property string $id
- * @property string $paterfamilias_first_name
- * @property string $paterfamilias_middle_name
- * @property string $paterfamilias_grandfather_name
- * @property string $paterfamilias_family_name
- * @property string $paterfamilias_date_of_birth
+ * @property string $full_name
  * @property string $ssn
+ * @property string $date_of_birth
  * @property string $beneficiary_relation_id
+ * @property string $marital_status
+ * @property string $educational_status
+ * @property string $health_status
+ * @property string $business
+ * @property string $other
  * @property string $beneficiary_id
  * @property string $owner_id
  * @property string $created_at
@@ -22,14 +24,14 @@
  * @property Beneficiary $beneficiary
  * @property OrganizationUser $owner
  */
-class BeneficiaryPaterfamilias extends CActiveRecord
+class BeneficiaryFamilyMembers extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'beneficiary_paterfamilias';
+		return 'beneficiary_family_members';
 	}
 
 	/**
@@ -40,14 +42,14 @@ class BeneficiaryPaterfamilias extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name, paterfamilias_date_of_birth, ssn, beneficiary_relation_id, beneficiary_id, owner_id', 'required'),
-			array('paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name', 'length', 'max'=>255),
+			array('full_name, ssn, beneficiary_relation_id, beneficiary_id, owner_id', 'required'),
+			array('full_name, marital_status, educational_status, health_status, business, other', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('beneficiary_relation_id, beneficiary_id, owner_id', 'length', 'max'=>11),
-			array('created_at, updated_at', 'safe'),
+			array('date_of_birth, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name, paterfamilias_date_of_birth, ssn, beneficiary_relation_id, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, full_name, ssn, date_of_birth, beneficiary_relation_id, marital_status, educational_status, health_status, business, other, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,18 +73,20 @@ class BeneficiaryPaterfamilias extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => Yii::t('beneficiary_paterfamilias','ID'),
-			'paterfamilias_first_name' => Yii::t('beneficiary_paterfamilias','Paterfamilias First Name'),
-			'paterfamilias_middle_name' => Yii::t('beneficiary_paterfamilias','Paterfamilias Middle Name'),
-			'paterfamilias_grandfather_name' => Yii::t('beneficiary_paterfamilias','Paterfamilias Grandfather Name'),
-			'paterfamilias_family_name' => Yii::t('beneficiary_paterfamilias','Paterfamilias Family Name'),
-			'paterfamilias_date_of_birth' => Yii::t('beneficiary_paterfamilias','Paterfamilias Date Of Birth'),
-			'ssn' => Yii::t('beneficiary_paterfamilias','Ssn'),
-			'beneficiary_relation_id' => Yii::t('beneficiary_paterfamilias','Beneficiary Relation'),
-			'beneficiary_id' => Yii::t('beneficiary_paterfamilias','Beneficiary'),
-			'owner_id' => Yii::t('beneficiary_paterfamilias','Owner'),
-			'created_at' => Yii::t('beneficiary_paterfamilias','Created At'),
-			'updated_at' => Yii::t('beneficiary_paterfamilias','Updated At'),
+			'id' => Yii::t('beneficiary_family_members','ID'),
+			'full_name' => Yii::t('beneficiary_family_members','Full Name'),
+			'ssn' => Yii::t('beneficiary_family_members','Ssn'),
+			'date_of_birth' => Yii::t('beneficiary_family_members','Date Of Birth'),
+			'beneficiary_relation_id' => Yii::t('beneficiary_family_members','Beneficiary Relation'),
+			'marital_status' => Yii::t('beneficiary_family_members','Marital Status'),
+			'educational_status' => Yii::t('beneficiary_family_members','Educational Status'),
+			'health_status' => Yii::t('beneficiary_family_members','Health Status'),
+			'business' => Yii::t('beneficiary_family_members','Business'),
+			'other' => Yii::t('beneficiary_family_members','Other'),
+			'beneficiary_id' => Yii::t('beneficiary_family_members','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_family_members','Owner'),
+			'created_at' => Yii::t('beneficiary_family_members','Created At'),
+			'updated_at' => Yii::t('beneficiary_family_members','Updated At'),
 		);
 	}
 
@@ -105,13 +109,15 @@ class BeneficiaryPaterfamilias extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('paterfamilias_first_name',$this->paterfamilias_first_name,true);
-		$criteria->compare('paterfamilias_middle_name',$this->paterfamilias_middle_name,true);
-		$criteria->compare('paterfamilias_grandfather_name',$this->paterfamilias_grandfather_name,true);
-		$criteria->compare('paterfamilias_family_name',$this->paterfamilias_family_name,true);
-		$criteria->compare('paterfamilias_date_of_birth',$this->paterfamilias_date_of_birth,true);
+		$criteria->compare('full_name',$this->full_name,true);
 		$criteria->compare('ssn',$this->ssn,true);
+		$criteria->compare('date_of_birth',$this->date_of_birth,true);
 		$criteria->compare('beneficiary_relation_id',$this->beneficiary_relation_id,true);
+		$criteria->compare('marital_status',$this->marital_status,true);
+		$criteria->compare('educational_status',$this->educational_status,true);
+		$criteria->compare('health_status',$this->health_status,true);
+		$criteria->compare('business',$this->business,true);
+		$criteria->compare('other',$this->other,true);
 		$criteria->compare('beneficiary_id',$this->beneficiary_id,true);
 		$criteria->compare('owner_id',$this->owner_id,true);
 		$criteria->compare('created_at',$this->created_at,true);
@@ -126,7 +132,7 @@ class BeneficiaryPaterfamilias extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return BeneficiaryPaterfamilias the static model class
+	 * @return BeneficiaryFamilyMembers the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

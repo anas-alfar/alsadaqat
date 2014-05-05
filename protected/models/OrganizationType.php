@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_type".
+ * This is the model class for table "organization_type".
  *
- * The followings are the available columns in table 'alsadaqat.organization_type':
+ * The followings are the available columns in table 'organization_type':
  * @property string $id
  * @property string $title
  * @property string $description
@@ -20,7 +20,7 @@ class OrganizationType extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_type';
+		return 'organization_type';
 	}
 
 	/**
@@ -31,9 +31,10 @@ class OrganizationType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, created_at, updated_at', 'required'),
+			array('title, description', 'required'),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, description, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -58,11 +59,11 @@ class OrganizationType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_type','ID'),
+			'title' => Yii::t('organization_type','Title'),
+			'description' => Yii::t('organization_type','Description'),
+			'created_at' => Yii::t('organization_type','Created At'),
+			'updated_at' => Yii::t('organization_type','Updated At'),
 		);
 	}
 

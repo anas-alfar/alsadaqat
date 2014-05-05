@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mosque_photo".
+ * This is the model class for table "mosque_photo".
  *
- * The followings are the available columns in table 'alsadaqat.mosque_photo':
+ * The followings are the available columns in table 'mosque_photo':
  * @property string $id
  * @property string $mosque_id
  * @property string $title
@@ -25,7 +25,7 @@ class MosquePhoto extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mosque_photo';
+		return 'mosque_photo';
 	}
 
 	/**
@@ -36,9 +36,10 @@ class MosquePhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('mosque_id, size, source_path, source_url, owner_id, created_at, updated_at', 'required'),
+			array('mosque_id, size, source_path, source_url, owner_id', 'required'),
 			array('mosque_id, size, owner_id', 'length', 'max'=>11),
 			array('title, source_path, source_url', 'length', 'max'=>255),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, mosque_id, title, size, source_path, source_url, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -64,15 +65,15 @@ class MosquePhoto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'mosque_id' => 'Mosque',
-			'title' => 'Title',
-			'size' => 'Size',
-			'source_path' => 'Source Path',
-			'source_url' => 'Source Url',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('mosque_photo','ID'),
+			'mosque_id' => Yii::t('mosque_photo','Mosque'),
+			'title' => Yii::t('mosque_photo','Title'),
+			'size' => Yii::t('mosque_photo','Size'),
+			'source_path' => Yii::t('mosque_photo','Source Path'),
+			'source_url' => Yii::t('mosque_photo','Source Url'),
+			'owner_id' => Yii::t('mosque_photo','Owner'),
+			'created_at' => Yii::t('mosque_photo','Created At'),
+			'updated_at' => Yii::t('mosque_photo','Updated At'),
 		);
 	}
 

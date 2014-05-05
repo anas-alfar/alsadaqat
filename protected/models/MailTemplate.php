@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mail_template".
+ * This is the model class for table "mail_template".
  *
- * The followings are the available columns in table 'alsadaqat.mail_template':
+ * The followings are the available columns in table 'mail_template':
  * @property integer $id
  * @property string $organization_id
  * @property string $mail_type_id
@@ -20,9 +20,9 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property MailType $mailType
  * @property Organization $organization
  * @property Owner $owner
+ * @property MailType $mailType
  */
 class MailTemplate extends CActiveRecord
 {
@@ -31,7 +31,7 @@ class MailTemplate extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mail_template';
+		return 'mail_template';
 	}
 
 	/**
@@ -42,9 +42,10 @@ class MailTemplate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, mail_type_id, mail_template_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id, created_at, updated_at', 'required'),
+			array('organization_id, mail_type_id, mail_template_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id', 'required'),
 			array('organization_id, mail_type_id, mail_template_id, owner_id', 'length', 'max'=>11),
 			array('number, from_name, from_department, to_name, to_department, subject', 'length', 'max'=>255),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, mail_template_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -59,9 +60,9 @@ class MailTemplate extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 		);
 	}
 
@@ -71,20 +72,20 @@ class MailTemplate extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'mail_type_id' => 'Mail Type',
-			'mail_template_id' => 'Mail Template',
-			'number' => 'Number',
-			'from_name' => 'From Name',
-			'from_department' => 'From Department',
-			'to_name' => 'To Name',
-			'to_department' => 'To Department',
-			'subject' => 'Subject',
-			'description' => 'Description',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('mail_template','ID'),
+			'organization_id' => Yii::t('mail_template','Organization'),
+			'mail_type_id' => Yii::t('mail_template','Mail Type'),
+			'mail_template_id' => Yii::t('mail_template','Mail Template'),
+			'number' => Yii::t('mail_template','Number'),
+			'from_name' => Yii::t('mail_template','From Name'),
+			'from_department' => Yii::t('mail_template','From Department'),
+			'to_name' => Yii::t('mail_template','To Name'),
+			'to_department' => Yii::t('mail_template','To Department'),
+			'subject' => Yii::t('mail_template','Subject'),
+			'description' => Yii::t('mail_template','Description'),
+			'owner_id' => Yii::t('mail_template','Owner'),
+			'created_at' => Yii::t('mail_template','Created At'),
+			'updated_at' => Yii::t('mail_template','Updated At'),
 		);
 	}
 

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_branch_country_committee".
+ * This is the model class for table "organization_branch_country_committee".
  *
- * The followings are the available columns in table 'alsadaqat.organization_branch_country_committee':
+ * The followings are the available columns in table 'organization_branch_country_committee':
  * @property string $id
  * @property string $organization_branch_country_id
  * @property string $name
@@ -15,8 +15,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property Owner $owner
  * @property OrganizationBranchCountry $organizationBranchCountry
+ * @property Owner $owner
  * @property OrganizationBranchCountryCommitteeUser[] $organizationBranchCountryCommitteeUsers
  */
 class OrganizationBranchCountryCommittee extends CActiveRecord
@@ -26,7 +26,7 @@ class OrganizationBranchCountryCommittee extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_branch_country_committee';
+		return 'organization_branch_country_committee';
 	}
 
 	/**
@@ -37,11 +37,12 @@ class OrganizationBranchCountryCommittee extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_branch_country_id, name, description, agenda, annual_plan, owner_id, created_at, updated_at', 'required'),
+			array('organization_branch_country_id, name, description, agenda, annual_plan, owner_id', 'required'),
 			array('organization_branch_country_id, owner_id', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
 			array('agenda, annual_plan', 'length', 'max'=>1024),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_branch_country_id, name, description, agenda, annual_plan, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -56,8 +57,8 @@ class OrganizationBranchCountryCommittee extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organizationBranchCountry' => array(self::BELONGS_TO, 'OrganizationBranchCountry', 'organization_branch_country_id'),
+			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_branch_country_committee_id'),
 		);
 	}
@@ -68,15 +69,15 @@ class OrganizationBranchCountryCommittee extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_branch_country_id' => 'Organization Branch Country',
-			'name' => 'Name',
-			'description' => 'Description',
-			'agenda' => 'Agenda',
-			'annual_plan' => 'Annual Plan',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_branch_country_committee','ID'),
+			'organization_branch_country_id' => Yii::t('organization_branch_country_committee','Organization Branch Country'),
+			'name' => Yii::t('organization_branch_country_committee','Name'),
+			'description' => Yii::t('organization_branch_country_committee','Description'),
+			'agenda' => Yii::t('organization_branch_country_committee','Agenda'),
+			'annual_plan' => Yii::t('organization_branch_country_committee','Annual Plan'),
+			'owner_id' => Yii::t('organization_branch_country_committee','Owner'),
+			'created_at' => Yii::t('organization_branch_country_committee','Created At'),
+			'updated_at' => Yii::t('organization_branch_country_committee','Updated At'),
 		);
 	}
 

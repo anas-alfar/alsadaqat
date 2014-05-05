@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mosque_type".
+ * This is the model class for table "mosque_type".
  *
- * The followings are the available columns in table 'alsadaqat.mosque_type':
+ * The followings are the available columns in table 'mosque_type':
  * @property string $id
  * @property string $name
  * @property double $construction_area
@@ -35,7 +35,7 @@ class MosqueType extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mosque_type';
+		return 'mosque_type';
 	}
 
 	/**
@@ -46,12 +46,13 @@ class MosqueType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, construction_area, construction_cost, construction_time, construction_type, furniture_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id, owner_id, created_at, updated_at', 'required'),
+			array('name, construction_area, construction_cost, construction_time, construction_type, furniture_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id, owner_id', 'required'),
 			array('construction_time, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances', 'numerical', 'integerOnly'=>true),
 			array('construction_area, construction_cost', 'numerical'),
 			array('name, construction_type, furniture_type', 'length', 'max'=>255),
 			array('has_female_area, has_sound_system, has_air_condition', 'length', 'max'=>3),
 			array('agent_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, construction_area, construction_cost, construction_time, construction_type, furniture_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, has_female_area, has_sound_system, has_air_condition, agent_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -78,24 +79,24 @@ class MosqueType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'construction_area' => 'Construction Area',
-			'construction_cost' => 'Construction Cost',
-			'construction_time' => 'Construction Time',
-			'construction_type' => 'Construction Type',
-			'furniture_type' => 'Furniture Type',
-			'number_of_people' => 'Number Of People',
-			'number_of_restrooms' => 'Number Of Restrooms',
-			'number_of_floors' => 'Number Of Floors',
-			'number_of_entrances' => 'Number Of Entrances',
-			'has_female_area' => 'Has Female Area',
-			'has_sound_system' => 'Has Sound System',
-			'has_air_condition' => 'Has Air Condition',
-			'agent_id' => 'Agent',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('mosque_type','ID'),
+			'name' => Yii::t('mosque_type','Name'),
+			'construction_area' => Yii::t('mosque_type','Construction Area'),
+			'construction_cost' => Yii::t('mosque_type','Construction Cost'),
+			'construction_time' => Yii::t('mosque_type','Construction Time'),
+			'construction_type' => Yii::t('mosque_type','Construction Type'),
+			'furniture_type' => Yii::t('mosque_type','Furniture Type'),
+			'number_of_people' => Yii::t('mosque_type','Number Of People'),
+			'number_of_restrooms' => Yii::t('mosque_type','Number Of Restrooms'),
+			'number_of_floors' => Yii::t('mosque_type','Number Of Floors'),
+			'number_of_entrances' => Yii::t('mosque_type','Number Of Entrances'),
+			'has_female_area' => Yii::t('mosque_type','Has Female Area'),
+			'has_sound_system' => Yii::t('mosque_type','Has Sound System'),
+			'has_air_condition' => Yii::t('mosque_type','Has Air Condition'),
+			'agent_id' => Yii::t('mosque_type','Agent'),
+			'owner_id' => Yii::t('mosque_type','Owner'),
+			'created_at' => Yii::t('mosque_type','Created At'),
+			'updated_at' => Yii::t('mosque_type','Updated At'),
 		);
 	}
 

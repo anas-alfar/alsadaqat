@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_branch_country".
+ * This is the model class for table "organization_branch_country".
  *
- * The followings are the available columns in table 'alsadaqat.organization_branch_country':
+ * The followings are the available columns in table 'organization_branch_country':
  * @property string $id
  * @property string $organization_branch_id
  * @property string $country_id
@@ -12,9 +12,9 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property Owner $owner
  * @property OrganizationBranch $organizationBranch
  * @property Country $country
+ * @property Owner $owner
  * @property OrganizationBranchCountryCommittee[] $organizationBranchCountryCommittees
  */
 class OrganizationBranchCountry extends CActiveRecord
@@ -24,7 +24,7 @@ class OrganizationBranchCountry extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_branch_country';
+		return 'organization_branch_country';
 	}
 
 	/**
@@ -35,8 +35,9 @@ class OrganizationBranchCountry extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_branch_id, country_id, owner_id, created_at, updated_at', 'required'),
+			array('organization_branch_id, country_id, owner_id', 'required'),
 			array('organization_branch_id, country_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_branch_id, country_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -51,9 +52,9 @@ class OrganizationBranchCountry extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
+			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organizationBranchCountryCommittees' => array(self::HAS_MANY, 'OrganizationBranchCountryCommittee', 'organization_branch_country_id'),
 		);
 	}
@@ -64,12 +65,12 @@ class OrganizationBranchCountry extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_branch_id' => 'Organization Branch',
-			'country_id' => 'Country',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_branch_country','ID'),
+			'organization_branch_id' => Yii::t('organization_branch_country','Organization Branch'),
+			'country_id' => Yii::t('organization_branch_country','Country'),
+			'owner_id' => Yii::t('organization_branch_country','Owner'),
+			'created_at' => Yii::t('organization_branch_country','Created At'),
+			'updated_at' => Yii::t('organization_branch_country','Updated At'),
 		);
 	}
 

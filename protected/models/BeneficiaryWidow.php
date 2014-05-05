@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary_widow".
+ * This is the model class for table "beneficiary_widow".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary_widow':
+ * The followings are the available columns in table 'beneficiary_widow':
  * @property string $id
  * @property string $husband_full_name
  * @property string $husband_job
@@ -19,8 +19,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Beneficiary $beneficiary
+ * @property OrganizationUser $owner
  */
 class BeneficiaryWidow extends CActiveRecord
 {
@@ -29,7 +29,7 @@ class BeneficiaryWidow extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary_widow';
+		return 'beneficiary_widow';
 	}
 
 	/**
@@ -40,11 +40,11 @@ class BeneficiaryWidow extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('husband_full_name, husband_job, number_of_sons, number_of_daughters, beneficiary_id, owner_id, created_at, updated_at', 'required'),
+			array('husband_full_name, husband_job, number_of_sons, number_of_daughters, beneficiary_id, owner_id', 'required'),
 			array('number_of_sons, number_of_daughters', 'numerical', 'integerOnly'=>true),
 			array('husband_full_name, husband_job, husband_reason_of_death, husband_death_certificate_path', 'length', 'max'=>255),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
-			array('husband_date_of_birth, husband_date_of_death', 'safe'),
+			array('husband_date_of_birth, husband_date_of_death, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, husband_full_name, husband_job, husband_date_of_birth, husband_date_of_death, husband_reason_of_death, husband_death_certificate_path, number_of_sons, number_of_daughters, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -59,8 +59,8 @@ class BeneficiaryWidow extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'beneficiary' => array(self::BELONGS_TO, 'Beneficiary', 'beneficiary_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 
@@ -70,19 +70,19 @@ class BeneficiaryWidow extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'husband_full_name' => 'Husband Full Name',
-			'husband_job' => 'Husband Job',
-			'husband_date_of_birth' => 'Husband Date Of Birth',
-			'husband_date_of_death' => 'Husband Date Of Death',
-			'husband_reason_of_death' => 'Husband Reason Of Death',
-			'husband_death_certificate_path' => 'Husband Death Certificate Path',
-			'number_of_sons' => 'Number Of Sons',
-			'number_of_daughters' => 'Number Of Daughters',
-			'beneficiary_id' => 'Beneficiary',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('beneficiary_widow','ID'),
+			'husband_full_name' => Yii::t('beneficiary_widow','Husband Full Name'),
+			'husband_job' => Yii::t('beneficiary_widow','Husband Job'),
+			'husband_date_of_birth' => Yii::t('beneficiary_widow','Husband Date Of Birth'),
+			'husband_date_of_death' => Yii::t('beneficiary_widow','Husband Date Of Death'),
+			'husband_reason_of_death' => Yii::t('beneficiary_widow','Husband Reason Of Death'),
+			'husband_death_certificate_path' => Yii::t('beneficiary_widow','Husband Death Certificate Path'),
+			'number_of_sons' => Yii::t('beneficiary_widow','Number Of Sons'),
+			'number_of_daughters' => Yii::t('beneficiary_widow','Number Of Daughters'),
+			'beneficiary_id' => Yii::t('beneficiary_widow','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_widow','Owner'),
+			'created_at' => Yii::t('beneficiary_widow','Created At'),
+			'updated_at' => Yii::t('beneficiary_widow','Updated At'),
 		);
 	}
 

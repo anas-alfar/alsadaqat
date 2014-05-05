@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "beneficiary_student".
+ * This is the model class for table "beneficiary_disabled".
  *
- * The followings are the available columns in table 'beneficiary_student':
+ * The followings are the available columns in table 'beneficiary_disabled':
  * @property string $id
  * @property string $father_full_name
  * @property string $is_father_alive
@@ -21,6 +21,9 @@
  * @property string $mother_death_certificate_path
  * @property integer $number_of_brothers
  * @property integer $number_of_sisters
+ * @property string $disability_type
+ * @property string $disability_reason
+ * @property string $disability_description
  * @property string $beneficiary_id
  * @property string $owner_id
  * @property string $created_at
@@ -30,14 +33,14 @@
  * @property Beneficiary $beneficiary
  * @property OrganizationUser $owner
  */
-class BeneficiaryStudent extends CActiveRecord
+class BeneficiaryDisabled extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'beneficiary_student';
+		return 'beneficiary_disabled';
 	}
 
 	/**
@@ -50,13 +53,15 @@ class BeneficiaryStudent extends CActiveRecord
 		return array(
 			array('father_full_name, father_job, mother_full_name, mother_job, number_of_brothers, number_of_sisters, beneficiary_id, owner_id', 'required'),
 			array('number_of_brothers, number_of_sisters', 'numerical', 'integerOnly'=>true),
-			array('father_full_name, father_job, father_reason_of_death, father_death_certificate_path, mother_full_name, mother_job, mother_reason_of_death, mother_death_certificate_path', 'length', 'max'=>255),
+			array('father_full_name, father_job, father_reason_of_death, father_death_certificate_path, mother_full_name, mother_job, mother_reason_of_death, mother_death_certificate_path, disability_description', 'length', 'max'=>255),
 			array('is_father_alive, is_mother_alive', 'length', 'max'=>3),
+			array('disability_type', 'length', 'max'=>8),
+			array('disability_reason', 'length', 'max'=>17),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
 			array('father_date_of_birth, father_date_of_death, mother_date_of_birth, mother_date_of_death, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, father_full_name, is_father_alive, father_job, father_date_of_birth, father_date_of_death, father_reason_of_death, father_death_certificate_path, mother_full_name, is_mother_alive, mother_job, mother_date_of_birth, mother_date_of_death, mother_reason_of_death, mother_death_certificate_path, number_of_brothers, number_of_sisters, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, father_full_name, is_father_alive, father_job, father_date_of_birth, father_date_of_death, father_reason_of_death, father_death_certificate_path, mother_full_name, is_mother_alive, mother_job, mother_date_of_birth, mother_date_of_death, mother_reason_of_death, mother_death_certificate_path, number_of_brothers, number_of_sisters, disability_type, disability_reason, disability_description, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,27 +84,30 @@ class BeneficiaryStudent extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => Yii::t('beneficiary_student','ID'),
-			'father_full_name' => Yii::t('beneficiary_student','Father Full Name'),
-			'is_father_alive' => Yii::t('beneficiary_student','Is Father Alive'),
-			'father_job' => Yii::t('beneficiary_student','Father Job'),
-			'father_date_of_birth' => Yii::t('beneficiary_student','Father Date Of Birth'),
-			'father_date_of_death' => Yii::t('beneficiary_student','Father Date Of Death'),
-			'father_reason_of_death' => Yii::t('beneficiary_student','Father Reason Of Death'),
-			'father_death_certificate_path' => Yii::t('beneficiary_student','Father Death Certificate Path'),
-			'mother_full_name' => Yii::t('beneficiary_student','Mother Full Name'),
-			'is_mother_alive' => Yii::t('beneficiary_student','Is Mother Alive'),
-			'mother_job' => Yii::t('beneficiary_student','Mother Job'),
-			'mother_date_of_birth' => Yii::t('beneficiary_student','Mother Date Of Birth'),
-			'mother_date_of_death' => Yii::t('beneficiary_student','Mother Date Of Death'),
-			'mother_reason_of_death' => Yii::t('beneficiary_student','Mother Reason Of Death'),
-			'mother_death_certificate_path' => Yii::t('beneficiary_student','Mother Death Certificate Path'),
-			'number_of_brothers' => Yii::t('beneficiary_student','Number Of Brothers'),
-			'number_of_sisters' => Yii::t('beneficiary_student','Number Of Sisters'),
-			'beneficiary_id' => Yii::t('beneficiary_student','Beneficiary'),
-			'owner_id' => Yii::t('beneficiary_student','Owner'),
-			'created_at' => Yii::t('beneficiary_student','Created At'),
-			'updated_at' => Yii::t('beneficiary_student','Updated At'),
+			'id' => Yii::t('beneficiary_disabled','ID'),
+			'father_full_name' => Yii::t('beneficiary_disabled','Father Full Name'),
+			'is_father_alive' => Yii::t('beneficiary_disabled','Is Father Alive'),
+			'father_job' => Yii::t('beneficiary_disabled','Father Job'),
+			'father_date_of_birth' => Yii::t('beneficiary_disabled','Father Date Of Birth'),
+			'father_date_of_death' => Yii::t('beneficiary_disabled','Father Date Of Death'),
+			'father_reason_of_death' => Yii::t('beneficiary_disabled','Father Reason Of Death'),
+			'father_death_certificate_path' => Yii::t('beneficiary_disabled','Father Death Certificate Path'),
+			'mother_full_name' => Yii::t('beneficiary_disabled','Mother Full Name'),
+			'is_mother_alive' => Yii::t('beneficiary_disabled','Is Mother Alive'),
+			'mother_job' => Yii::t('beneficiary_disabled','Mother Job'),
+			'mother_date_of_birth' => Yii::t('beneficiary_disabled','Mother Date Of Birth'),
+			'mother_date_of_death' => Yii::t('beneficiary_disabled','Mother Date Of Death'),
+			'mother_reason_of_death' => Yii::t('beneficiary_disabled','Mother Reason Of Death'),
+			'mother_death_certificate_path' => Yii::t('beneficiary_disabled','Mother Death Certificate Path'),
+			'number_of_brothers' => Yii::t('beneficiary_disabled','Number Of Brothers'),
+			'number_of_sisters' => Yii::t('beneficiary_disabled','Number Of Sisters'),
+			'disability_type' => Yii::t('beneficiary_disabled','Disability Type'),
+			'disability_reason' => Yii::t('beneficiary_disabled','Disability Reason'),
+			'disability_description' => Yii::t('beneficiary_disabled','Disability Description'),
+			'beneficiary_id' => Yii::t('beneficiary_disabled','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_disabled','Owner'),
+			'created_at' => Yii::t('beneficiary_disabled','Created At'),
+			'updated_at' => Yii::t('beneficiary_disabled','Updated At'),
 		);
 	}
 
@@ -138,6 +146,9 @@ class BeneficiaryStudent extends CActiveRecord
 		$criteria->compare('mother_death_certificate_path',$this->mother_death_certificate_path,true);
 		$criteria->compare('number_of_brothers',$this->number_of_brothers);
 		$criteria->compare('number_of_sisters',$this->number_of_sisters);
+		$criteria->compare('disability_type',$this->disability_type,true);
+		$criteria->compare('disability_reason',$this->disability_reason,true);
+		$criteria->compare('disability_description',$this->disability_description,true);
 		$criteria->compare('beneficiary_id',$this->beneficiary_id,true);
 		$criteria->compare('owner_id',$this->owner_id,true);
 		$criteria->compare('created_at',$this->created_at,true);
@@ -152,7 +163,7 @@ class BeneficiaryStudent extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return BeneficiaryStudent the static model class
+	 * @return BeneficiaryDisabled the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

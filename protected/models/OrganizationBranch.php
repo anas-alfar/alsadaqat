@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_branch".
+ * This is the model class for table "organization_branch".
  *
- * The followings are the available columns in table 'alsadaqat.organization_branch':
+ * The followings are the available columns in table 'organization_branch':
  * @property string $id
  * @property string $organization_id
  * @property string $name
@@ -28,11 +28,11 @@
  * The followings are the available model relations:
  * @property Beneficiary[] $beneficiaries
  * @property Donator[] $donators
- * @property Owner $owner
  * @property Organization $organization
  * @property Country $country
  * @property City $city
  * @property Manager $manager
+ * @property Owner $owner
  * @property OrganizationBranchCountry[] $organizationBranchCountries
  * @property OrganizationUser[] $organizationUsers
  */
@@ -43,7 +43,7 @@ class OrganizationBranch extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_branch';
+		return 'organization_branch';
 	}
 
 	/**
@@ -54,12 +54,13 @@ class OrganizationBranch extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, owner_id, created_at, updated_at', 'required'),
+			array('organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, owner_id', 'required'),
 			array('organization_id, country_id, city_id, manager_id, owner_id', 'length', 'max'=>11),
 			array('name, website, adress, work_days, work_hours, break_hours, geo_location', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
 			array('phone, fax, mobile', 'length', 'max'=>17),
 			array('is_main_branch', 'length', 'max'=>3),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, is_main_branch, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -76,11 +77,11 @@ class OrganizationBranch extends CActiveRecord
 		return array(
 			'beneficiaries' => array(self::HAS_MANY, 'Beneficiary', 'organization_branch_id'),
 			'donators' => array(self::HAS_MANY, 'Donator', 'organization_branch_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
 			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 			'manager' => array(self::BELONGS_TO, 'Manager', 'manager_id'),
+			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organizationBranchCountries' => array(self::HAS_MANY, 'OrganizationBranchCountry', 'organization_branch_id'),
 			'organizationUsers' => array(self::HAS_MANY, 'OrganizationUser', 'organization_branch_id'),
 		);
@@ -92,26 +93,26 @@ class OrganizationBranch extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'name' => 'Name',
-			'description' => 'Description',
-			'website' => 'Website',
-			'phone' => 'Phone',
-			'fax' => 'Fax',
-			'mobile' => 'Mobile',
-			'country_id' => 'Country',
-			'city_id' => 'City',
-			'adress' => 'Adress',
-			'manager_id' => 'Manager',
-			'work_days' => 'Work Days',
-			'work_hours' => 'Work Hours',
-			'break_hours' => 'Break Hours',
-			'geo_location' => 'Geo Location',
-			'is_main_branch' => 'Is Main Branch',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_branch','ID'),
+			'organization_id' => Yii::t('organization_branch','Organization'),
+			'name' => Yii::t('organization_branch','Name'),
+			'description' => Yii::t('organization_branch','Description'),
+			'website' => Yii::t('organization_branch','Website'),
+			'phone' => Yii::t('organization_branch','Phone'),
+			'fax' => Yii::t('organization_branch','Fax'),
+			'mobile' => Yii::t('organization_branch','Mobile'),
+			'country_id' => Yii::t('organization_branch','Country'),
+			'city_id' => Yii::t('organization_branch','City'),
+			'adress' => Yii::t('organization_branch','Adress'),
+			'manager_id' => Yii::t('organization_branch','Manager'),
+			'work_days' => Yii::t('organization_branch','Work Days'),
+			'work_hours' => Yii::t('organization_branch','Work Hours'),
+			'break_hours' => Yii::t('organization_branch','Break Hours'),
+			'geo_location' => Yii::t('organization_branch','Geo Location'),
+			'is_main_branch' => Yii::t('organization_branch','Is Main Branch'),
+			'owner_id' => Yii::t('organization_branch','Owner'),
+			'created_at' => Yii::t('organization_branch','Created At'),
+			'updated_at' => Yii::t('organization_branch','Updated At'),
 		);
 	}
 

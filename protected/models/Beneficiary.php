@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary".
+ * This is the model class for table "beneficiary".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary':
+ * The followings are the available columns in table 'beneficiary':
  * @property string $id
  * @property string $full_name
  * @property string $ssn
@@ -32,17 +32,21 @@
  * @property string $options
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Country $nationality
  * @property Country $country
  * @property City $city
  * @property Organization $organization
  * @property OrganizationBranch $organizationBranch
  * @property OrganizationUser $donator
+ * @property OrganizationUser $owner
+ * @property BeneficiaryDisabled[] $beneficiaryDisableds
+ * @property BeneficiaryFamilyMembers[] $beneficiaryFamilyMembers
  * @property BeneficiaryFinance[] $beneficiaryFinances
  * @property BeneficiaryHome[] $beneficiaryHomes
  * @property BeneficiaryOrphan[] $beneficiaryOrphans
  * @property BeneficiaryPaterfamilias[] $beneficiaryPaterfamiliases
+ * @property BeneficiaryPoor[] $beneficiaryPoors
+ * @property BeneficiaryResearchNotes[] $beneficiaryResearchNotes
  * @property BeneficiaryStudent[] $beneficiaryStudents
  * @property BeneficiaryStudentClass[] $beneficiaryStudentClasses
  * @property BeneficiaryTeacher[] $beneficiaryTeachers
@@ -55,7 +59,7 @@ class Beneficiary extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary';
+		return 'beneficiary';
 	}
 
 	/**
@@ -66,7 +70,7 @@ class Beneficiary extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('full_name, ssn, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, organization_id, organization_branch_id, donator_id, owner_id, created_at, updated_at, notes, options', 'required'),
+			array('full_name, ssn, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, organization_id, organization_branch_id, donator_id, owner_id, notes, options', 'required'),
 			array('full_name, email, address, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('gender', 'length', 'max'=>6),
@@ -75,6 +79,7 @@ class Beneficiary extends CActiveRecord
 			array('beneficiary_type', 'length', 'max'=>8),
 			array('has_paterfamilias, has_family_members, has_home, has_income', 'length', 'max'=>3),
 			array('notes, options', 'length', 'max'=>1024),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, full_name, ssn, gender, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, beneficiary_type, has_paterfamilias, has_family_members, has_home, has_income, organization_id, organization_branch_id, donator_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
@@ -89,17 +94,21 @@ class Beneficiary extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'nationality' => array(self::BELONGS_TO, 'Country', 'nationality_id'),
 			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
 			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 			'donator' => array(self::BELONGS_TO, 'OrganizationUser', 'donator_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'beneficiaryDisableds' => array(self::HAS_MANY, 'BeneficiaryDisabled', 'beneficiary_id'),
+			'beneficiaryFamilyMembers' => array(self::HAS_MANY, 'BeneficiaryFamilyMembers', 'beneficiary_id'),
 			'beneficiaryFinances' => array(self::HAS_MANY, 'BeneficiaryFinance', 'beneficiary_id'),
 			'beneficiaryHomes' => array(self::HAS_MANY, 'BeneficiaryHome', 'beneficiary_id'),
 			'beneficiaryOrphans' => array(self::HAS_MANY, 'BeneficiaryOrphan', 'beneficiary_id'),
 			'beneficiaryPaterfamiliases' => array(self::HAS_MANY, 'BeneficiaryPaterfamilias', 'beneficiary_id'),
+			'beneficiaryPoors' => array(self::HAS_MANY, 'BeneficiaryPoor', 'beneficiary_id'),
+			'beneficiaryResearchNotes' => array(self::HAS_MANY, 'BeneficiaryResearchNotes', 'beneficiary_id'),
 			'beneficiaryStudents' => array(self::HAS_MANY, 'BeneficiaryStudent', 'beneficiary_id'),
 			'beneficiaryStudentClasses' => array(self::HAS_MANY, 'BeneficiaryStudentClass', 'beneficiary_id'),
 			'beneficiaryTeachers' => array(self::HAS_MANY, 'BeneficiaryTeacher', 'beneficiary_id'),
@@ -113,32 +122,32 @@ class Beneficiary extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'full_name' => 'Full Name',
-			'ssn' => 'Ssn',
-			'gender' => 'Gender',
-			'date_of_birth' => 'Date Of Birth',
-			'email' => 'Email',
-			'home_phone' => 'Home Phone',
-			'mobile' => 'Mobile',
-			'address' => 'Address',
-			'personal_photo_path' => 'Personal Photo Path',
-			'nationality_id' => 'Nationality',
-			'country_id' => 'Country',
-			'city_id' => 'City',
-			'beneficiary_type' => 'Beneficiary Type',
-			'has_paterfamilias' => 'Has Paterfamilias',
-			'has_family_members' => 'Has Family Members',
-			'has_home' => 'Has Home',
-			'has_income' => 'Has Income',
-			'organization_id' => 'Organization',
-			'organization_branch_id' => 'Organization Branch',
-			'donator_id' => 'Donator',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
-			'notes' => 'Notes',
-			'options' => 'Options',
+			'id' => Yii::t('beneficiary','ID'),
+			'full_name' => Yii::t('beneficiary','Full Name'),
+			'ssn' => Yii::t('beneficiary','Ssn'),
+			'gender' => Yii::t('beneficiary','Gender'),
+			'date_of_birth' => Yii::t('beneficiary','Date Of Birth'),
+			'email' => Yii::t('beneficiary','Email'),
+			'home_phone' => Yii::t('beneficiary','Home Phone'),
+			'mobile' => Yii::t('beneficiary','Mobile'),
+			'address' => Yii::t('beneficiary','Address'),
+			'personal_photo_path' => Yii::t('beneficiary','Personal Photo Path'),
+			'nationality_id' => Yii::t('beneficiary','Nationality'),
+			'country_id' => Yii::t('beneficiary','Country'),
+			'city_id' => Yii::t('beneficiary','City'),
+			'beneficiary_type' => Yii::t('beneficiary','Beneficiary Type'),
+			'has_paterfamilias' => Yii::t('beneficiary','Has Paterfamilias'),
+			'has_family_members' => Yii::t('beneficiary','Has Family Members'),
+			'has_home' => Yii::t('beneficiary','Has Home'),
+			'has_income' => Yii::t('beneficiary','Has Income'),
+			'organization_id' => Yii::t('beneficiary','Organization'),
+			'organization_branch_id' => Yii::t('beneficiary','Organization Branch'),
+			'donator_id' => Yii::t('beneficiary','Donator'),
+			'owner_id' => Yii::t('beneficiary','Owner'),
+			'created_at' => Yii::t('beneficiary','Created At'),
+			'updated_at' => Yii::t('beneficiary','Updated At'),
+			'notes' => Yii::t('beneficiary','Notes'),
+			'options' => Yii::t('beneficiary','Options'),
 		);
 	}
 

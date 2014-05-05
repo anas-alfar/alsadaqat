@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary_teacher".
+ * This is the model class for table "beneficiary_teacher".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary_teacher':
+ * The followings are the available columns in table 'beneficiary_teacher':
  * @property string $id
  * @property string $scientific_degree
  * @property string $beneficiary_id
@@ -12,8 +12,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Beneficiary $beneficiary
+ * @property OrganizationUser $owner
  */
 class BeneficiaryTeacher extends CActiveRecord
 {
@@ -22,7 +22,7 @@ class BeneficiaryTeacher extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary_teacher';
+		return 'beneficiary_teacher';
 	}
 
 	/**
@@ -33,9 +33,10 @@ class BeneficiaryTeacher extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('scientific_degree, beneficiary_id, owner_id, created_at, updated_at', 'required'),
+			array('scientific_degree, beneficiary_id, owner_id', 'required'),
 			array('scientific_degree', 'length', 'max'=>255),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, scientific_degree, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -50,8 +51,8 @@ class BeneficiaryTeacher extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'beneficiary' => array(self::BELONGS_TO, 'Beneficiary', 'beneficiary_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 
@@ -61,12 +62,12 @@ class BeneficiaryTeacher extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'scientific_degree' => 'Scientific Degree',
-			'beneficiary_id' => 'Beneficiary',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('beneficiary_teacher','ID'),
+			'scientific_degree' => Yii::t('beneficiary_teacher','Scientific Degree'),
+			'beneficiary_id' => Yii::t('beneficiary_teacher','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_teacher','Owner'),
+			'created_at' => Yii::t('beneficiary_teacher','Created At'),
+			'updated_at' => Yii::t('beneficiary_teacher','Updated At'),
 		);
 	}
 

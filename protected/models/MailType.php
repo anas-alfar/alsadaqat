@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mail_type".
+ * This is the model class for table "mail_type".
  *
- * The followings are the available columns in table 'alsadaqat.mail_type':
+ * The followings are the available columns in table 'mail_type':
  * @property string $id
  * @property string $organization_id
  * @property string $title
@@ -26,7 +26,7 @@ class MailType extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mail_type';
+		return 'mail_type';
 	}
 
 	/**
@@ -37,10 +37,11 @@ class MailType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, owner_id, created_at, updated_at', 'required'),
+			array('organization_id, title, description, owner_id', 'required'),
 			array('organization_id, owner_id', 'length', 'max'=>11),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -69,13 +70,13 @@ class MailType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'title' => 'Title',
-			'description' => 'Description',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('mail_type','ID'),
+			'organization_id' => Yii::t('mail_type','Organization'),
+			'title' => Yii::t('mail_type','Title'),
+			'description' => Yii::t('mail_type','Description'),
+			'owner_id' => Yii::t('mail_type','Owner'),
+			'created_at' => Yii::t('mail_type','Created At'),
+			'updated_at' => Yii::t('mail_type','Updated At'),
 		);
 	}
 

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "beneficiary_student".
+ * This is the model class for table "beneficiary_poor".
  *
- * The followings are the available columns in table 'beneficiary_student':
+ * The followings are the available columns in table 'beneficiary_poor':
  * @property string $id
  * @property string $father_full_name
  * @property string $is_father_alive
@@ -30,14 +30,14 @@
  * @property Beneficiary $beneficiary
  * @property OrganizationUser $owner
  */
-class BeneficiaryStudent extends CActiveRecord
+class BeneficiaryPoor extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'beneficiary_student';
+		return 'beneficiary_poor';
 	}
 
 	/**
@@ -79,27 +79,27 @@ class BeneficiaryStudent extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => Yii::t('beneficiary_student','ID'),
-			'father_full_name' => Yii::t('beneficiary_student','Father Full Name'),
-			'is_father_alive' => Yii::t('beneficiary_student','Is Father Alive'),
-			'father_job' => Yii::t('beneficiary_student','Father Job'),
-			'father_date_of_birth' => Yii::t('beneficiary_student','Father Date Of Birth'),
-			'father_date_of_death' => Yii::t('beneficiary_student','Father Date Of Death'),
-			'father_reason_of_death' => Yii::t('beneficiary_student','Father Reason Of Death'),
-			'father_death_certificate_path' => Yii::t('beneficiary_student','Father Death Certificate Path'),
-			'mother_full_name' => Yii::t('beneficiary_student','Mother Full Name'),
-			'is_mother_alive' => Yii::t('beneficiary_student','Is Mother Alive'),
-			'mother_job' => Yii::t('beneficiary_student','Mother Job'),
-			'mother_date_of_birth' => Yii::t('beneficiary_student','Mother Date Of Birth'),
-			'mother_date_of_death' => Yii::t('beneficiary_student','Mother Date Of Death'),
-			'mother_reason_of_death' => Yii::t('beneficiary_student','Mother Reason Of Death'),
-			'mother_death_certificate_path' => Yii::t('beneficiary_student','Mother Death Certificate Path'),
-			'number_of_brothers' => Yii::t('beneficiary_student','Number Of Brothers'),
-			'number_of_sisters' => Yii::t('beneficiary_student','Number Of Sisters'),
-			'beneficiary_id' => Yii::t('beneficiary_student','Beneficiary'),
-			'owner_id' => Yii::t('beneficiary_student','Owner'),
-			'created_at' => Yii::t('beneficiary_student','Created At'),
-			'updated_at' => Yii::t('beneficiary_student','Updated At'),
+			'id' => Yii::t('beneficiary_poor','ID'),
+			'father_full_name' => Yii::t('beneficiary_poor','Father Full Name'),
+			'is_father_alive' => Yii::t('beneficiary_poor','Is Father Alive'),
+			'father_job' => Yii::t('beneficiary_poor','Father Job'),
+			'father_date_of_birth' => Yii::t('beneficiary_poor','Father Date Of Birth'),
+			'father_date_of_death' => Yii::t('beneficiary_poor','Father Date Of Death'),
+			'father_reason_of_death' => Yii::t('beneficiary_poor','Father Reason Of Death'),
+			'father_death_certificate_path' => Yii::t('beneficiary_poor','Father Death Certificate Path'),
+			'mother_full_name' => Yii::t('beneficiary_poor','Mother Full Name'),
+			'is_mother_alive' => Yii::t('beneficiary_poor','Is Mother Alive'),
+			'mother_job' => Yii::t('beneficiary_poor','Mother Job'),
+			'mother_date_of_birth' => Yii::t('beneficiary_poor','Mother Date Of Birth'),
+			'mother_date_of_death' => Yii::t('beneficiary_poor','Mother Date Of Death'),
+			'mother_reason_of_death' => Yii::t('beneficiary_poor','Mother Reason Of Death'),
+			'mother_death_certificate_path' => Yii::t('beneficiary_poor','Mother Death Certificate Path'),
+			'number_of_brothers' => Yii::t('beneficiary_poor','Number Of Brothers'),
+			'number_of_sisters' => Yii::t('beneficiary_poor','Number Of Sisters'),
+			'beneficiary_id' => Yii::t('beneficiary_poor','Beneficiary'),
+			'owner_id' => Yii::t('beneficiary_poor','Owner'),
+			'created_at' => Yii::t('beneficiary_poor','Created At'),
+			'updated_at' => Yii::t('beneficiary_poor','Updated At'),
 		);
 	}
 
@@ -152,7 +152,7 @@ class BeneficiaryStudent extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return BeneficiaryStudent the static model class
+	 * @return BeneficiaryPoor the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

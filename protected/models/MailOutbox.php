@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.mail_outbox".
+ * This is the model class for table "mail_outbox".
  *
- * The followings are the available columns in table 'alsadaqat.mail_outbox':
+ * The followings are the available columns in table 'mail_outbox':
  * @property integer $id
  * @property string $organization_id
  * @property string $mail_type_id
@@ -23,9 +23,9 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property MailType $mailType
  * @property Organization $organization
  * @property Owner $owner
+ * @property MailType $mailType
  */
 class MailOutbox extends CActiveRecord
 {
@@ -34,7 +34,7 @@ class MailOutbox extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.mail_outbox';
+		return 'mail_outbox';
 	}
 
 	/**
@@ -45,9 +45,10 @@ class MailOutbox extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, mail_type_id, mail_template_id, number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject, description, send_at, owner_id, created_at, updated_at', 'required'),
+			array('organization_id, mail_type_id, mail_template_id, number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject, description, send_at, owner_id', 'required'),
 			array('organization_id, mail_type_id, mail_template_id, owner_id', 'length', 'max'=>11),
 			array('number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject', 'length', 'max'=>255),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, mail_template_id, number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject, description, send_at, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -62,9 +63,9 @@ class MailOutbox extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 		);
 	}
 
@@ -74,23 +75,23 @@ class MailOutbox extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'mail_type_id' => 'Mail Type',
-			'mail_template_id' => 'Mail Template',
-			'number' => 'Number',
-			'from_mail' => 'From Mail',
-			'from_name' => 'From Name',
-			'from_department' => 'From Department',
-			'to_mail' => 'To Mail',
-			'to_name' => 'To Name',
-			'to_department' => 'To Department',
-			'subject' => 'Subject',
-			'description' => 'Description',
-			'send_at' => 'Send At',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('mail_outbox','ID'),
+			'organization_id' => Yii::t('mail_outbox','Organization'),
+			'mail_type_id' => Yii::t('mail_outbox','Mail Type'),
+			'mail_template_id' => Yii::t('mail_outbox','Mail Template'),
+			'number' => Yii::t('mail_outbox','Number'),
+			'from_mail' => Yii::t('mail_outbox','From Mail'),
+			'from_name' => Yii::t('mail_outbox','From Name'),
+			'from_department' => Yii::t('mail_outbox','From Department'),
+			'to_mail' => Yii::t('mail_outbox','To Mail'),
+			'to_name' => Yii::t('mail_outbox','To Name'),
+			'to_department' => Yii::t('mail_outbox','To Department'),
+			'subject' => Yii::t('mail_outbox','Subject'),
+			'description' => Yii::t('mail_outbox','Description'),
+			'send_at' => Yii::t('mail_outbox','Send At'),
+			'owner_id' => Yii::t('mail_outbox','Owner'),
+			'created_at' => Yii::t('mail_outbox','Created At'),
+			'updated_at' => Yii::t('mail_outbox','Updated At'),
 		);
 	}
 

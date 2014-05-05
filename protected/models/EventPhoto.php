@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.event_photo".
+ * This is the model class for table "event_photo".
  *
- * The followings are the available columns in table 'alsadaqat.event_photo':
+ * The followings are the available columns in table 'event_photo':
  * @property string $id
  * @property string $event_id
  * @property string $title
@@ -15,8 +15,8 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationUser $owner
  * @property Event $event
+ * @property OrganizationUser $owner
  */
 class EventPhoto extends CActiveRecord
 {
@@ -25,7 +25,7 @@ class EventPhoto extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.event_photo';
+		return 'event_photo';
 	}
 
 	/**
@@ -36,9 +36,10 @@ class EventPhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, size, source_path, source_url, owner_id, created_at, updated_at', 'required'),
+			array('event_id, size, source_path, source_url, owner_id', 'required'),
 			array('event_id, size, owner_id', 'length', 'max'=>11),
 			array('title, source_path, source_url', 'length', 'max'=>255),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, event_id, title, size, source_path, source_url, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -53,8 +54,8 @@ class EventPhoto extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 
@@ -64,15 +65,15 @@ class EventPhoto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'event_id' => 'Event',
-			'title' => 'Title',
-			'size' => 'Size',
-			'source_path' => 'Source Path',
-			'source_url' => 'Source Url',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('event_photo','ID'),
+			'event_id' => Yii::t('event_photo','Event'),
+			'title' => Yii::t('event_photo','Title'),
+			'size' => Yii::t('event_photo','Size'),
+			'source_path' => Yii::t('event_photo','Source Path'),
+			'source_url' => Yii::t('event_photo','Source Url'),
+			'owner_id' => Yii::t('event_photo','Owner'),
+			'created_at' => Yii::t('event_photo','Created At'),
+			'updated_at' => Yii::t('event_photo','Updated At'),
 		);
 	}
 

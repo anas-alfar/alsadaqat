@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.donator".
+ * This is the model class for table "donator".
  *
- * The followings are the available columns in table 'alsadaqat.donator':
+ * The followings are the available columns in table 'donator':
  * @property string $id
  * @property string $title
  * @property string $fullname
@@ -38,7 +38,7 @@ class Donator extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.donator';
+		return 'donator';
 	}
 
 	/**
@@ -49,7 +49,7 @@ class Donator extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fullname, ssn, email, date_of_birth, home_phone, work_phone, mobile, nationality_id, organization_id, organization_branch_id, owner_id, personal_photo_path, created_at, updated_at, notes, options', 'required'),
+			array('fullname, ssn, email, date_of_birth, home_phone, work_phone, mobile, nationality_id, organization_id, organization_branch_id, owner_id, personal_photo_path, notes, options', 'required'),
 			array('title', 'length', 'max'=>4),
 			array('fullname, email, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
@@ -57,6 +57,7 @@ class Donator extends CActiveRecord
 			array('home_phone, work_phone, mobile', 'length', 'max'=>17),
 			array('nationality_id, organization_id, organization_branch_id, owner_id', 'length', 'max'=>11),
 			array('notes, options', 'length', 'max'=>1024),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, fullname, ssn, gender, email, date_of_birth, home_phone, work_phone, mobile, nationality_id, organization_id, organization_branch_id, owner_id, personal_photo_path, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
@@ -85,25 +86,25 @@ class Donator extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'fullname' => 'Fullname',
-			'ssn' => 'Ssn',
-			'gender' => 'Gender',
-			'email' => 'Email',
-			'date_of_birth' => 'Date Of Birth',
-			'home_phone' => 'Home Phone',
-			'work_phone' => 'Work Phone',
-			'mobile' => 'Mobile',
-			'nationality_id' => 'Nationality',
-			'organization_id' => 'Organization',
-			'organization_branch_id' => 'Organization Branch',
-			'owner_id' => 'Owner',
-			'personal_photo_path' => 'Personal Photo Path',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
-			'notes' => 'Notes',
-			'options' => 'Options',
+			'id' => Yii::t('donator','ID'),
+			'title' => Yii::t('donator','Title'),
+			'fullname' => Yii::t('donator','Fullname'),
+			'ssn' => Yii::t('donator','Ssn'),
+			'gender' => Yii::t('donator','Gender'),
+			'email' => Yii::t('donator','Email'),
+			'date_of_birth' => Yii::t('donator','Date Of Birth'),
+			'home_phone' => Yii::t('donator','Home Phone'),
+			'work_phone' => Yii::t('donator','Work Phone'),
+			'mobile' => Yii::t('donator','Mobile'),
+			'nationality_id' => Yii::t('donator','Nationality'),
+			'organization_id' => Yii::t('donator','Organization'),
+			'organization_branch_id' => Yii::t('donator','Organization Branch'),
+			'owner_id' => Yii::t('donator','Owner'),
+			'personal_photo_path' => Yii::t('donator','Personal Photo Path'),
+			'created_at' => Yii::t('donator','Created At'),
+			'updated_at' => Yii::t('donator','Updated At'),
+			'notes' => Yii::t('donator','Notes'),
+			'options' => Yii::t('donator','Options'),
 		);
 	}
 

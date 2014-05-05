@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.beneficiary_relation".
+ * This is the model class for table "beneficiary_relation".
  *
- * The followings are the available columns in table 'alsadaqat.beneficiary_relation':
+ * The followings are the available columns in table 'beneficiary_relation':
  * @property string $id
  * @property string $name
  * @property string $owner_id
@@ -11,6 +11,7 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
+ * @property BeneficiaryFamilyMembers[] $beneficiaryFamilyMembers
  * @property BeneficiaryPaterfamilias[] $beneficiaryPaterfamiliases
  * @property OrganizationUser $owner
  */
@@ -21,7 +22,7 @@ class BeneficiaryRelation extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.beneficiary_relation';
+		return 'beneficiary_relation';
 	}
 
 	/**
@@ -32,9 +33,10 @@ class BeneficiaryRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, owner_id, created_at, updated_at', 'required'),
+			array('name, owner_id', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('owner_id', 'length', 'max'=>11),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -49,6 +51,7 @@ class BeneficiaryRelation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'beneficiaryFamilyMembers' => array(self::HAS_MANY, 'BeneficiaryFamilyMembers', 'beneficiary_relation_id'),
 			'beneficiaryPaterfamiliases' => array(self::HAS_MANY, 'BeneficiaryPaterfamilias', 'beneficiary_relation_id'),
 			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
@@ -60,11 +63,11 @@ class BeneficiaryRelation extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('beneficiary_relation','ID'),
+			'name' => Yii::t('beneficiary_relation','Name'),
+			'owner_id' => Yii::t('beneficiary_relation','Owner'),
+			'created_at' => Yii::t('beneficiary_relation','Created At'),
+			'updated_at' => Yii::t('beneficiary_relation','Updated At'),
 		);
 	}
 

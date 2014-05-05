@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.event_agenda".
+ * This is the model class for table "event_agenda".
  *
- * The followings are the available columns in table 'alsadaqat.event_agenda':
+ * The followings are the available columns in table 'event_agenda':
  * @property string $id
  * @property string $event_id
  * @property string $title
@@ -24,7 +24,7 @@ class EventAgenda extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.event_agenda';
+		return 'event_agenda';
 	}
 
 	/**
@@ -35,11 +35,11 @@ class EventAgenda extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, title, venue_name, created_at, updated_at', 'required'),
+			array('event_id, title, venue_name', 'required'),
 			array('day_number', 'numerical', 'integerOnly'=>true),
 			array('event_id', 'length', 'max'=>11),
 			array('title, venue_name', 'length', 'max'=>255),
-			array('start_time, end_time', 'safe'),
+			array('start_time, end_time, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, event_id, title, start_time, end_time, venue_name, day_number, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -64,15 +64,15 @@ class EventAgenda extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'event_id' => 'Event',
-			'title' => 'Title',
-			'start_time' => 'Start Time',
-			'end_time' => 'End Time',
-			'venue_name' => 'Venue Name',
-			'day_number' => 'Day Number',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('event_agenda','ID'),
+			'event_id' => Yii::t('event_agenda','Event'),
+			'title' => Yii::t('event_agenda','Title'),
+			'start_time' => Yii::t('event_agenda','Start Time'),
+			'end_time' => Yii::t('event_agenda','End Time'),
+			'venue_name' => Yii::t('event_agenda','Venue Name'),
+			'day_number' => Yii::t('event_agenda','Day Number'),
+			'created_at' => Yii::t('event_agenda','Created At'),
+			'updated_at' => Yii::t('event_agenda','Updated At'),
 		);
 	}
 

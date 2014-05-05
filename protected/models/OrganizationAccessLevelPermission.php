@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_access_level_permission".
+ * This is the model class for table "organization_access_level_permission".
  *
- * The followings are the available columns in table 'alsadaqat.organization_access_level_permission':
+ * The followings are the available columns in table 'organization_access_level_permission':
  * @property string $id
  * @property string $organization_access_level_id
  * @property string $controller_name
@@ -22,7 +22,7 @@ class OrganizationAccessLevelPermission extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_access_level_permission';
+		return 'organization_access_level_permission';
 	}
 
 	/**
@@ -33,10 +33,11 @@ class OrganizationAccessLevelPermission extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_access_level_id, controller_name, action_name, permission, created_at, updated_at', 'required'),
+			array('organization_access_level_id, controller_name, action_name, permission', 'required'),
 			array('organization_access_level_id', 'length', 'max'=>11),
 			array('controller_name, action_name', 'length', 'max'=>255),
 			array('permission', 'length', 'max'=>10),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_access_level_id, controller_name, action_name, permission, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -61,13 +62,13 @@ class OrganizationAccessLevelPermission extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_access_level_id' => 'Organization Access Level',
-			'controller_name' => 'Controller Name',
-			'action_name' => 'Action Name',
-			'permission' => 'Permission',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_access_level_permission','ID'),
+			'organization_access_level_id' => Yii::t('organization_access_level_permission','Organization Access Level'),
+			'controller_name' => Yii::t('organization_access_level_permission','Controller Name'),
+			'action_name' => Yii::t('organization_access_level_permission','Action Name'),
+			'permission' => Yii::t('organization_access_level_permission','Permission'),
+			'created_at' => Yii::t('organization_access_level_permission','Created At'),
+			'updated_at' => Yii::t('organization_access_level_permission','Updated At'),
 		);
 	}
 

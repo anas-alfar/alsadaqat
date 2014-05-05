@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "alsadaqat.organization_position".
+ * This is the model class for table "organization_position".
  *
- * The followings are the available columns in table 'alsadaqat.organization_position':
+ * The followings are the available columns in table 'organization_position':
  * @property string $id
  * @property string $organization_id
  * @property string $title
@@ -16,8 +16,8 @@
  *
  * The followings are the available model relations:
  * @property OrganizationBranchCountryCommitteeUser[] $organizationBranchCountryCommitteeUsers
- * @property Owner $owner
  * @property Organization $organization
+ * @property Owner $owner
  */
 class OrganizationPosition extends CActiveRecord
 {
@@ -26,7 +26,7 @@ class OrganizationPosition extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'alsadaqat.organization_position';
+		return 'organization_position';
 	}
 
 	/**
@@ -37,10 +37,11 @@ class OrganizationPosition extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, qualifications, responsibilities, owner_id, created_at, updated_at', 'required'),
+			array('organization_id, title, description, qualifications, responsibilities, owner_id', 'required'),
 			array('organization_id, owner_id', 'length', 'max'=>11),
 			array('title, qualifications, responsibilities', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, qualifications, responsibilities, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -56,8 +57,8 @@ class OrganizationPosition extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_position_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
 		);
 	}
 
@@ -67,15 +68,15 @@ class OrganizationPosition extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'organization_id' => 'Organization',
-			'title' => 'Title',
-			'description' => 'Description',
-			'qualifications' => 'Qualifications',
-			'responsibilities' => 'Responsibilities',
-			'owner_id' => 'Owner',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'id' => Yii::t('organization_position','ID'),
+			'organization_id' => Yii::t('organization_position','Organization'),
+			'title' => Yii::t('organization_position','Title'),
+			'description' => Yii::t('organization_position','Description'),
+			'qualifications' => Yii::t('organization_position','Qualifications'),
+			'responsibilities' => Yii::t('organization_position','Responsibilities'),
+			'owner_id' => Yii::t('organization_position','Owner'),
+			'created_at' => Yii::t('organization_position','Created At'),
+			'updated_at' => Yii::t('organization_position','Updated At'),
 		);
 	}
 
