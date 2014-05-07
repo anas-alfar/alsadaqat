@@ -21,4 +21,36 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+    
+    private $isAdmin            = false;
+    //private $isCircleManager    = false;
+    //private $isLeader           = false;
+    //private $isMember           = false;
+    private $isGuest            = false;
+
+    /*public function getIsMember() {
+        $this -> isMember = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Team Member';
+        return $this->isMember;
+    }
+
+    public function getIsLeader() {
+        $this -> isLeader = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Team Leader';
+        return $this->isLeader;
+    }
+
+    public function getIsCircleManager() {
+        $this -> isCircleManager = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Circle Manager';
+        return $this->isCircleManager;
+    }*/
+
+    public function getIsAdmin() {
+        $this -> isAdmin = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Super Admin';
+        return $this->isAdmin;
+    }
+    
+    public function getIsGuest() {
+        $this -> isGuest = Yii::app()->user->getIsGuest() ;
+        return $this->isGuest;
+    }
+    
 }

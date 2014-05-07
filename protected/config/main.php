@@ -12,15 +12,22 @@ return array(
 	//'theme'=>'bootstrap',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log', 'translate'),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.modules.translate.TranslateModule',
 	),
+	
+    'charset'             => 'UTF-8',
+    //'defaultController'   => 'landing/index',
+    'sourceLanguage'      => 'en',
+    'language'            => 'ar',
 
 	'modules'=>array(
+	   'translate',
 	   'admin',
 		// uncomment the following to enable the Gii tool
 		
@@ -41,14 +48,19 @@ return array(
         'bootstrap'=>array(
             'class'=>'bootstrap.components.Bootstrap',
         ),
-        'user'=>array(
+        
+        'user' => array(
             // enable cookie-based authentication
-            'class'         => 'WebUser',
-            'allowAutoLogin'=> true,
-            'autoRenewCookie' => true,
+            //'allowAutoLogin'  => true,
+            'class'           => 'WebUser',
+            'stateKeyPrefix'  => 'app',
+            'loginUrl'        => '/home/index',
+            'autoUpdateFlash' => false, // add this line to disable the flash counter
+            //'allowAutoLogin'  => true,
+            //'autoRenewCookie' => true,
         ),
+        
 		// uncomment the following to enable URLs in path-format
-		
 		'urlManager'=>array(
             'class'           => 'ext.localeurls.LocaleUrlManager',
             'languageParam'   => 'lang', //  Name of the parameter that contains the desired language when constructing a URL
@@ -68,26 +80,37 @@ return array(
               // GD or ImageMagick
             'driver' => 'ImageMagick',
               // ImageMagick setup path
-            'params' => array('directory'=>'/usr/bin'),
+            'params' => array('directory' => '/usr/bin'),
         ),
         
-         'request' => array(
-            'class'     => 'ext.localeurls.LocaleHttpRequest',
-            'languages' => array('en','ar'),
+        'request' => array(
+            'class' => 'ext.localeurls.LocaleHttpRequest',
+            'languages'               => array( 'ar', 'en'),     // Array of available language codes
+            'persistLanguage'         => true,     // Wether to store the user language selection in session and cookie
+            'detectLanguage'          => true,     // Wether to auto detect the preferred user language from the HTTP headers
+            'redirectDefault'         => true,     // Wether to also redirect the application's default language
+            'languageCookieLifetime'  => false,    // How long to store the user language in a cookie. Default is 1 year. Set to false to disable cookie storage
 
-            // Since version 1.1.3 you can also map url => language
-            // 'languages' => array(
-            //      'english'   => 'en',
-            //      'deutsch'   => 'de',
-            //      'fr',
-            //  )
-
-            // Advanced configuration with defaults (see below)
-            //'persistLanguage'         => true,
-            //'languageCookieLifetime'  => 31536000,
-            //'redirectDefault'         => false,
+            'enableCookieValidation'  => true,
+            //'enableCsrfValidation'    => true,
+            'noCsrfValidationRoutes'  => array('translate/translate'),
         ),
-		
+
+        'messages' => array(
+            'class' => 'CDbMessageSource',
+            //'cachingDuration'      =>0,
+            'onMissingTranslation' => array('TranslateModule', 'missingTranslation'),
+        ),
+
+        'translate' => array( //if you name your component something else change TranslateModule
+            'class'             => 'translate.components.MPTranslate',
+            'acceptedLanguages' => array(
+                'en' => 'English',
+                'ar' => 'Arabic',
+            ),
+        ),
+        
+        
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=alsadaqat',
 			'emulatePrepare' => true,

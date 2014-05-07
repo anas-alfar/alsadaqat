@@ -62,6 +62,12 @@ class LocaleHttpRequest extends CHttpRequest
      * @var string language as configured in main application config
      */
     protected $_defaultLanguage;
+    
+    
+    /**
+     * @var array to override specific request to disable CSRFValidation to use it in normalizeRequest method
+     */
+    public $noCsrfValidationRoutes = array();
 
     /**
      * Save default language
@@ -153,4 +159,14 @@ class LocaleHttpRequest extends CHttpRequest
         }
         return $this->_cleanPathInfo;
     }
+
+      protected function normalizeRequest()
+      {
+        parent::normalizeRequest();
+        $route = implode('/', array_slice(explode('/', Yii::app()->getUrlManager()->parseUrl($this)), 0, 2));
+    
+        if($this->enableCsrfValidation && array_search($route, $this->noCsrfValidationRoutes) !== false)
+          Yii::app()->detachEventHandler('onbeginRequest',array($this,'validateCsrfToken'));
+      }
+
 }

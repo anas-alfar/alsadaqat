@@ -8,13 +8,8 @@ class AdminModule extends CWebModule
         $this->layout     = 'column2';
         Yii::app()->theme = 'abound'; 
         
-        
-        
 		// this method is called when the module is being created
 		// you may place code here to customize the module or the application
-
-        Yii::app()->user->loginUrl=array("/admin/default/login");
-        Yii::app()->user->returnUrl = '/admin/default/';
 
 		// import the module-level models and components
 		$this->setImport(array(
@@ -34,11 +29,11 @@ class AdminModule extends CWebModule
                 'default/error',
             );
 
-            /*if ($controller->isGuest  && !in_array($route, $publicPages)){            
+            if ($controller->isGuest  && !in_array($route, $publicPages)){            
                 Yii::app()->user->loginRequired();                
             }
             else
-                return true;*/
+                return true;
             
             // this method is called before any module controller action is performed
             // you may place customized code here
