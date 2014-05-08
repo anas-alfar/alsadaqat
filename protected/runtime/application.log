@@ -4049,3 +4049,121 @@ in /var/www/alsadaqat/index.php (13)
 in /var/www/alsadaqat/index.php (13)
 2014/05/06 01:47:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alsadaqat.assignee' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `assignee`.
 in /var/www/alsadaqat/index.php (13)
+2014/05/07 03:06:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varch' at line 11. The SQL statement executed was: CREATE TABLE `SourceMessage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(32) DEFAULT NULL,
+  `message` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(16) NOT NULL DEFAULT '',
+  `translation` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`,`language`),
+  CONSTRAINT `FK_Message_SourceMessage` FOREIGN KEY (`id`) REFERENCES `SourceMessage` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8.
+2014/05/07 03:06:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varch' at line 11. The SQL statement executed was: CREATE TABLE `SourceMessage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(32) DEFAULT NULL,
+  `message` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(16) NOT NULL DEFAULT '',
+  `translation` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`,`language`),
+  CONSTRAINT `FK_Message_SourceMessage` FOREIGN KEY (`id`) REFERENCES `SourceMessage` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8' in /var/www/yii-1.1.14/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/CDbMigration.php(164): CDbCommand->execute(Array)
+#1 /var/www/alsadaqat/protected/migrations/m140507_000153_create_translation_tables.php(26): CDbMigration->execute('CREATE TABLE `S...')
+#2 /var/www/yii-1.1.14/framework/cli/commands/MigrateCommand.php(385): m140507_000153_create_translation_tables->up()
+#3 /var/www/yii-1.1.14/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140507_000153_...')
+#4 [internal function]: MigrateCommand->actionUp(Array)
+#5 /var/www/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#6 /var/www/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /var/www/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#9 /var/www/yii-1.1.14/framework/yiic.php(33): CApplication->run()
+#10 /var/www/alsadaqat/protected/yiic.php(7): require_once('/var/www/yii-1....')
+#11 /var/www/alsadaqat/protected/yiic(4): require_once('/var/www/alsada...')
+#12 {main}
+---
+2014/05/07 03:06:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varch' at line 11. The SQL statement executed was: CREATE TABLE `SourceMessage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(32) DEFAULT NULL,
+  `message` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(16) NOT NULL DEFAULT '',
+  `translation` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`,`language`),
+  CONSTRAINT `FK_Message_SourceMessage` FOREIGN KEY (`id`) REFERENCES `SourceMessage` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8.
+2014/05/07 03:06:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varch' at line 11. The SQL statement executed was: CREATE TABLE `SourceMessage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(32) DEFAULT NULL,
+  `message` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `Message` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(16) NOT NULL DEFAULT '',
+  `translation` text,
+  `remote_address` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`,`language`),
+  CONSTRAINT `FK_Message_SourceMessage` FOREIGN KEY (`id`) REFERENCES `SourceMessage` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8' in /var/www/yii-1.1.14/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-1.1.14/framework/db/CDbMigration.php(164): CDbCommand->execute(Array)
+#1 /var/www/alsadaqat/protected/migrations/m140507_000153_create_translation_tables.php(26): CDbMigration->execute('CREATE TABLE `S...')
+#2 /var/www/yii-1.1.14/framework/cli/commands/MigrateCommand.php(385): m140507_000153_create_translation_tables->up()
+#3 /var/www/yii-1.1.14/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140507_000153_...')
+#4 [internal function]: MigrateCommand->actionUp(Array)
+#5 /var/www/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#6 /var/www/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /var/www/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /var/www/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#9 /var/www/yii-1.1.14/framework/yiic.php(33): CApplication->run()
+#10 /var/www/alsadaqat/protected/yiic.php(7): require_once('/var/www/yii-1....')
+#11 /var/www/alsadaqat/protected/yiic(4): require_once('/var/www/alsada...')
+#12 {main}
+---

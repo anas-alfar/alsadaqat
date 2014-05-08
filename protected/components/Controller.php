@@ -28,6 +28,28 @@ class Controller extends CController
     //private $isMember           = false;
     private $isGuest            = false;
 
+
+    protected $currentLanguage = null;
+    protected $direction = null;
+    protected $languageSwitcher = null;
+    protected $oppositeCurrentLanguage = null;
+
+    public function init() {
+            
+        $this -> currentLanguage   = 'ar';
+        $this -> direction         = 'rtl';
+        $this -> languageSwitcher  = 'English';
+        $this -> oppositeCurrentLanguage= 'en';
+
+        if ( Yii::app()->language == 'en' ) {
+            $this -> currentLanguage   = 'en'; 
+            $this -> direction         = 'ltr';
+            $this -> languageSwitcher  = 'عربي';
+            $this -> oppositeCurrentLanguage= 'ar';
+        }
+    }
+
+
     /*public function getIsMember() {
         $this -> isMember = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Team Member';
         return $this->isMember;

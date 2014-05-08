@@ -16,6 +16,16 @@ class AdminModule extends CWebModule
 			'admin.models.*',
 			'admin.components.*',
 		));
+        
+        Yii::app()->user->loginUrl = array("/admin/default/login");
+        
+        Yii::app()->setComponents(array(
+            'errorHandler'=>array(
+                'errorAction'=>'admin/default/error'
+                ),
+        ));
+        
+        
 	}
 
     public function beforeControllerAction($controller, $action)
@@ -29,7 +39,8 @@ class AdminModule extends CWebModule
                 'default/error',
             );
 
-            if ($controller->isGuest  && !in_array($route, $publicPages)){            
+            if ($controller->isGuest  && !in_array($route, $publicPages)){
+                Yii::app()->user->returnUrl=array($controller->id.'/'.$action->id);            
                 Yii::app()->user->loginRequired();                
             }
             else

@@ -28,7 +28,6 @@ class UserIdentity extends CUserIdentity
 			'mohammad' => 'mohammad',
 		);
         
-        //echo '<br />' . PHP_EOL . '<br />';
         if( array_key_exists($this->username, $users) ) {
             
             if ( $users[$this->username] === $this->password ) {
@@ -37,7 +36,7 @@ class UserIdentity extends CUserIdentity
                 $this->setState('role', 'Super Admin');
                 $this->_id  = 1 ;
                 $this->user = $this->username ;
-                $this->setState("__userInfo",$this->username);
+                //$this->setState("__userInfo",$this->username);
                 
                 $this->errorCode=self::ERROR_NONE;
                 

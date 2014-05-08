@@ -17,6 +17,11 @@
 					'itemCssClass'=>'item-test',
                     'encodeLabel'=>false,
                     'items'=>array(
+                                    array(
+                    'label'       => $this -> languageSwitcher, 
+                    'url'         => array_merge(array(Yii::app()->controller->id . '/' . Yii::app()->controller->action->id, 'lang' => $this -> oppositeCurrentLanguage),$_GET) , 
+                    'itemOptions' => array('title' => $this -> languageSwitcher,)
+                ),
                         array('label'=> Yii::t('app', 'Dashboard'), 'url'=>array('/admin/default')),
                         array('label'=>'Graphs & Charts', 'url'=>array('/site/page', 'view'=>'graphs')),
                         array('label'=>'Forms', 'url'=>array('/site/page', 'view'=>'forms')),
@@ -32,8 +37,8 @@
 							array('label'=>'Separated link', 'url'=>'#'),
 							array('label'=>'One more separated link', 'url'=>'#'),
                         )),
-                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                        array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>$this->isGuest),
+                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!$this->isGuest),
                     ),
                 )); ?>
     	</div>
