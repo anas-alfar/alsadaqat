@@ -112,10 +112,10 @@ return array(
         
         
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=alsadaqat',
+			'connectionString' => 'mysql:host=localhost;dbname=sadaqat_online',
 			'emulatePrepare' => true,
-			'username' => 'alsadaqat',
-			'password' => 'alsadaqat',
+			'username' => 'sadaqat_online',
+			'password' => 'sadaqat_online',
 			'charset' => 'utf8',
 		),
 		
