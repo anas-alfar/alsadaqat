@@ -43,6 +43,9 @@ class MailAttachment extends CActiveRecord
 			array('name, source_path, source_url', 'length', 'max'=>255),
 			array('extension', 'length', 'max'=>5),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, mail_id, name, extension, size, source_path, source_url, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

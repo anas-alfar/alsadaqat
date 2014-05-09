@@ -82,6 +82,9 @@ class OrganizationUser extends CActiveRecord
 			array('blocked', 'length', 'max'=>3),
 			array('last_login_ip', 'length', 'max'=>15),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, username, password, title, fullname, ssn, gender, email, date_of_birth, home_phone, work_phone, local_mobile, international_mobile, nationality_id, organization_id, organization_branch_id, personal_photo_path, passport_photo_path, blocked, last_login_date, last_login_ip, created_at, updated_at', 'safe', 'on'=>'search'),

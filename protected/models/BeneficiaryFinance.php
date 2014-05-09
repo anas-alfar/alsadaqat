@@ -64,6 +64,9 @@ class BeneficiaryFinance extends CActiveRecord
 			array('spending_kerosene', 'length', 'max'=>10),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, has_supplies_card, income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_kerosene, spending_other, spending_total, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

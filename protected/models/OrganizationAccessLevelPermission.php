@@ -38,6 +38,9 @@ class OrganizationAccessLevelPermission extends CActiveRecord
 			array('controller_name, action_name', 'length', 'max'=>255),
 			array('permission', 'length', 'max'=>10),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_access_level_id, controller_name, action_name, permission, created_at, updated_at', 'safe', 'on'=>'search'),

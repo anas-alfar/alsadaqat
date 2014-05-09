@@ -45,6 +45,9 @@ class BeneficiaryPaterfamilias extends CActiveRecord
 			array('ssn', 'length', 'max'=>32),
 			array('beneficiary_relation_id, beneficiary_id, owner_id', 'length', 'max'=>11),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name, paterfamilias_date_of_birth, ssn, beneficiary_relation_id, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

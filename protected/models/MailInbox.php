@@ -45,6 +45,9 @@ class MailInbox extends CActiveRecord
 			array('organization_id, mail_type_id, owner_id, mail_attachment_id', 'length', 'max'=>11),
 			array('number, from_name, from_department, subject', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, number, from_name, from_department, subject, received_at, owner_id, mail_attachment_id, created_at, updated_at', 'safe', 'on'=>'search'),

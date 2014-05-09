@@ -40,6 +40,9 @@ class EventAgenda extends CActiveRecord
 			array('event_id', 'length', 'max'=>11),
 			array('title, venue_name', 'length', 'max'=>255),
 			array('start_time, end_time, created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, event_id, title, start_time, end_time, venue_name, day_number, created_at, updated_at', 'safe', 'on'=>'search'),

@@ -43,6 +43,9 @@ class OrganizationBranchCountryCommittee extends CActiveRecord
 			array('description', 'length', 'max'=>512),
 			array('agenda, annual_plan', 'length', 'max'=>1024),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_branch_country_id, name, description, agenda, annual_plan, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

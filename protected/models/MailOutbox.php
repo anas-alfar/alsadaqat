@@ -49,6 +49,9 @@ class MailOutbox extends CActiveRecord
 			array('organization_id, mail_type_id, mail_template_id, owner_id', 'length', 'max'=>11),
 			array('number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, mail_template_id, number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject, description, send_at, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

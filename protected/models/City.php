@@ -44,6 +44,9 @@ class City extends CActiveRecord
 			array('name_ar', 'length', 'max'=>255),
 			array('published', 'length', 'max'=>3),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, country_id, name, name_ar, published, created_at, updated_at', 'safe', 'on'=>'search'),

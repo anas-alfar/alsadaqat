@@ -80,6 +80,8 @@ class Beneficiary extends CActiveRecord
 			array('has_paterfamilias, has_family_members, has_home, has_income', 'length', 'max'=>3),
 			array('notes, options', 'length', 'max'=>1024),
 			array('created_at, updated_at', 'safe'),
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, full_name, ssn, gender, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, beneficiary_type, has_paterfamilias, has_family_members, has_home, has_income, organization_id, organization_branch_id, donator_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),

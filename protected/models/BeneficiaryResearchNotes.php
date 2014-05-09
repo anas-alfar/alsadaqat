@@ -54,6 +54,9 @@ class BeneficiaryResearchNotes extends CActiveRecord
 			array('has_small_business_idea', 'length', 'max'=>3),
 			array('researcher_recommendations, notes, committee_recommendations, committee_member_name, committee_manager_name', 'length', 'max'=>512),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, support_type, support_period, expected_support_period, support_modality, information_source, has_small_business_idea, small_business_idea_description, researcher_recommendations, researcher_name, notes, committee_recommendations, committee_member_name, committee_manager_name, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

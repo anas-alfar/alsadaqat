@@ -39,6 +39,9 @@ class OrganizationBranchCountryCommitteeUser extends CActiveRecord
 			array('organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id', 'required'),
 			array('organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id', 'length', 'max'=>11),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_branch_country_committee_id, organization_user_id, organization_position_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),

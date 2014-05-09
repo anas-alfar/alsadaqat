@@ -61,6 +61,9 @@ class OrganizationBranch extends CActiveRecord
 			array('phone, fax, mobile', 'length', 'max'=>17),
 			array('is_main_branch', 'length', 'max'=>3),
 			array('created_at, updated_at', 'safe'),
+			
+            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, is_main_branch, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
