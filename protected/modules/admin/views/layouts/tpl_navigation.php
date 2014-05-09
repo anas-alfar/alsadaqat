@@ -16,31 +16,35 @@
                     'submenuHtmlOptions'=>array('class'=>'dropdown-menu'),
 					'itemCssClass'=>'item-test',
                     'encodeLabel'=>false,
-                    'items'=>array(
-                                    array(
-                    'label'       => $this -> languageSwitcher, 
-                    'url'         => array_merge(array(Yii::app()->controller->id . '/' . Yii::app()->controller->action->id, 'lang' => $this -> oppositeCurrentLanguage),$_GET) , 
-                    'itemOptions' => array('title' => $this -> languageSwitcher,)
-                ),
-                        array('label'=> Yii::t('app', 'Dashboard'), 'url'=>array('/admin/default')),
-                        array('label'=>'Graphs & Charts', 'url'=>array('/site/page', 'view'=>'graphs')),
-                        array('label'=>'Forms', 'url'=>array('/site/page', 'view'=>'forms')),
-                        array('label'=>'Tables', 'url'=>array('/site/page', 'view'=>'tables')),
-						array('label'=>'Interface', 'url'=>array('/site/page', 'view'=>'interface')),
-                        array('label'=>'Typography', 'url'=>array('/site/page', 'view'=>'typography')),
-                        /*array('label'=>'Gii generated', 'url'=>array('customer/index')),*/
-                        array('label'=>'My Account <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
-                        'items'=>array(
-                            array('label'=>'My Messages <span class="badge badge-warning pull-right">26</span>', 'url'=>'#'),
-							array('label'=>'My Tasks <span class="badge badge-important pull-right">112</span>', 'url'=>'#'),
-							array('label'=>'My Invoices <span class="badge badge-info pull-right">12</span>', 'url'=>'#'),
-							array('label'=>'Separated link', 'url'=>'#'),
-							array('label'=>'One more separated link', 'url'=>'#'),
-                        )),
-                        array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>$this->isGuest),
-                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!$this->isGuest),
-                    ),
-                )); ?>
+                    'items'=> 
+                        array(
+                            array(
+                                'label'       => $this -> languageSwitcher, 
+                                'url'         => array_merge(array(Yii::app()->controller->id . '/' . Yii::app()->controller->action->id, 'lang' => $this -> oppositeCurrentLanguage),$_GET) , 
+                                'itemOptions' => array('title' => $this -> languageSwitcher,)
+                            ),
+                            array('label'=> Yii::t('app', 'Dashboard'), 'url'=>array('/admin/default')),
+                            array('label'=> Yii::t('app', 'Beneficiary') . '<span class="caret"></span>', 
+                                'url'=>'#',
+                                'itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),
+                                'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+                                'items'=>array(
+                                    array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Beneficiaries') . '</i></strong>'),
+                                    array('label' => Yii::t('app', 'Create new Beneficiary') , 'url'=>'/admin/beneficiary/create'),
+                                    array('label' => Yii::t('app', 'List all Beneficiaries') , 'url'=>'/admin/beneficiary/index'),
+                                    array('label' => Yii::t('app', 'Manage Beneficiaries') , 'url'=>'/admin/beneficiary/admin'),
+                                    array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Poor') . '</i></strong>'),
+                                    array('label' => Yii::t('app', 'Create new Poor') , 'url'=>'/admin/beneficiaryPoor/create'),
+                                    array('label' => Yii::t('app', 'List all Poors') , 'url'=>'/admin/beneficiaryPoor/index'),
+                                    array('label' => Yii::t('app', 'Manage Poors') , 'url'=>'/admin/beneficiaryPoor/admin'),
+                                    ),
+                                ),
+
+                            array('label'=>Yii::t('app', 'Login'), 'url'=>array('/admin/default/login'), 'visible'=>$this->isGuest),
+                            array('label'=>Yii::t('app', 'Logout') .' ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!$this->isGuest),
+                        ),
+                    )
+                ); ?>
     	</div>
     </div>
 	</div>
