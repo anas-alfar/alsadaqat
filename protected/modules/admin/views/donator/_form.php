@@ -35,10 +35,6 @@
 
 	<?php echo $form->textFieldRow($model,'personal_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'created_at',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'updated_at',array('class'=>'span5')); ?>
-
 	<?php echo $form->textFieldRow($model,'notes',array('class'=>'span5','maxlength'=>1024)); ?>
 
 	<?php echo $form->textFieldRow($model,'options',array('class'=>'span5','maxlength'=>1024)); ?>

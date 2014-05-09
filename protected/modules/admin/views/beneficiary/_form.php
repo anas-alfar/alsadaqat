@@ -49,10 +49,6 @@
 
 	<?php echo $form->textFieldRow($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldRow($model,'created_at',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'updated_at',array('class'=>'span5')); ?>
-
 	<?php echo $form->textFieldRow($model,'notes',array('class'=>'span5','maxlength'=>1024)); ?>
 
 	<?php echo $form->textFieldRow($model,'options',array('class'=>'span5','maxlength'=>1024)); ?>

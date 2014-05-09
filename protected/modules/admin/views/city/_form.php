@@ -15,10 +15,6 @@
 
 	<?php echo $form->textFieldRow($model,'published',array('class'=>'span5','maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'created_at',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'updated_at',array('class'=>'span5')); ?>
-
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
