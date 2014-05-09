@@ -47,7 +47,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'name_ar',
 		'iso_code_2',
 		'iso_code_3',
-		'published',
+		//'published',
+        array(
+            'name'  => 'published',
+            'type'  => 'raw',
+            'filter'=> ENUMHtml::enumItem($model, 'published'),
+        ),
 		/*
 		'created_at',
 		'updated_at',

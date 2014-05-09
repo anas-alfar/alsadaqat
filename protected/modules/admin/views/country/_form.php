@@ -15,8 +15,8 @@
 
 	<?php echo $form->textFieldRow($model,'iso_code_3',array('class'=>'span5','maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'published',array('class'=>'span5','maxlength'=>3)); ?>
-
+    <?php echo $form->DropDownListRow($model, 'published', ENUMHtml::enumItem($model, 'published'), array('class'=>'span5', 'maxlength'=>3)); ?>
+	
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
