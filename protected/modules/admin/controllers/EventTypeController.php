@@ -1,6 +1,6 @@
 <?php
 
-class OrganizationTypeController extends Controller
+class EventTypeController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,14 +61,14 @@ class OrganizationTypeController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new OrganizationType;
+		$model=new EventType;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OrganizationType']))
+		if(isset($_POST['EventType']))
 		{
-			$model->attributes=$_POST['OrganizationType'];
+			$model->attributes=$_POST['EventType'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -90,9 +90,9 @@ class OrganizationTypeController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OrganizationType']))
+		if(isset($_POST['EventType']))
 		{
-			$model->attributes=$_POST['OrganizationType'];
+			$model->attributes=$_POST['EventType'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -127,7 +127,7 @@ class OrganizationTypeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('OrganizationType');
+		$dataProvider=new CActiveDataProvider('EventType');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class OrganizationTypeController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new OrganizationType('search');
+		$model=new EventType('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['OrganizationType']))
-			$model->attributes=$_GET['OrganizationType'];
+		if(isset($_GET['EventType']))
+			$model->attributes=$_GET['EventType'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class OrganizationTypeController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=OrganizationType::model()->findByPk($id);
+		$model=EventType::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +167,7 @@ class OrganizationTypeController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='organization-type-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='event-type-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
