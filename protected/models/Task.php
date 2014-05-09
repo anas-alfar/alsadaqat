@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "tasks".
+ * This is the model class for table "task".
  *
- * The followings are the available columns in table 'tasks':
+ * The followings are the available columns in table 'task':
  * @property string $id
  * @property string $organization_id
  * @property string $title
@@ -21,14 +21,14 @@
  * @property Owner $owner
  * @property Assignee $assignee
  */
-class Tasks extends CActiveRecord
+class Task extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tasks';
+		return 'task';
 	}
 
 	/**
@@ -44,9 +44,6 @@ class Tasks extends CActiveRecord
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>1024),
 			array('start_at, end_at, created_at, updated_at', 'safe'),
-			
-            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
-            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, owner_id, assignee_id, status, start_at, end_at, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -73,17 +70,17 @@ class Tasks extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => Yii::t('tasks','ID'),
-			'organization_id' => Yii::t('tasks','Organization'),
-			'title' => Yii::t('tasks','Title'),
-			'description' => Yii::t('tasks','Description'),
-			'owner_id' => Yii::t('tasks','Owner'),
-			'assignee_id' => Yii::t('tasks','Assignee'),
-			'status' => Yii::t('tasks','Status'),
-			'start_at' => Yii::t('tasks','Start At'),
-			'end_at' => Yii::t('tasks','End At'),
-			'created_at' => Yii::t('tasks','Created At'),
-			'updated_at' => Yii::t('tasks','Updated At'),
+			'id' => 'ID',
+			'organization_id' => 'Organization',
+			'title' => 'Title',
+			'description' => 'Description',
+			'owner_id' => 'Owner',
+			'assignee_id' => 'Assignee',
+			'status' => 'Status',
+			'start_at' => 'Start At',
+			'end_at' => 'End At',
+			'created_at' => 'Created At',
+			'updated_at' => 'Updated At',
 		);
 	}
 
@@ -126,7 +123,7 @@ class Tasks extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Tasks the static model class
+	 * @return Task the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

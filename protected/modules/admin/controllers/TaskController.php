@@ -1,6 +1,6 @@
 <?php
 
-class TasksController extends Controller
+class TaskController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,14 +61,14 @@ class TasksController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Tasks;
+		$model=new Task;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Tasks']))
+		if(isset($_POST['Task']))
 		{
-			$model->attributes=$_POST['Tasks'];
+			$model->attributes=$_POST['Task'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -90,9 +90,9 @@ class TasksController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Tasks']))
+		if(isset($_POST['Task']))
 		{
-			$model->attributes=$_POST['Tasks'];
+			$model->attributes=$_POST['Task'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -127,7 +127,7 @@ class TasksController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Tasks');
+		$dataProvider=new CActiveDataProvider('Task');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class TasksController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Tasks('search');
+		$model=new Task('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Tasks']))
-			$model->attributes=$_GET['Tasks'];
+		if(isset($_GET['Task']))
+			$model->attributes=$_GET['Task'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class TasksController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Tasks::model()->findByPk($id);
+		$model=Task::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +167,7 @@ class TasksController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='tasks-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='task-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

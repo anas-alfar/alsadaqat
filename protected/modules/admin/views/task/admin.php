@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Tasks','url'=>array('index')),
-	array('label'=>'Create Tasks','url'=>array('create')),
+	array('label'=>'List Task','url'=>array('index')),
+	array('label'=>'Create Task','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('tasks-grid', {
+	$.fn.yiiGridView.update('task-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -38,7 +38,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'tasks-grid',
+	'id'=>'task-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

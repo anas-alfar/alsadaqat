@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Tasks','url'=>array('create')),
-	array('label'=>'Manage Tasks','url'=>array('admin')),
+	array('label'=>'Create Task','url'=>array('create')),
+	array('label'=>'Manage Task','url'=>array('admin')),
 );
 ?>
 
