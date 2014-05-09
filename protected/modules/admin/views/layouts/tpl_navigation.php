@@ -11,7 +11,22 @@
           <a class="brand" href="#">Alsadaqat.com <small>admin workspace</small></a>
           
           <div class="nav-collapse">
-			<?php $this->widget('zii.widgets.CMenu',array(
+			<?php 
+
+                $translate=Yii::app()->translate;
+                $translateLink = $translationStyle = '';
+                $translateReady = true;
+                if( $translate->hasMessages() ) {
+                    $translateReady = false;
+                    $translateLink = $translate->translateLink('Translate missing in new page');
+                    $translationStyle = 'position: relative; top: -20px;';
+                }
+                //link to the page where you edit the translations
+                $editLink = $translate->editLink('Edit translations page');
+                //link to the page where you check for all unstranslated messages of the system
+                $missingLink = $translate->missingLink('Missing translations page');
+
+                $this->widget('zii.widgets.CMenu',array(
                     'htmlOptions'=>array('class'=>'pull-right nav'),
                     'submenuHtmlOptions'=>array('class'=>'dropdown-menu'),
 					'itemCssClass'=>'item-test',
@@ -132,8 +147,9 @@
                                     array('label' => Yii::t('app', 'Manage Countries') , 'url'=>'/admin/country/index'),
                                     array('label' => Yii::t('app', 'Manage Cities') , 'url'=>'/admin/city/index'),
                                     array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Translation') . '</i></strong>'),
-                                    array('label' => Yii::t('app', 'Manage Translation') , 'url'=>'/translate/edit/admin'),
-                                    array('label' => Yii::t('app', 'Manage Missing Translation') , 'url'=>'/translate/edit/missing'),
+                                    array('label' => $translateLink),
+                                    array('label' => $editLink, 'linkOptions'=>array('style'=>$translationStyle)),
+                                    array('label' => $missingLink, 'linkOptions'=>array('style'=>$translationStyle)),
                                 ),
                             ),
                             array('label'=>Yii::t('app', 'Login'), 'url'=>array('/admin/default/login'), 'visible'=>$this->isGuest),
@@ -145,7 +161,8 @@
                             ),
                         ),
                     )
-                ); ?>
+                );
+                ?>
     	</div>
     </div>
 	</div>
