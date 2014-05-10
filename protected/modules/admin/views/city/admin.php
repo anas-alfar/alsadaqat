@@ -43,10 +43,22 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'country_id',
+		//'country_id',
+        array(
+            'name'  => 'country_id',
+            'type'  => 'raw',
+            //'filter'=> CHtml::listData(Countries::model()->findAll(), 'id', 'printable_name'),
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'countryFilter'), 
+        ),
 		'name',
 		'name_ar',
-		'published',
+		//'published',
+        array(
+            'name'  => 'published',
+            'type'  => 'raw',
+            'filter'=> ENUMHtml::enumItem($model, 'published'),
+        ),
 		'created_at',
 		/*
 		'updated_at',

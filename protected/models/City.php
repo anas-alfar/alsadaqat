@@ -127,4 +127,13 @@ class City extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    public function countryFilter($model) {
+        if ( Yii::app()->language == 'en' )
+            return Country::model()->findByPk($model->country_id)->name;
+        else
+            return Country::model()->findByPk($model->country_id)->name_ar;
+
+    }
+
 }

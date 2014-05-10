@@ -134,4 +134,30 @@ class Country extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * Begin Scopes Functions 
+     */
+    public function published( $published ) {
+        $this -> getDbCriteria() -> mergeWith(
+        array(
+            'condition' => $this -> getTableAlias(false) . ".published = '$published'",
+            )
+        );
+        return $this;
+    }
+    /**
+     * End Scopes Functions 
+     */
+
+    public function getOptions(){
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,name,name_ar';
+        $criteria->scopes = array('published' => 'Yes');
+        //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
+
+        return CHtml::listData($this->findAll($criteria), 
+                'id', Yii::app()->language == 'en' ? 'name' : 'name_ar');  
+    }
+
 }
