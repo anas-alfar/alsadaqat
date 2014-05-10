@@ -526,6 +526,6 @@ footer {
   filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
 
-span.required{
+span.required, span.error{
     color: red;
 }
