@@ -109,4 +109,12 @@ class OrganizationType extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    public function getOptions() {
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,title';
+
+        return CHtml::listData($this->findAll($criteria), 'id', 'title');  
+    }
+    
 }
