@@ -48,7 +48,8 @@ class Organization extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_type_id, name, description, notes, options', 'required'),
+			//array('organization_type_id, name, description, notes, options', 'required'),
+			array('organization_type_id, name, description', 'required'),
 			array('organization_type_id', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
