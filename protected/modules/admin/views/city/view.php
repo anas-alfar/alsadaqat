@@ -20,7 +20,11 @@ $this->menu=array(
 	'type'=>'striped bordered',
 	'attributes'=>array(
 		'id',
-		'country_id',
+		//'country_id',
+		array(
+            'name'  => 'country_id',
+            'value' => array($model, 'countryFilter'), 
+        ),
 		'name',
 		'name_ar',
 		'published',
