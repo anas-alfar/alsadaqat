@@ -19,7 +19,11 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'organization_type_id',
+		//'organization_type_id',
+        array(
+            'name'  => 'organization_type_id',
+            'value' => array($model, 'organizationTypeFilter'), 
+        ),
 		'name',
 		'description',
 		'created_at',

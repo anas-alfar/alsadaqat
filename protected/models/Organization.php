@@ -151,11 +151,7 @@ class Organization extends CActiveRecord
 	}
 
     public function organizationTypeFilter($model) {
-        if ( Yii::app()->language == 'en' )
-            return OrganizationType::model()->findByPk($model->organization_type_id)->title;
-        else
-            return OrganizationType::model()->findByPk($model->organization_type_id)->title;
-
+        return OrganizationType::model()->findByPk($model->organization_type_id)->title;
     }
 
 }
