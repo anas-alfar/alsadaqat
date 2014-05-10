@@ -21,7 +21,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('published')); ?>:</b>
-	<?php echo CHtml::encode($data->published); ?>
+	<?php echo Yii::t('enumItem',CHtml::encode($data->published)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('created_at')); ?>:</b>
