@@ -49,7 +49,7 @@ class TranslateModule extends CWebModule
      */
     static function t($message,$params=array()){
         $translator=self::translator();
-        return Yii::t($translator::ID,$message,$params,'en','en');
+        return Yii::t(MPTranslate::ID,$message,$params,'en','en');
     }
 
 	public function beforeControllerAction($controller, $action)
