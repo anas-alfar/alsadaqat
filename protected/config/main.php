@@ -20,7 +20,7 @@ return array(
 		'application.components.*',
 		'application.modules.translate.TranslateModule',
 	),
-	
+
     'charset'             => 'UTF-8',
     //'defaultController'   => 'landing/index',
     'sourceLanguage'      => 'en',
@@ -30,7 +30,7 @@ return array(
 	   'translate',
 	   'admin',
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
             'generatorPaths'=>array(
                 'bootstrap.gii',
@@ -48,7 +48,7 @@ return array(
         'bootstrap'=>array(
             'class'=>'bootstrap.components.Bootstrap',
         ),
-        
+
         'user' => array(
             // enable cookie-based authentication
             //'allowAutoLogin'  => true,
@@ -59,7 +59,7 @@ return array(
             //'allowAutoLogin'  => true,
             //'autoRenewCookie' => true,
         ),
-        
+
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
             'class'           => 'ext.localeurls.LocaleUrlManager',
@@ -74,7 +74,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		
+
         'image' => array(
             'class' => 'application.extensions.image.CImageComponent',
               // GD or ImageMagick
@@ -82,7 +82,7 @@ return array(
               // ImageMagick setup path
             'params' => array('directory' => '/usr/bin'),
         ),
-        
+
         'request' => array(
             'class' => 'ext.localeurls.LocaleHttpRequest',
             'languages'               => array( 'ar', 'en'),     // Array of available language codes
@@ -94,6 +94,12 @@ return array(
             'enableCookieValidation'  => true,
             //'enableCsrfValidation'    => true,
             'noCsrfValidationRoutes'  => array('translate/translate'),
+        ),
+
+        'coreMessages'=>array(
+            //'basePath'=>'protected/messages',
+             'class'                 => 'CDbMessageSource',
+             'onMissingTranslation' => array('TranslateModule', 'missingTranslation'),
         ),
 
         'messages' => array(
@@ -110,7 +116,6 @@ return array(
             ),
         ),
         
-        
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=sadaqat_online',
 			'emulatePrepare' => true,
@@ -123,6 +128,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
