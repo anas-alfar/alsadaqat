@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Organizations'=>array('index'),
+	Yii::t('app', 'Organizations') => array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List Organization','url'=>array('index')),
-	array('label'=>'Create Organization','url'=>array('create')),
-	array('label'=>'Update Organization','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete Organization','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Organization','url'=>array('admin')),
+	array('label'=> Yii::t('organization', 'List Organization'), 'url'=>array('index')),
+	array('label'=> Yii::t('organization', 'Create Organization'), 'url'=>array('create')),
+	array('label'=> Yii::t('organization', 'Update Organization'), 'url'=>array('update','id'=>$model->id)),
+	array('label'=> Yii::t('organization', 'Delete Organization'), 'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=> Yii::t('app', 'Are you sure you want to delete this item?') )),
+	array('label'=> Yii::t('organization', 'Manage Organization'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Organization #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('organization', 'View Organization') ?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

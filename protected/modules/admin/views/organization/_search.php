@@ -23,7 +23,7 @@
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
-			'label'=>'Search',
+			'label'=> Yii::t('app', 'Search'),
 		)); ?>
 	</div>
 
