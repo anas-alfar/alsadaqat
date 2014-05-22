@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiaries'=>array('index'),
+	Yii::t('app', 'Beneficiaries') =>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Beneficiary','url'=>array('index')),
-	array('label'=>'Manage Beneficiary','url'=>array('admin')),
+	array('label'=>Yii::t('beneficiary', 'List Beneficiary'),'url'=>array('index')),
+	array('label'=>Yii::t('beneficiary', 'Manage Beneficiary'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Beneficiary</h1>
+<h1><?php echo Yii::t('beneficiary', 'Create Beneficiary') ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
