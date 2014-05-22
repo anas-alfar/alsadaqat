@@ -42,7 +42,7 @@ class BeneficiaryFamilyMembers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('full_name, ssn, beneficiary_relation_id, beneficiary_id, owner_id', 'required'),
+			array('full_name, beneficiary_relation_id, beneficiary_id, owner_id', 'required'),
 			array('full_name, marital_status, educational_status, health_status, business, other', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('beneficiary_relation_id, beneficiary_id, owner_id', 'length', 'max'=>11),

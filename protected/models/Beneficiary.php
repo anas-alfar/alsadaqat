@@ -70,7 +70,7 @@ class Beneficiary extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('full_name, ssn, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, organization_id, organization_branch_id, donator_id, owner_id, notes, options', 'required'),
+			array('full_name, date_of_birth, address, personal_photo_path, nationality_id, country_id, city_id, organization_id, organization_branch_id, owner_id', 'required'),
 			array('full_name, email, address, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('gender', 'length', 'max'=>6),
