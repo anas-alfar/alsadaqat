@@ -21,7 +21,6 @@ $this->menu=array(
 		'id',
 		'organization_id',
 		'mail_type_id',
-		'mail_template_id',
 		'number',
 		'from_name',
 		'from_department',

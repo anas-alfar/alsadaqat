@@ -7,7 +7,6 @@
  * @property integer $id
  * @property string $organization_id
  * @property string $mail_type_id
- * @property string $mail_template_id
  * @property string $number
  * @property string $from_name
  * @property string $from_department
@@ -42,8 +41,8 @@ class MailTemplate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, mail_type_id, mail_template_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id', 'required'),
-			array('organization_id, mail_type_id, mail_template_id, owner_id', 'length', 'max'=>11),
+			array('organization_id, mail_type_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id', 'required'),
+			array('organization_id, mail_type_id, owner_id', 'length', 'max'=>11),
 			array('number, from_name, from_department, to_name, to_department, subject', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
 			
@@ -51,7 +50,7 @@ class MailTemplate extends CActiveRecord
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, organization_id, mail_type_id, mail_template_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, organization_id, mail_type_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,7 +77,6 @@ class MailTemplate extends CActiveRecord
 			'id' => Yii::t('mail_template','ID'),
 			'organization_id' => Yii::t('mail_template','Organization'),
 			'mail_type_id' => Yii::t('mail_template','Mail Type'),
-			'mail_template_id' => Yii::t('mail_template','Mail Template'),
 			'number' => Yii::t('mail_template','Number'),
 			'from_name' => Yii::t('mail_template','From Name'),
 			'from_department' => Yii::t('mail_template','From Department'),
@@ -113,7 +111,6 @@ class MailTemplate extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('organization_id',$this->organization_id,true);
 		$criteria->compare('mail_type_id',$this->mail_type_id,true);
-		$criteria->compare('mail_template_id',$this->mail_template_id,true);
 		$criteria->compare('number',$this->number,true);
 		$criteria->compare('from_name',$this->from_name,true);
 		$criteria->compare('from_department',$this->from_department,true);

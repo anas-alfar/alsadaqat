@@ -46,11 +46,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'organization_id',
 		'mail_type_id',
-		'mail_template_id',
 		'number',
 		'from_name',
-		/*
 		'from_department',
+		/*
 		'to_name',
 		'to_department',
 		'subject',

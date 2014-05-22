@@ -9,8 +9,6 @@
 
 	<?php echo $form->textFieldRow($model,'mail_type_id',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldRow($model,'mail_template_id',array('class'=>'span5','maxlength'=>11)); ?>
-
 	<?php echo $form->textFieldRow($model,'number',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldRow($model,'from_name',array('class'=>'span5','maxlength'=>255)); ?>

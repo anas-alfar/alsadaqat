@@ -12,10 +12,6 @@
 	<?php echo CHtml::encode($data->mail_type_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('mail_template_id')); ?>:</b>
-	<?php echo CHtml::encode($data->mail_template_id); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('number')); ?>:</b>
 	<?php echo CHtml::encode($data->number); ?>
 	<br />
@@ -28,10 +24,11 @@
 	<?php echo CHtml::encode($data->from_department); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('to_name')); ?>:</b>
 	<?php echo CHtml::encode($data->to_name); ?>
 	<br />
+
+	<?php /*
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('to_department')); ?>:</b>
 	<?php echo CHtml::encode($data->to_department); ?>
