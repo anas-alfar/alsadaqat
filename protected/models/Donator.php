@@ -49,7 +49,7 @@ class Donator extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fullname, ssn, email, date_of_birth, home_phone, work_phone, mobile, nationality_id, organization_id, organization_branch_id, owner_id, personal_photo_path, notes, options', 'required'),
+			array('fullname, ssn, email, date_of_birth, mobile, nationality_id, organization_id, organization_branch_id, owner_id', 'required'),
 			array('title', 'length', 'max'=>4),
 			array('fullname, email, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
