@@ -7,7 +7,7 @@
 
 	<?php echo $form->textFieldRow($model,'father_full_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'is_father_alive',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'is_father_alive', ENUMHtml::enumItem($model, 'is_father_alive'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'father_job',array('class'=>'span5','maxlength'=>255)); ?>
 
@@ -21,7 +21,7 @@
 
 	<?php echo $form->textFieldRow($model,'mother_full_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'is_mother_alive',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'is_mother_alive', ENUMHtml::enumItem($model, 'is_mother_alive'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'mother_job',array('class'=>'span5','maxlength'=>255)); ?>
 

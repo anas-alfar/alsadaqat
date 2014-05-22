@@ -11,13 +11,13 @@
 
 	<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>32)); ?>
 
-	<?php echo $form->textFieldRow($model,'title',array('class'=>'span5','maxlength'=>4)); ?>
+	<?php echo $form->DropDownListRow($model, 'title', ENUMHtml::enumItem($model, 'title'), array('class'=>'span5', 'maxlength'=>4)); ?>
 
 	<?php echo $form->textFieldRow($model,'fullname',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldRow($model,'ssn',array('class'=>'span5','maxlength'=>32)); ?>
 
-	<?php echo $form->textFieldRow($model,'gender',array('class'=>'span5','maxlength'=>6)); ?>
+	<?php echo $form->DropDownListRow($model, 'gender', ENUMHtml::enumItem($model, 'gender'), array('class'=>'span5', 'maxlength'=>6)); ?>
 
 	<?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>255)); ?>
 
@@ -41,7 +41,7 @@
 
 	<?php echo $form->textFieldRow($model,'passport_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'blocked',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'blocked', ENUMHtml::enumItem($model, 'blocked'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'last_login_date',array('class'=>'span5')); ?>
 

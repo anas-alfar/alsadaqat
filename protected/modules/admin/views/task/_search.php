@@ -15,7 +15,7 @@
 
 	<?php echo $form->textFieldRow($model,'assignee_id',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldRow($model,'status',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->DropDownListRow($model, 'status', ENUMHtml::enumItem($model, 'status'), array('class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldRow($model,'start_at',array('class'=>'span5')); ?>
 

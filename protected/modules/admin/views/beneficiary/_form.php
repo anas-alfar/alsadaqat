@@ -11,7 +11,7 @@
 
 	<?php echo $form->textFieldRow($model,'ssn',array('class'=>'span5','maxlength'=>32)); ?>
 
-	<?php echo $form->textFieldRow($model,'gender',array('class'=>'span5','maxlength'=>6)); ?>
+	<?php echo $form->DropDownListRow($model, 'gender', ENUMHtml::enumItem($model, 'gender'), array('class'=>'span5', 'maxlength'=>6)); ?>
 
 	<?php echo $form->textFieldRow($model,'date_of_birth',array('class'=>'span5')); ?>
 
@@ -31,15 +31,15 @@
 
 	<?php echo $form->textFieldRow($model,'city_id',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldRow($model,'beneficiary_type',array('class'=>'span5','maxlength'=>8)); ?>
+	<?php echo $form->DropDownListRow($model, 'beneficiary_type', ENUMHtml::enumItem($model, 'beneficiary_type'), array('class'=>'span5', 'maxlength'=>8)); ?>
 
-	<?php echo $form->textFieldRow($model,'has_paterfamilias',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_paterfamilias', ENUMHtml::enumItem($model, 'has_paterfamilias'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'has_family_members',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_family_members', ENUMHtml::enumItem($model, 'has_family_members'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'has_home',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_home', ENUMHtml::enumItem($model, 'has_home'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'has_income',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_income', ENUMHtml::enumItem($model, 'has_income'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'organization_id',array('class'=>'span5','maxlength'=>11)); ?>
 

@@ -35,7 +35,7 @@
 
 	<?php echo $form->textFieldRow($model,'geo_location',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'is_main_branch',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'is_main_branch', ENUMHtml::enumItem($model, 'is_main_branch'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 

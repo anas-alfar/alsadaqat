@@ -7,7 +7,7 @@
 
 	<?php echo $form->textFieldRow($model,'father_full_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'is_father_alive',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'is_father_alive', ENUMHtml::enumItem($model, 'is_father_alive'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'father_job',array('class'=>'span5','maxlength'=>255)); ?>
 
@@ -21,7 +21,7 @@
 
 	<?php echo $form->textFieldRow($model,'mother_full_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'is_mother_alive',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'is_mother_alive', ENUMHtml::enumItem($model, 'is_mother_alive'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'mother_job',array('class'=>'span5','maxlength'=>255)); ?>
 
@@ -37,9 +37,9 @@
 
 	<?php echo $form->textFieldRow($model,'number_of_sisters',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'disability_type',array('class'=>'span5','maxlength'=>8)); ?>
+	<?php echo $form->DropDownListRow($model, 'disability_type', ENUMHtml::enumItem($model, 'disability_type'), array('class'=>'span5', 'maxlength'=>8)); ?>
 
-	<?php echo $form->textFieldRow($model,'disability_reason',array('class'=>'span5','maxlength'=>17)); ?>
+	<?php echo $form->DropDownListRow($model, 'disability_reason', ENUMHtml::enumItem($model, 'disability_reason'), array('class'=>'span5', 'maxlength'=>17)); ?>
 
 	<?php echo $form->textFieldRow($model,'disability_description',array('class'=>'span5','maxlength'=>255)); ?>
 

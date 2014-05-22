@@ -25,11 +25,11 @@
 
 	<?php echo $form->textFieldRow($model,'number_of_entrances',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'has_female_area',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_female_area', ENUMHtml::enumItem($model, 'has_female_area'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'has_sound_system',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_sound_system', ENUMHtml::enumItem($model, 'has_sound_system'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'has_air_condition',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'has_air_condition', ENUMHtml::enumItem($model, 'has_air_condition'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'agent_id',array('class'=>'span5','maxlength'=>11)); ?>
 
