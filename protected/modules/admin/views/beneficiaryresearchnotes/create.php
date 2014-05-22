@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Beneficiary Research Notes'=>array('index'),
-	'Create',
+	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(

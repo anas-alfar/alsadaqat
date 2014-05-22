@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Event Types'=>array('index'),
-	'Create',
+	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
