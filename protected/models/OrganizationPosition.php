@@ -37,7 +37,7 @@ class OrganizationPosition extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, qualifications, responsibilities, owner_id', 'required'),
+			array('organization_id, title, description, owner_id', 'required'),
 			array('organization_id, owner_id', 'length', 'max'=>11),
 			array('title, qualifications, responsibilities', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),

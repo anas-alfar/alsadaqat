@@ -37,7 +37,7 @@ class OrganizationBranchCountryCommittee extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_branch_country_id, name, description, agenda, annual_plan, owner_id', 'required'),
+			array('organization_branch_country_id, name, description, owner_id', 'required'),
 			array('organization_branch_country_id, owner_id', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),

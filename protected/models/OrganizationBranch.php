@@ -54,7 +54,7 @@ class OrganizationBranch extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, owner_id', 'required'),
+			array('organization_id, name, description, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, owner_id', 'required'),
 			array('organization_id, country_id, city_id, manager_id, owner_id', 'length', 'max'=>11),
 			array('name, website, adress, work_days, work_hours, break_hours, geo_location', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
