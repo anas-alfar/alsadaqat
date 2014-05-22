@@ -2,7 +2,7 @@
 $this->breadcrumbs=array(
 	'Mail Attachments'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
-	'Update',
+	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(

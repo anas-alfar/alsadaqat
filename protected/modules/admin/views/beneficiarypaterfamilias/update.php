@@ -2,7 +2,7 @@
 $this->breadcrumbs=array(
 	'Beneficiary Paterfamiliases'=>array('index'),
 	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(

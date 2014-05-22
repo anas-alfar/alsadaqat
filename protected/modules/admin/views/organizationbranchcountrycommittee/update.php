@@ -2,7 +2,7 @@
 $this->breadcrumbs=array(
 	'Organization Branch Country Committees'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
-	'Update',
+	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(

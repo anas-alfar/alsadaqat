@@ -2,7 +2,7 @@
 $this->breadcrumbs=array(
 	'Events'=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
-	'Update',
+	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(
