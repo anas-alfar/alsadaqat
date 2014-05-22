@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Beneficiary Student Classes'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(

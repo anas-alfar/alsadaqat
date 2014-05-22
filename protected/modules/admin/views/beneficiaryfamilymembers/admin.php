@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Beneficiary Family Members'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(

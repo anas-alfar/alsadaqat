@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Mosque Types'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(

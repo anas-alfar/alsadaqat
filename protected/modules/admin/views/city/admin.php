@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Cities'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(

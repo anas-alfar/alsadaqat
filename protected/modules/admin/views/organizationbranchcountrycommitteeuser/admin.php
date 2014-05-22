@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Organization Branch Country Committee Users'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(

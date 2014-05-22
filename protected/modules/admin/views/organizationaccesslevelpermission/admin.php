@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Organization Access Level Permissions'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(

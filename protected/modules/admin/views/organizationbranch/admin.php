@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'Organization Branches'=>array('index'),
-	'Manage',
+	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
