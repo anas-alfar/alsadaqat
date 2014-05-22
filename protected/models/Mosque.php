@@ -48,7 +48,7 @@ class Mosque extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id, notes, options', 'required'),
+			array('name, address, contract_date, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'required'),
 			array('name, address, contract_photo_path', 'length', 'max'=>255),
 			array('construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'length', 'max'=>11),
 			array('notes, options', 'length', 'max'=>1024),

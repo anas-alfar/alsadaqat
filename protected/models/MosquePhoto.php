@@ -36,7 +36,7 @@ class MosquePhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('mosque_id, size, source_path, source_url, owner_id', 'required'),
+			array('mosque_id, owner_id', 'required'),
 			array('mosque_id, size, owner_id', 'length', 'max'=>11),
 			array('title, source_path, source_url', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
