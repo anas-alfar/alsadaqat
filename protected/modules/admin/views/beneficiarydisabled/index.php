@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>Yii::t('BeneficiaryDisabled', 'Create BeneficiaryDisabled'),'url'=>array('create')),
-	array('label'=>Yii::t('BeneficiaryDisabled', 'Manage BeneficiaryDisabled'),'url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryDisabled', 'Create Beneficiary Disabled'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryDisabled', 'Manage Beneficiary Disabled'),'url'=>array('admin')),
 );
 ?>
 
