@@ -21,15 +21,15 @@
 
 	<?php echo $form->textFieldRow($model,'address',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'status',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->DropDownListRow($model, 'status', ENUMHtml::enumItem($model, 'status'), array('class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldRow($model,'start_at',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldRow($model,'end_at',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'published',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'published', ENUMHtml::enumItem($model, 'published'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'approved',array('class'=>'span5','maxlength'=>3)); ?>
+	<?php echo $form->DropDownListRow($model, 'approved', ENUMHtml::enumItem($model, 'approved'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
 	<?php echo $form->textFieldRow($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 
