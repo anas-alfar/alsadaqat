@@ -59,7 +59,7 @@ class Task extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'assignee' => array(self::BELONGS_TO, 'Assignee', 'assignee_id'),
 		);
 	}

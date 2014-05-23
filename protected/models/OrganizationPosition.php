@@ -37,7 +37,7 @@ class OrganizationPosition extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, owner_id', 'required'),
+			array('organization_id, title, description', 'required'),
 			array('organization_id, owner_id', 'length', 'max'=>11),
 			array('title, qualifications, responsibilities', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
@@ -61,7 +61,7 @@ class OrganizationPosition extends CActiveRecord
 		return array(
 			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_position_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 

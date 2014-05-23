@@ -83,8 +83,8 @@ class OrganizationBranch extends CActiveRecord
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
 			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
-			'manager' => array(self::BELONGS_TO, 'Manager', 'manager_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'manager' => array(self::BELONGS_TO, 'OrganizationUser', 'manager_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'organizationBranchCountries' => array(self::HAS_MANY, 'OrganizationBranchCountry', 'organization_branch_id'),
 			'organizationUsers' => array(self::HAS_MANY, 'OrganizationUser', 'organization_branch_id'),
 		);

@@ -75,10 +75,10 @@ class Donator extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'nationality' => array(self::BELONGS_TO, 'Nationality', 'nationality_id'),
+			'nationality' => array(self::BELONGS_TO, 'Country', 'nationality_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'mosques' => array(self::HAS_MANY, 'Mosque', 'donator_id'),
 		);
 	}
