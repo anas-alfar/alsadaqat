@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php Yii::t('organization', 'Update Organization') ?> <?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('organization', 'Update Organization') ?> <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
