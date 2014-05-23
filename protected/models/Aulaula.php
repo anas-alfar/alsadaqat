@@ -23,4 +23,8 @@ class Aulaula extends CActiveRecord
     public function managerFullNameFilter($data) {
         return OrganizationUser::model()->findByPk($data->manager_id)->fullname;
     }
+
+    public function beneficiaryFullNameFilter($data) {
+        return Beneficiary::model()->findByPk($data->beneficiary_id)->full_name;
+    }
 }
