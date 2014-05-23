@@ -42,7 +42,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nationality_id')); ?>:</b>
-	<?php echo CHtml::encode($data->nationality_id); ?>
+	<?php echo CHtml::encode($data->countryFilter($data, 'nationality_id')); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('country_id')); ?>:</b>
