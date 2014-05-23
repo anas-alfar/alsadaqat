@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Donators'=>array('index'),
+	Yii::t('app', 'Donators')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Donator','url'=>array('index')),
-	array('label'=>'Manage Donator','url'=>array('admin')),
+	array('label'=>Yii::t('Donator', 'List Donator'),'url'=>array('index')),
+	array('label'=>Yii::t('Donator', 'Manage Donator'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Donator</h1>
+<h1><?php echo Yii::t('Donator', 'Create Donator')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
