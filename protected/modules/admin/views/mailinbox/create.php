@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Mail Inboxes'=>array('index'),
+	Yii::t('app', 'Mail Inboxes')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List MailInbox','url'=>array('index')),
-	array('label'=>'Manage MailInbox','url'=>array('admin')),
+	array('label'=>Yii::t('MailInbox', 'List Mail Inbox'),'url'=>array('index')),
+	array('label'=>Yii::t('MailInbox', 'Manage Mail Inbox'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create MailInbox</h1>
+<h1><?php echo Yii::t('MailInbox', 'Create Mail Inbox')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

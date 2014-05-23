@@ -4,12 +4,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create MailInbox','url'=>array('create')),
-	array('label'=>'Manage MailInbox','url'=>array('admin')),
+	array('label'=>Yii::t('MailInbox', 'Create Mail Inbox'),'url'=>array('create')),
+	array('label'=>Yii::t('MailInbox', 'Manage Mail Inbox'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Mail Inboxes</h1>
+<h1><?php echo Yii::t('app', 'Mail Inboxes')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
