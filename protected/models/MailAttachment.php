@@ -61,7 +61,7 @@ class MailAttachment extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'mail' => array(self::BELONGS_TO, 'Mail', 'mail_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'mailInboxes' => array(self::HAS_MANY, 'MailInbox', 'mail_attachment_id'),
 		);
 	}

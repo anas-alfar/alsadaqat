@@ -63,7 +63,7 @@ class MailTemplate extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 		);
 	}

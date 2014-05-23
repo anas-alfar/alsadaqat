@@ -63,7 +63,7 @@ class MailType extends CActiveRecord
 			'mailOutboxes' => array(self::HAS_MANY, 'MailOutbox', 'mail_type_id'),
 			'mailTemplates' => array(self::HAS_MANY, 'MailTemplate', 'mail_type_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 

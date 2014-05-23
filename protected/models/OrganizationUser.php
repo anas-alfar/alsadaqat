@@ -120,7 +120,7 @@ class OrganizationUser extends CActiveRecord
 			'mosquePhotos' => array(self::HAS_MANY, 'MosquePhoto', 'owner_id'),
 			'mosqueTypes' => array(self::HAS_MANY, 'MosqueType', 'owner_id'),
 			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_user_id'),
-			'nationality' => array(self::BELONGS_TO, 'Nationality', 'nationality_id'),
+			'nationality' => array(self::BELONGS_TO, 'Country', 'nationality_id'),
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 		);
