@@ -17,7 +17,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('beneficiary_relation_id')); ?>:</b>
-	<?php echo CHtml::encode($data->beneficiary_relation_id); ?>
+	<?php echo CHtml::encode($data->beneficiaryRelationNameFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('marital_status')); ?>:</b>
@@ -42,7 +42,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('beneficiary_id')); ?>:</b>
-	<?php echo CHtml::encode($data->beneficiary_id); ?>
+	<?php echo CHtml::encode($data->beneficiaryFullNameFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id')); ?>:</b>

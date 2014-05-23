@@ -51,8 +51,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'paterfamilias_date_of_birth',
 		/*
 		'ssn',
-		'beneficiary_relation_id',
-		'beneficiary_id',
+		array(
+            'name'  => 'beneficiary_relation_id',
+            'type'  => 'raw',
+            'filter'=> BeneficiaryRelation::model()->getOptions(),
+            'value' => array($model, 'beneficiaryRelationNameFilter'), 
+        ),
+		array(
+            'name'  => 'beneficiary_id',
+            'type'  => 'raw',
+            'filter'=> Beneficiary::model()->getOptions(),
+            'value' => array($model, 'beneficiaryFullNameFilter'), 
+        ),
 		'owner_id',
 		'created_at',
 		'updated_at',

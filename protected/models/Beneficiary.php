@@ -213,4 +213,12 @@ class Beneficiary extends Aulaula
 	{
 		return parent::model($className);
 	}
+
+	public function getOptions(){
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,full_name';
+        //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
+
+        return CHtml::listData($this->findAll($criteria),'id','full_name');
+    }
 }

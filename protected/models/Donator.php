@@ -49,7 +49,7 @@ class Donator extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fullname, ssn, email, date_of_birth, mobile, nationality_id, organization_id, organization_branch_id, owner_id', 'required'),
+			array('fullname, mobile, nationality_id, organization_id, organization_branch_id, owner_id', 'required'),
 			array('title', 'length', 'max'=>4),
 			array('fullname, email, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),

@@ -64,7 +64,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'disability_type',
 		'disability_reason',
 		'disability_description',
-		'beneficiary_id',
+		array(
+            'name'  => 'beneficiary_id',
+            'type'  => 'raw',
+            'filter'=> Beneficiary::model()->getOptions(),
+            'value' => array($model, 'beneficiaryFullNameFilter'), 
+        ),
 		'owner_id',
 		'created_at',
 		'updated_at',

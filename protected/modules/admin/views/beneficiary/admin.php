@@ -54,7 +54,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'mobile',
 		'address',
 		'personal_photo_path',
-		'nationality_id',
+		array(
+            'name'  => 'nationality_id',
+            'type'  => 'raw',
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'nationalityFilter'), 
+        ),
         array(
             'name'  => 'country_id',
             'type'  => 'raw',
@@ -68,7 +73,17 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'has_income',
 		'organization_id',
 		'organization_branch_id',
-		'donator_id',
+		array(
+            'name'  => array(
+            'name'  => 'beneficiary_id',
+            'type'  => 'raw',
+            'filter'=> Beneficiary::model()->getOptions(),
+            'value' => array($model, 'beneficiaryFullNameFilter'), 
+        ),
+            'type'  => 'raw',
+            'filter'=> Donator::model()->getOptions(),
+            'value' => array($model, 'donatorFilter'), 
+        ),
 		'owner_id',
 		'created_at',
 		'updated_at',

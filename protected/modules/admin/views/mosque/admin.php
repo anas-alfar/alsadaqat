@@ -50,7 +50,17 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'contract_photo_path',
 		'construction_progress',
 		/*
-		'donator_id',
+		array(
+            'name'  => array(
+            'name'  => 'beneficiary_id',
+            'type'  => 'raw',
+            'filter'=> Beneficiary::model()->getOptions(),
+            'value' => array($model, 'beneficiaryFullNameFilter'), 
+        ),
+            'type'  => 'raw',
+            'filter'=> Donator::model()->getOptions(),
+            'value' => array($model, 'donatorFilter'), 
+        ),
 		'agent_id',
 		'mosque_type_id',
         array(

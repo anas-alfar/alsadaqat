@@ -13,7 +13,7 @@
 
 	<?php echo $form->textFieldRow($model,'number_of_days',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'event_type_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->dropDownListRow($model, 'event_type_id', EventType::model()->getOptions(), array('empty' =>$model->getAttributeLabel('event_type_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->dropDownListRow($model, 'country_id', Country::model()->getOptions(), array('empty' =>$model->getAttributeLabel('country_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
