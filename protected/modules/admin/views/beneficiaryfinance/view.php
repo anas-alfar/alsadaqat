@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Finances'=>array('index'),
+	Yii::t('app', 'Beneficiary Finances')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryFinance','url'=>array('index')),
-	array('label'=>'Create BeneficiaryFinance','url'=>array('create')),
-	array('label'=>'Update BeneficiaryFinance','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete BeneficiaryFinance','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage BeneficiaryFinance','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryFinance', 'List Beneficiary Finance'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryFinance', 'Create Beneficiary Finance'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryFinance', 'Update Beneficiary Finance'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('BeneficiaryFinance', 'Delete Beneficiary Finance'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryFinance', 'Manage Beneficiary Finance'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View BeneficiaryFinance #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('BeneficiaryFinance', 'View Beneficiary Finance')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
