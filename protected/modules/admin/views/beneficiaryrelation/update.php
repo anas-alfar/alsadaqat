@@ -1,18 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Relations'=>array('index'),
+	Yii::t('app', 'Beneficiary Relations')=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
 	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryRelation','url'=>array('index')),
-	array('label'=>'Create BeneficiaryRelation','url'=>array('create')),
-	array('label'=>'View BeneficiaryRelation','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage BeneficiaryRelation','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryRelation', 'List Beneficiary Relation'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryRelation', 'Create Beneficiary Relation'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryRelation', 'View Beneficiary Relation'),'url'=>array('view','id'=>$model->id)),
+	array('label'=>Yii::t('BeneficiaryRelation', 'Manage Beneficiary Relation'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Update BeneficiaryRelation <?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('BeneficiaryRelation', 'Update Beneficiary Relation')?> <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
