@@ -25,7 +25,7 @@
 
 	<?php echo $form->textFieldRow($model,'adress',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'manager_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->dropDownListRow($model, 'manager_id', OrganizationUser::model()->getOptions(), array('empty' =>$model->getAttributeLabel('manager_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldRow($model,'work_days',array('class'=>'span5','maxlength'=>255)); ?>
 

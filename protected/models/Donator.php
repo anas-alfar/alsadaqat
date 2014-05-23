@@ -167,9 +167,9 @@ class Donator extends Aulaula
 
 	public function getOptions(){
         $criteria         = new CDbCriteria;
-        $criteria->select = 'id,title,fullname';
+        $criteria->select = 'id,fullname';
         //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
 
-        return CHtml::listData($this->findAll($criteria));
+        return CHtml::listData($this->findAll($criteria),'id','fullname');
     }
 }

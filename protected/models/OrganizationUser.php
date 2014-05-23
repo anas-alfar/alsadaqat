@@ -215,4 +215,11 @@ class OrganizationUser extends Aulaula
 	{
 		return parent::model($className);
 	}
+
+	public function getOptions(){
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,fullname';
+
+        return CHtml::listData($this->findAll($criteria),'id','fullname');
+    }
 }
