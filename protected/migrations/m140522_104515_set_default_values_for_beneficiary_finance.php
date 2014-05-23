@@ -2,11 +2,11 @@
 
 class m140522_104515_set_default_values_for_beneficiary_finance extends CDbMigration
 {
-	public function up()
+	public function down()
 	{
 	}
 
-	public function down()
+	public function up()
 	{
 		echo "m140522_104515_set_default_values_for_beneficiary_finance does not support migration down.\n";
 		$this -> execute("SET foreign_key_checks = 0;");
@@ -141,10 +141,7 @@ ADD FOREIGN KEY ( `owner_id` ) REFERENCES `sadaqat_online`.`organization_user` (
 ALTER TABLE `task` DROP FOREIGN KEY `task_ibfk_3` ,
 ADD FOREIGN KEY ( `assignee_id` ) REFERENCES `sadaqat_online`.`organization_user` (
 `id`
-) ON DELETE RESTRICT ON UPDATE RESTRICT ;
-
-
-			");
+) ON DELETE RESTRICT ON UPDATE RESTRICT ;");
 
 		return false;
 	}
