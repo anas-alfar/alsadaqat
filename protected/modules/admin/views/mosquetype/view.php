@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Mosque Types'=>array('index'),
+	Yii::t('app', 'Mosque Types')=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List MosqueType','url'=>array('index')),
-	array('label'=>'Create MosqueType','url'=>array('create')),
-	array('label'=>'Update MosqueType','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete MosqueType','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage MosqueType','url'=>array('admin')),
+	array('label'=>Yii::t('MosqueType', 'List Mosque Type'),'url'=>array('index')),
+	array('label'=>Yii::t('MosqueType', 'Create Mosque Type'),'url'=>array('create')),
+	array('label'=>Yii::t('MosqueType', 'Update Mosque Type'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('MosqueType', 'Delete Mosque Type'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('MosqueType', 'Manage Mosque Type'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View MosqueType #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('MosqueType', 'View Mosque Type')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
