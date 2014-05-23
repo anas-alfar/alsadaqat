@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Mosques'=>array('index'),
+	Yii::t('app', 'Mosques')=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List Mosque','url'=>array('index')),
-	array('label'=>'Create Mosque','url'=>array('create')),
-	array('label'=>'Update Mosque','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete Mosque','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Mosque','url'=>array('admin')),
+	array('label'=>Yii::t('Mosque', 'List Mosque'),'url'=>array('index')),
+	array('label'=>Yii::t('Mosque', 'Create Mosque'),'url'=>array('create')),
+	array('label'=>Yii::t('Mosque', 'Update Mosque'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('Mosque', 'Delete Mosque'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('Mosque', 'Manage Mosque'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View Mosque #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('Mosque', 'View Mosque')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
