@@ -52,7 +52,7 @@
  * @property BeneficiaryTeacher[] $beneficiaryTeachers
  * @property BeneficiaryWidow[] $beneficiaryWidows
  */
-class Beneficiary extends CActiveRecord
+class Beneficiary extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

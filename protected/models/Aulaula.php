@@ -1,17 +1,18 @@
 <?php
 
-
 class Aulaula extends CActiveRecord 
 {
-    public function countryFilter($model) {
+    public function countryFilter($data, $columnName = NULL) {
+    	if (is_null($columnName)) {
+    		$columnName = 'country_id';
+    	}
         if ( Yii::app()->language == 'en' )
-            return Country::model()->findByPk($model->country_id)->name;
+            return Country::model()->findByPk($data->{$columnName})->name;
         else
-            return Country::model()->findByPk($model->country_id)->name_ar;
-
+            return Country::model()->findByPk($data->{$columnName})->name_ar;
     }
 
-    public function donatorFilter($model) {
-        return Donator::model()->findByPk($model->donator_id)->fullname;
+    public function donatorFilter($data) {
+        return Donator::model()->findByPk($data->donator_id)->fullname;
     }
 }

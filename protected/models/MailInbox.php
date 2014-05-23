@@ -23,7 +23,7 @@
  * @property MailAttachment $mailAttachment
  * @property MailType $mailType
  */
-class MailInbox extends CActiveRecord
+class MailInbox extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

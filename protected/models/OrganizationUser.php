@@ -54,7 +54,7 @@
  * @property Organization $organization
  * @property OrganizationBranch $organizationBranch
  */
-class OrganizationUser extends CActiveRecord
+class OrganizationUser extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

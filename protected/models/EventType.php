@@ -17,7 +17,7 @@
  * @property Organization $organization
  * @property Owner $owner
  */
-class EventType extends CActiveRecord
+class EventType extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

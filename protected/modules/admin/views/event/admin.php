@@ -50,8 +50,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'number_of_days',
 		'event_type_id',
 		/*
-		'country_id',
-		'city_id',
+        array(
+            'name'  => 'country_id',
+            'type'  => 'raw',
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'countryFilter'), 
+        ),		'city_id',
 		'address',
 		'status',
 		'start_at',

@@ -17,7 +17,7 @@
  * The followings are the available model relations:
  * @property Event $event
  */
-class EventAgenda extends CActiveRecord
+class EventAgenda extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

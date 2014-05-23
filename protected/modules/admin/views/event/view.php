@@ -24,7 +24,7 @@ $this->menu=array(
 		'description',
 		'number_of_days',
 		'event_type_id',
-		'country_id',
+		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'city_id',
 		'address',
 		'status',

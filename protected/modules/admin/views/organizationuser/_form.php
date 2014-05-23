@@ -31,7 +31,7 @@
 
 	<?php echo $form->textFieldRow($model,'international_mobile',array('class'=>'span5','maxlength'=>17)); ?>
 
-	<?php echo $form->textFieldRow($model,'nationality_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->dropDownListRow($model, 'nationality_id', Country::model()->getOptions(), array('empty' =>$model->getAttributeLabel('nationality_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldRow($model,'organization_id',array('class'=>'span5','maxlength'=>11)); ?>
 

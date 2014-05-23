@@ -42,11 +42,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nationality_id')); ?>:</b>
-	<?php echo CHtml::encode($data->nationality_id); ?>
+	<?php echo CHtml::encode($data->countryFilter($data, 'nationality_id')); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('country_id')); ?>:</b>
-	<?php echo CHtml::encode($data->country_id); ?>
+	<?php echo CHtml::encode($data->countryFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('city_id')); ?>:</b>
@@ -82,7 +82,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('donator_id')); ?>:</b>
-	<?php echo CHtml::encode($data->donator_id); ?>
+	<?php echo CHtml::encode($data->donatorFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id')); ?>:</b>

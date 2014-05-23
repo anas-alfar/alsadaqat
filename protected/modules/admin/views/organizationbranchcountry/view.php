@@ -20,7 +20,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'organization_branch_id',
-		'country_id',
+		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'owner_id',
 		'created_at',
 		'updated_at',

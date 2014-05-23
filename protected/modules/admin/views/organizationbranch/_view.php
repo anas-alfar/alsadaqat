@@ -34,7 +34,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('country_id')); ?>:</b>
-	<?php echo CHtml::encode($data->country_id); ?>
+	<?php echo CHtml::encode($data->countryFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('city_id')); ?>:</b>

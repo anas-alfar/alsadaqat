@@ -52,8 +52,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		/*
 		'fax',
 		'mobile',
-		'country_id',
-		'city_id',
+        array(
+            'name'  => 'country_id',
+            'type'  => 'raw',
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'countryFilter'), 
+        ),		'city_id',
 		'adress',
 		'manager_id',
 		'work_days',

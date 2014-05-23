@@ -35,7 +35,7 @@ $this->menu=array(
 		'bank_swift_code',
 		'bank_account_number',
 		'personal_photo_path',
-		'country_id',
+		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'city_id',
 		'organization_id',
 		'owner_id',

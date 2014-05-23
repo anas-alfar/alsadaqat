@@ -45,8 +45,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'organization_branch_id',
-		'country_id',
-		'owner_id',
+        array(
+            'name'  => 'country_id',
+            'type'  => 'raw',
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'countryFilter'), 
+        ),		'owner_id',
 		'created_at',
 		'updated_at',
 		array(

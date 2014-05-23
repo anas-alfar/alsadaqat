@@ -27,7 +27,7 @@ $this->menu=array(
 		'donator_id',
 		'agent_id',
 		'mosque_type_id',
-		'country_id',
+		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'city_id',
 		'owner_id',
 		'created_at',
