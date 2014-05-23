@@ -62,7 +62,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'value' => array($model, 'donatorFilter'), 
         ),
 		'agent_id',
-		'mosque_type_id',
+		array(
+            'name'  => 'mosque_type_id',
+            'type'  => 'raw',
+            'filter'=> MosqueType::model()->getOptions(),
+            'value' => array($model, 'mosqueTypeFilter'), 
+        ),
         array(
             'name'  => 'country_id',
             'type'  => 'raw',

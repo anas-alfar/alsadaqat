@@ -44,8 +44,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		//'organization_type_id',
-        array(
+		array(
             'name'  => 'organization_type_id',
             'type'  => 'raw',
             'filter'=> OrganizationType::model()->getOptions(),

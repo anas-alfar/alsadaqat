@@ -39,4 +39,16 @@ class Aulaula extends CActiveRecord
     public function eventTypeFilter($data) {
         return EventType::model()->findByPk($data->event_type_id)->title;
     }
+
+    public function mailTypeFilter($data) {
+        return MailType::model()->findByPk($data->mail_type_id)->title;
+    }
+
+    public function mosqueTypeFilter($data) {
+        return MosqueType::model()->findByPk($data->mosque_type_id)->title;
+    }
+
+    public function organizationTypeFilter($data) {
+        return OrganizationType::model()->findByPk($data->organization_type_id)->title;
+    }
 }

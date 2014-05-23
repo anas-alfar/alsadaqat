@@ -45,7 +45,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'organization_id',
-		'mail_type_id',
+		array(
+            'name'  => 'mail_type_id',
+            'type'  => 'raw',
+            'filter'=> MailType::model()->getOptions(),
+            'value' => array($model, 'mailTypeFilter'), 
+        ),
 		'number',
 		'from_name',
 		'from_department',
