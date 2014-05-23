@@ -17,7 +17,7 @@
 
 	<?php echo $form->textFieldRow($model,'construction_progress',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldRow($model,'donator_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->dropDownListRow($model, 'donator_id', Donator::model()->getOptions(), array('empty' =>$model->getAttributeLabel('donator_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldRow($model,'agent_id',array('class'=>'span5','maxlength'=>11)); ?>
 
