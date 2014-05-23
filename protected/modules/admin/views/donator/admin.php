@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Donators'=>array('index'),
+	Yii::t('app', 'Donators')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List Donator','url'=>array('index')),
-	array('label'=>'Create Donator','url'=>array('create')),
+	array('label'=>Yii::t('Donator', 'List Donator'),'url'=>array('index')),
+	array('label'=>Yii::t('Donator', 'Create Donator'),'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Donators</h1>
+<h1><?php echo Yii::t('app', 'Manage Donators')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

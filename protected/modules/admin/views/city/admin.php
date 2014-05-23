@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Cities'=>array('index'),
+	Yii::t('app', 'Cities')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List City','url'=>array('index')),
-	array('label'=>'Create City','url'=>array('create')),
+	array('label'=>Yii::t('City', 'List City'),'url'=>array('index')),
+	array('label'=>Yii::t('City', 'Create City'),'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Cities</h1>
+<h1><?php echo Yii::t('app', 'Manage Cities')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Student Classes'=>array('index'),
+	Yii::t('app', 'Beneficiary Student Classes')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryStudentClass','url'=>array('index')),
-	array('label'=>'Create BeneficiaryStudentClass','url'=>array('create')),
-	array('label'=>'Update BeneficiaryStudentClass','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete BeneficiaryStudentClass','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage BeneficiaryStudentClass','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryStudentClass', 'List Beneficiary Student Class'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryStudentClass', 'Create Beneficiary Student Class'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryStudentClass', 'Update Beneficiary Student Class'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('BeneficiaryStudentClass', 'Delete Beneficiary Student Class'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryStudentClass', 'Manage Beneficiary Student Class'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View BeneficiaryStudentClass #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('BeneficiaryStudentClass', 'View Beneficiary Student Class')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

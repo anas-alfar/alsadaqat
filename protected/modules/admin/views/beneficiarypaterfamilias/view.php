@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Paterfamiliases'=>array('index'),
+	Yii::t('app', 'Beneficiary Paterfamiliases')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryPaterfamilias','url'=>array('index')),
-	array('label'=>'Create BeneficiaryPaterfamilias','url'=>array('create')),
-	array('label'=>'Update BeneficiaryPaterfamilias','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete BeneficiaryPaterfamilias','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage BeneficiaryPaterfamilias','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'List Beneficiary Paterfamilias'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Create Beneficiary Paterfamilias'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Update Beneficiary Paterfamilias'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Delete Beneficiary Paterfamilias'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Manage Beneficiary Paterfamilias'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View BeneficiaryPaterfamilias #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('BeneficiaryPaterfamilias', 'View Beneficiary Paterfamilias')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

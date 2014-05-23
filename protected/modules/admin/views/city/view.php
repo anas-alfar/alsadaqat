@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Cities'=>array('index'),
+	Yii::t('app', 'Cities')=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List City','url'=>array('index')),
-	array('label'=>'Create City','url'=>array('create')),
-	array('label'=>'Update City','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete City','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage City','url'=>array('admin')),
+	array('label'=>Yii::t('City', 'List City'),'url'=>array('index')),
+	array('label'=>Yii::t('City', 'Create City'),'url'=>array('create')),
+	array('label'=>Yii::t('City', 'Update City'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('City', 'Delete City'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('City', 'Manage City'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View City #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('City', 'View City')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

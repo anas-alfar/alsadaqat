@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Countries',
+	Yii::t('app', 'Countries'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Country','url'=>array('create')),
-	array('label'=>'Manage Country','url'=>array('admin')),
+	array('label'=>Yii::t('Country', 'Create Country'),'url'=>array('create')),
+	array('label'=>Yii::t('Country', 'Manage Country'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Countries</h1>
+<h1><?php echo Yii::t('app', 'Countries')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
