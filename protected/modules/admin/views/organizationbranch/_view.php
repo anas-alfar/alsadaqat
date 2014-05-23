@@ -46,7 +46,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('manager_id')); ?>:</b>
-	<?php echo CHtml::encode($data->fullUsernameFilter($data, 'manager_id')); ?>
+	<?php echo CHtml::encode($data->managerFullNameFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('work_days')); ?>:</b>
