@@ -141,10 +141,7 @@ ADD FOREIGN KEY ( `owner_id` ) REFERENCES `sadaqat_online`.`organization_user` (
 ALTER TABLE `task` DROP FOREIGN KEY `task_ibfk_3` ,
 ADD FOREIGN KEY ( `assignee_id` ) REFERENCES `sadaqat_online`.`organization_user` (
 `id`
-) ON DELETE RESTRICT ON UPDATE RESTRICT ;
-
-
-			");
+) ON DELETE RESTRICT ON UPDATE RESTRICT ;");
 
 		return false;
 	}
