@@ -44,7 +44,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'event_id',
+		array(
+            'name'  => 'event_id',
+            'type'  => 'raw',
+            'filter'=> Event::model()->getOptions(),
+            'value' => array($model, 'eventNameFilter'), 
+        ),
 		'title',
 		'size',
 		'source_path',

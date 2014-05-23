@@ -48,7 +48,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'title',
 		'description',
 		'number_of_days',
-		'event_type_id',
+		array(
+            'name'  => 'event_type_id',
+            'type'  => 'raw',
+            'filter'=> EventType::model()->getOptions(),
+            'value' => array($model, 'eventTypeFilter'), 
+        ),
 		/*
         array(
             'name'  => 'country_id',

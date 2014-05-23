@@ -53,7 +53,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'husband_death_certificate_path',
 		'number_of_sons',
 		'number_of_daughters',
-		'beneficiary_id',
+		array(
+            'name'  => 'beneficiary_id',
+            'type'  => 'raw',
+            'filter'=> Beneficiary::model()->getOptions(),
+            'value' => array($model, 'beneficiaryFullNameFilter'), 
+        ),
 		'owner_id',
 		'created_at',
 		'updated_at',

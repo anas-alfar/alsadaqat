@@ -54,7 +54,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'home_phone',
 		'work_phone',
 		'mobile',
-		'nationality_id',
+		array(
+            'name'  => 'nationality_id',
+            'type'  => 'raw',
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'nationalityFilter'), 
+        ),
 		'organization_id',
 		'organization_branch_id',
 		'owner_id',
