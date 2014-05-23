@@ -9,7 +9,7 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php Yii::t('app', 'Organizations') ?></h1>
+<h1><?php echo Yii::t('app', 'Organizations') ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
