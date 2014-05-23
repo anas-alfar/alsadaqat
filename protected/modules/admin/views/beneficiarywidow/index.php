@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Widows',
+	Yii::t('app', 'Beneficiary Widows'),
 );
 
 $this->menu=array(
-	array('label'=>'Create BeneficiaryWidow','url'=>array('create')),
-	array('label'=>'Manage BeneficiaryWidow','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryWidow', 'Create Beneficiary Widow'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryWidow', 'Manage Beneficiary Widow'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Beneficiary Widows</h1>
+<h1><?php echo Yii::t('app', 'Beneficiary Widows')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
