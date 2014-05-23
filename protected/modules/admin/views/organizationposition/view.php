@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Positions'=>array('index'),
+	Yii::t('app', 'Organization Positions')=>array('index'),
 	$model->title,
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationPosition','url'=>array('index')),
-	array('label'=>'Create OrganizationPosition','url'=>array('create')),
-	array('label'=>'Update OrganizationPosition','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete OrganizationPosition','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage OrganizationPosition','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationPosition', 'List Organization Position'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationPosition', 'Create Organization Position'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationPosition', 'Update Organization Position'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('OrganizationPosition', 'Delete Organization Position'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('OrganizationPosition', 'Manage Organization Position'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View OrganizationPosition #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('OrganizationPosition', 'View Organization Position')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
