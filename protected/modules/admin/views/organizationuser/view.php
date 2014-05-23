@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Users'=>array('index'),
+	Yii::t('app', 'Organization Users')=>array('index'),
 	$model->title,
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationUser','url'=>array('index')),
-	array('label'=>'Create OrganizationUser','url'=>array('create')),
-	array('label'=>'Update OrganizationUser','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete OrganizationUser','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage OrganizationUser','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationUser', 'List Organization User'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationUser', 'Create Organization User'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationUser', 'Update Organization User'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('OrganizationUser', 'Delete Organization User'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('OrganizationUser', 'Manage Organization User'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View OrganizationUser #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('OrganizationUser', 'View Organization User')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

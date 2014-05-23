@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Users',
+	Yii::t('app', 'Organization Users'),
 );
 
 $this->menu=array(
-	array('label'=>'Create OrganizationUser','url'=>array('create')),
-	array('label'=>'Manage OrganizationUser','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationUser', 'Create Organization User'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationUser', 'Manage Organization User'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Organization Users</h1>
+<h1><?php echo Yii::t('app', 'Organization Users')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
