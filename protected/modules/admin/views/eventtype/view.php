@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Event Types'=>array('index'),
+	Yii::t('app', 'Event Types')=>array('index'),
 	$model->title,
 );
 
 $this->menu=array(
-	array('label'=>'List EventType','url'=>array('index')),
-	array('label'=>'Create EventType','url'=>array('create')),
-	array('label'=>'Update EventType','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete EventType','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage EventType','url'=>array('admin')),
+	array('label'=>Yii::t('EventType', 'List Event Type'),'url'=>array('index')),
+	array('label'=>Yii::t('EventType', 'Create Event Type'),'url'=>array('create')),
+	array('label'=>Yii::t('EventType', 'Update Event Type'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('EventType', 'Delete Event Type'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('EventType', 'Manage Event Type'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View EventType #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('EventType', 'View Event Type')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

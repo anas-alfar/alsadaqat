@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Event Photos'=>array('index'),
+	Yii::t('app', 'Event Photos')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Event Photos</h1>
+<h1><?php echo Yii::t('app', 'Manage Event Photos')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

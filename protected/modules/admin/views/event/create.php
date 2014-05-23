@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Events'=>array('index'),
+	Yii::t('app', 'Events')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Event','url'=>array('index')),
-	array('label'=>'Manage Event','url'=>array('admin')),
+	array('label'=>Yii::t('Event', 'List Event'),'url'=>array('index')),
+	array('label'=>Yii::t('Event', 'Manage Event'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Event</h1>
+<h1><?php echo Yii::t('Event', 'Create Event')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

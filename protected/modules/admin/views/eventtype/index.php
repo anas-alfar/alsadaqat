@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Event Types',
+	Yii::t('app', 'Event Types'),
 );
 
 $this->menu=array(
-	array('label'=>'Create EventType','url'=>array('create')),
-	array('label'=>'Manage EventType','url'=>array('admin')),
+	array('label'=>Yii::t('EventType', 'Create Event Type'),'url'=>array('create')),
+	array('label'=>Yii::t('EventType', 'Manage Event Type'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Event Types</h1>
+<h1><?php echo Yii::t('app', 'Event Types')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,

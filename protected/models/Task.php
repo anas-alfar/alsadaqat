@@ -28,7 +28,7 @@ class Task extends Aulaula
 	 */
 	public function tableName()
 	{
-		return 'task';
+		return 'tasks';
 	}
 
 	/**

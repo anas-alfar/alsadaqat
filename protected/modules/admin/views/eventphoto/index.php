@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Event Photos',
+	Yii::t('app', 'Event Photos'),
 );
 
 $this->menu=array(
-	array('label'=>'Create EventPhoto','url'=>array('create')),
-	array('label'=>'Manage EventPhoto','url'=>array('admin')),
+	array('label'=>Yii::t('EventPhoto', 'Create Event Photo'),'url'=>array('create')),
+	array('label'=>Yii::t('EventPhoto', 'Manage Event Photo'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Event Photos</h1>
+<h1><?php echo Yii::t('app', 'Event Photos')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
