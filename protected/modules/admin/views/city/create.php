@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Cities'=>array('index'),
+	Yii::t('app', 'Cities')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List City','url'=>array('index')),
-	array('label'=>'Manage City','url'=>array('admin')),
+	array('label'=>Yii::t('City', 'List City'),'url'=>array('index')),
+	array('label'=>Yii::t('City', 'Manage City'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create City</h1>
+<h1><?php echo Yii::t('City', 'Create City')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
