@@ -31,7 +31,7 @@
  * @property Owner $owner
  * @property Mosque[] $mosques
  */
-class Donator extends CActiveRecord
+class Donator extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

@@ -19,7 +19,7 @@
  * @property Organization $organization
  * @property Owner $owner
  */
-class MailType extends CActiveRecord
+class MailType extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

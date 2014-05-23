@@ -36,7 +36,7 @@
  * @property OrganizationUser $owner
  * @property MosqueType[] $mosqueTypes
  */
-class MosqueAgent extends CActiveRecord
+class MosqueAgent extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

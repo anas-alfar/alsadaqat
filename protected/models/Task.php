@@ -21,7 +21,7 @@
  * @property Owner $owner
  * @property Assignee $assignee
  */
-class Task extends CActiveRecord
+class Task extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

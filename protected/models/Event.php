@@ -34,7 +34,7 @@
  * @property EventAgenda[] $eventAgendas
  * @property EventPhoto[] $eventPhotos
  */
-class Event extends CActiveRecord
+class Event extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

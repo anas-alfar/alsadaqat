@@ -30,7 +30,7 @@
  * @property OrganizationUser $owner
  * @property MosquePhoto[] $mosquePhotos
  */
-class Mosque extends CActiveRecord
+class Mosque extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

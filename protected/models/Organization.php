@@ -30,7 +30,7 @@
  * @property OrganizationUser[] $organizationUsers
  * @property Tasks[] $tasks
  */
-class Organization extends CActiveRecord
+class Organization extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

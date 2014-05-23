@@ -16,7 +16,7 @@
  * @property Event $event
  * @property Owner $owner
  */
-class EventActivity extends CActiveRecord
+class EventActivity extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

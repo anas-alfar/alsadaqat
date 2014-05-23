@@ -29,7 +29,7 @@ $this->menu=array(
 		'address',
 		'personal_photo_path',
 		'nationality_id',
-		'country_id',
+		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'city_id',
 		'beneficiary_type',
 		'has_paterfamilias',

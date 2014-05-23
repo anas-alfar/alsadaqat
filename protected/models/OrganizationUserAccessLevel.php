@@ -14,7 +14,7 @@
  * @property User $user
  * @property OrganizationAccessLevel $organizationAccessLevel
  */
-class OrganizationUserAccessLevel extends CActiveRecord
+class OrganizationUserAccessLevel extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

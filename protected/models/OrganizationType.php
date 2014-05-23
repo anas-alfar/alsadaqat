@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property Organization[] $organizations
  */
-class OrganizationType extends CActiveRecord
+class OrganizationType extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

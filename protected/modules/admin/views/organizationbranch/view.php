@@ -26,7 +26,7 @@ $this->menu=array(
 		'phone',
 		'fax',
 		'mobile',
-		'country_id',
+		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'city_id',
 		'adress',
 		'manager_id',

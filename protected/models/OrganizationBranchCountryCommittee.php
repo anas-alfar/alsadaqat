@@ -19,7 +19,7 @@
  * @property Owner $owner
  * @property OrganizationBranchCountryCommitteeUser[] $organizationBranchCountryCommitteeUsers
  */
-class OrganizationBranchCountryCommittee extends CActiveRecord
+class OrganizationBranchCountryCommittee extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

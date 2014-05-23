@@ -16,7 +16,7 @@
  * @property OrganizationAccessLevelPermission[] $organizationAccessLevelPermissions
  * @property OrganizationUserAccessLevel[] $organizationUserAccessLevels
  */
-class OrganizationAccessLevel extends CActiveRecord
+class OrganizationAccessLevel extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

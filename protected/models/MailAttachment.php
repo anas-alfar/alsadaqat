@@ -20,7 +20,7 @@
  * @property Owner $owner
  * @property MailInbox[] $mailInboxes
  */
-class MailAttachment extends CActiveRecord
+class MailAttachment extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

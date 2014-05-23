@@ -15,7 +15,7 @@
  * The followings are the available model relations:
  * @property OrganizationAccessLevel $organizationAccessLevel
  */
-class OrganizationAccessLevelPermission extends CActiveRecord
+class OrganizationAccessLevelPermission extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

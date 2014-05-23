@@ -18,7 +18,7 @@
  * @property Mosque $mosque
  * @property OrganizationUser $owner
  */
-class MosquePhoto extends CActiveRecord
+class MosquePhoto extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

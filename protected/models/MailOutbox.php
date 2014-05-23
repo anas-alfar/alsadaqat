@@ -27,7 +27,7 @@
  * @property Owner $owner
  * @property MailType $mailType
  */
-class MailOutbox extends CActiveRecord
+class MailOutbox extends Aulaula
 {
 	/**
 	 * @return string the associated database table name

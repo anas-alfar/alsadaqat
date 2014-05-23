@@ -37,7 +37,7 @@
  * @property Beneficiary $beneficiary
  * @property OrganizationUser $owner
  */
-class BeneficiaryHome extends CActiveRecord
+class BeneficiaryHome extends Aulaula
 {
 	/**
 	 * @return string the associated database table name
