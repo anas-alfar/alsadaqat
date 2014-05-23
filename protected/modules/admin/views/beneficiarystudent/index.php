@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Students',
+	Yii::t('app', 'Beneficiary Students'),
 );
 
 $this->menu=array(
-	array('label'=>'Create BeneficiaryStudent','url'=>array('create')),
-	array('label'=>'Manage BeneficiaryStudent','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryStudent', 'Create Beneficiary Student'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryStudent', 'Manage Beneficiary Student'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Beneficiary Students</h1>
+<h1><?php echo Yii::t('app', 'Beneficiary Students')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
