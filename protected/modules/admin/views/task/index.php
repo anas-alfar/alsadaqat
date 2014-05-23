@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Tasks',
+	Yii::t('app', 'Tasks'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Task','url'=>array('create')),
-	array('label'=>'Manage Task','url'=>array('admin')),
+	array('label'=>Yii::t('Task', 'Create Task'),'url'=>array('create')),
+	array('label'=>Yii::t('Task', 'Manage Task'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Tasks</h1>
+<h1><?php echo Yii::t('app', 'Tasks')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
