@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Homes'=>array('index'),
+	Yii::t('app', 'Beneficiary Homes')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryHome','url'=>array('index')),
-	array('label'=>'Create BeneficiaryHome','url'=>array('create')),
-	array('label'=>'Update BeneficiaryHome','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete BeneficiaryHome','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage BeneficiaryHome','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryHome', 'List Beneficiary Home'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryHome', 'Create Beneficiary Home'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryHome', 'Update Beneficiary Home'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('BeneficiaryHome', 'Delete Beneficiary Home'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryHome', 'Manage Beneficiary Home'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View BeneficiaryHome #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('BeneficiaryHome', 'View Beneficiary Home')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
