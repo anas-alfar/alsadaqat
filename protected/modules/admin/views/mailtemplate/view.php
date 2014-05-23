@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Mail Templates'=>array('index'),
+	Yii::t('app', 'Mail Templates')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List MailTemplate','url'=>array('index')),
-	array('label'=>'Create MailTemplate','url'=>array('create')),
-	array('label'=>'Update MailTemplate','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete MailTemplate','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage MailTemplate','url'=>array('admin')),
+	array('label'=>Yii::t('MailTemplate', 'List Mail Template'),'url'=>array('index')),
+	array('label'=>Yii::t('MailTemplate', 'Create Mail Template'),'url'=>array('create')),
+	array('label'=>Yii::t('MailTemplate', 'Update Mail Template'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('MailTemplate', 'Delete Mail Template'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('MailTemplate', 'Manage Mail Template'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View MailTemplate #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('MailTemplate', 'View Mail Template')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,

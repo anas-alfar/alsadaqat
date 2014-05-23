@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Mail Templates',
+	Yii::t('app', 'Mail Templates'),
 );
 
 $this->menu=array(
-	array('label'=>'Create MailTemplate','url'=>array('create')),
-	array('label'=>'Manage MailTemplate','url'=>array('admin')),
+	array('label'=>Yii::t('MailTemplate', 'Create Mail Template'),'url'=>array('create')),
+	array('label'=>Yii::t('MailTemplate', 'Manage Mail Template'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Mail Templates</h1>
+<h1><?php echo Yii::t('app', 'Mail Templates')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
