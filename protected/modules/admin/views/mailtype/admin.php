@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Mail Types'=>array('index'),
+	Yii::t('app', 'Mail Types')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List MailType','url'=>array('index')),
-	array('label'=>'Create MailType','url'=>array('create')),
+	array('label'=>Yii::t('MailType', 'List Mail Type'),'url'=>array('index')),
+	array('label'=>Yii::t('MailType', 'Create Mail Type'),'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Mail Types</h1>
+<h1><?php echo Yii::t('app', 'Manage Mail Types')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
