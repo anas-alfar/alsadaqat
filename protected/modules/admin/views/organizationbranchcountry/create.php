@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branch Countries'=>array('index'),
+	Yii::t('app', 'Organization Branch Countries')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationBranchCountry','url'=>array('index')),
-	array('label'=>'Manage OrganizationBranchCountry','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationBranchCountry', 'List Organization Branch Country'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationBranchCountry', 'Manage Organization Branch Country'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create OrganizationBranchCountry</h1>
+<h1><?php echo Yii::t('OrganizationBranchCountry', 'Create Organization Branch Country')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

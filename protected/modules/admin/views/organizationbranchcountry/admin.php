@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branch Countries'=>array('index'),
+	Yii::t('app', 'Organization Branch Countries')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationBranchCountry','url'=>array('index')),
-	array('label'=>'Create OrganizationBranchCountry','url'=>array('create')),
+	array('label'=>Yii::t('OrganizationBranchCountry', 'List Organization Branch Country'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationBranchCountry', 'Create Organization Branch Country'),'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Organization Branch Countries</h1>
+<h1><?php echo Yii::t('app', 'Manage Organization Branch Countries')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
