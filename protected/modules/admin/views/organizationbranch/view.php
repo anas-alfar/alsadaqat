@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branches'=>array('index'),
+	Yii::t('app', 'Organization Branches')=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationBranch','url'=>array('index')),
-	array('label'=>'Create OrganizationBranch','url'=>array('create')),
-	array('label'=>'Update OrganizationBranch','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete OrganizationBranch','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage OrganizationBranch','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationBranch', 'List Organization Branch'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationBranch', 'Create Organization Branch'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationBranch', 'Update Organization Branch'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('OrganizationBranch', 'Delete Organization Branch'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('OrganizationBranch', 'Manage Organization Branch'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View OrganizationBranch #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('OrganizationBranch', 'View Organization Branch')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
