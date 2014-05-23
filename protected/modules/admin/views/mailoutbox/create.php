@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Mail Outboxes'=>array('index'),
+	Yii::t('app', 'Mail Outboxes')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List MailOutbox','url'=>array('index')),
-	array('label'=>'Manage MailOutbox','url'=>array('admin')),
+	array('label'=>Yii::t('MailOutbox', 'List Mail Outbox'),'url'=>array('index')),
+	array('label'=>Yii::t('MailOutbox', 'Manage Mail Outbox'),'url'=>array('admin')),
 );
 ?>
 

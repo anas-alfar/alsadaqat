@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Mail Outboxes',
+	Yii::t('app', 'Mail Outboxes'),
 );
 
 $this->menu=array(
-	array('label'=>'Create MailOutbox','url'=>array('create')),
-	array('label'=>'Manage MailOutbox','url'=>array('admin')),
+	array('label'=>Yii::t('MailOutbox', 'Create Mail Outbox'),'url'=>array('create')),
+	array('label'=>Yii::t('MailOutbox', 'Manage Mail Outbox'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Mail Outboxes</h1>
+<h1><?php echo Yii::t('app', 'Mail Outboxes')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
