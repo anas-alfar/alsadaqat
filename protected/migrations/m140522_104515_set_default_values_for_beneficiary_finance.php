@@ -2,11 +2,11 @@
 
 class m140522_104515_set_default_values_for_beneficiary_finance extends CDbMigration
 {
-	public function up()
+	public function down()
 	{
 	}
 
-	public function down()
+	public function up()
 	{
 		echo "m140522_104515_set_default_values_for_beneficiary_finance does not support migration down.\n";
 		$this -> execute("SET foreign_key_checks = 0;");
