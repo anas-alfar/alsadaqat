@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Teachers'=>array('index'),
+	Yii::t('app', 'Beneficiary Teachers')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryTeacher','url'=>array('index')),
-	array('label'=>'Create BeneficiaryTeacher','url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryTeacher', 'List Beneficiary Teacher'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryTeacher', 'Create Beneficiary Teacher'),'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Beneficiary Teachers</h1>
+<h1><?php echo Yii::t('app', 'Manage Beneficiary Teachers')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
