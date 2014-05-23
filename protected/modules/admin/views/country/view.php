@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Countries'=>array('index'),
+	Yii::t('app', 'Countries')=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List Country','url'=>array('index')),
-	array('label'=>'Create Country','url'=>array('create')),
-	array('label'=>'Update Country','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete Country','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Country','url'=>array('admin')),
+	array('label'=>Yii::t('Country', 'List Country'),'url'=>array('index')),
+	array('label'=>Yii::t('Country', 'Create Country'),'url'=>array('create')),
+	array('label'=>Yii::t('Country', 'Update Country'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('Country', 'Delete Country'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('Country', 'Manage Country'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View Country #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('Country', 'View Country')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
