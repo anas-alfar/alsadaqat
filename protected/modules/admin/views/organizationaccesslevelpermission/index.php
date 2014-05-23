@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Access Level Permissions',
+	Yii::t('app', 'Organization Access Level Permissions'),
 );
 
 $this->menu=array(
-	array('label'=>'Create OrganizationAccessLevelPermission','url'=>array('create')),
-	array('label'=>'Manage OrganizationAccessLevelPermission','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationAccessLevelPermission', 'Create Access Level Permission'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationAccessLevelPermission', 'Manage Access Level Permission'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Organization Access Level Permissions</h1>
+<h1><?php echo Yii::t('app', 'Organization Access Level Permissions')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
