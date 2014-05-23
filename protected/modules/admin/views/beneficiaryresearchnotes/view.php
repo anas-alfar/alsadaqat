@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Beneficiary Research Notes'=>array('index'),
+	Yii::t('app', 'Beneficiary Research Notes')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List BeneficiaryResearchNotes','url'=>array('index')),
-	array('label'=>'Create BeneficiaryResearchNotes','url'=>array('create')),
-	array('label'=>'Update BeneficiaryResearchNotes','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete BeneficiaryResearchNotes','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage BeneficiaryResearchNotes','url'=>array('admin')),
+	array('label'=>Yii::t('BeneficiaryResearchNotes', 'List Beneficiary Research Notes'),'url'=>array('index')),
+	array('label'=>Yii::t('BeneficiaryResearchNotes', 'Create Beneficiary Research Notes'),'url'=>array('create')),
+	array('label'=>Yii::t('BeneficiaryResearchNotes', 'Update Beneficiary Research Notes'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('BeneficiaryResearchNotes', 'Delete Beneficiary Research Notes'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryResearchNotes', 'Manage Beneficiary Research Notes'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View BeneficiaryResearchNotes #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('BeneficiaryResearchNotes', 'View Beneficiary Research Notes')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
