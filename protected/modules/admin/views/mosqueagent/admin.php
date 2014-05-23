@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Mosque Agents'=>array('index'),
+	Yii::t('app', 'Mosque Agents')=>array('index'),
 	Yii::t('app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List MosqueAgent','url'=>array('index')),
-	array('label'=>'Create MosqueAgent','url'=>array('create')),
+	array('label'=>Yii::t('MosqueAgent', 'List Mosque Agent'),'url'=>array('index')),
+	array('label'=>Yii::t('MosqueAgent', 'Create Mosque Agent'),'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Mosque Agents</h1>
+<h1><?php echo Yii::t('app', 'Manage Mosque Agents')?></h1>
 
 <p>
 <?php echo Yii::t('app', 'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
