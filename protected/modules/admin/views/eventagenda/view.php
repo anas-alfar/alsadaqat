@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Event Agendas'=>array('index'),
+	Yii::t('app', 'Event Agendas')=>array('index'),
 	$model->title,
 );
 
 $this->menu=array(
-	array('label'=>'List EventAgenda','url'=>array('index')),
-	array('label'=>'Create EventAgenda','url'=>array('create')),
-	array('label'=>'Update EventAgenda','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete EventAgenda','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage EventAgenda','url'=>array('admin')),
+	array('label'=>Yii::t('EventAgenda', 'List Event Agenda'),'url'=>array('index')),
+	array('label'=>Yii::t('EventAgenda', 'Create Event Agenda'),'url'=>array('create')),
+	array('label'=>Yii::t('EventAgenda', 'Update Event Agenda'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('EventAgenda', 'Delete Event Agenda'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('EventAgenda', 'Manage Event Agenda'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View EventAgenda #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('EventAgenda', 'View Event Agenda')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
