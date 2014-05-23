@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Mosque Photos'=>array('index'),
+	Yii::t('app', 'Mosque Photos')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List MosquePhoto','url'=>array('index')),
-	array('label'=>'Manage MosquePhoto','url'=>array('admin')),
+	array('label'=>Yii::t('MosquePhoto', 'List Mosque Photo'),'url'=>array('index')),
+	array('label'=>Yii::t('MosquePhoto', 'Manage Mosque Photo'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create MosquePhoto</h1>
+<h1><?php echo Yii::t('MosquePhoto', 'Create Mosque Photo')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

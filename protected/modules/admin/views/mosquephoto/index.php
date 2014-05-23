@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Mosque Photos',
+	Yii::t('app', 'Mosque Photos'),
 );
 
 $this->menu=array(
-	array('label'=>'Create MosquePhoto','url'=>array('create')),
-	array('label'=>'Manage MosquePhoto','url'=>array('admin')),
+	array('label'=>Yii::t('MosquePhoto', 'Create Mosque Photo'),'url'=>array('create')),
+	array('label'=>Yii::t('MosquePhoto', 'Manage Mosque Photo'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Mosque Photos</h1>
+<h1><?php echo Yii::t('app', 'Mosque Photos')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
