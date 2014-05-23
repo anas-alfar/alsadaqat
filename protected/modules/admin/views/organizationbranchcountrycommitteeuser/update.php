@@ -1,18 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branch Country Committee Users'=>array('index'),
+	Yii::t('app', 'Organization Branch Country Committee Users')=>array('index'),
 	$model->id=>array('view','id'=>$model->id),
 	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationBranchCountryCommitteeUser','url'=>array('index')),
-	array('label'=>'Create OrganizationBranchCountryCommitteeUser','url'=>array('create')),
-	array('label'=>'View OrganizationBranchCountryCommitteeUser','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage OrganizationBranchCountryCommitteeUser','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommitteeUser', 'List Branch Country Committee User'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommitteeUser', 'Create Branch Country Committee User'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommitteeUser', 'View Branch Country Committee User'),'url'=>array('view','id'=>$model->id)),
+	array('label'=>Yii::t('OrganizationBranchCountryCommitteeUser', 'Manage Branch Country Committee User'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Update OrganizationBranchCountryCommitteeUser <?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('OrganizationBranchCountryCommitteeUser', 'Update Organization Branch Country Committee User')?> <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
