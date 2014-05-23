@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branch Country Committees'=>array('index'),
+	Yii::t('app', 'Organization Branch Country Committees')=>array('index'),
 	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationBranchCountryCommittee','url'=>array('index')),
-	array('label'=>'Manage OrganizationBranchCountryCommittee','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'List Branch Country Committee'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Manage Branch Country Committee'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Create OrganizationBranchCountryCommittee</h1>
+<h1><?php echo Yii::t('OrganizationBranchCountryCommittee', 'Create Organization Branch Country Committee')?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

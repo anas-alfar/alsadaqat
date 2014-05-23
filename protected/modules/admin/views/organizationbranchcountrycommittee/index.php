@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branch Country Committees',
+	Yii::t('app', 'Organization Branch Country Committees'),
 );
 
 $this->menu=array(
-	array('label'=>'Create OrganizationBranchCountryCommittee','url'=>array('create')),
-	array('label'=>'Manage OrganizationBranchCountryCommittee','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Create Branch Country Committee'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Manage Branch Country Committee'),'url'=>array('admin')),
 );
 ?>
 
-<h1>Organization Branch Country Committees</h1>
+<h1><?php echo Yii::t('app', 'Organization Branch Country Committees')?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,

@@ -1,19 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Organization Branch Country Committees'=>array('index'),
+	Yii::t('app', 'Organization Branch Country Committees')=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List OrganizationBranchCountryCommittee','url'=>array('index')),
-	array('label'=>'Create OrganizationBranchCountryCommittee','url'=>array('create')),
-	array('label'=>'Update OrganizationBranchCountryCommittee','url'=>array('update','id'=>$model->id)),
-	array('label'=>'Delete OrganizationBranchCountryCommittee','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage OrganizationBranchCountryCommittee','url'=>array('admin')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'List Branch Country Committee'),'url'=>array('index')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Create Branch Country Committee'),'url'=>array('create')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Update Branch Country Committee'),'url'=>array('update','id'=>$model->id)),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Delete Branch Country Committee'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Manage Branch Country Committee'),'url'=>array('admin')),
 );
 ?>
 
-<h1>View OrganizationBranchCountryCommittee #<?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('OrganizationBranchCountryCommittee', 'View Organization Branch Country Committee')?> #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
