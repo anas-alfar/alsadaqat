@@ -58,7 +58,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'has_female_area',
 		'has_sound_system',
 		'has_air_condition',
-		'agent_id',
+		array(
+            'name'  => 'agent_id',
+            'type'  => 'raw',
+            'filter'=> MosqueAgent::model()->getOptions(),
+            'value' => array($model, 'mosqueAgentgentFilter'), 
+        ),
 		'owner_id',
 		'created_at',
 		'updated_at',

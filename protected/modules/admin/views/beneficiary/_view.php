@@ -78,7 +78,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('organization_branch_id')); ?>:</b>
-	<?php echo CHtml::encode($data->organization_branch_id); ?>
+	<?php echo CHtml::encode($data->organizationBranchFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('donator_id')); ?>:</b>

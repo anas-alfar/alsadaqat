@@ -30,7 +30,7 @@
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('agent_id')); ?>:</b>
-	<?php echo CHtml::encode($data->agent_id); ?>
+	<?php echo CHtml::encode($data->mosqueAgentgentFilter($data)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('mosque_type_id')); ?>:</b>

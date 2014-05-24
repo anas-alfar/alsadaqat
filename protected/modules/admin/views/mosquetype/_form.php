@@ -33,7 +33,7 @@
 
 	<?php echo $form->DropDownListRow($model, 'has_air_condition', ENUMHtml::enumItem($model, 'has_air_condition'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php echo $form->textFieldRow($model,'agent_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->dropDownListRow($model, 'agent_id', MosqueAgent::model()->getOptions(), array('empty' =>$model->getAttributeLabel('agent_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldRow($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 

@@ -72,7 +72,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'has_home',
 		'has_income',
 		'organization_id',
-		'organization_branch_id',
+		array(
+            'name'  => 'organization_branch_id',
+            'type'  => 'raw',
+            'filter'=> OrganizationBranch::model()->getOptions(),
+            'value' => array($model, 'organizationBranchFilter'), 
+        ),
 		array(
             'name'  => array(
             'name'  => 'beneficiary_id',

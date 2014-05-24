@@ -173,4 +173,11 @@ class OrganizationBranch extends Aulaula
 	{
 		return parent::model($className);
 	}
+    
+    public function getOptions() {
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,name';
+
+        return CHtml::listData($this->findAll($criteria), 'id', 'name');  
+    }
 }

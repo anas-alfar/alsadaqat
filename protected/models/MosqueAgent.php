@@ -177,4 +177,12 @@ class MosqueAgent extends Aulaula
 	{
 		return parent::model($className);
 	}
+
+	public function getOptions(){
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,fullname';
+        //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
+
+        return CHtml::listData($this->findAll($criteria),'id','fullname');
+    }
 }
