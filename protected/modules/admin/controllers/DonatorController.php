@@ -69,8 +69,11 @@ class DonatorController extends Controller
 		if(isset($_POST['Donator']))
 		{
 			$model->attributes=$_POST['Donator'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded($model);
+                $this->redirect(array('view','id'=>$model->id));
+			}
+
 		}
 
 		$this->render('create',array(
@@ -93,8 +96,10 @@ class DonatorController extends Controller
 		if(isset($_POST['Donator']))
 		{
 			$model->attributes=$_POST['Donator'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded($model);
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

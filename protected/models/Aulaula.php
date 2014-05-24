@@ -2,6 +2,8 @@
 
 class Aulaula extends CActiveRecord 
 {
+    public $image;
+
     public function countryFilter($data) {
         if ( Yii::app()->language == 'en' )
             return Country::model()->findByPk($data->country_id)->name;

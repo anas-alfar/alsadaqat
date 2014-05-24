@@ -56,6 +56,7 @@
  */
 class OrganizationUser extends Aulaula
 {
+    public $passport;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -81,7 +82,11 @@ class OrganizationUser extends Aulaula
 			array('nationality_id, organization_id, organization_branch_id', 'length', 'max'=>11),
 			array('blocked', 'length', 'max'=>3),
 			array('last_login_ip', 'length', 'max'=>15),
-			array('created_at, updated_at', 'safe'),
+			
+            array('image, passport', 'file', 'types'=>'jpg,gif,png,jpeg', 'safe'=>true, 'allowEmpty'=>true, 'on'=>'update'),
+            
+            array('last_login_date', 'length', 'safe'=>true , 'max'=>30),
+            array('created_at, updated_at', 'safe'),
 			
             array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
@@ -222,4 +227,72 @@ class OrganizationUser extends Aulaula
 
         return CHtml::listData($this->findAll($criteria),'id','fullname');
     }
+
+    public function behaviors() {
+        return array(
+            'preview' => array(
+                'class' => 'ext.imageAttachment.ImageAttachmentBehavior',
+                'previewHeight' => 200,
+                'previewWidth'  => 200,
+                // extension for image saving, can be also tiff, png or gif
+                'extension' => 'jpg',
+                // folder to store images
+                'directory' => Yii::getPathOfAlias('webroot'). '/users/'. $this->id. '/' .substr(sha1($this->id), 0, 10).'/'.substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // url for images folder
+                'url' => Yii::app()->request->baseUrl . '/users/'. $this->id . '/' . substr(sha1($this->id), 0, 10). '/' .substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // image versions
+                'versions' => array(
+                    'small' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(55, null),
+                    ),
+                    'medium' => array(
+                        'resize' => array(150, null),
+                        //'crop'   => array(70, null),
+                    ),
+                   'large' => array(
+                        'resize' => array(300, null),
+                        //'crop'   => array(140, null),
+                    ),
+                   'avatar' => array(
+                        'resize' => array(48, null),
+                        //'crop'   => array(140, null),
+                    )
+                )
+            ),
+            
+            'passpor' => array(
+                'class' => 'ext.imageAttachment.ImageAttachmentBehavior',
+                'previewHeight' => 200,
+                'previewWidth'  => 200,
+                // extension for image saving, can be also tiff, png or gif
+                'extension' => 'jpg',
+                // folder to store images
+                'directory' => Yii::getPathOfAlias('webroot'). '/users/'. $this->id. '/' .substr(sha1($this->id), 0, 10).'/'.substr(sha1($this->id), -10) . '/passport/' . $this->id % 100,
+                // url for images folder
+                'url' => Yii::app()->request->baseUrl . '/users/'. $this->id . '/' . substr(sha1($this->id), 0, 10). '/' .substr(sha1($this->id), -10) . '/passport/' . $this->id % 100,
+                // image versions
+                'versions' => array(
+                    'small' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(55, null),
+                    ),
+                    'medium' => array(
+                        'resize' => array(150, null),
+                        //'crop'   => array(70, null),
+                    ),
+                   'large' => array(
+                        'resize' => array(300, null),
+                        //'crop'   => array(140, null),
+                    ),
+                   'avatar' => array(
+                        'resize' => array(48, null),
+                        //'crop'   => array(140, null),
+                    )
+                )
+            ),
+            
+         );
+    }
+
 }

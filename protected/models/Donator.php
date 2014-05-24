@@ -57,6 +57,10 @@ class Donator extends Aulaula
 			array('home_phone, work_phone, mobile', 'length', 'max'=>17),
 			array('nationality_id, organization_id, organization_branch_id, owner_id', 'length', 'max'=>11),
 			array('notes, options', 'length', 'max'=>1024),
+			
+            array('image', 'file', 'types'=>'jpg,gif,png,jpeg', 'allowEmpty'=>true, 'on'=>'update'),
+            array('image, created_at, updated_at', 'safe'),
+            
 			array('created_at, updated_at', 'safe'),
 			
             array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
@@ -172,4 +176,41 @@ class Donator extends Aulaula
 
         return CHtml::listData($this->findAll($criteria),'id','fullname');
     }
+    
+    public function behaviors() {
+        return array(
+            'preview' => array(
+                'class' => 'ext.imageAttachment.ImageAttachmentBehavior',
+                'previewHeight' => 200,
+                'previewWidth'  => 200,
+                // extension for image saving, can be also tiff, png or gif
+                'extension' => 'jpg',
+                // folder to store images
+                'directory' => Yii::getPathOfAlias('webroot'). '/donators/'. $this->id. '/' .substr(sha1($this->id), 0, 10).'/'.substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // url for images folder
+                'url' => Yii::app()->request->baseUrl . '/donators/'. $this->id . '/' . substr(sha1($this->id), 0, 10). '/' .substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // image versions
+                'versions' => array(
+                    'small' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(55, null),
+                    ),
+                    'medium' => array(
+                        'resize' => array(150, null),
+                        //'crop'   => array(70, null),
+                    ),
+                   'large' => array(
+                        'resize' => array(300, null),
+                        //'crop'   => array(140, null),
+                    ),
+                   'avatar' => array(
+                        'resize' => array(48, null),
+                        //'crop'   => array(140, null),
+                    )
+                )
+            ),
+        );
+    }
+    
+    
 }

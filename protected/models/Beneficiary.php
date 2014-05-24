@@ -70,7 +70,7 @@ class Beneficiary extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('full_name, date_of_birth, address, personal_photo_path, nationality_id, country_id, city_id, organization_id, organization_branch_id, owner_id', 'required'),
+			array('full_name, date_of_birth, address, nationality_id, country_id, city_id, organization_id, organization_branch_id, owner_id', 'required'),
 			array('full_name, email, address, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('gender', 'length', 'max'=>6),
@@ -79,7 +79,10 @@ class Beneficiary extends Aulaula
 			array('beneficiary_type', 'length', 'max'=>8),
 			array('has_paterfamilias, has_family_members, has_home, has_income', 'length', 'max'=>3),
 			array('notes, options', 'length', 'max'=>1024),
-			array('created_at, updated_at', 'safe'),
+
+            array('image', 'file', 'types'=>'jpg,gif,png,jpeg', 'allowEmpty'=>true, 'on'=>'update'),
+            array('image, created_at, updated_at', 'safe'),
+
             array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
@@ -221,4 +224,40 @@ class Beneficiary extends Aulaula
 
         return CHtml::listData($this->findAll($criteria),'id','full_name');
     }
+    
+    public function behaviors() {
+        return array(
+            'preview' => array(
+                'class' => 'ext.imageAttachment.ImageAttachmentBehavior',
+                'previewHeight' => 200,
+                'previewWidth'  => 200,
+                // extension for image saving, can be also tiff, png or gif
+                'extension' => 'jpg',
+                // folder to store images
+                'directory' => Yii::getPathOfAlias('webroot'). '/beneficiaries/'. $this->id. '/' .substr(sha1($this->id), 0, 10).'/'.substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // url for images folder
+                'url' => Yii::app()->request->baseUrl . '/beneficiaries/'. $this->id . '/' . substr(sha1($this->id), 0, 10). '/' .substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // image versions
+                'versions' => array(
+                    'small' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(55, null),
+                    ),
+                    'medium' => array(
+                        'resize' => array(150, null),
+                        //'crop'   => array(70, null),
+                    ),
+                   'large' => array(
+                        'resize' => array(300, null),
+                        //'crop'   => array(140, null),
+                    ),
+                   'avatar' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(140, null),
+                    )
+                )
+            ),
+        );
+    }
+    
 }

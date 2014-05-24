@@ -69,8 +69,10 @@ class BeneficiaryController extends Controller
 		if(isset($_POST['Beneficiary']))
 		{
 			$model->attributes=$_POST['Beneficiary'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded($model);
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -93,8 +95,10 @@ class BeneficiaryController extends Controller
 		if(isset($_POST['Beneficiary']))
 		{
 			$model->attributes=$_POST['Beneficiary'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded($model);
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
