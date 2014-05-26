@@ -15,6 +15,7 @@
  * @property string $mosque_type_id
  * @property string $country_id
  * @property string $city_id
+ * @property integer $gallery_id
  * @property string $owner_id
  * @property string $created_at
  * @property string $updated_at
@@ -29,6 +30,7 @@
  * @property City $city
  * @property OrganizationUser $owner
  * @property MosquePhoto[] $mosquePhotos
+ * @property Gallery $gallery
  */
 class Mosque extends Aulaula
 {
@@ -49,6 +51,7 @@ class Mosque extends Aulaula
 		// will receive user inputs.
 		return array(
 			array('name, address, contract_date, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'required'),
+			array('gallery_id', 'numerical', 'integerOnly'=>true),
 			array('name, address, contract_photo_path', 'length', 'max'=>255),
 			array('construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'length', 'max'=>11),
 			array('notes, options', 'length', 'max'=>1024),
@@ -58,7 +61,7 @@ class Mosque extends Aulaula
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
+			array('id, name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +80,7 @@ class Mosque extends Aulaula
 			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'mosquePhotos' => array(self::HAS_MANY, 'MosquePhoto', 'mosque_id'),
+			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
 		);
 	}
 
@@ -97,6 +101,7 @@ class Mosque extends Aulaula
 			'mosque_type_id' => Yii::t('mosque','Mosque Type'),
 			'country_id' => Yii::t('mosque','Country'),
 			'city_id' => Yii::t('mosque','City'),
+			'gallery_id' => Yii::t('mosque','Gallery'),
 			'owner_id' => Yii::t('mosque','Owner'),
 			'created_at' => Yii::t('mosque','Created At'),
 			'updated_at' => Yii::t('mosque','Updated At'),
@@ -134,6 +139,7 @@ class Mosque extends Aulaula
 		$criteria->compare('mosque_type_id',$this->mosque_type_id,true);
 		$criteria->compare('country_id',$this->country_id,true);
 		$criteria->compare('city_id',$this->city_id,true);
+        $criteria->compare('gallery_id',$this->gallery_id);
 		$criteria->compare('owner_id',$this->owner_id,true);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
@@ -148,11 +154,32 @@ class Mosque extends Aulaula
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
+	 * @param string $className active record class name.'controllerRoute' => '/admin/gallery', //route to gallery controller
 	 * @return Mosque the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
+    
+    public function behaviors()
+    {
+        return array(
+            'galleryBehavior' => array(
+                'class' => 'GalleryBehavior',
+                'idAttribute' => 'gallery_id',
+                'versions' => array(
+                    'small' => array(
+                        'centeredpreview' => array(98, 98),
+                    ),
+                    'medium' => array(
+                        'resize' => array(100, null),
+                    )
+                ),
+                'name' => true,
+                'description' => true,
+            )
+        );
+    }
+    
 }

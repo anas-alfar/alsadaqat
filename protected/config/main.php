@@ -3,6 +3,7 @@
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
+Yii::setPathOfAlias('yiiwheels', dirname(__FILE__).'/../extensions/yiiwheels');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
@@ -19,6 +20,8 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.helpers.*',
+        'application.extensions.gallerymanager.*',
+        'application.extensions.gallerymanager.models.*',
 		'application.modules.translate.TranslateModule',
 	),
 
@@ -48,6 +51,9 @@ return array(
 	'components'=>array(
         'bootstrap'=>array(
             'class'=>'bootstrap.components.Bootstrap',
+        ),
+        'yiiwheels' => array(
+            'class' => 'yiiwheels.YiiWheels',   
         ),
 
         'user' => array(

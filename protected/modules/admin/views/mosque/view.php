@@ -36,3 +36,18 @@ $this->menu=array(
 		'options',
 	),
 )); ?>
+
+
+
+<h2><?php echo Yii::t('gallery', 'Mosque gallery')?></h2>
+<?php
+if ($model->galleryBehavior->getGallery() === null) {
+    echo '<p>' . Yii::t('gallery', 'Before add photos to mosque gallery, you need to create gallery for this mosque') . '<b> '. $model->name.'</b></p>';
+    echo '<p>' . Yii::t('gallery', 'To create gallery, go to') . ' ' . CHtml::link( Yii::t('Mosque', 'Manage Mosque'), array('admin') ) . ' or ' . CHtml::link( Yii::t('gallery', 'Create Gallery'), array('createGallery', 'id' => $model->id) ) ;
+} else {
+    $this->widget('GalleryManager', array(
+        'gallery' => $model->galleryBehavior->getGallery(),
+        'controllerRoute' => '/admin/gallery', //route to gallery controller
+    ));
+}
+?>
