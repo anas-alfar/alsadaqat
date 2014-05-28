@@ -127,4 +127,35 @@ class City extends Aulaula
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * Begin Scopes Functions 
+     */
+    public function published( $published ) {
+        $this -> getDbCriteria() -> mergeWith(
+        array(
+            'condition' => $this -> getTableAlias(false) . ".published = '$published'",
+            )
+        );
+        return $this;
+    }
+    /**
+     * End Scopes Functions 
+     */
+
+    public function getOptions( $countryId=null ){
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,name,name_ar';
+        $criteria->scopes = array('published' => 'Yes');
+
+        if( $countryId !== null ) {
+            $criteria->addCondition('country_id = :country_id');
+            $criteria->params=array(':country_id' => $countryId );
+        }
+
+        return CHtml::listData($this->findAll($criteria), 
+                'id', Yii::app()->language == 'en' ? 'name' : 'name_ar');  
+    }
+    
+    
 }

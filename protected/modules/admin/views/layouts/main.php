@@ -47,6 +47,7 @@
       $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.masonry.min.js');
       $cs->registerScriptFile($baseUrl.'/js/styleswitcher.js');
     ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/js/alsadaqat.js', CClientScript::POS_END)?>
   </head>
 
 <body>
@@ -68,3 +69,11 @@
 
   </body>
 </html>
+
+<?php 
+    Yii::app()->clientScript->registerScript('INIT',
+     'YII_CSRF_TOKEN      = "'.Yii::app()->request->csrfToken.'";
+      getCitisUrl         = "'.Yii::app()->createUrl('admin/city/getCities').'";
+     ', CClientScript::POS_END )
+?>
+     

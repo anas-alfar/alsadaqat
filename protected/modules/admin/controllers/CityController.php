@@ -27,7 +27,7 @@ class CityController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'getCities'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -173,4 +173,14 @@ class CityController extends Controller
 			Yii::app()->end();
 		}
 	}
+    
+    public function actionGetCities($country_id) {
+        if( isset($country_id) AND !empty($country_id) ){
+            echo json_encode(City::model()->getOptions( (int) $country_id ));
+        }else{
+            echo json_encode(City::model()->getOptions());
+        }
+        Yii::app()->end();
+    }
+
 }
