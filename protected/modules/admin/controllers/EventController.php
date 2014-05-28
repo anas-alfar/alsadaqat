@@ -31,7 +31,7 @@ class EventController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'CreateGallery'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -43,6 +43,36 @@ class EventController extends Controller
 			),
 		);
 	}
+
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    public function actionCreateGallery($id)
+    {
+        $model = $this->loadModel($id);
+        
+        if( ! $model->gallery_id ) {
+            $gallery              = new Gallery();
+            //$gallery->type        = 'archive';
+            $gallery->name        = true;
+            $gallery->description = true;
+            $gallery->versions = array(
+                'small' => array(
+                    'resize' => array(200, null),
+                ),
+                'medium' => array(
+                    'resize' => array(800, null),
+                )
+            );
+            $gallery->save();
+        
+            $model->gallery_id = $gallery->id;
+            $model->save();
+        }
+        $this->redirect(array('view','id'=>$model->id));
+        
+    }
 
 	/**
 	 * Displays a particular model.

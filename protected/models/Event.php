@@ -12,6 +12,7 @@
  * @property string $event_type_id
  * @property string $country_id
  * @property string $city_id
+ * @property integer $gallery_id
  * @property string $address
  * @property string $status
  * @property string $start_at
@@ -53,6 +54,7 @@ class Event extends Aulaula
 		// will receive user inputs.
 		return array(
 			array('organization_id, title, description, event_type_id, country_id, city_id, address, start_at, end_at, owner_id', 'required'),
+			array('gallery_id', 'numerical', 'integerOnly'=>true),
 			array('number_of_days', 'numerical', 'integerOnly'=>true),
 			array('organization_id, event_type_id, country_id, city_id, status, owner_id', 'length', 'max'=>11),
 			array('title, address', 'length', 'max'=>255),
@@ -64,7 +66,7 @@ class Event extends Aulaula
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, organization_id, title, description, number_of_days, event_type_id, country_id, city_id, address, status, start_at, end_at, published, approved, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
+			array('id, organization_id, title, description, number_of_days, event_type_id, country_id, city_id, gallery_id, address, status, start_at, end_at, published, approved, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,6 +86,7 @@ class Event extends Aulaula
 			'eventActivities' => array(self::HAS_MANY, 'EventActivity', 'event_id'),
 			'eventAgendas' => array(self::HAS_MANY, 'EventAgenda', 'event_id'),
 			'eventPhotos' => array(self::HAS_MANY, 'EventPhoto', 'event_id'),
+			'gallery' => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
 		);
 	}
 
@@ -102,6 +105,7 @@ class Event extends Aulaula
 			'country_id' => Yii::t('event','Country'),
 			'city_id' => Yii::t('event','City'),
 			'address' => Yii::t('event','Address'),
+			'gallery_id' => Yii::t('event','Gallery'),
 			'status' => Yii::t('event','Status'),
 			'start_at' => Yii::t('event','Start At'),
 			'end_at' => Yii::t('event','End At'),
@@ -141,6 +145,7 @@ class Event extends Aulaula
 		$criteria->compare('event_type_id',$this->event_type_id,true);
 		$criteria->compare('country_id',$this->country_id,true);
 		$criteria->compare('city_id',$this->city_id,true);
+        $criteria->compare('gallery_id',$this->gallery_id);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('start_at',$this->start_at,true);
@@ -176,4 +181,25 @@ class Event extends Aulaula
 
         return CHtml::listData($this->findAll($criteria),'id','title');
     }
+
+    public function behaviors()
+    {
+        return array(
+            'galleryBehavior' => array(
+                'class' => 'GalleryBehavior',
+                'idAttribute' => 'gallery_id',
+                'versions' => array(
+                    'small' => array(
+                        'centeredpreview' => array(98, 98),
+                    ),
+                    'medium' => array(
+                        'resize' => array(100, null),
+                    )
+                ),
+                'name' => true,
+                'description' => true,
+            )
+        );
+    }
+
 }
