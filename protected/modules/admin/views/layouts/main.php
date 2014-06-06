@@ -27,10 +27,10 @@
       $cs->registerCssFile($baseUrl."/css/$this->currentLanguage/bootstrap.min.css");
       $cs->registerCssFile($baseUrl."/css/$this->currentLanguage/bootstrap-responsive.min.css");
       $cs->registerCssFile($baseUrl."/css/$this->currentLanguage/abound.css");
-      $cs->registerCssFile($baseUrl."/css/$this->currentLanguage/style-blue.css");
+      $cs->registerCssFile($baseUrl."/css/$this->currentLanguage/style-red.css");
       ?>
       <!-- styles for style switcher -->
-        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl;?>/css/style-blue.css" />
+        <link rel="alternate stylesheet" type="text/css" media="screen" title="style1" href="<?php echo $baseUrl;?>/css/<?php echo $this->currentLanguage ?>/style-blue.css" />
         <link rel="alternate stylesheet" type="text/css" media="screen" title="style2" href="<?php echo $baseUrl;?>/css/<?php echo $this->currentLanguage ?>/style-brown.css" />
         <link rel="alternate stylesheet" type="text/css" media="screen" title="style3" href="<?php echo $baseUrl;?>/css/<?php echo $this->currentLanguage ?>/style-green.css" />
         <link rel="alternate stylesheet" type="text/css" media="screen" title="style4" href="<?php echo $baseUrl;?>/css/<?php echo $this->currentLanguage ?>/style-grey.css" />

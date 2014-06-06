@@ -1,20 +1,25 @@
-<?php
-/* @var $this SiteController */
+<?php /* @var $this Controller */ ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="language" content="en" />
 
-$this->pageTitle=Yii::app()->name;
-?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+</head>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
-
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<body style="margin: auto auto; width:90%;">
+<center>
+<div>
+	<p>&nbsp;</p>
+	<h1><?php echo Yii::t('app', 'Welcome to AlSadaqat.com. The ultimate platform for all your charity activities.'); ?></h1>
+	<p>&nbsp;</p>
+	<p>
+		<img src="/themes/abound/img/shaq-tamrah-01.jpg" style="border: none;" title="<?php echo Yii::t('app', 'Alsadaqat'); ?>" alt="<?php echo Yii::t('app', 'Alsadaqat'); ?>"  />
+	</p>
+	<p>&nbsp;</p>
+</div>
+</center>
+</body>
+</html>

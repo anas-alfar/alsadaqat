@@ -18,7 +18,9 @@
             ),
             ));?>
         </div>
-        <br>
+        
+        <!-- 
+
         <table class="table table-striped table-bordered">
           <tbody>
             <tr>
@@ -69,6 +71,12 @@
               
             </dl>
       </div>
+
+      -->
+
+      <div class="well">
+        <img src="/themes/abound/img/shaq-tamrah-01.jpg" style="border: none;" title="<?php echo Yii::t('app', 'Alsadaqat'); ?>" alt="<?php echo Yii::t('app', 'Alsadaqat'); ?>"  />
+      </div>
         
     </div><!--/span-->
     <div class="span9">
@@ -76,7 +84,7 @@
     <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
             'links'=>$this->breadcrumbs,
-            'homeLink'=>CHtml::link('Dashboard'),
+            'homeLink'=>CHtml::link(Yii::t('app','Dashboard'), '/admin'),
             'htmlOptions'=>array('class'=>'breadcrumb')
         )); ?><!-- breadcrumbs -->
     <?php endif?>

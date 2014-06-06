@@ -12,9 +12,9 @@ CHtml::$errorContainerTag = 'small';
 CHtml::$errorCss          = 'has-error';
 ?>
 
-<h1>Login</h1>
+<h1><?php echo Yii::t('app', 'Login'); ?></h1>
 
-<p>Please fill out the following form with your login credentials:</p>
+<p><?php echo Yii::t('app', 'Please fill out the following form with your login credentials:'); ?></p>
 
 <div class="form">
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -28,26 +28,23 @@ CHtml::$errorCss          = 'has-error';
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required'); ?></p>
 
         <div class="form-group">
-		<?php echo $form->labelEx($model,'username'); ?>
+		<?php echo $form->labelEx($model,Yii::t('app', 'username')); ?>
 		<?php echo $form->textField($model,'username', array('class'=>'span5 form-control')); ?>
 		<?php echo $form->error($model,'username', array('class' => 'control-label')); ?>
 		</div>
 
         <div class="form-group">
-		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->labelEx($model,Yii::t('app', 'password')); ?>
 		<?php echo $form->passwordField($model,'password', array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'password', array('class' => 'control-label')); ?>
 		</div>
-		<p class="hint">
-			Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
 
 	<div class="form-goup row rememberMe">
 		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
+		<?php echo $form->label($model,Yii::t('app', 'rememberMe')); ?>
 		<?php echo $form->error($model,'rememberMe'); ?>
 	</div>
 	
