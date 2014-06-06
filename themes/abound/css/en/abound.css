@@ -12,8 +12,7 @@ body {
   float:left;
   font-size:20px;
   font-weight:200;
-  padding:10px 20px;
-  margin-left:-15px;
+  padding:10px 40px 10px;
 }
 
 .navbar .nav > li > a {
@@ -24,22 +23,19 @@ body {
 
 .navbar-search .search-query {
   border-radius:5px;
+  margin-right: 10px;
 }
 
 /* Desktops and laptops ----------- */
 @media only screen 
 and (min-width : 1224px) {
 	.container-fluid{padding-top: 100px;}
-	.navbar .brand {margin-left:-90px;}
-	.style-switcher{margin-left:-70px;}
 }
 
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1824px) {
 	.container-fluid{padding-top: 100px;}
-	.navbar .brand {margin-left:-90px;}
-	.style-switcher{margin-left:-70px;}
 }
 
 table.detail-view td {font-size:12px;}
@@ -497,7 +493,7 @@ footer {
 /*Style switcher*/
 .style-switcher
 {
-	padding-top:13px;
+	padding:13px;
 }
 .style-switcher span.style
 {

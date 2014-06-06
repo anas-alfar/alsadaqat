@@ -8,7 +8,7 @@
           </a>
      
           <!-- Be sure to leave the brand out there if you want it shown -->
-          <a class="brand" href="#">Alsadaqat.com <small>admin workspace</small></a>
+          <a class="brand" href="/admin"><?php echo Yii::t('app', 'Alsadaqat'); ?></a>
           
           <div class="nav-collapse">
 			<?php 
