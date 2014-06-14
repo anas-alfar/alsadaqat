@@ -1,9 +1,25 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'beneficiary-form',
-	'enableAjaxValidation'=>false,
+	'id' => 'beneficiary-form',
+	'enableAjaxValidation'   => false,
+	'enableClientValidation' => true,
     'htmlOptions' => array(
-        'class' => 'well',
+        'class'   => 'well',
         'enctype' => 'multipart/form-data',
+    ),
+    'clientOptions' => array(
+        'validateOnSubmit' => true,
+        'afterValidate'    => 'js:function(form, data, hasError) {
+            if(hasError) {
+              for(var i in data){
+                $("html, body").animate({
+                  scrollTop: $("div.error").offset().top - 100
+                 }, 1000);
+                 return false;
+              } 
+           }else{
+            return true;
+           }
+        }',
     ),
 )); ?>
 
@@ -17,23 +33,23 @@
 
 	<?php echo $form->dropDownListControlGroup($model, 'gender', ENUMHtml::enumItem($model, 'gender'), array('class'=>'span5', 'maxlength'=>6)); ?>
 
-    <?php 
-        // $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
-            // 'name' => 'datepickertest',
-            // 'pluginOptions' => array(
-                // 'format' => 'mm/dd/yyyy'
-            // )
-        // ));
-//         
-        // $this->widget(
-            // 'yiiwheels.widgets.datetimepicker.WhDateTimePicker',
-            // array(
-                // 'name' => 'datetimepickertest',
-            // )
-        // );
+    <?php
+        $datePicker = $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
+            //'name' => 'date_of_birth',
+            'model' => $model,
+            'attribute' => 'date_of_birth',
+            'pluginOptions' => array(
+                'language' => (Yii::app()->language == 'ar') ? Yii::app()->language : '',
+                'format' => 'yyyy-mm-dd'
+            ),
+            'htmlOptions' => array(
+                'class' => 'span5',
+            )
+        ), TRUE);
     ?>
 
-	<?php echo $form->textFieldControlGroup($model,'date_of_birth',array('class'=>'span5')); ?>
+	<?php echo TbHtml::customActiveControlGroup($datePicker, $model, 'date_of_birth'); ?>
+	<?php $form->error($model, 'date_of_birth')?>
 
 	<?php echo $form->textFieldControlGroup($model,'email',array('class'=>'span5','maxlength'=>255)); ?>
 

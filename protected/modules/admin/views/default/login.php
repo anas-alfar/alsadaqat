@@ -35,7 +35,7 @@ $this->breadcrumbs=array(
 
         <?php echo $form->textFieldControlGroup($model,'username',array('class'=>'span5','maxlength'=>11)); ?>
         
-        <?php echo $form->textFieldControlGroup($model,'password',array('class'=>'span5','maxlength'=>11)); ?>
+        <?php echo $form->passwordFieldControlGroup($model,'password',array('class'=>'span5','maxlength'=>11)); ?>
 
     <!--
 	<div class="form-goup row rememberMe">
