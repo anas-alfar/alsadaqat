@@ -1,19 +1,22 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'organization-access-level-permission-form',
 	'enableAjaxValidation'=>false,
+    'htmlOptions' => array(
+        'class' => 'well',
+    ),
 )); ?>
 
 	<p class="help-block"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required' )?>.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'organization_access_level_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php echo $form->textFieldControlGroup($model,'organization_access_level_id',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldRow($model,'controller_name',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php echo $form->textFieldControlGroup($model,'controller_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'action_name',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php echo $form->textFieldControlGroup($model,'action_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'permission',array('class'=>'span5','maxlength'=>10)); ?>
+	<?php echo $form->textFieldControlGroup($model,'permission',array('class'=>'span5','maxlength'=>10)); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

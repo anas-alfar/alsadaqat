@@ -20,6 +20,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.helpers.*',
+		'bootstrap.helpers.TbHtml', // yiistrap configuration
         'application.extensions.gallerymanager.*',
         'application.extensions.gallerymanager.models.*',
 		'application.modules.translate.TranslateModule',
@@ -49,9 +50,11 @@ return array(
 
 	// application components
 	'components'=>array(
+        // yiistrap configuration
         'bootstrap'=>array(
-            'class'=>'bootstrap.components.Bootstrap',
+            'class' => 'bootstrap.components.TbApi',
         ),
+        // yiiwheels configuration
         'yiiwheels' => array(
             'class' => 'yiiwheels.YiiWheels',   
         ),
