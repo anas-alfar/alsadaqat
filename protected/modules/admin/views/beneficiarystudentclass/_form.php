@@ -1,8 +1,24 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'beneficiary-student-class-form',
-	'enableAjaxValidation'=>false,
+    'enableAjaxValidation'   => false,
+    'enableClientValidation' => true,
     'htmlOptions' => array(
         'class' => 'well',
+    ),
+    'clientOptions' => array(
+        'validateOnSubmit' => true,
+        'afterValidate'    => 'js:function(form, data, hasError) {
+            if(hasError) {
+              for(var i in data){
+                $("html, body").animate({
+                  scrollTop: $("div.error").offset().top - 100
+                 }, 1000);
+                 return false;
+              } 
+           }else{
+            return true;
+           }
+        }',
     ),
 )); ?>
 
@@ -18,20 +34,49 @@
 
 	<?php echo $form->textFieldControlGroup($model,'address',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'start_at',array('class'=>'span5')); ?>
+	<?php //echo $form->textFieldControlGroup($model,'start_at',array('class'=>'span5')); ?>
+    <?php
+        $startAt = $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
+            'model' => $model,
+            'attribute' => 'start_at',
+            'pluginOptions' => array(
+                'language' => (Yii::app()->language == 'ar') ? Yii::app()->language : '',
+                'format' => 'yyyy-mm-dd'
+            ),
+            'htmlOptions' => array(
+                'class' => 'span5',
+            )
+        ), TRUE);
+    ?>
+    <?php echo TbHtml::customActiveControlGroup($startAt, $model, 'start_at'); ?>
+    <?php $form->error($model, 'start_at')?>
 
-	<?php echo $form->textFieldControlGroup($model,'end_at',array('class'=>'span5')); ?>
+	<?php //echo $form->textFieldControlGroup($model,'end_at',array('class'=>'span5')); ?>
+    <?php
+        $endAt = $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
+            'model' => $model,
+            'attribute' => 'end_at',
+            'pluginOptions' => array(
+                'language' => (Yii::app()->language == 'ar') ? Yii::app()->language : '',
+                'format' => 'yyyy-mm-dd'
+            ),
+            'htmlOptions' => array(
+                'class' => 'span5',
+            )
+        ), TRUE);
+    ?>
+    <?php echo TbHtml::customActiveControlGroup($endAt, $model, 'end_at'); ?>
+    <?php $form->error($model, 'end_at')?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'beneficiary_id', Beneficiary::model()->getOptions(), array('empty' =>$model->getAttributeLabel('beneficiary_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 
-	<div class="form-actions">
-		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType'=>'submit',
-			'type'=>'primary',
-			'label'=>$model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'),
-		)); ?>
-	</div>
+    <div class="form-actions">
+        <?php echo TbHtml::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'), array(
+            'color'=> TbHtml::BUTTON_COLOR_PRIMARY,
+            'size' => TbHtml::BUTTON_SIZE_LARGE,
+        )); ?>
+    </div>
 
 <?php $this->endWidget(); ?>

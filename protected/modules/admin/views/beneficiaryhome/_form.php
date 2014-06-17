@@ -1,8 +1,24 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'beneficiary-home-form',
-	'enableAjaxValidation'=>false,
+    'enableAjaxValidation'   => false,
+    'enableClientValidation' => true,
     'htmlOptions' => array(
         'class' => 'well',
+    ),
+    'clientOptions' => array(
+        'validateOnSubmit' => true,
+        'afterValidate'    => 'js:function(form, data, hasError) {
+            if(hasError) {
+              for(var i in data){
+                $("html, body").animate({
+                  scrollTop: $("div.error").offset().top - 100
+                 }, 1000);
+                 return false;
+              } 
+           }else{
+            return true;
+           }
+        }',
     ),
 )); ?>
 
