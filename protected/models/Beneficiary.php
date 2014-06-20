@@ -73,6 +73,7 @@ class Beneficiary extends Aulaula
 			array('full_name, date_of_birth, address, nationality_id, country_id, city_id, organization_id, organization_branch_id, owner_id', 'required'),
 			array('full_name, email, address, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
+			array('email', 'email'),
 			array('gender', 'length', 'max'=>6),
 			array('home_phone, mobile', 'length', 'max'=>17),
 			array('nationality_id, country_id, city_id, organization_id, organization_branch_id, donator_id, owner_id', 'length', 'max'=>11),
