@@ -134,7 +134,7 @@ class WhFileUpload extends CJuiInputWidget
 
         // Upgrade widget factory
         // @todo remove when jquery.ui 1.9+ is fully integrated into stable Yii versions
-        $cs->registerScriptFile($assetsUrl . '/js/vendor/jquery.ui.widget.js', CClientScript::POS_END);
+        $cs->registerScriptFile($assetsUrl . '/js/vendor/jquery.ui.widget.js', CClientScript::POS_HEAD);
 
         //The Templates plugin is included to render the upload/download listings
         $cs->registerScriptFile($assetsUrl . '/js/tmpl.min.js', CClientScript::POS_END);
