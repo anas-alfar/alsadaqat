@@ -1,9 +1,25 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'organization-user-form',
-	'enableAjaxValidation'=>false,
+    'enableAjaxValidation'   => false,
+    'enableClientValidation' => true,
     'htmlOptions' => array(
-        'class'   => 'well',
+        'class' => 'well',
         'enctype' => 'multipart/form-data',
+    ),
+    'clientOptions' => array(
+        'validateOnSubmit' => true,
+        'afterValidate'    => 'js:function(form, data, hasError) {
+            if(hasError) {
+              for(var i in data){
+                $("html, body").animate({
+                  scrollTop: $("div.error").offset().top - 100
+                 }, 1000);
+                 return false;
+              } 
+           }else{
+            return true;
+           }
+        }',
     ),
 )); ?>
 
@@ -13,7 +29,7 @@
 
 	<?php echo $form->textFieldControlGroup($model,'username',array('class'=>'span5','maxlength'=>32)); ?>
 
-	<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>32)); ?>
+	<?php echo $form->passwordFieldControlGroup($model,'password',array('class'=>'span5','maxlength'=>32)); ?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'title', ENUMHtml::enumItem($model, 'title'), array('class'=>'span5', 'maxlength'=>4)); ?>
 
@@ -25,7 +41,26 @@
 
 	<?php echo $form->textFieldControlGroup($model,'email',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'date_of_birth',array('class'=>'span5')); ?>
+
+    <?php
+        $datePicker = $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
+            //'name' => 'date_of_birth',
+            'model' => $model,
+            'attribute' => 'date_of_birth',
+            'pluginOptions' => array(
+                'language' => (Yii::app()->language == 'ar') ? Yii::app()->language : '',
+                'format' => 'yyyy-mm-dd'
+            ),
+            'htmlOptions' => array(
+                'class' => 'span5',
+            )
+        ), TRUE);
+    ?>
+
+    <?php echo TbHtml::customActiveControlGroup($datePicker, $model, 'date_of_birth'); ?>
+    <?php $form->error($model, 'date_of_birth')?>
+	<?php //echo $form->textFieldControlGroup($model,'date_of_birth',array('class'=>'span5')); ?>
+
 
 	<?php echo $form->textFieldControlGroup($model,'home_phone',array('class'=>'span5','maxlength'=>17)); ?>
 
@@ -73,12 +108,11 @@
 
 	<?php echo $form->textFieldControlGroup($model,'last_login_ip',array('class'=>'span5','maxlength'=>15)); ?>
 
-	<div class="form-actions">
-		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType'=>'submit',
-			'type'=>'primary',
-			'label'=>$model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'),
-		)); ?>
-	</div>
+    <div class="form-actions">
+        <?php echo TbHtml::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'), array(
+            'color'=> TbHtml::BUTTON_COLOR_PRIMARY,
+            'size' => TbHtml::BUTTON_SIZE_LARGE,
+        )); ?>
+    </div>
 
 <?php $this->endWidget(); ?>
