@@ -70,8 +70,8 @@ class OrganizationUserController extends Controller
 		{
 			$model->attributes=$_POST['OrganizationUser'];
 			if($model->save()){
-                $this -> checkImageUploaded($model, 'image');
-                $this -> checkImageUploaded($model, 'passport');
+                $this -> checkImageUploaded( $model, 'image', 'preview' );
+                $this -> checkImageUploaded( $model, 'passport', 'passpor' );
 
                 $this->redirect(array('view','id'=>$model->id));
 			}
@@ -100,8 +100,8 @@ class OrganizationUserController extends Controller
 			$model->attributes=$_POST['OrganizationUser'];
             //die('ddaa');
 			if($model->save()) {
-			    $this -> checkImageUploaded($model, 'image');
-			    $this -> checkImageUploaded($model, 'passport');
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
+			    $this -> checkImageUploaded( $model, 'passport', 'passpor' );
 
                 $this->redirect(array('view','id'=>$model->id));
 			}

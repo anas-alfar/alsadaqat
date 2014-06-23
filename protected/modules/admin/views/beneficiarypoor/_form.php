@@ -2,10 +2,11 @@
 	'id'=>'beneficiary-poor-form',
 	'enableAjaxValidation'   => false,
 	'enableClientValidation' => true,
-    'htmlOptions' => array(
-        'class' => 'well',
+    'htmlOptions' => array (
+        'class'     => 'well',
+        'enctype'   => 'multipart/form-data',
     ),
-    'clientOptions' => array(
+    'clientOptions' => array (
         'validateOnSubmit' => true,
         'afterValidate'    => 'js:function(form, data, hasError) {
             if(hasError) {
@@ -68,7 +69,18 @@
 
 	<?php echo $form->textFieldControlGroup($model,'father_reason_of_death',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'father_death_certificate_path',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php //echo $form->textFieldControlGroup($model,'father_death_certificate_path',array('class'=>'span5','maxlength'=>255)); ?>
+    <div class="control-group">
+        <?php echo $form->label($model, 'father_death_certificate_path') ?>
+        <?php echo CHtml::activeFileField($model, 'image'); ?>  
+        <?php echo $form->error($model,'image'); ?>
+    </div>
+    <?php
+        if( $model->preview->hasImage() )
+            echo '<div>' . CHtml::image($model->preview->getUrl('large'), 'Large image version') . '</div>';
+        else
+            echo '<div>'.Yii::t('app', 'No image uploaded') . '</div>';
+    ?>
 
 	<?php echo $form->textFieldControlGroup($model,'mother_full_name',array('class'=>'span5','maxlength'=>255)); ?>
 
@@ -112,7 +124,19 @@
 
 	<?php echo $form->textFieldControlGroup($model,'mother_reason_of_death',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'mother_death_certificate_path',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php //echo $form->textFieldControlGroup($model,'mother_death_certificate_path',array('class'=>'span5','maxlength'=>255)); ?>
+    <div class="control-group">
+        <?php echo $form->label($model, 'mother_death_certificate_path') ?>
+        <?php echo CHtml::activeFileField($model, 'mother'); ?>  
+        <?php echo $form->error($model,'mother'); ?>
+    </div>
+    <?php
+        if( $model->motherDeathCertificate->hasImage() )
+            echo '<div>' . CHtml::image($model->motherDeathCertificate->getUrl('large'), 'Large version') . '</div>';
+        else
+            echo '<div>'.Yii::t('app', 'No image uploaded') . '</div>';
+    ?>
+    
 
 	<?php echo $form->textFieldControlGroup($model,'number_of_brothers',array('class'=>'span5')); ?>
 

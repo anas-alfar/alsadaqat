@@ -70,7 +70,7 @@ class DonatorController extends Controller
 		{
 			$model->attributes=$_POST['Donator'];
 			if($model->save()) {
-			    $this -> checkImageUploaded($model);
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
                 $this->redirect(array('view','id'=>$model->id));
 			}
 
@@ -97,7 +97,7 @@ class DonatorController extends Controller
 		{
 			$model->attributes=$_POST['Donator'];
 			if($model->save()) {
-			    $this -> checkImageUploaded($model);
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
                 $this->redirect(array('view','id'=>$model->id));
 			}
 		}
