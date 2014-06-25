@@ -3,7 +3,8 @@
     'enableAjaxValidation'   => false,
     'enableClientValidation' => true,
     'htmlOptions' => array(
-        'class' => 'well',
+        'class'     => 'well',
+        'enctype'   => 'multipart/form-data',
     ),
     'clientOptions' => array(
         'validateOnSubmit' => true,
@@ -66,7 +67,18 @@
 
 	<?php echo $form->textFieldControlGroup($model,'husband_reason_of_death',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'husband_death_certificate_path',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php //echo $form->textFieldControlGroup($model,'husband_death_certificate_path',array('class'=>'span5','maxlength'=>255)); ?>
+    <div class="control-group">
+        <?php echo $form->label($model, 'husband_death_certificate_path') ?>
+        <?php echo CHtml::activeFileField($model, 'image'); ?>  
+        <?php echo $form->error($model,'image'); ?>
+    </div>
+    <?php
+        if( $model->preview->hasImage() )
+            echo '<div>' . CHtml::image($model->preview->getUrl('large'), 'Large image version') . '</div>';
+        else
+            echo '<div>'.Yii::t('app', 'No image uploaded') . '</div>';
+    ?>
 
 	<?php echo $form->textFieldControlGroup($model,'number_of_sons',array('class'=>'span5')); ?>
 

@@ -69,8 +69,13 @@ class BeneficiaryStudentController extends Controller
 		if(isset($_POST['BeneficiaryStudent']))
 		{
 			$model->attributes=$_POST['BeneficiaryStudent'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded($model, 'image', 'preview');
+                $this -> checkImageUploaded($model, 'mother', 'motherDeathCertificate');
+                
+                $this->redirect(array('view','id'=>$model->id));
+			}
+				
 		}
 
 		$this->render('create',array(
@@ -93,8 +98,13 @@ class BeneficiaryStudentController extends Controller
 		if(isset($_POST['BeneficiaryStudent']))
 		{
 			$model->attributes=$_POST['BeneficiaryStudent'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded($model, 'image', 'preview');
+                $this -> checkImageUploaded($model, 'mother', 'motherDeathCertificate');
+                
+                $this->redirect(array('view','id'=>$model->id));
+			}
+				
 		}
 
 		$this->render('update',array(
