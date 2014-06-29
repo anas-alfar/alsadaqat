@@ -86,6 +86,7 @@ class OrganizationBranchController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+        $this->cities = City::model()->getOptions($model->country_id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
