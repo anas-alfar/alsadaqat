@@ -4,6 +4,7 @@
     'enableClientValidation' => true,
     'htmlOptions' => array(
         'class'   => 'well',
+        'enctype' => 'multipart/form-data',
     ),
     'clientOptions' => array(
         'validateOnSubmit' => true,
@@ -51,7 +52,19 @@
 	<?php //echo $form->textFieldControlGroup($model,'contract_date',array('class'=>'span5')); ?>
 
 
-	<?php echo $form->textFieldControlGroup($model,'contract_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php //echo $form->textFieldControlGroup($model,'contract_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
+    <div class="control-group">
+        <?php echo $form->label($model, 'contract_photo_path') ?>
+        <?php echo CHtml::activeFileField($model, 'image'); ?>  
+        <?php echo $form->error($model,'image'); ?>
+    </div>
+    <?php
+        if( $model->preview->hasImage() )
+            echo '<div>' . CHtml::image($model->preview->getUrl('large'), 'Large image version') . '</div>';
+        else
+            echo '<div class="control-group">no image uploaded</div>';
+    ?>
+    
 
 	<?php echo $form->textFieldControlGroup($model,'construction_progress',array('class'=>'span5','maxlength'=>11)); ?>
 

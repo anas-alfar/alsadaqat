@@ -4,6 +4,7 @@
     'enableClientValidation' => true,
     'htmlOptions' => array(
         'class'   => 'well',
+        'enctype' => 'multipart/form-data',
     ),
     'clientOptions' => array(
         'validateOnSubmit' => true,
@@ -56,7 +57,19 @@
 
 	<?php echo $form->textFieldControlGroup($model,'bank_account_number',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'personal_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php //echo $form->textFieldControlGroup($model,'personal_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
+    <div class="control-group">
+        <?php echo $form->label($model, 'personal_photo_path') ?>
+        <?php echo CHtml::activeFileField($model, 'image'); ?>  
+        <?php echo $form->error($model,'image'); ?>
+    </div>
+    <?php
+        if( $model->preview->hasImage() )
+            echo '<div>' . CHtml::image($model->preview->getUrl('large'), 'Large image version') . '</div>';
+        else
+            echo '<div class="control-group">no image uploaded</div>';
+    ?>
+
 
     <?php echo $form->dropDownListControlGroup($model, 'country_id', Country::model()->getOptions(), array('empty' =>$model->getAttributeLabel('country_id'), 'class'=>'span5', 'maxlength'=>11, 'onChange' =>"updateCitiesDropDown( this.value, 'MosqueAgent_city_id','".$model->getAttributeLabel('city')."')")); ?>
 

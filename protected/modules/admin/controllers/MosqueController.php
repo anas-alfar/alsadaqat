@@ -99,8 +99,11 @@ class MosqueController extends Controller
 		if(isset($_POST['Mosque']))
 		{
 			$model->attributes=$_POST['Mosque'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
+
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -123,8 +126,11 @@ class MosqueController extends Controller
 		if(isset($_POST['Mosque']))
 		{
 			$model->attributes=$_POST['Mosque'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
+
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

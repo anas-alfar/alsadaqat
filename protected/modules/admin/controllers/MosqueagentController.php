@@ -69,8 +69,11 @@ class MosqueAgentController extends Controller
 		if(isset($_POST['MosqueAgent']))
 		{
 			$model->attributes=$_POST['MosqueAgent'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
+
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -93,8 +96,11 @@ class MosqueAgentController extends Controller
 		if(isset($_POST['MosqueAgent']))
 		{
 			$model->attributes=$_POST['MosqueAgent'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    $this -> checkImageUploaded( $model, 'image', 'preview' );
+
+                $this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

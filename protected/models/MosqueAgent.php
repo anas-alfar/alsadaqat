@@ -185,4 +185,40 @@ class MosqueAgent extends Aulaula
 
         return CHtml::listData($this->findAll($criteria),'id','fullname');
     }
+    
+    public function behaviors() {
+        return array(
+            'preview' => array(
+                'class' => 'ext.imageAttachment.ImageAttachmentBehavior',
+                'previewHeight' => 200,
+                'previewWidth'  => 200,
+                // extension for image saving, can be also tiff, png or gif
+                'extension' => 'jpg',
+                // folder to store images
+                'directory' => Yii::getPathOfAlias('webroot'). '/mosques/agents/'. $this->id. '/' .substr(sha1($this->id), 0, 10).'/'.substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // url for images folder
+                'url' => Yii::app()->request->baseUrl . '/mosques/agents/'. $this->id . '/' . substr(sha1($this->id), 0, 10). '/' .substr(sha1($this->id), -10) . '/' . $this->id % 100, //Controller::getImagePath($this->id, 'donators'),
+                // image versions
+                'versions' => array(
+                    'small' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(55, null),
+                    ),
+                    'medium' => array(
+                        'resize' => array(150, null),
+                        //'crop'   => array(70, null),
+                    ),
+                   'large' => array(
+                        'resize' => array(300, null),
+                        //'crop'   => array(140, null),
+                    ),
+                   'avatar' => array(
+                        'resize' => array(70, null),
+                        //'crop'   => array(140, null),
+                    )
+                )
+            ),
+        );
+    }
+    
 }
