@@ -180,10 +180,10 @@ class MosqueAgent extends Aulaula
 
 	public function getOptions(){
         $criteria         = new CDbCriteria;
-        $criteria->select = 'id,fullname';
+        $criteria->select = 'id,company_name';
         //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
 
-        return CHtml::listData($this->findAll($criteria),'id','fullname');
+        return CHtml::listData($this->findAll($criteria),'id','company_name');
     }
     
     public function behaviors() {
