@@ -23,7 +23,7 @@ class Aulaula extends CActiveRecord
     }
 
     public function mosqueAgentgentFilter($data) {
-        return MosqueAgent::model()->findByPk($data->agent_id)->fullname;
+        return MosqueAgent::model()->findByPk($data->agent_id)->company_name;
     }
 
     public function managerFullNameFilter($data) {

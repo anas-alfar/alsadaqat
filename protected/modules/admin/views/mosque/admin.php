@@ -48,10 +48,25 @@ $this->widget('yiiwheels.widgets.grid.WhGridView', array(
 	'columns'=>array(
 		'id',
 		'name',
-		'address',
-		'contract_date',
-		'contract_photo_path',
 		'construction_progress',
+        array(
+            'name'  => 'agent_id',
+            'type'  => 'raw',
+            'filter'=> MosqueAgent::model()->getOptions(),
+            'value' => array($model, 'mosqueAgentgentFilter'), 
+        ),
+        array(
+            'name'  => 'donator_id',
+            'type'  => 'raw',
+            'filter'=> Donator::model()->getOptions(),
+            'value' => array($model, 'donatorFilter'), 
+        ),
+        array(
+            'name'  => 'country_id',
+            'type'  => 'raw',
+            'filter'=> Country::model()->getOptions(),
+            'value' => array($model, 'countryFilter'), 
+        ),
 		/*
 		array(
             'name'  => array(
