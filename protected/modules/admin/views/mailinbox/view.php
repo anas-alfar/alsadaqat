@@ -32,3 +32,18 @@ $this->menu=array(
 		'updated_at',
 	),
 )); ?>
+
+
+
+<h2><?php echo Yii::t('gallery', 'Mail Inbox gallery')?></h2>
+<?php 
+if ($model->galleryBehavior->getGallery() === null) {
+    echo '<p>' . Yii::t('gallery', 'Before add photos to '.Yii::t('gallery', 'Mail Inbox gallery').', you need to create gallery') . '<b> '. $model->name.'</b></p>';
+    echo '<p>' . Yii::t('gallery', 'To create gallery, go to') . ' ' . CHtml::link( Yii::t('MailInbox', 'Manage MailInbox'), array('admin') ) . ' or ' . CHtml::link( Yii::t('gallery', 'Create Gallery'), array('createGallery', 'id' => $model->id) ) ;
+} else {
+    $this->widget('GalleryManager', array(
+        'gallery' => $model->galleryBehavior->getGallery(),
+        'controllerRoute' => '/admin/gallery', //route to gallery controller
+    ));
+}
+?>

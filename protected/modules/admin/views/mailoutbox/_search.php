@@ -30,7 +30,7 @@
 
 	<?php echo $form->textFieldControlGroup($model,'subject',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textAreaRowControlGroup($model,'description',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
+	<?php echo $form->textAreaControlGroup($model,'description',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'send_at',array('class'=>'span5')); ?>
 
@@ -39,7 +39,7 @@
 	<?php echo $form->textFieldControlGroup($model,'created_at',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'updated_at',array('class'=>'span5')); ?>
-
+ 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',

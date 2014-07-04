@@ -16,7 +16,7 @@
  * @property string $mail_attachment_id
  * @property string $created_at
  * @property string $updated_at
- *
+ * 
  * The followings are the available model relations:
  * @property Organization $organization
  * @property Owner $owner
@@ -136,4 +136,25 @@ class MailInbox extends Aulaula
 	{
 		return parent::model($className);
 	}
+    
+    public function behaviors()
+    {
+        return array(
+            'galleryBehavior' => array(
+                'class' => 'GalleryBehavior',
+                'idAttribute' => 'gallery_id',
+                'versions' => array(
+                    'small' => array(
+                        'centeredpreview' => array(98, 98),
+                    ),
+                    'medium' => array(
+                        'resize' => array(100, null),
+                    )
+                ),
+                'name' => true,
+                'description' => true,
+            ),
+        );
+    }
+    
 }

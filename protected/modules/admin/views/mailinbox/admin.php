@@ -62,8 +62,28 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'created_at',
 		'updated_at',
 		*/
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
+        array(
+            'header'    => 'action',
+            //'class'   => 'CButtonColumn',
+            'class'     => 'bootstrap.widgets.TbButtonColumn',
+            'template'  => '{view}{update}{delete}{gallery}',
+            'buttons'   => array
+            (
+                'gallery' => array
+                (
+                    //'click'   => 'function(){alert("Going down!");}',
+                    'label'   => '<i class="icon-picture"></i>',
+                    'options' => 
+                    array(
+                        'title'  => Yii::t('gallery', 'Create Gallery'),
+                        //'confirm'=>'Are you want to change status?',
+                        //'ajax'   => array('type' => 'get', 'url'=>'js:$(this).attr("href")', 'success' => 'js:function(data) { $.fn.yiiGridView.update("my-grid")}')
+                    ),
+                    'imageUrl'=> false,
+                    'url'     => 'Yii::app()->createUrl("admin/mailinbox/createGallery", array("id"=>$data->id))',
+                ),
+            ),
+            
+        ), 
 	),
 )); ?>

@@ -149,5 +149,26 @@ class MailOutbox extends Aulaula
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
+	} 
+    
+    public function behaviors()
+    {
+        return array(
+            'galleryBehavior' => array(
+                'class' => 'GalleryBehavior',
+                'idAttribute' => 'gallery_id',
+                'versions' => array(
+                    'small' => array(
+                        'centeredpreview' => array(98, 98),
+                    ),
+                    'medium' => array(
+                        'resize' => array(100, null),
+                    )
+                ),
+                'name' => true,
+                'description' => true,
+            ),
+        );
+    }
+
 }
