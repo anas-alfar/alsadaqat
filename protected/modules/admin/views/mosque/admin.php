@@ -107,7 +107,7 @@ $this->widget('yiiwheels.widgets.grid.WhGridView', array(
             'header'    => 'action',
             //'class'   => 'CButtonColumn',
 			'class'     => 'bootstrap.widgets.TbButtonColumn',
-			'template'  => '{view}{update}{delete}{gallery}',
+			'template'  => '{view}{update}{delete}{gallery}{report}',
             'buttons'   => array
             (
                 'gallery' => array
@@ -123,6 +123,21 @@ $this->widget('yiiwheels.widgets.grid.WhGridView', array(
                     'imageUrl'=> false,
                     'url'     => 'Yii::app()->createUrl("admin/mosque/createGallery", array("id"=>$data->id))',
                 ),
+                
+                'report' => array
+                (
+                    //'click'   => 'function(){alert("Going down!");}',
+                    'label'   => '<i class="icon-tasks"></i>',
+                    'options' => 
+                    array(
+                        'title'  => Yii::t('gallery', 'Create Gallery'),
+                        //'confirm'=>'Are you want to change status?',
+                        //'ajax'   => array('type' => 'get', 'url'=>'js:$(this).attr("href")', 'success' => 'js:function(data) { $.fn.yiiGridView.update("my-grid")}')
+                    ),
+                    'imageUrl'=> false,
+                    'url'     => 'Yii::app()->createUrl("admin/mosque/report", array("id"=>$data->id))',
+                ),
+                
             ),
 			
 		),

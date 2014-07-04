@@ -8,7 +8,7 @@ Yii::setPathOfAlias('yiiwheels', dirname(__FILE__).'/../extensions/yiiwheels');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	//'name'=>'My Web Application',
 	//'theme'=>'abound',
 	//'theme'=>'bootstrap',
 
@@ -36,15 +36,15 @@ return array(
 	   'admin',
 		// uncomment the following to enable the Gii tool
 
-		'gii'=>array(
-            'generatorPaths'=>array(
-                'bootstrap.gii',
-            ),		
-			'class'=>'system.gii.GiiModule',
-			'password'=>'123456',
-			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-		),
+		// 'gii'=>array(
+            // 'generatorPaths'=>array(
+                // 'bootstrap.gii',
+            // ),		
+			// 'class'=>'system.gii.GiiModule',
+			// 'password'=>'123456',
+			// // If removed, Gii defaults to localhost only. Edit carefully to taste.
+			// 'ipFilters'=>array('127.0.0.1','::1'),
+		// ),
 		
 	),
 
@@ -126,33 +126,17 @@ return array(
             ),
         ),
         
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=sadaqat_online',
-			'emulatePrepare' => true,
-			'username' => 'sadaqat_online',
-			'password' => 'sadaqat_online',
-			'charset' => 'utf8',
-		),
+		// 'db'=>array(
+			// 'connectionString' => 'mysql:host=localhost;dbname=sadaqat_online',
+			// 'emulatePrepare' => true,
+			// 'username' => 'sadaqat_online',
+			// 'password' => 'sadaqat_online',
+			// 'charset' => 'utf8',
+		// ),
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
-		),
-
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
-			),
 		),
 	),
 
@@ -161,5 +145,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+		'webroot' => '/var/www/alsadaqat',
 	),
 );

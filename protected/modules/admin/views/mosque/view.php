@@ -23,7 +23,12 @@ $this->menu=array(
 		'address',
 		'contract_date',
 		'contract_photo_path',
-		'construction_progress',
+		//'construction_progress',
+        array(
+            'name'  => 'construction_progress',
+            'type'  => 'raw',
+            'value' => $model->construction_progress . ' ' .TbHtml::animatedProgressBar( $model->construction_progress, array('color' => TbHtml::PROGRESS_COLOR_SUCCESS) )
+        ),
 		'donator_id',
 		'agent_id',
 		'mosque_type_id',

@@ -22,7 +22,8 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('construction_progress')); ?>:</b>
 	<?php echo CHtml::encode($data->construction_progress); ?>
-	<br />
+	<?php echo TbHtml::animatedProgressBar( $data->construction_progress, array('color' => TbHtml::PROGRESS_COLOR_SUCCESS) )?>
+	
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('donator_id')); ?>:</b>
 	<?php echo CHtml::encode($data->donatorFilter($data)); ?>

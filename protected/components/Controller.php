@@ -98,4 +98,31 @@ class Controller extends CController
         }
     }
     
+    public function getGallaryPhotosProviderByGalleryId( $galleryId ) {
+        $gallery      = $galleryId;
+
+        if ( ! $galleryId )
+            $gallery = 0;
+
+        $criteria  = new CDbCriteria;
+        $criteria -> compare('gallery_id', $gallery);
+        $criteria -> order = 'rank DESC';
+
+        return new CActiveDataProvider(GalleryPhoto::model(), array( 'criteria' => $criteria) );
+    }
+
+    public function getImageByCase( $imageId, $gallery_id, $size = 'big', $isPDF = false ) {
+
+        $root = ( $isPDF ) ? Yii::app() -> params['webroot'] : '';
+        $hash = substr( sha1($gallery_id), 0, 10). DIRECTORY_SEPARATOR .substr( sha1($gallery_id), -10) . '/' . $gallery_id % 100;
+        $path = 'galleries' . DIRECTORY_SEPARATOR . $gallery_id . DIRECTORY_SEPARATOR . $hash;
+
+        $imagePath  = $path . DIRECTORY_SEPARATOR  . $imageId . $size . '.jpg';
+        $fileExist = file_exists( Yii::app() -> params['webroot'] . $imagePath );
+        $src = ( $fileExist ) ? $root.$imagePath : false;
+
+        return $src;
+    }
+
+    
 }

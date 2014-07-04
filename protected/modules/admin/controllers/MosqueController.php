@@ -31,7 +31,7 @@ class MosqueController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'CreateGallery'),
+				'actions'=>array('create','update', 'CreateGallery', 'report', 'generatePDF'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -210,4 +210,115 @@ class MosqueController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    public function actionReport($id, $isPDF = false)
+    {
+        $this->layout = '/layouts/PDFColumn';
+        
+        $model        = $this->loadModel($id);
+
+        $photoGallery = $this -> getGallaryPhotosProviderByGalleryId( $model->gallery_id );
+        $photoGallery = $this -> returnGallaryPhotosInArrayByGallaryPhotosProvider( $photoGallery );
+
+        if ( $isPDF == false ) {
+            $this -> render('report',array(
+                'model'         => $model,
+                'photoGallery'  => $photoGallery,
+            ));    
+        } else {
+            
+            Yii::import('application.vendors.phpwkhtmltopdf.*');
+        
+            require_once('WkHtmlToPdf.php');
+        
+            spl_autoload_unregister( array( 'YiiBase', 'autoload' ) );
+            spl_autoload_register(   array( 'YiiBase', 'autoload' ) );        
+        
+            $webRoot = Yii::app() -> params['webroot'];
+            $rand    = rand(1, 9999).$model->id;
+            $html    = $webRoot.'reports/temp/'.$rand.time().$model->id.'.html';
+            $PDF     = $webRoot.'reports/temp/'.$rand.time().$model->id.'.pdf';
+            $handle  = fopen($html, 'w') or die('Cannot open file:  '.$html); //implicitly creates
+        
+            $ccc = new Controller('context');
+            fwrite($handle,  $ccc->renderInternal(
+                    Yii::getPathOfAlias('application.modules.admin.views.mosque').'/'.'report.php', 
+                    array( 'model' => $model, 'photoGallery'  => $photoGallery, ), true
+                )
+            );
+            
+            $HTMLToPDF  = new WkHtmlToPdf;
+            $HTMLToPDF -> ignoreWarnings = true;
+            $HTMLToPDF -> addPage($html);
+        
+            if( ! $HTMLToPDF->saveAs( $PDF ) )
+                throw new Exception('Could not create PDF: '.$HTMLToPDF->getError());
+        
+            copy($PDF, $webRoot . 'reports/mosque_' . $model->id . '.pdf');
+            
+        }
+        
+    }
+    
+    public function returnGallaryPhotosInArrayByGallaryPhotosProvider( $photoGallery ) {
+
+        $finalArray  = array();
+        $photosArray = array();
+
+        foreach ($photoGallery->getData() as $key => $value) {
+            $photosArray['label']   = $value->name;
+            $photosArray['caption'] = $value->description;
+            $photosArray['image']   = $this->getImageByCase($value->id, $value->gallery_id, '', true);
+            array_push( $finalArray, $photosArray );
+        }
+        return $finalArray;
+    }
+    
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    /*public function actionGeneratePDF($id)
+    {
+        Yii::import('application.vendors.phpwkhtmltopdf.*');
+
+        require_once('WkHtmlToPdf.php');
+
+        spl_autoload_unregister( array( 'YiiBase', 'autoload' ) );
+        spl_autoload_register(   array( 'YiiBase', 'autoload' ) );        
+
+        $model = $this->loadModel($id);
+        $photoGallery = $this -> getGallaryPhotosProviderByGalleryId( $model->gallery_id );
+        $photoGallery = $this -> returnGallaryPhotosInArrayByGallaryPhotosProvider( $photoGallery );
+
+        $webRoot                  = Yii::app() -> params['webroot'];
+        $rand                     = rand(1, 9999).$model->id;
+        $html                  = $webRoot.'reports/temp/'.$rand.time().$model->id.'.html';
+        $PDF               = $webRoot.'reports/temp/'.$rand.time().$model->id.'.pdf';
+        $handle                   = fopen($html, 'w') or die('Cannot open file:  '.$html); //implicitly creates
+
+        $ccc = new Controller('context');
+        //Yii::app()->language = 'en';
+        fwrite($handle,  $ccc->renderInternal(
+                Yii::getPathOfAlias('application.modules.admin.views.mosque').'/'.'report.php', 
+                array( 'model' => $model, 'photoGallery'  => $photoGallery, ), true
+            )
+        );
+        
+        $pdf  = new WkHtmlToPdf;
+        $pdf -> ignoreWarnings = true;
+        $pdf -> addPage($html);
+
+        if( ! $pdf->saveAs( $PDF ) )
+            throw new Exception('Could not create PDF: '.$pdf->getError());
+
+        copy($PDF, $webRoot . 'reports/mosque_' . $model->id . '.pdf');
+        //$output = shell_exec( " cp  ".$PDF."  ". $final_cv_path);
+    }*/
+
+
 }
