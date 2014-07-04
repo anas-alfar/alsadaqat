@@ -20,6 +20,18 @@
 	<?php echo Yii::t('enumItem',CHtml::encode($data->published)); ?>
 	<br />
 
+    <b><?php echo CHtml::encode($data->getAttributeLabel('population_count')); ?>:</b>
+    <?php echo CHtml::encode($data->population_count); ?>
+    <br />
+
+    <b><?php echo CHtml::encode($data->getAttributeLabel('houses_count')); ?>:</b>
+    <?php echo CHtml::encode($data->houses_count); ?>
+    <br />
+    
+    <b><?php echo CHtml::encode($data->getAttributeLabel('distance_to_capital')); ?>:</b>
+    <?php echo CHtml::encode($data->distance_to_capital); ?>
+    <br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('created_at')); ?>:</b>
 	<?php echo CHtml::encode($data->created_at); ?>
 	<br />

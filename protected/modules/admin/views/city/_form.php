@@ -34,6 +34,12 @@
 
 	<?php echo $form->dropDownListControlGroup($model, 'published', ENUMHtml::enumItem($model, 'published'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
+    <?php echo $form->textFieldControlGroup($model,'population_count',array('class'=>'span5', 'maxlength'=>11)); ?>
+
+    <?php echo $form->textFieldControlGroup($model,'houses_count',array('class'=>'span5', 'maxlength'=>11)); ?>
+
+    <?php echo $form->textFieldControlGroup($model,'distance_to_capital',array('class'=>'span5', 'maxlength'=>11)); ?>
+
     <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'), array(
             'color'=> TbHtml::BUTTON_COLOR_PRIMARY,

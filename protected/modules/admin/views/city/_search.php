@@ -16,6 +16,12 @@
 
 	<?php echo $form->dropDownListControlGroup($model, 'published', ENUMHtml::enumItem($model, 'published'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
+    <?php echo $form->textFieldControlGroup($model,'population_count',array('class'=>'span5', 'maxlength'=>11)); ?>
+
+    <?php echo $form->textFieldControlGroup($model,'houses_count',array('class'=>'span5', 'maxlength'=>11)); ?>
+
+    <?php echo $form->textFieldControlGroup($model,'distance_to_capital',array('class'=>'span5', 'maxlength'=>11)); ?>
+
 	<?php echo $form->textFieldControlGroup($model,'created_at',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'updated_at',array('class'=>'span5')); ?>

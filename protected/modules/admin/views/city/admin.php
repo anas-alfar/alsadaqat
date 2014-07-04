@@ -58,6 +58,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'type'  => 'raw',
             'filter'=> ENUMHtml::enumItem($model, 'published'),
         ),
+        'population_count',
+        'houses_count',
+        'distance_to_capital',
 		'created_at',
 		/*
 		'updated_at',

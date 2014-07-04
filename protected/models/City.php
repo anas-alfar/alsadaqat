@@ -9,6 +9,9 @@
  * @property string $name
  * @property string $name_ar
  * @property string $published
+ * @property string $population_count
+ * @property string $houses_count
+ * @property string $distance_to_capital
  * @property string $created_at
  * @property string $updated_at
  *
@@ -39,7 +42,7 @@ class City extends Aulaula
 		// will receive user inputs.
 		return array(
 			array('country_id, name, name_ar', 'required'),
-			array('country_id', 'length', 'max'=>11),
+			array('country_id, population_count, houses_count, distance_to_capital', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>128),
 			array('name_ar', 'length', 'max'=>255),
 			array('published', 'length', 'max'=>3),
@@ -49,7 +52,7 @@ class City extends Aulaula
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, country_id, name, name_ar, published, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, country_id, name, name_ar, published, population_count, houses_count, distance_to_capital, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -81,6 +84,9 @@ class City extends Aulaula
 			'name' => Yii::t('city','Name'),
 			'name_ar' => Yii::t('city','Name Ar'),
 			'published' => Yii::t('city','Published'),
+            'population_count' => Yii::t('city','Population Count'),
+            'houses_count' => Yii::t('city','Houses Count'),
+            'distance_to_capital' => Yii::t('city','Distance To Capital'),
 			'created_at' => Yii::t('city','Created At'),
 			'updated_at' => Yii::t('city','Updated At'),
 		);
@@ -109,6 +115,9 @@ class City extends Aulaula
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('name_ar',$this->name_ar,true);
 		$criteria->compare('published',$this->published,true);
+        $criteria->compare('population_count',$this->population_count,true);
+        $criteria->compare('houses_count',$this->houses_count,true);
+        $criteria->compare('distance_to_capital',$this->distance_to_capital,true);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 
