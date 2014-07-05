@@ -54,7 +54,7 @@ class MosqueAgent extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('company_name, fullname, ssn, email, mobile, address, bank_name, bank_branch_name, bank_branch_number, bank_swift_code, bank_account_number, country_id, city_id, organization_id, owner_id', 'required'),
+			array('company_name, fullname, ssn, email, mobile, address, country_id, city_id, organization_id, owner_id', 'required'),
 			array('company_name, fullname, email, address, bank_name, bank_branch_name, bank_branch_number, bank_account_number, personal_photo_path', 'length', 'max'=>255),
 			array('title', 'length', 'max'=>4),
 			array('ssn, bank_swift_code', 'length', 'max'=>32),

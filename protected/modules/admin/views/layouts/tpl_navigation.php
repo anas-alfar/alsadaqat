@@ -18,13 +18,13 @@
                 $translateReady = true;
                 if( $translate->hasMessages() ) {
                     $translateReady = false;
-                    $translateLink = $translate->translateLink('Translate missing in new page');
+                    $translateLink = $translate->translateLink('ترجمة العبارات المتبقية');
                     $translationStyle = 'position: relative; top: -20px;';
                 }
                 //link to the page where you edit the translations
-                $editLink = $translate->editLink('Edit translations page');
+                $editLink = $translate->editLink('صفحة العبارات المترجمة');
                 //link to the page where you check for all unstranslated messages of the system
-                $missingLink = $translate->missingLink('Missing translations page');
+                $missingLink = $translate->missingLink('صفحة العبارات المتبقية');
 
                 $this->widget('zii.widgets.CMenu',array(
                     'htmlOptions'=>array('class'=>'pull-right nav'),
@@ -105,12 +105,12 @@
                                 'items'=>array(
                                     array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Mosques') . '</i></strong>'),
                                     array('label' => Yii::t('app', 'Manage Mosques') , 'url'=>'/admin/mosque/index'),
-                                    array('label' => Yii::t('app', 'Manage Mosque Agent') , 'url'=>'/admin/mosqueAgent/index'),
                                     array('label' => Yii::t('app', 'Manage Mosque Types') , 'url'=>'/admin/mosqueType/index'),
                                     array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Wells') . '</i></strong>'),
                                     array('label' => Yii::t('app', 'Manage Wells') , 'url'=>'#'),
-                                    array('label' => Yii::t('app', 'Manage Wells Agent') , 'url'=>'#'),
                                     array('label' => Yii::t('app', 'Manage Wells Types') , 'url'=>'#'),
+                                    array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Agents') . '</i></strong>'),
+                                    array('label' => Yii::t('app', 'Manage Agents') , 'url'=>'/admin/mosqueAgent/index'),
                                 ),
                             ),
                             array('label'=> Yii::t('app', 'Organization') . '<span class="caret"></span>', 
