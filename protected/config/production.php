@@ -39,7 +39,7 @@ $production = array(
     
     'params' => array(
         'adminEmail' => 'mohammad.riad@gmail.com',
-        'webroot'    => '/var/www/alsadaqat/', // change this on production server
+        'webroot'    => '/home/sadaqat/public_html/', // change this on production server
     ),
     
 );

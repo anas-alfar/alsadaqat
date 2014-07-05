@@ -141,7 +141,7 @@ return array(
         'request' => array(
             'class' => 'ext.localeurls.LocaleHttpRequest',
             'languages'               => array( 'ar', 'en'),     // Array of available language codes
-            'persistLanguage'         => false,     // Wether to store the user language selection in session and cookie
+            'persistLanguage'         => true,     // Wether to store the user language selection in session and cookie
             'detectLanguage'          => true,     // Wether to auto detect the preferred user language from the HTTP headers
             'redirectDefault'         => true,     // Wether to also redirect the application's default language
             'languageCookieLifetime'  => false,    // How long to store the user language in a cookie. Default is 1 year. Set to false to disable cookie storage
