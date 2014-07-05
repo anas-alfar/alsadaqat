@@ -13,7 +13,7 @@ return array(
 	//'theme'=>'bootstrap',
 
 	// preloading 'log' component
-	'preload'=>array('log', 'translate'),
+	'preload'=>array( 'log', 'translate' ),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -24,6 +24,9 @@ return array(
         'application.extensions.gallerymanager.*',
         'application.extensions.gallerymanager.models.*',
 		'application.modules.translate.TranslateModule',
+
+        'application.modules.rights.*',
+        'application.modules.rights.components.*',
 	),
 
     'charset'             => 'UTF-8',
@@ -34,8 +37,36 @@ return array(
 	'modules'=>array(
 	   'translate',
 	   'admin',
-		// uncomment the following to enable the Gii tool
+	   
+        /*'rights'=>array(
+            //'superuserName'=>'admin_2@oilwell7.com',
+             'userClass' => 'OrganizationUser', //'Admins',
+             'authenticatedName'=>'Authenticated',
+              'userIdColumn'=>'id',
+              'userNameColumn'=>'username',
+            //  'enableBizRule'=>true,
+            //  'enableBizRuleData'=>false,
+            //  'displayDescription'=>true,
+            //  'flashSuccessKey'=>'rightsSuccess',
+            //  'flashErrorKey'=>'rightsError',
+            //  'install'=>true,
+            //  'baseUrl'=>'/rights',
+            //  'layout'=>'rights.views.layouts.main',
+            //  'appLayout'=>'application.views.layouts.main',
+            //  'cssFile'=>'rights.css',
 
+                'install'=>true, // Remove this row after running the module the first time.
+                //'superUserRole'=>'Admin', // Only an example, this is the default value.
+                //'defaultRoles'=>array('Guest'), // Only an example, this is the default value.
+                // 'superUsers'=>array(
+                        // 1=>'admin',
+                        // 2=>'demo',
+                        // 3=>'admin_2@oilwell7.com',
+                // ),
+
+        ),*/
+       
+		// uncomment the following to enable the Gii tool
 		// 'gii'=>array(
             // 'generatorPaths'=>array(
                 // 'bootstrap.gii',
@@ -59,16 +90,30 @@ return array(
             'class' => 'yiiwheels.YiiWheels',   
         ),
 
+        /*'authManager'=>array(
+            'class'=>'RDbAuthManager',
+         ),
+        'user'=>array(
+            'class'=>'RWebUser',
+            // enable cookie-based authentication
+            'allowAutoLogin'=>true,
+        ),*/
+
         'user' => array(
             // enable cookie-based authentication
             //'allowAutoLogin'  => true,
             'class'           => 'WebUser',
             'stateKeyPrefix'  => 'app',
-            'loginUrl'        => '/home/index',
+            //'loginUrl'        => '/home/index',
             'autoUpdateFlash' => false, // add this line to disable the flash counter
             //'allowAutoLogin'  => true,
             //'autoRenewCookie' => true,
         ),
+
+        /*'session'=>array(
+            'class' => 'CCacheHttpSession',
+            'cacheID' => 'memcache'
+        ),*/
 
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
@@ -96,7 +141,7 @@ return array(
         'request' => array(
             'class' => 'ext.localeurls.LocaleHttpRequest',
             'languages'               => array( 'ar', 'en'),     // Array of available language codes
-            'persistLanguage'         => true,     // Wether to store the user language selection in session and cookie
+            'persistLanguage'         => false,     // Wether to store the user language selection in session and cookie
             'detectLanguage'          => true,     // Wether to auto detect the preferred user language from the HTTP headers
             'redirectDefault'         => true,     // Wether to also redirect the application's default language
             'languageCookieLifetime'  => false,    // How long to store the user language in a cookie. Default is 1 year. Set to false to disable cookie storage

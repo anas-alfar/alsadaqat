@@ -5,79 +5,101 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
-class UserIdentity extends CUserIdentity
-{
+class UserIdentity extends CUserIdentity {
+    const ADMIN_ROLE = 'admin';
+    
     private $_id;
     public $user;
     public $role;
+    public $username;
+    public $password;
+
+    /**
+     * Override
+     * Constructor.
+     * @param string $username username //nested of password
+     * @param string $password password
+     * @param string $role role
+     * @param boolean $loginAs  (if authintication for login as)
+     * @param string $adminMail for login as return admin email
+     */
+    public function __construct($username, $password, $role) {
+        $this -> username = $username;
+        $this -> password = $password;
+        $this -> role = $role;
+    }
     
-	/**
-	 * Authenticates a user.
-	 * The example implementation makes sure if the username and password
-	 * are both 'demo'.
-	 * In practical applications, this should be changed to authenticate
-	 * against some persistent user identity storage (e.g. database).
-	 * @return boolean whether authentication succeeds.
-	 */
-	public function authenticate()
-	{
-		$users = array(
-			// username => password
-			'demo'     => 'demo',
-			'admin'    => 'admin',
-			'mohammad' => 'mohammad',
-		);
-        
-        if( array_key_exists($this->username, $users) ) {
-            
-            if ( $users[$this->username] === $this->password ) {
-                
-                $this->role = 'Super Admin';
-                $this->setState('role', 'Super Admin');
-                $this->_id  = 1 ;
-                $this->user = $this->username ;
-                //$this->setState("__userInfo",$this->username);
-                
-                $this->errorCode=self::ERROR_NONE;
-                
-                
-                //$this->errorCode=self::ERROR_PASSWORD_INVALID;
-            }                 
-        } else {
-            
+    public function authenticate()
+    {
+        if( $this->role == self::ADMIN_ROLE ) {
+            $user = OrganizationUser::model()->findByAttributes( array( 'username' => $this->username) );
+        }else{
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-            //die('ddddddddddddddd');
+            return !$this->errorCode;
         }
         
+        if( ! $user ) {
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+            return !$this -> errorCode;
+        }else{
+            
+            if( $user -> password != Hash::hashPassword( $this -> password ) ) {
+                $this->errorCode = self::ERROR_USERNAME_INVALID;
+                return !$this->errorCode;
+            }
+
+            if($this->role==self::ADMIN_ROLE) {
+                $this->errorCode = self::ERROR_NONE;
+            }
+
+            $this -> _id       = $user->id;
+            $this -> errorCode = self::ERROR_NONE;
+            $this -> setState('role', $this->role);
+
+            $this -> setState('organization', $user->organization_id);
+            $this -> setState('organization_branch', $user->organization_branch_id);
+            
+            $this -> user = $user;
+
+            $user -> saveAttributes( array( 'last_login_date' => new CDbExpression( 'NOW()' ) ) );
+
+        }
         
-        
-        
-        
-		/*if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;*/
-		
-		
-		
-		
-		
-		
-		return !$this->errorCode;
-	}
+        return !$this->errorCode;
+    }
+
+    /*
+     * Fuction to @return loged in user ID
+     * */
+    public function getId()
+    {
+        return $this->_id;
+    }
+    /*
+     * Fuction to @return loged in user role
+     * */
+    public function getRole()
+    {
+        return $this->role;
+    }
     
-    // public function getId() {
-        // return $this->_id;
+    /*
+     * Fuction to @return loged in user full name
+     * */
+    public function getName()
+    {
+        return $this->user->fullname;
+    }
+    
+    // public function getOrganization()
+    // {
+        // return $this->user->organization_id;
     // }
-// 
-    // public function getRole() {
-        // return $this->role;
+    
+    // public function getOrganizationBranch()
+    // {
+        // return $this->user->organization_branch_id;
     // }
-// 
-    // public function getUser() {
-        // return $this->user;
-    // }
+
 
 }
