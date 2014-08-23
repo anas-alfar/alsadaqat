@@ -56,8 +56,8 @@ class UserIdentity extends CUserIdentity {
             $this -> errorCode = self::ERROR_NONE;
             $this -> setState('role', $this->role);
 
-            $this -> setState('organization', $user->organization_id);
-            $this -> setState('organization_branch', $user->organization_branch_id);
+            $this -> setState('organization_id', $user->organization_id);
+            $this -> setState('organization_branch_id', $user->organization_branch_id);
             
             $this -> user = $user;
 
