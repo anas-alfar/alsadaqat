@@ -38,7 +38,7 @@ class MailAttachment extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('mail_id, extension, size, source_path, source_url, owner_id', 'required'),
+			array('mail_id, extension, size, source_path, source_url', 'required'),
 			array('mail_id, size, owner_id', 'length', 'max'=>11),
 			array('name, source_path, source_url', 'length', 'max'=>255),
 			array('extension', 'length', 'max'=>5),
@@ -49,6 +49,8 @@ class MailAttachment extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, mail_id, name, extension, size, source_path, source_url, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

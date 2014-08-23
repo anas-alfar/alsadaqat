@@ -35,7 +35,7 @@ class EventType extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, title, description, owner_id', 'required'),
+			array('organization_id, title, description', 'required'),
 			array('organization_id, owner_id', 'length', 'max'=>11),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
@@ -46,6 +46,8 @@ class EventType extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, title, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

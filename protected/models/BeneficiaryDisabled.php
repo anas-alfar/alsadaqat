@@ -52,7 +52,7 @@ class BeneficiaryDisabled extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('father_full_name, father_job, mother_full_name, mother_job, number_of_brothers, number_of_sisters, beneficiary_id, owner_id', 'required'),
+			array('father_full_name, father_job, mother_full_name, mother_job, number_of_brothers, number_of_sisters, beneficiary_id', 'required'),
 			array('number_of_brothers, number_of_sisters', 'numerical', 'integerOnly'=>true),
 			array('father_full_name, father_job, father_reason_of_death, father_death_certificate_path, mother_full_name, mother_job, mother_reason_of_death, mother_death_certificate_path, disability_description', 'length', 'max'=>255),
 			array('is_father_alive, is_mother_alive', 'length', 'max'=>3),
@@ -66,6 +66,8 @@ class BeneficiaryDisabled extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, father_full_name, is_father_alive, father_job, father_date_of_birth, father_date_of_death, father_reason_of_death, father_death_certificate_path, mother_full_name, is_mother_alive, mother_job, mother_date_of_birth, mother_date_of_death, mother_reason_of_death, mother_death_certificate_path, number_of_brothers, number_of_sisters, disability_type, disability_reason, disability_description, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

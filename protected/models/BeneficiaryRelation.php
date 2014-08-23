@@ -33,7 +33,7 @@ class BeneficiaryRelation extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, owner_id', 'required'),
+			array('name', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('owner_id', 'length', 'max'=>11),
 			array('created_at, updated_at', 'safe'),
@@ -43,6 +43,8 @@ class BeneficiaryRelation extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

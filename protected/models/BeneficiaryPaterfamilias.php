@@ -40,7 +40,7 @@ class BeneficiaryPaterfamilias extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name, paterfamilias_date_of_birth, beneficiary_relation_id, beneficiary_id, owner_id', 'required'),
+			array('paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name, paterfamilias_date_of_birth, beneficiary_relation_id, beneficiary_id', 'required'),
 			array('paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('beneficiary_relation_id, beneficiary_id, owner_id', 'length', 'max'=>11),
@@ -51,6 +51,8 @@ class BeneficiaryPaterfamilias extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, paterfamilias_first_name, paterfamilias_middle_name, paterfamilias_grandfather_name, paterfamilias_family_name, paterfamilias_date_of_birth, ssn, beneficiary_relation_id, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

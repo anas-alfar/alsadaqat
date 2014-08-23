@@ -46,7 +46,7 @@ class MosqueType extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, construction_area, construction_cost, construction_time, construction_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id, owner_id', 'required'),
+			array('name, construction_area, construction_cost, construction_time, construction_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id', 'required'),
 			array('construction_time, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances', 'numerical', 'integerOnly'=>true),
 			array('construction_area, construction_cost', 'numerical'),
 			array('name, construction_type, furniture_type', 'length', 'max'=>255),
@@ -59,6 +59,8 @@ class MosqueType extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, construction_area, construction_cost, construction_time, construction_type, furniture_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, has_female_area, has_sound_system, has_air_condition, agent_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

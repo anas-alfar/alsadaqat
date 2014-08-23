@@ -58,7 +58,7 @@ class BeneficiaryFinance extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('beneficiary_id, owner_id', 'required'),
+			array('beneficiary_id', 'required'),
 			array('income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_other, spending_total', 'numerical'),
 			array('has_supplies_card', 'length', 'max'=>3),
 			array('spending_kerosene', 'length', 'max'=>10),
@@ -96,6 +96,8 @@ class BeneficiaryFinance extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, has_supplies_card, income_from_paterfamilias, income_from_beneficiary_business, income_from_beneficiary_family_business, income_from_social_security, income_from_retirement, income_from_lands, income_from_property, income_from_agriculture, income_from_national_aid_fund, income_from_zakat_fund, income_from_charity_fund, income_total, spending_home_rent, spending_food, spending_clothes, spending_medication, spending_smoking, spending_education, spending_transportation, spending_gas_invoice, spending_water_invoice, spending_elctricity_invoice, spending_kerosene, spending_other, spending_total, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

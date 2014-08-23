@@ -38,7 +38,7 @@ class BeneficiaryStudentClass extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('class_name, major_name, school_name, address, start_at, end_at, beneficiary_id, owner_id', 'required'),
+			array('class_name, major_name, school_name, address, start_at, end_at, beneficiary_id', 'required'),
 			array('class_name, major_name, school_name, address', 'length', 'max'=>255),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
 			array('created_at, updated_at', 'safe'),
@@ -48,6 +48,8 @@ class BeneficiaryStudentClass extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, class_name, major_name, school_name, address, start_at, end_at, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

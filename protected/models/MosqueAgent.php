@@ -54,7 +54,7 @@ class MosqueAgent extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('company_name, fullname, ssn, email, mobile, address, country_id, city_id, organization_id, owner_id', 'required'),
+			array('company_name, fullname, ssn, email, mobile, address, country_id, city_id', 'required'),
 			array('company_name, fullname, email, address, bank_name, bank_branch_name, bank_branch_number, bank_account_number, personal_photo_path', 'length', 'max'=>255),
 			array('title', 'length', 'max'=>4),
 			array('ssn, bank_swift_code', 'length', 'max'=>32),
@@ -68,6 +68,9 @@ class MosqueAgent extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, company_name, title, fullname, ssn, gender, email, home_phone, work_phone, mobile, address, bank_name, bank_branch_name, bank_branch_number, bank_swift_code, bank_account_number, personal_photo_path, country_id, city_id, organization_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
 		);
 	}
 

@@ -50,7 +50,7 @@ class Mosque extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contract_date, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'required'),
+			array('name, address, contract_date, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id', 'required'),
 			array('gallery_id', 'numerical', 'integerOnly'=>true),
 			array('name, address, contract_photo_path', 'length', 'max'=>255),
 			array('construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'length', 'max'=>11),
@@ -62,6 +62,8 @@ class Mosque extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
+			
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

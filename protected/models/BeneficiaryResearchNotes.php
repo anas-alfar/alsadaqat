@@ -45,7 +45,7 @@ class BeneficiaryResearchNotes extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('researcher_recommendations, researcher_name, beneficiary_id, owner_id', 'required'),
+			array('researcher_recommendations, researcher_name, beneficiary_id', 'required'),
 			array('support_type, beneficiary_id, owner_id', 'length', 'max'=>11),
 			array('support_period', 'length', 'max'=>14),
 			array('expected_support_period, small_business_idea_description, researcher_name', 'length', 'max'=>255),
@@ -60,6 +60,8 @@ class BeneficiaryResearchNotes extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, support_type, support_period, expected_support_period, support_modality, information_source, has_small_business_idea, small_business_idea_description, researcher_recommendations, researcher_name, notes, committee_recommendations, committee_member_name, committee_manager_name, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

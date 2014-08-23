@@ -40,7 +40,7 @@ class BeneficiaryWidow extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('husband_full_name, husband_job, number_of_sons, number_of_daughters, beneficiary_id, owner_id', 'required'),
+			array('husband_full_name, husband_job, number_of_sons, number_of_daughters, beneficiary_id', 'required'),
 			array('number_of_sons, number_of_daughters', 'numerical', 'integerOnly'=>true),
 			array('husband_full_name, husband_job, husband_reason_of_death, husband_death_certificate_path', 'length', 'max'=>255),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
@@ -51,6 +51,8 @@ class BeneficiaryWidow extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, husband_full_name, husband_job, husband_date_of_birth, husband_date_of_death, husband_reason_of_death, husband_death_certificate_path, number_of_sons, number_of_daughters, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

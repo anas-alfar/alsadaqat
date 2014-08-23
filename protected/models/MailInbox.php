@@ -41,7 +41,7 @@ class MailInbox extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, mail_type_id, number, from_name, subject, received_at, owner_id, mail_attachment_id', 'required'),
+			array('mail_type_id, number, from_name, subject, received_at, mail_attachment_id', 'required'),
 			array('organization_id, mail_type_id, owner_id, mail_attachment_id', 'length', 'max'=>11),
 			array('number, from_name, from_department, subject', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
@@ -51,6 +51,9 @@ class MailInbox extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, number, from_name, from_department, subject, received_at, owner_id, mail_attachment_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
 		);
 	}
 

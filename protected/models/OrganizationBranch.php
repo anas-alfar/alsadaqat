@@ -54,7 +54,7 @@ class OrganizationBranch extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_id, name, description, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, owner_id', 'required'),
+			array('name, description, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location', 'required'),
 			array('organization_id, country_id, city_id, manager_id, owner_id', 'length', 'max'=>11),
 			array('name, website, adress, work_days, work_hours, break_hours, geo_location', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
@@ -67,6 +67,9 @@ class OrganizationBranch extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, is_main_branch, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			
+            array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
 		);
 	}
 

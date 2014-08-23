@@ -70,7 +70,7 @@ class Beneficiary extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('full_name, date_of_birth, address, nationality_id, country_id, city_id, organization_id, organization_branch_id, owner_id', 'required'),
+			array('full_name, date_of_birth, address, nationality_id, country_id, city_id, donator_id', 'required'),
 			array('full_name, email, address, personal_photo_path', 'length', 'max'=>255),
 			array('ssn', 'length', 'max'=>32),
 			array('email', 'email'),
@@ -89,6 +89,11 @@ class Beneficiary extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, full_name, ssn, gender, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, beneficiary_type, has_paterfamilias, has_family_members, has_home, has_income, organization_id, organization_branch_id, donator_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
+
+            array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => false ),
+
 		);
 	}
 

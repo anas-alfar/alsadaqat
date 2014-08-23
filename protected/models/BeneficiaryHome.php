@@ -55,7 +55,7 @@ class BeneficiaryHome extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('description, owner_name, construction_type, number_of_rooms, number_of_residents, rent_cost, beneficiary_id, owner_id', 'required'),
+			array('description, owner_name, construction_type, number_of_rooms, number_of_residents, rent_cost, beneficiary_id', 'required'),
 			array('number_of_rooms, number_of_residents', 'numerical', 'integerOnly'=>true),
 			array('rent_cost', 'numerical'),
 			array('description', 'length', 'max'=>512),
@@ -71,6 +71,8 @@ class BeneficiaryHome extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, description, owner_name, construction_type, number_of_rooms, number_of_residents, contract_type, rent_cost, rent_type, has_tv, has_refrigerator, has_washer, has_dryer, has_video_player, has_telephone, has_mobile, has_gas, has_oven, has_microwave, has_air_conditioner, has_water_solar_heater, has_water_electrical_heater, has_gas_heater, has_electrical_heater, beneficiary_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 

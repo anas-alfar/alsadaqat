@@ -36,7 +36,7 @@ class EventPhoto extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, size, source_path, source_url, owner_id', 'required'),
+			array('event_id, size, source_path, source_url', 'required'),
 			array('event_id, size, owner_id', 'length', 'max'=>11),
 			array('title, source_path, source_url', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
@@ -46,6 +46,8 @@ class EventPhoto extends Aulaula
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, event_id, title, size, source_path, source_url, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+
+            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
 		);
 	}
 
