@@ -34,7 +34,7 @@ $this->menu=array(
 		'bank_branch_number',
 		'bank_swift_code',
 		'bank_account_number',
-		'personal_photo_path',
+		array('name'  => 'personal_photo_path', 'type' => 'raw', 'value' => CHtml::image($model->preview->getUrl('large'), $model->getAttributeLabel('personal_photo_path') ) ),
 		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
 		'city_id',
 		'organization_id',
