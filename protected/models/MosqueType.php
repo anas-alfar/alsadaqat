@@ -48,7 +48,7 @@ class MosqueType extends Aulaula
 		return array(
 			array('name, construction_area, construction_cost, construction_time, construction_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id', 'required'),
 			array('construction_time, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances', 'numerical', 'integerOnly'=>true),
-			array('construction_area, construction_cost', 'numerical'),
+			array('construction_cost', 'numerical'),
 			array('name, construction_type, furniture_type', 'length', 'max'=>255),
 			array('has_female_area, has_sound_system, has_air_condition', 'length', 'max'=>3),
 			array('agent_id, owner_id', 'length', 'max'=>11),
