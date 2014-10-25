@@ -69,4 +69,22 @@ class Aulaula extends CActiveRecord
     public function organizationBranchCountryCommitteeFilter($data) {
         return OrganizationBranchCountryCommittee::model()->findByPk($data->organization_branch_country_committee_id)->name;
     }
+    
+    public function getOrganizationUsersByOrganizationId( $organizationId = null ) {
+
+        if ( empty($organizationId) )
+            $organizationId = Yii::app()->user->organization_id;
+
+        $users = OrganizationUser::model()->findAll( 
+            array(
+                'select'=> 'id, fullname', 
+                'condition' => 'organization_id = :organizationId', 
+                'params' => array(
+                    ':organizationId' => $organizationId
+                ) 
+            ) 
+        );
+        
+        return CHtml::listData( $users, 'id', 'fullname');
+    }
 }
