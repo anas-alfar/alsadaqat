@@ -28,10 +28,26 @@ $this->menu=array(
 		'home_phone',
 		'work_phone',
 		'mobile',
-		'nationality_id',
-		'organization_id',
-		'organization_branch_id',
-		'owner_id',
+		//'nationality_id',
+        array(
+            'name' => 'nationality_id',
+            'value'=> (Yii::app()->language == 'ar') ? $model->nationality->name_ar : $model->nationality->name 
+        ),
+		//'organization_id',
+        array(
+            'name' => 'organization_id',
+            'value'=> $model->organization->name 
+        ),
+		//'organization_branch_id',
+        array(
+            'name' => 'organization_branch_id',
+            'value'=> $model->organizationBranch->name 
+        ),
+		//'owner_id',
+        array(
+            'name' => 'owner_id',
+            'value'=> $model->owner->fullname 
+        ),
 		'personal_photo_path',
 		'created_at',
 		'updated_at',
