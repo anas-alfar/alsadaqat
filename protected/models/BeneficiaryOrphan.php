@@ -49,12 +49,13 @@ class BeneficiaryOrphan extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('father_full_name, father_job, mother_full_name, mother_job, number_of_brothers, number_of_sisters, beneficiary_id', 'required'),
+			//array('father_full_name, father_job, mother_full_name, mother_job, number_of_brothers, number_of_sisters, beneficiary_id', 'required'),
+			array('father_full_name, mother_full_name, mother_job, number_of_brothers, number_of_sisters, beneficiary_id', 'required'),
 			array('number_of_brothers, number_of_sisters', 'numerical', 'integerOnly'=>true),
 			array('father_full_name, father_job, father_reason_of_death, father_death_certificate_path, mother_full_name, mother_job, mother_reason_of_death, mother_death_certificate_path', 'length', 'max'=>255),
 			array('is_father_alive, is_mother_alive', 'length', 'max'=>3),
 			array('beneficiary_id, owner_id', 'length', 'max'=>11),
-			array('father_date_of_birth, father_date_of_death, mother_date_of_birth, mother_date_of_death, created_at, updated_at', 'safe'),
+			array('is_father_alive, father_job, father_date_of_birth, father_date_of_death, mother_date_of_birth, mother_date_of_death, created_at, updated_at', 'safe'),
 			
             array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
