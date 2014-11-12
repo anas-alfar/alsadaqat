@@ -9,7 +9,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::encode($data->title); ?>
+	<?php echo Yii::t('enumItem', CHtml::encode($data->title)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fullname')); ?>:</b>
@@ -21,7 +21,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('gender')); ?>:</b>
-	<?php echo CHtml::encode($data->gender); ?>
+	<?php echo Yii::t('enumItem', CHtml::encode($data->gender)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>

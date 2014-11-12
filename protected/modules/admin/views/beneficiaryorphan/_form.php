@@ -29,9 +29,9 @@
 
 	<?php echo $form->textFieldControlGroup($model,'father_full_name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php //echo $form->dropDownListControlGroup($model, 'is_father_alive', ENUMHtml::enumItem($model, 'is_father_alive'), array('class'=>'span5', 'maxlength'=>3)); ?>
+	<?php echo $form->dropDownListControlGroup($model, 'is_father_alive', ENUMHtml::enumItem($model, 'is_father_alive'), array('class'=>'span5', 'maxlength'=>3)); ?>
 
-	<?php //echo $form->textFieldControlGroup($model,'father_job',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php echo $form->textFieldControlGroup($model,'father_job',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<?php //echo $form->textFieldControlGroup($model,'father_date_of_birth',array('class'=>'span5')); ?>
     <?php

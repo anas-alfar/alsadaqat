@@ -20,10 +20,16 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'company_name',
-		'title',
+		array(
+		  'name' => 'title',
+		  'value' => Yii::t('enumItem', $model->title ),
+        ),
 		'fullname',
 		'ssn',
-		'gender',
+        array(
+          'name' => 'gender',
+          'value' => Yii::t('enumItem', $model->gender ),
+        ),
 		'email',
 		'home_phone',
 		'work_phone',

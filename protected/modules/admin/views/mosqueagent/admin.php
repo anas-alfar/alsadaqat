@@ -45,10 +45,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'company_name',
-		'title',
+        array(
+            'type'  => 'raw',
+            'name'  => 'title',
+            'value' => 'Yii::t("enumItem", $data->title)',
+        ),
 		'fullname',
 		'ssn',
-		'gender',
+        array(
+            'type'  => 'raw',
+            'name'  => 'gender',
+            'value' => 'Yii::t("enumItem", $data->gender)',
+        ),
 		/*
 		'email',
 		'home_phone',
