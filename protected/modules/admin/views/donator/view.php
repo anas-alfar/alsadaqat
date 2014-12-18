@@ -19,10 +19,16 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'title',
+        array(
+            'name'  => 'title',
+            'value' => array($model, 'getTranslatedTitle'), 
+        ),
 		'fullname',
 		'ssn',
-		'gender',
+        array(
+            'name'  => 'gender',
+            'value' => array($model, 'getTranslatedGender'), 
+        ),
 		'email',
 		'date_of_birth',
 		'home_phone',

@@ -84,7 +84,16 @@ class Aulaula extends CActiveRecord
                 ) 
             ) 
         );
-        
+
         return CHtml::listData( $users, 'id', 'fullname');
     }
+    
+    public function getTranslatedGender($data) {
+        return Yii::t('enumItem', $data->gender);
+    }
+
+    public function getTranslatedTitle($data) {
+        return Yii::t('enumItem', $data->title);
+    }
+
 }

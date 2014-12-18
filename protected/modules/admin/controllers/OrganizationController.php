@@ -1,6 +1,6 @@
 <?php
 
-class OrganizationController extends Controller
+class OrganizationController extends RController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -13,10 +13,16 @@ class OrganizationController extends Controller
 	 */
 	public function filters()
 	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-		);
+       return array(
+            'rights', // perform access control for CRUD operations
+ 
+        );
 	}
+    
+    // public function allowedActions()
+    // {
+        // return 'create';
+    // }
 
 	/**
 	 * Specifies the access control rules.

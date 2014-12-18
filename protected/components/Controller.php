@@ -23,15 +23,11 @@ class Controller extends CController
 	public $breadcrumbs = array();
     public $cities      = array();
     
-    private $isAdmin            = false;
-    //private $isCircleManager    = false;
-    //private $isLeader           = false;
-    //private $isMember           = false;
-    private $isGuest            = false;
+    private $isAdmin    = false;
+    private $isGuest    = false;
 
-
-    protected $currentLanguage = null;
-    protected $direction = null;
+    protected $currentLanguage  = null;
+    protected $direction        = null;
     protected $languageSwitcher = null;
     protected $oppositeCurrentLanguage = null;
 
@@ -40,37 +36,21 @@ class Controller extends CController
         $this -> currentLanguage   = 'ar';
         $this -> direction         = 'rtl';
         $this -> languageSwitcher  = 'English';
-        $this -> oppositeCurrentLanguage= 'en';
+        $this -> oppositeCurrentLanguage = 'en';
 
         if ( Yii::app()->language == 'en' ) {
             $this -> currentLanguage   = 'en'; 
             $this -> direction         = 'ltr';
             $this -> languageSwitcher  = 'عربي';
-            $this -> oppositeCurrentLanguage= 'ar';
+            $this -> oppositeCurrentLanguage = 'ar';
         }
     }
-
-
-    /*public function getIsMember() {
-        $this -> isMember = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Team Member';
-        return $this->isMember;
-    }
-
-    public function getIsLeader() {
-        $this -> isLeader = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Team Leader';
-        return $this->isLeader;
-    }
-
-    public function getIsCircleManager() {
-        $this -> isCircleManager = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Circle Manager';
-        return $this->isCircleManager;
-    }*/
 
     public function getIsAdmin() {
         $this -> isAdmin = !Yii::app()->user->getIsGuest() && Yii::app()->user->role == 'Super Admin';
         return $this->isAdmin;
     }
-    
+//     
     public function getIsGuest() {
         $this -> isGuest = Yii::app()->user->getIsGuest() ;
         return $this->isGuest;

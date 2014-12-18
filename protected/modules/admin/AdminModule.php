@@ -39,7 +39,7 @@ class AdminModule extends CWebModule
                 'default/error',
             );
 
-            if ($controller->isGuest  && !in_array($route, $publicPages)){
+            if ( $controller->isGuest  && !in_array($route, $publicPages)){
                 Yii::app()->user->returnUrl=array($controller->id.'/'.$action->id);            
                 Yii::app()->user->loginRequired();                
             }

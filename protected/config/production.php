@@ -37,6 +37,7 @@ $production = array(
 
     ),
     
+    // using Yii::app()->params['paramName']
     'params' => array(
         'adminEmail' => 'mohammad.riad@gmail.com',
         'webroot'    => '/home/sadaqat/public_html/', // change this on production server

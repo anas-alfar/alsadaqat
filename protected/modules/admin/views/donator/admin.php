@@ -44,10 +44,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'title',
+        array(
+            'name'  => 'title',
+            'value' => array($model, 'getTranslatedTitle'), 
+        ),
 		'fullname',
 		'ssn',
-		'gender',
+        array(
+            'name'  => 'gender',
+            'value' => array($model, 'getTranslatedGender'), 
+        ),
 		'email',
 		/*
 		'date_of_birth',

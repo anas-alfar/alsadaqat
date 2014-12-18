@@ -21,9 +21,11 @@ return array(
 		'application.components.*',
 		'application.helpers.*',
 		'bootstrap.helpers.TbHtml', // yiistrap configuration
+
         'application.extensions.gallerymanager.*',
         'application.extensions.gallerymanager.models.*',
-		'application.modules.translate.TranslateModule',
+
+        'application.modules.translate.TranslateModule',        
 
         'application.modules.rights.*',
         'application.modules.rights.components.*',
@@ -37,52 +39,35 @@ return array(
 	'modules'=>array(
 	   'translate',
 	   'admin',
-	   
-        /*'rights'=>array(
-            //'superuserName'=>'admin_2@oilwell7.com',
-             'userClass' => 'OrganizationUser', //'Admins',
-             'authenticatedName'=>'Authenticated',
-              'userIdColumn'=>'id',
-              'userNameColumn'=>'username',
-            //  'enableBizRule'=>true,
-            //  'enableBizRuleData'=>false,
-            //  'displayDescription'=>true,
-            //  'flashSuccessKey'=>'rightsSuccess',
-            //  'flashErrorKey'=>'rightsError',
-            //  'install'=>true,
-            //  'baseUrl'=>'/rights',
-            //  'layout'=>'rights.views.layouts.main',
-            //  'appLayout'=>'application.views.layouts.main',
-            //  'cssFile'=>'rights.css',
 
-                'install'=>true, // Remove this row after running the module the first time.
-                //'superUserRole'=>'Admin', // Only an example, this is the default value.
-                //'defaultRoles'=>array('Guest'), // Only an example, this is the default value.
-                // 'superUsers'=>array(
-                        // 1=>'admin',
-                        // 2=>'demo',
-                        // 3=>'admin_2@oilwell7.com',
-                // ),
+        'rights' => array(
+            'install'           => false,  // Whether to enable the installer. This should only be enabled when Rights is not installed or you wish to reinstall the module.
+            'debug'             => false,  // Whether to enable debugging mode. This is used for developing purposes only. Please note that the module performance is decreased while debugging mode is enabled.
 
-        ),*/
-       
-		// uncomment the following to enable the Gii tool
-		// 'gii'=>array(
-            // 'generatorPaths'=>array(
-                // 'bootstrap.gii',
-            // ),		
-			// 'class'=>'system.gii.GiiModule',
-			// 'password'=>'123456',
-			// // If removed, Gii defaults to localhost only. Edit carefully to taste.
-			// 'ipFilters'=>array('127.0.0.1','::1'),
-		// ),
+            'userClass'         => 'OrganizationUser',  // Name of the user model class.
+            'enableBizRuleData' => true, // Whether to enable data for business rules. To enable this business rules needs to be enabled as well.
+
+            'superuserName'     => 'Admin',  // Name of the role with all privileges. When access is checked for a user that has been assigned this role true is always returned.
+            'authenticatedName' => 'Authenticated',  // Name of the role assigned to authenticated users. This can also be null if this role is not needed.
+            'userIdColumn'      => 'id',  // Name of the id column in the user table.
+            'userNameColumn'    => 'username',  // Name of the column in the user table which should be used for displaying the user’s name.
+            'enableBizRule'     => true,  // Whether to enable business rules
+            'displayDescription'=> true,  // Whether to display the description as the authorization item name instead of the name.
+            'flashSuccessKey'   => 'RightsSuccess',  // Key to use for displaying success flash messages. Change this if you wish that the Rights success flash message appear in your own flash message region
+            'flashErrorKey'     => 'RightsError',  // Key to use for displaying error flash messages. Change this if you wish that the Rights flash message appear in your own flash message region
+            'baseUrl'           => '/rights',  // Base URL to Rights. This only needs to be set if Rights is nested within another module.
+            'layout'            => 'rights.views.layouts.main',  // Path to the layout to use for displaying Rights
+            'appLayout'         => 'application.views.layouts.main',  // Path to the application layout
+            //'cssFile'         => 'rights.css',  // Name of the cascading style sheet file to use for applying styles to Rights.
+        ),
+
 		
 	),
 
 	// application components
-	'components'=>array(
+	'components' => array(
         // yiistrap configuration
-        'bootstrap'=>array(
+        'bootstrap' => array(
             'class' => 'bootstrap.components.TbApi',
         ),
         // yiiwheels configuration
@@ -90,16 +75,21 @@ return array(
             'class' => 'yiiwheels.YiiWheels',   
         ),
 
-        /*'authManager'=>array(
-            'class'=>'RDbAuthManager',
-         ),
+        'authManager'=>array(
+            'class'             => 'RDbAuthManager',
+            'connectionID'      => 'db',
+            'itemTable'         => 'auth_item',
+            'itemChildTable'    => 'auth_item_child',
+            'assignmentTable'   => 'auth_assignment',
+            'rightsTable'       => 'auth_rights',
+        ),
         'user'=>array(
             'class'=>'RWebUser',
             // enable cookie-based authentication
             'allowAutoLogin'=>true,
-        ),*/
+        ),
 
-        'user' => array(
+        /*'user' => array(
             // enable cookie-based authentication
             //'allowAutoLogin'  => true,
             'class'           => 'WebUser',
@@ -108,7 +98,7 @@ return array(
             'autoUpdateFlash' => false, // add this line to disable the flash counter
             //'allowAutoLogin'  => true,
             //'autoRenewCookie' => true,
-        ),
+        ),*/
 
         /*'session'=>array(
             'class' => 'CCacheHttpSession',
@@ -121,9 +111,8 @@ return array(
             'languageParam'   => 'lang', //  Name of the parameter that contains the desired language when constructing a URL
 			'urlFormat'       => 'path',
             'showScriptName'  => false,
-            'caseSensitive'   => false,
+            //'caseSensitive'   => false,
 			'rules'=>array(
-                //'login'=>'/site/login',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -139,15 +128,15 @@ return array(
         ),
 
         'request' => array(
-            'class' => 'ext.localeurls.LocaleHttpRequest',
+            'class'                   => 'ext.localeurls.LocaleHttpRequest',
             'languages'               => array( 'ar', 'en'),     // Array of available language codes
-            'persistLanguage'         => true,     // Wether to store the user language selection in session and cookie
+            'persistLanguage'         => false,     // Wether to store the user language selection in session and cookie
             'detectLanguage'          => true,     // Wether to auto detect the preferred user language from the HTTP headers
             'redirectDefault'         => true,     // Wether to also redirect the application's default language
             'languageCookieLifetime'  => false,    // How long to store the user language in a cookie. Default is 1 year. Set to false to disable cookie storage
 
             'enableCookieValidation'  => true,
-            //'enableCsrfValidation'    => true,
+            'enableCsrfValidation'    => true,
             'noCsrfValidationRoutes'  => array('translate/translate'),
         ),
 

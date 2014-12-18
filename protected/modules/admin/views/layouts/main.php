@@ -73,7 +73,7 @@
 <?php 
     Yii::app()->clientScript->registerScript('INIT',
      'YII_CSRF_TOKEN      = "'.Yii::app()->request->csrfToken.'";
-      getCitisUrl         = "'.Yii::app()->createUrl('admin/city/getCities').'";
+      getCitisUrl         = "'.Yii::app()->createUrl('admin/city/getcities').'";
      ', CClientScript::POS_END )
 ?>
      

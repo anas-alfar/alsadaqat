@@ -1,10 +1,22 @@
 <?php
 
-class DefaultController extends Controller
+class DefaultController extends RController
 {
     public function actionIndex()
     {
+        //var_dump( Yii::app()->user->isSuperuser );  // return true if superuser => admin
         $this->render('index');
+    }
+
+    public function actionError()
+    {
+        if($error=Yii::app()->errorHandler->error)
+        {
+            if(Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+                $this->render('error', $error);
+        }
     }
 
     /**
