@@ -69,9 +69,10 @@ class TranslateModule extends CWebModule
 	               
 	            );*/
 
-	            if (!$controller->isAdmin ){
+	            //if ( !Yii::app()->user->checkAccess(Rights::module()->superuserName)  ) {
+	            if ( Yii::app()->user->isGuest  ) {
 	            	Yii::app()->user->returnUrl=array($controller->id.'/'.$action->id);            
-	                //Yii::app()->user->loginRequired();
+	                Yii::app()->user->loginRequired();
 	            }
 	            else
 	                return true;

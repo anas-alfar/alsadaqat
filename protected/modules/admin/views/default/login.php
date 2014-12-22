@@ -33,9 +33,9 @@ $this->breadcrumbs=array(
     
     	<p class="note"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required'); ?></p>
     
-            <?php echo $form->textFieldControlGroup($model,'username',array('class'=>'span5','maxlength'=>11)); ?>
+            <?php echo $form->textFieldControlGroup($model,'username',array('class'=>'span5','maxlength'=>32)); ?>
             
-            <?php echo $form->passwordFieldControlGroup($model,'password',array('class'=>'span5','maxlength'=>11)); ?>
+            <?php echo $form->passwordFieldControlGroup($model,'password',array('class'=>'span5','maxlength'=>32)); ?>
     
         <!--
     	<div class="form-goup row rememberMe">

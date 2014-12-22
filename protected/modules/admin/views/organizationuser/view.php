@@ -20,7 +20,7 @@ $this->menu = array(
 		'attributes' => array(
 			'id',
 			'username',
-			'password',
+			//'password',
 			array(
 				'name'  => 'title',
 				'value' => array($model, 'getTranslatedTitle'),
@@ -37,14 +37,17 @@ $this->menu = array(
 			'work_phone',
 			'local_mobile',
 			'international_mobile',
-			'nationality_id',
+			array(
+                'name'  => 'nationality_id',
+                'value' => (Yii::app()->language == 'ar') ? $model->nationality->name_ar : $model->nationality->name
+            ),
 			'organization_id',
 			'organization_branch_id',
 			'personal_photo_path',
 			'passport_photo_path',
 			'blocked',
 			'last_login_date',
-			'last_login_ip',
+			//'last_login_ip',
 			'created_at',
 			'updated_at',
 		),

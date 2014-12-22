@@ -224,6 +224,13 @@ class OrganizationUser extends Aulaula
 		return parent::model($className);
 	}
 
+    public function beforeSave(){
+        if ( ! $this -> hasErrors() && $this->isNewRecord  ) {
+            $this -> password     = Hash::hashPassword( $this -> password );
+        }
+        return true;
+    }
+
 	public function getOptions(){
         $criteria         = new CDbCriteria;
         $criteria->select = 'id,fullname';

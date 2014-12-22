@@ -8,9 +8,9 @@
 <?php echo CHtml::encode($data->username);?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password'));?>:</b>
-<?php echo CHtml::encode($data->password);?>
-	<br />
+	<!-- <b><?php //echo CHtml::encode($data->getAttributeLabel('password'));?>:</b>
+<?php //echo CHtml::encode($data->password);?>
+	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('title'));?>:</b>
 <?php echo CHtml::encode(Yii::t('enumItem', $data->title));?>
