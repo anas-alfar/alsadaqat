@@ -65,12 +65,17 @@ class OrganizationUserController extends RController {
 	public function actionUpdate($id) {
 		$model = $this->loadModel($id);
 
+		if ($model->isNewRecord) {
+			//do nothing now
+		} else {
+			$model->scenario = 'update';
+		}
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if (isset($_POST['OrganizationUser'])) {
 			$model->attributes = $_POST['OrganizationUser'];
-			//die('ddaa');
 			if ($model->save()) {
 				$this->checkImageUploaded($model, 'image', 'preview');
 				$this->checkImageUploaded($model, 'passport', 'passpor');

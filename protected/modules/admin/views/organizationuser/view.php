@@ -20,7 +20,7 @@ $this->menu = array(
 		'attributes' => array(
 			'id',
 			'username',
-			'password',
+			/*'password',*/
 			array(
 				'name'  => 'title',
 				'value' => array($model, 'getTranslatedTitle'),
