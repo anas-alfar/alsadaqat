@@ -8,16 +8,16 @@
 <?php echo CHtml::encode($data->username);?>
 	<br />
 
+	<!-- <b><?php //echo CHtml::encode($data->getAttributeLabel('password'));?>:</b>
+<?php //echo CHtml::encode($data->password);?>
+	<br /> -->
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('title'));?>:</b>
 <?php echo CHtml::encode(Yii::t('enumItem', $data->title));?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fullname'));?>:</b>
 <?php echo CHtml::encode($data->fullname);?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('email'));?>:</b>
-<?php echo CHtml::encode($data->email);?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ssn'));?>:</b>
@@ -29,9 +29,8 @@
 <br />
 
 <?php /*
-
-<b><?php echo CHtml::encode($data->getAttributeLabel('password'));?>:</b>
-<?php echo CHtml::encode($data->password);?>
+<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
+<?php echo CHtml::encode($data->email); ?>
 <br />
 
 <b><?php echo CHtml::encode($data->getAttributeLabel('date_of_birth')); ?>:</b>

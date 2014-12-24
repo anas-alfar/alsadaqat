@@ -53,30 +53,6 @@ class RController extends CController {
 		return $this->isGuest;
 	}
 
-	public function checkImageUploaded($model, $inputFileName = 'image', $behaviorName = 'preview') {
-		if (isset($model) AND !empty($model->id)) {
-			if (isset($_FILES[get_class($model)]['name'][$inputFileName]) AND !empty($_FILES[get_class($model)]['name'][$inputFileName])) {
-
-				$img = CUploadedFile::getInstance($model, $inputFileName);
-
-				if (isset($img) AND !empty($img)) {
-					$model = $this->loadModel($model->id);
-
-					$model->$behaviorName->setImage($img->getTempName());
-
-					// if ( $inputFileName == 'image' ) {
-					// $model->preview->setImage( $img->getTempName() );
-					// } else {
-					// $model->passpor->setImage( $img->getTempName() );
-					// }
-				}
-			} else {
-
-				return false;
-			}
-		}
-	}
-
 	public function getGallaryPhotosProviderByGalleryId($galleryId) {
 		$gallery = $galleryId;
 
@@ -102,6 +78,30 @@ class RController extends CController {
 		$src       = ($fileExist)?$root.$imagePath:false;
 
 		return $src;
+	}
+
+	public function checkImageUploaded($model, $inputFileName = 'image', $behaviorName = 'preview') {
+		if (isset($model) AND !empty($model->id)) {
+			if (isset($_FILES[get_class($model)]['name'][$inputFileName]) AND !empty($_FILES[get_class($model)]['name'][$inputFileName])) {
+
+				$img = CUploadedFile::getInstance($model, $inputFileName);
+
+				if (isset($img) AND !empty($img)) {
+					$model = $this->loadModel($model->id);
+
+					$model->$behaviorName->setImage($img->getTempName());
+
+					// if ( $inputFileName == 'image' ) {
+					// $model->preview->setImage( $img->getTempName() );
+					// } else {
+					// $model->passpor->setImage( $img->getTempName() );
+					// }
+				}
+			} else {
+
+				return false;
+			}
+		}
 	}
 
 	/**

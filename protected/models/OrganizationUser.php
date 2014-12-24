@@ -71,8 +71,7 @@ class OrganizationUser extends Aulaula {
 		// will receive user inputs.
 		return array(
 			array('username, password, fullname, ssn, email, date_of_birth, local_mobile, nationality_id', 'required'),
-			array('username, password, ssn', 'length', 'max'                                    => 32, 'except'                                    => 'update'),
-			array('password', 'length', 'max'                                                   => 128, 'on'                                                   => 'update'),
+			array('username, password, ssn', 'length', 'max'                                    => 32),
 			array('title', 'length', 'max'                                                      => 4),
 			array('fullname, email, personal_photo_path, passport_photo_path', 'length', 'max'  => 255),
 			array('gender', 'length', 'max'                                                     => 6),
@@ -218,6 +217,13 @@ class OrganizationUser extends Aulaula {
 		return parent::model($className);
 	}
 
+	public function beforeSave() {
+		if (!$this->hasErrors() && $this->isNewRecord) {
+			$this->password = Hash::hashPassword($this->password);
+		}
+		return true;
+	}
+
 	public function getOptions() {
 		$criteria         = new CDbCriteria;
 		$criteria->select = 'id,fullname';
@@ -292,12 +298,4 @@ class OrganizationUser extends Aulaula {
 		);
 	}
 
-	public function beforeSave() {
-		if (parent::beforeSave()) {
-			if ($this->isNewRecord) {
-				$this->setAttribute('password', Hash::hashPassword($this->password));
-			}
-		}
-		return true;
-	}
 }
