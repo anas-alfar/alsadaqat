@@ -26,3 +26,11 @@ function updateCitiesDropDown(country_id, listId, empty_text) {
 
     });
 }
+
+function showPhoto(photo) {
+    if ( photo != '' ) {
+        photo = photo.replace("_", ""); 
+        window.open(photo);
+    }
+
+}

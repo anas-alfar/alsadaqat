@@ -84,6 +84,7 @@
             photo.data('rank', rank);
 
             $('img', photo).attr('src', src);
+            $('img', photo).attr('onclick', "showPhoto('"+src+"')");
             if (opts.hasName) $('.caption h5', photo).text(name);
             if (opts.hasDesc) $('.caption p', photo).text(description);
 
