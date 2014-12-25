@@ -19,23 +19,42 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'organization_id',
+		array(
+            'name'  => 'organization_id',
+            'value' => $model->organization->name,
+        ),
 		'name',
 		'description',
 		'website',
 		'phone',
 		'fax',
 		'mobile',
-		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
-		'city_id',
+		array(
+            'name'  => 'country_id',
+            //'value' => array($model, 'countryFilter')
+            'value' => (Yii::app()->language == 'ar') ? $model->country->name_ar : $model->country->name,
+        ),
+        array(
+            'name'  => 'city_id',
+            'value' => (Yii::app()->language == 'ar') ? $model->city->name_ar : $model->city->name,
+        ),
 		'adress',
-		'manager_id',
+        array(
+            'name'  => 'manager_id',
+            'value' => $model->manager->fullname,
+        ),
 		'work_days',
 		'work_hours',
 		'break_hours',
 		'geo_location',
-		'is_main_branch',
-		'owner_id',
+        array(
+            'name'  => 'is_main_branch',
+            'value' => Yii::t('enumItem', $model->is_main_branch)
+        ),
+        array(
+            'name'  => 'owner_id',
+            'value' => $model->owner->fullname,
+        ),
 		'created_at',
 		'updated_at',
 	),

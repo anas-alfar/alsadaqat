@@ -173,7 +173,7 @@ class OrganizationBranch extends Aulaula {
 	public function getOptions() {
 		$criteria            = new CDbCriteria;
 		$criteria->select    = 'id,name';
-		$criteria->condition = 'id = '.Yii::app()->getUser()->getState('organization_id');
+		$criteria->condition = 'organization_id = '.Yii::app()->user->organization_id;
 
 		return CHtml::listData($this->findAll($criteria), 'id', 'name');
 	}
