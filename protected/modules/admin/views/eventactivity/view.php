@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('EventActivity', 'List Event Activity'),'url'=>array('index')),
 	array('label'=>Yii::t('EventActivity', 'Create Event Activity'),'url'=>array('create')),
 	array('label'=>Yii::t('EventActivity', 'Update Event Activity'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('EventActivity', 'Delete Event Activity'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('EventActivity', 'Delete Event Activity'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('EventActivity', 'Manage Event Activity'),'url'=>array('admin')),
 );
 ?>

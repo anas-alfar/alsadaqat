@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'List Beneficiary Paterfamilias'),'url'=>array('index')),
 	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Create Beneficiary Paterfamilias'),'url'=>array('create')),
 	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Update Beneficiary Paterfamilias'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Delete Beneficiary Paterfamilias'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Delete Beneficiary Paterfamilias'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('BeneficiaryPaterfamilias', 'Manage Beneficiary Paterfamilias'),'url'=>array('admin')),
 );
 ?>

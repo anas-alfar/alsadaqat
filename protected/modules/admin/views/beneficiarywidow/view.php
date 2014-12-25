@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('BeneficiaryWidow', 'List Beneficiary Widow'),'url'=>array('index')),
 	array('label'=>Yii::t('BeneficiaryWidow', 'Create Beneficiary Widow'),'url'=>array('create')),
 	array('label'=>Yii::t('BeneficiaryWidow', 'Update Beneficiary Widow'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('BeneficiaryWidow', 'Delete Beneficiary Widow'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryWidow', 'Delete Beneficiary Widow'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('BeneficiaryWidow', 'Manage Beneficiary Widow'),'url'=>array('admin')),
 );
 ?>

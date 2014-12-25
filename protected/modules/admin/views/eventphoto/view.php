@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('EventPhoto', 'List Event Photo'),'url'=>array('index')),
 	array('label'=>Yii::t('EventPhoto', 'Create Event Photo'),'url'=>array('create')),
 	array('label'=>Yii::t('EventPhoto', 'Update Event Photo'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('EventPhoto', 'Delete Event Photo'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('EventPhoto', 'Delete Event Photo'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('EventPhoto', 'Manage Event Photo'),'url'=>array('admin')),
 );
 ?>

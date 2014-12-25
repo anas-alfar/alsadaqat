@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('Country', 'List Country'),'url'=>array('index')),
 	array('label'=>Yii::t('Country', 'Create Country'),'url'=>array('create')),
 	array('label'=>Yii::t('Country', 'Update Country'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('Country', 'Delete Country'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('Country', 'Delete Country'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('Country', 'Manage Country'),'url'=>array('admin')),
 );
 ?>

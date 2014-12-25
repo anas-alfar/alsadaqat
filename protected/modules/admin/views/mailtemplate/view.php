@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('MailTemplate', 'List Mail Template'),'url'=>array('index')),
 	array('label'=>Yii::t('MailTemplate', 'Create Mail Template'),'url'=>array('create')),
 	array('label'=>Yii::t('MailTemplate', 'Update Mail Template'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('MailTemplate', 'Delete Mail Template'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('MailTemplate', 'Delete Mail Template'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('MailTemplate', 'Manage Mail Template'),'url'=>array('admin')),
 );
 ?>

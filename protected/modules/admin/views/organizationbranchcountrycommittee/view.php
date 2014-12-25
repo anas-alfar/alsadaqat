@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'List Branch Country Committee'),'url'=>array('index')),
 	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Create Branch Country Committee'),'url'=>array('create')),
 	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Update Branch Country Committee'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Delete Branch Country Committee'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Delete Branch Country Committee'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('OrganizationBranchCountryCommittee', 'Manage Branch Country Committee'),'url'=>array('admin')),
 );
 ?>

@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('BeneficiaryStudent', 'List Beneficiary Student'),'url'=>array('index')),
 	array('label'=>Yii::t('BeneficiaryStudent', 'Create Beneficiary Student'),'url'=>array('create')),
 	array('label'=>Yii::t('BeneficiaryStudent', 'Update Beneficiary Student'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('BeneficiaryStudent', 'Delete Beneficiary Student'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('BeneficiaryStudent', 'Delete Beneficiary Student'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('BeneficiaryStudent', 'Manage Beneficiary Student'),'url'=>array('admin')),
 );
 ?>

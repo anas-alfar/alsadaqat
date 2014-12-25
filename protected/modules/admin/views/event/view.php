@@ -8,7 +8,7 @@ $this->menu = array(
 	array('label' => Yii::t('Event', 'List Event'), 'url' => array('index')),
 	array('label' => Yii::t('Event', 'Create Event'), 'url' => array('create')),
 	array('label' => Yii::t('Event', 'Update Event'), 'url' => array('update', 'id' => $model->id)),
-	array('label' => Yii::t('Event', 'Delete Event'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
+	array('label' => Yii::t('Event', 'Delete Event'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label' => Yii::t('Event', 'Manage Event'), 'url' => array('admin')),
 );
 ?>

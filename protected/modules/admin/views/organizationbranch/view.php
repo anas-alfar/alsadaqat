@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('OrganizationBranch', 'List Organization Branch'),'url'=>array('index')),
 	array('label'=>Yii::t('OrganizationBranch', 'Create Organization Branch'),'url'=>array('create')),
 	array('label'=>Yii::t('OrganizationBranch', 'Update Organization Branch'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('OrganizationBranch', 'Delete Organization Branch'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('OrganizationBranch', 'Delete Organization Branch'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('OrganizationBranch', 'Manage Organization Branch'),'url'=>array('admin')),
 );
 ?>

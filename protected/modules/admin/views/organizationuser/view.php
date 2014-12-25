@@ -8,7 +8,7 @@ $this->menu = array(
 	array('label' => Yii::t('OrganizationUser', 'List Organization User'), 'url' => array('index')),
 	array('label' => Yii::t('OrganizationUser', 'Create Organization User'), 'url' => array('create')),
 	array('label' => Yii::t('OrganizationUser', 'Update Organization User'), 'url' => array('update', 'id' => $model->id)),
-	array('label' => Yii::t('OrganizationUser', 'Delete Organization User'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
+	array('label' => Yii::t('OrganizationUser', 'Delete Organization User'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label' => Yii::t('OrganizationUser', 'Manage Organization User'), 'url' => array('admin')),
 );
 ?>

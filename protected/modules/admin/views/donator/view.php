@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>Yii::t('Donator', 'List Donator'),'url'=>array('index')),
 	array('label'=>Yii::t('Donator', 'Create Donator'),'url'=>array('create')),
 	array('label'=>Yii::t('Donator', 'Update Donator'),'url'=>array('update','id'=>$model->id)),
-	array('label'=>Yii::t('Donator', 'Delete Donator'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>Yii::t('Donator', 'Delete Donator'),'url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?', 'csrf'=>true)),
 	array('label'=>Yii::t('Donator', 'Manage Donator'),'url'=>array('admin')),
 );
 ?>
