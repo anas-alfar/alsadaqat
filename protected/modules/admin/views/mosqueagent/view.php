@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs = array(
-	Yii::t('app', 'Mosque Agents')=> array('index'),
+	Yii::t('app', 'Agents')=> array('index'),
 	$model->title,
 );
 
 $this->menu = array(
-	array('label' => Yii::t('MosqueAgent', 'List Mosque Agent'), 'url' => array('index')),
-	array('label' => Yii::t('MosqueAgent', 'Create Mosque Agent'), 'url' => array('create')),
-	array('label' => Yii::t('MosqueAgent', 'Update Mosque Agent'), 'url' => array('update', 'id' => $model->id)),
-	array('label' => Yii::t('MosqueAgent', 'Delete Mosque Agent'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
-	array('label' => Yii::t('MosqueAgent', 'Manage Mosque Agent'), 'url' => array('admin')),
+	array('label' => Yii::t('MosqueAgent', 'List Agent'), 'url' => array('index')),
+	array('label' => Yii::t('MosqueAgent', 'Create Agent'), 'url' => array('create')),
+	array('label' => Yii::t('MosqueAgent', 'Update Agent'), 'url' => array('update', 'id' => $model->id)),
+	array('label' => Yii::t('MosqueAgent', 'Delete Agent'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
+	array('label' => Yii::t('MosqueAgent', 'Manage Agent'), 'url' => array('admin')),
 );
 ?>
 
