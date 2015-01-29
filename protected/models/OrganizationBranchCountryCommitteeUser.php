@@ -62,7 +62,7 @@ class OrganizationBranchCountryCommitteeUser extends Aulaula
 			'organizationBranchCountryCommittee' => array(self::BELONGS_TO, 'OrganizationBranchCountryCommittee', 'organization_branch_country_committee_id'),
 			'organizationUser' => array(self::BELONGS_TO, 'OrganizationUser', 'organization_user_id'),
 			'organizationPosition' => array(self::BELONGS_TO, 'OrganizationPosition', 'organization_position_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 		);
 	}
 

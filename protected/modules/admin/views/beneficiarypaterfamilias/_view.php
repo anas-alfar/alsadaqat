@@ -1,11 +1,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
+	<?php echo CHtml::encode($data->id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('paterfamilias_first_name')); ?>:</b>
-	<?php echo CHtml::encode($data->paterfamilias_first_name); ?>
+	<?php echo CHtml::link(CHtml::encode($data->paterfamilias_first_name),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('paterfamilias_middle_name')); ?>:</b>

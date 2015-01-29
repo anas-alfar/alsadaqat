@@ -40,11 +40,26 @@ $this->menu = array(
 			'bank_branch_number',
 			'bank_swift_code',
 			'bank_account_number',
-			array('name' => 'personal_photo_path', 'type' => 'raw', 'value' => CHtml::image($model->preview->getUrl('large'), $model->getAttributeLabel('personal_photo_path'))),
-			array('name' => 'country_id', 'value' => array($model, 'countryFilter')),
-			'city_id',
-			'organization_id',
-			'owner_id',
+			array(
+                'name'  => 'personal_photo_path', 
+                'type'  => 'raw', 
+                'value' => CHtml::image($model->preview->getUrl('large'), $model->getAttributeLabel('personal_photo_path'))),
+			array(
+                'name'  => 'country_id', 
+                'value' => array($model, 'countryFilter')
+            ),
+            array(
+                'name'  => 'city_id', 
+                'value' => (Yii::app()->language == 'ar') ? $model->city->name_ar : $model->city->name_ar 
+            ),
+            array(
+                'name'  => 'organization_id', 
+                'value' => $model->organization->name 
+            ),
+            array(
+                'name'  => 'owner_id', 
+                'value' => $model->owner->fullname 
+            ),
 			'created_at',
 			'updated_at',
 		),

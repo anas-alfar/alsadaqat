@@ -19,12 +19,18 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'organization_branch_country_id',
+		array(
+            'name'  => 'organization_branch_country_id',
+            'value' => (Yii::app()->language == 'ar') ? $model->organizationBranchCountry->country->name_ar : $model->organizationBranchCountry->country->name
+        ),
 		'name',
 		'description',
 		'agenda',
 		'annual_plan',
-		'owner_id',
+		array(
+            'name'  => 'owner_id',
+            'value' => $model->owner->fullname
+        ),
 		'created_at',
 		'updated_at',
 	),

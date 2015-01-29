@@ -1,11 +1,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
+	<?php echo CHtml::encode($data->id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('organization_branch_country_id')); ?>:</b>
-	<?php echo CHtml::encode($data->organization_branch_country_id); ?>
+	<?php echo CHtml::link(CHtml::encode( (Yii::app()->language == 'ar') ? $data->organizationBranchCountry->country->name_ar : $data->organizationBranchCountry->country->name),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
@@ -25,7 +25,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id')); ?>:</b>
-	<?php echo CHtml::encode($data->owner_id); ?>
+	<?php echo CHtml::encode($data->owner->fullname); ?>
 	<br />
 
 	<?php /*

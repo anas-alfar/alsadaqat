@@ -29,12 +29,30 @@ $this->menu=array(
             'type'  => 'raw',
             'value' => $model->construction_progress . ' ' .TbHtml::animatedProgressBar( $model->construction_progress, array('color' => TbHtml::PROGRESS_COLOR_SUCCESS) )
         ),
-		'donator_id',
-		'agent_id',
-		'mosque_type_id',
-		array('name'  => 'country_id','value' => array($model, 'countryFilter')),
-		'city_id',
-		'owner_id',
+        array(
+            'name'  => 'donator_id',
+            'value' => $model->donator->fullname
+        ),
+        array(
+            'name'  => 'agent_id',
+            'value' => $model->agent->company_name
+        ),
+        array(
+            'name'  => 'mosque_type_id',
+            'value' => $model->mosqueType->name
+        ),
+		array(
+            'name'  => 'country_id',
+            'value' => array($model, 'countryFilter')
+        ),
+        array(
+            'name'  => 'city_id',
+            'value' => (Yii::app()->language == 'ar') ? $model->city->name_ar : $model->city->name 
+        ),
+        array(
+            'name'  => 'owner_id',
+            'value' => $model->owner->fullname 
+        ),
 		'created_at',
 		'updated_at',
 		'notes',

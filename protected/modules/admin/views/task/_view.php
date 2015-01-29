@@ -1,11 +1,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id'));?>:</b>
-<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id' => $data->id));?>
+<?php echo CHtml::encode($data->id);?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('organization_id'));?>:</b>
-<?php echo CHtml::encode($data->organization_id);?>
+<?php echo CHtml::link(CHtml::encode($data->organization->name), array('view', 'id' => $data->id));?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('title'));?>:</b>
@@ -17,15 +17,15 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id'));?>:</b>
-<?php echo CHtml::encode($data->owner_id);?>
+<?php echo CHtml::encode($data->owner->fullname);?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('assignee_id'));?>:</b>
-<?php echo CHtml::encode($data->assignee_id);?>
+<?php echo CHtml::encode($data->assignee->fullname);?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status'));?>:</b>
-<?php echo CHtml::encode($data->status);?>
+<?php echo CHtml::encode( Yii::t('enumItem', $data->status) );?>
 <br />
 
 <?php /*

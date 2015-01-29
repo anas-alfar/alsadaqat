@@ -44,7 +44,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'organization_id',
+        array(
+            'filter' => false,
+            'name'   => 'organization_id',
+            'value'  => '$data->organization->name'
+        ),
 		'name',
 		'description',
 		'website',

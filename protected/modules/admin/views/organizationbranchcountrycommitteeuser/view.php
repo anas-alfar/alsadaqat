@@ -19,10 +19,22 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'organization_branch_country_committee_id',
-		'organization_user_id',
-		'organization_position_id',
-		'owner_id',
+		array(
+            'name'  => 'organization_branch_country_committee_id',
+            'value' => $model->organizationBranchCountryCommittee->name
+        ),
+        array(
+            'name'  => 'organization_user_id',
+            'value' => $model->organizationUser->fullname
+        ),
+        array(
+            'name'  => 'organization_position_id',
+            'value' => $model->organizationPosition->title
+        ),
+        array(
+            'name'  => 'owner_id',
+            'value' => $model->owner->fullname
+        ),
 		'created_at',
 		'updated_at',
 	),

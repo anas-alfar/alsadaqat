@@ -1,11 +1,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id'));?>:</b>
-<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id' => $data->id));?>
+<?php echo CHtml::encode($data->id);?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username'));?>:</b>
-<?php echo CHtml::encode($data->username);?>
+<?php echo CHtml::link(CHtml::encode($data->username), array('view', 'id' => $data->id));?>
 	<br />
 
 	<!-- <b><?php //echo CHtml::encode($data->getAttributeLabel('password'));?>:</b>
@@ -25,7 +25,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('gender'));?>:</b>
-<?php echo CHtml::encode($data->gender);?>
+<?php echo CHtml::encode( Yii::t('enumItem', $data->gender));?>
 <br />
 
 <?php /*

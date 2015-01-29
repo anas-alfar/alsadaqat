@@ -19,12 +19,24 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'organization_id',
+		array(
+            'name'  => 'organization_id',
+            'value' => $model->organization->name 
+        ),
 		'title',
 		'description',
-		'owner_id',
-		'assignee_id',
-		'status',
+        array(
+            'name'  => 'owner_id',
+            'value' => $model->owner->fullname 
+        ),
+        array(
+            'name'  => 'assignee_id',
+            'value' => $model->assignee->fullname 
+        ),
+        array(
+            'name'  => 'status',
+            'value' => Yii::t('enumItem', $model->status) 
+        ),
 		'start_at',
 		'end_at',
 		'created_at',

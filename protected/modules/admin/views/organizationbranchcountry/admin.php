@@ -56,9 +56,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'filter'=> Country::model()->getOptions(),
             'value' => array($model, 'countryFilter'), 
         ),		
-        'owner_id',
+        //'owner_id',
 		'created_at',
-		'updated_at',
+		//'updated_at',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

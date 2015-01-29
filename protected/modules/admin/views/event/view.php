@@ -19,13 +19,22 @@ $this->menu = array(
 		'data'       => $model,
 		'attributes' => array(
 			'id',
-			'organization_id',
+			array(
+                'name'  => 'organization_id',
+                'value' => $model->organization->name
+            ),
 			'title',
 			'description',
 			'number_of_days',
 			'event_type_id',
-			array('name' => 'country_id', 'value' => array($model, 'countryFilter')),
-			'city_id',
+			array(
+                'name' => 'country_id', 
+                'value' => array($model, 'countryFilter')
+            ),
+            array(
+                'name'  => 'city_id',
+                'value' => (Yii::app()->language == 'ar') ? $model->city->name_ar : $model->city->name
+            ),
 			'address',
 			'status',
 			'start_at',

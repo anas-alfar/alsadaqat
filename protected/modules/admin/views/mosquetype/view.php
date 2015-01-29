@@ -33,7 +33,14 @@ $this->menu=array(
 		'has_sound_system',
 		'has_air_condition',
 		'agent_id',
-		'owner_id',
+        array(
+            'name'  => 'agent_id',
+            'value' => $model->agent->company_name
+        ),
+		array(
+            'name'  => 'owner_id',
+            'value' => $model->owner->fullname
+        ),
 		'created_at',
 		'updated_at',
 	),

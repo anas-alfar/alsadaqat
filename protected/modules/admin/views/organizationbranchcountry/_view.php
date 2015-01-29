@@ -1,11 +1,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
+	<?php echo CHtml::encode($data->id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('organization_branch_id')); ?>:</b>
-	<?php echo CHtml::encode($data->organizationBranchFilter($data)); ?>
+	<?php echo CHtml::link(CHtml::encode($data->organizationBranchFilter($data)),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('country_id')); ?>:</b>
@@ -13,7 +13,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id')); ?>:</b>
-	<?php echo CHtml::encode($data->owner_id); ?>
+	<?php echo CHtml::encode($data->owner->fullname); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('created_at')); ?>:</b>

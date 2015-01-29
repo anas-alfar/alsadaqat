@@ -44,10 +44,22 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'organization_branch_country_committee_id',
-		'organization_user_id',
-		'organization_position_id',
-		'owner_id',
+        array(
+            'name'  => 'organization_branch_country_committee_id',
+            'value' => '$data->organizationBranchCountryCommittee->name'
+        ),
+        array(
+            'name'  => 'organization_user_id',
+            'value' => '$data->organizationUser->fullname'
+        ),
+        array(
+            'name'  => 'organization_position_id',
+            'value' => '$data->organizationPosition->title'
+        ),
+        array(
+            'name'  => 'owner_id',
+            'value' => '$data->owner->fullname'
+        ),
 		'created_at',
 		/*
 		'updated_at',

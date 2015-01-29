@@ -67,7 +67,7 @@ class Task extends Aulaula
 		return array(
 			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
 			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
-			'assignee' => array(self::BELONGS_TO, 'Assignee', 'assignee_id'),
+			'assignee' => array(self::BELONGS_TO, 'OrganizationUser', 'assignee_id'),
 		);
 	}
 

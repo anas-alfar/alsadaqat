@@ -60,7 +60,7 @@ class OrganizationBranchCountry extends Aulaula
 		return array(
 			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
-			'owner' => array(self::BELONGS_TO, 'Owner', 'owner_id'),
+			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'organizationBranchCountryCommittees' => array(self::HAS_MANY, 'OrganizationBranchCountryCommittee', 'organization_branch_country_id'),
 		);
 	}

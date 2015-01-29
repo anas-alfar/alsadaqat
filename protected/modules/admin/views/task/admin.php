@@ -44,11 +44,20 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'organization_id',
+        array(
+            'name'  => 'organization_id',
+            'type'  => 'raw',
+            //'filter'=> OrganizationBranch::model()->getOptions(),
+            'filter'=> false,
+            'value' => array($model, 'organizationFilter'),
+            ),
 		'title',
 		'description',
-		'owner_id',
-		'assignee_id',
+		//'owner_id',
+		array(
+            'name'  => 'assignee_id',
+            'value' => '$data->assignee->fullname'
+        ),
 		/*
 		'status',
 		'start_at',
