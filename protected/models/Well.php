@@ -136,10 +136,10 @@ class Well extends Aulaula
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('contract_date',$this->contract_date,true);
 		$criteria->compare('contract_photo_path',$this->contract_photo_path,true);
-		$criteria->compare('construction_progress',$this->construction_progress,true);
+		$criteria->compare('construction_progress',$this->construction_progress);
         $criteria->compare('real_construction_cost',$this->real_construction_cost);
-		$criteria->compare('donator_id',$this->donator_id,true);
-		$criteria->compare('agent_id',$this->agent_id,true);
+		$criteria->compare('donator_id',$this->donator_id);
+		$criteria->compare('agent_id',$this->agent_id);
 		$criteria->compare('well_type_id',$this->well_type_id,true);
 		$criteria->compare('country_id',$this->country_id,true);
 		$criteria->compare('city_id',$this->city_id,true);

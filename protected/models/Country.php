@@ -154,6 +154,7 @@ class Country extends Aulaula
         $criteria         = new CDbCriteria;
         $criteria->select = 'id,name,name_ar';
         $criteria->scopes = array('published' => 'Yes');
+        $criteria->order  = (Yii::app()->language == 'en') ? 'name ASC' : 'name_ar ASC';
         //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
 
         return CHtml::listData($this->findAll($criteria), 

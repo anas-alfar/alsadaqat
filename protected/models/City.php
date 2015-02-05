@@ -162,6 +162,8 @@ class City extends Aulaula
             $criteria->params=array(':country_id' => $countryId );
         }
 
+        $criteria->order  = (Yii::app()->language == 'en') ? 'name ASC' : 'name_ar ASC';
+
         return CHtml::listData($this->findAll($criteria), 
                 'id', Yii::app()->language == 'en' ? 'name' : 'name_ar');  
     }
