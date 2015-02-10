@@ -82,8 +82,7 @@ class Donator extends Aulaula
 			);
 		}
 		return array(    
-			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id . 
-							' AND ' . $this->getTableAlias(false, false) . '.organization_branch_id='. Yii::app()->user->organization_branch_id,
+			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
 		);
 	}
 
