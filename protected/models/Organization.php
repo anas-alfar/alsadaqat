@@ -64,6 +64,16 @@ class Organization extends Aulaula
 		);
 	}
 
+	public function defaultScope() {
+		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+			//do nothing
+		} else {
+			return array(    
+				'condition' => 	$this->getTableAlias(false, false) . '.id='. Yii::app()->user->organization_id,
+			);
+		}
+	}
+
 	/**
 	 * @return array relational rules.
 	 */
