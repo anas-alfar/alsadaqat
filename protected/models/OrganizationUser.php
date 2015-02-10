@@ -100,11 +100,11 @@ class OrganizationUser extends Aulaula {
 	public function defaultScope() {
 		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
 			return array(    
-				'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
+				'condition' => 	$this->getTableAlias(false, false) . '.id='. Yii::app()->user->organization_id,
 			);
 		}
 		return array(    
-			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id . 
+			'condition' => 	$this->getTableAlias(false, false) . '.id='. Yii::app()->user->organization_id . 
 							' AND ' . $this->getTableAlias(false, false) . '.organization_branch_id='. Yii::app()->user->organization_branch_id,
 		);
 	}
