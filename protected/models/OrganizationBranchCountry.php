@@ -50,6 +50,16 @@ class OrganizationBranchCountry extends Aulaula
 		);
 	}
 
+	public function defaultScope() {
+		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+			//do nothing
+		} else {
+			return array(    
+				'condition' => 	$this->getTableAlias(false, false) . '.organization_branch_id='. Yii::app()->user->organization_branch_id,
+			);
+		}
+	}
+
 	/**
 	 * @return array relational rules.
 	 */

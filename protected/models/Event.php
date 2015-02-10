@@ -72,6 +72,12 @@ class Event extends Aulaula
 		);
 	}
 
+	public function defaultScope() {
+		return array(    
+			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
+		);
+	}
+
 	/**
 	 * @return array relational rules.
 	 */

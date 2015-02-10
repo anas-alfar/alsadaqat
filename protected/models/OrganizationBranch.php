@@ -70,6 +70,18 @@ class OrganizationBranch extends Aulaula {
 		);
 	}
 
+	public function defaultScope() {
+		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+			return array(    
+				'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
+			);
+		}
+		return array(    
+			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id . 
+							' AND ' . $this->getTableAlias(false, false) . '.id='. Yii::app()->user->organization_branch_id,
+		);
+	}
+
 	/**
 	 * @return array relational rules.
 	 */
