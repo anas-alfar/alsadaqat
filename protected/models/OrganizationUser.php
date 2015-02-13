@@ -102,6 +102,8 @@ class OrganizationUser extends Aulaula {
 			return;
 		}
 		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+			#override temporary ONLY to fix the rights module for now
+			return;
 			return array(
 				'condition' => $this->getTableAlias(false, false).'.id='.Yii::app()->user->organization_id,
 			);
