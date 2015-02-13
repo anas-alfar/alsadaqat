@@ -28,46 +28,48 @@
  * @property MosqueAgent $agent
  * @property OrganizationUser $owner
  */
-class WellType extends Aulaula
-{
+class WellType extends Aulaula {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
-	{
+	public function tableName() {
 		return 'well_type';
 	}
 
 	/**
 	 * @return array validation rules for model attributes.
 	 */
-	public function rules()
-	{
+	public function rules() {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
 			array('name, construction_cost, construction_time, number_of_people, agent_id', 'required'),
-			array('construction_time, number_of_people', 'numerical', 'integerOnly'=>true),
+			array('construction_time, number_of_people', 'numerical', 'integerOnly' => true),
 			array('construction_cost', 'numerical'),
-			array('name', 'length', 'max'=>255),
-			array('agent_id, owner_id', 'length', 'max'=>11),
+			array('name', 'length', 'max'               => 255),
+			array('agent_id, owner_id', 'length', 'max' => 11),
 			array('created_at, updated_at', 'safe'),
-			
-            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
-            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
+
+			array('updated_at', 'default', 'value'             => new CDbExpression('NOW()'), 'setOnEmpty'             => false, 'on'             => 'update'),
+			array('created_at, updated_at', 'default', 'value' => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, construction_cost, construction_time, number_of_people, agent_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
-			
-            array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false ),
+			array('id, name, construction_cost, construction_time, number_of_people, agent_id, owner_id, created_at, updated_at', 'safe', 'on' => 'search'),
+
+			array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false),
+		);
+	}
+
+	public function defaultScope() {
+		return array(
+			'condition' => $this->getTableAlias(false, false).'.owner_id='.Yii::app()->user->id,
 		);
 	}
 
 	/**
 	 * @return array relational rules.
 	 */
-	public function relations()
-	{
+	public function relations() {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
@@ -80,18 +82,17 @@ class WellType extends Aulaula
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
-	public function attributeLabels()
-	{
+	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('well_type','ID'),
-			'name' => Yii::t('well_type','Name'),
-			'construction_cost' => Yii::t('well_type','Construction Cost'),
-			'construction_time' => Yii::t('well_type','Construction Time'),
-			'number_of_people' => Yii::t('well_type','Number Of People'),
-			'agent_id' => Yii::t('well_type','Agent'),
-			'owner_id' => Yii::t('well_type','Owner'),
-			'created_at' => Yii::t('well_type','Created At'),
-			'updated_at' => Yii::t('well_type','Updated At'),
+			'id'                => Yii::t('well_type', 'ID'),
+			'name'              => Yii::t('well_type', 'Name'),
+			'construction_cost' => Yii::t('well_type', 'Construction Cost'),
+			'construction_time' => Yii::t('well_type', 'Construction Time'),
+			'number_of_people'  => Yii::t('well_type', 'Number Of People'),
+			'agent_id'          => Yii::t('well_type', 'Agent'),
+			'owner_id'          => Yii::t('well_type', 'Owner'),
+			'created_at'        => Yii::t('well_type', 'Created At'),
+			'updated_at'        => Yii::t('well_type', 'Updated At'),
 		);
 	}
 
@@ -107,25 +108,24 @@ class WellType extends Aulaula
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
-	{
+	public function search() {
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('construction_cost',$this->construction_cost);
-		$criteria->compare('construction_time',$this->construction_time);
-		$criteria->compare('number_of_people',$this->number_of_people);
-		$criteria->compare('agent_id',$this->agent_id,true);
-		$criteria->compare('owner_id',$this->owner_id,true);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('updated_at',$this->updated_at,true);
+		$criteria->compare('id', $this->id, true);
+		$criteria->compare('name', $this->name, true);
+		$criteria->compare('construction_cost', $this->construction_cost);
+		$criteria->compare('construction_time', $this->construction_time);
+		$criteria->compare('number_of_people', $this->number_of_people);
+		$criteria->compare('agent_id', $this->agent_id, true);
+		$criteria->compare('owner_id', $this->owner_id, true);
+		$criteria->compare('created_at', $this->created_at, true);
+		$criteria->compare('updated_at', $this->updated_at, true);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+				'criteria' => $criteria,
+			));
 	}
 
 	/**
@@ -134,16 +134,15 @@ class WellType extends Aulaula
 	 * @param string $className active record class name.
 	 * @return WellType the static model class
 	 */
-	public static function model($className=__CLASS__)
-	{
+	public static function model($className = __CLASS__) {
 		return parent::model($className);
 	}
 
-	public function getOptions(){
-        $criteria         = new CDbCriteria;
-        $criteria->select = 'id,name';
-        //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
+	public function getOptions() {
+		$criteria         = new CDbCriteria;
+		$criteria->select = 'id,name';
+		//$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
 
-        return CHtml::listData($this->findAll($criteria),'id','name');
-    }
+		return CHtml::listData($this->findAll($criteria), 'id', 'name');
+	}
 }
