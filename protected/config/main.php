@@ -29,6 +29,9 @@ return array(
 
 		'application.modules.rights.*',
 		'application.modules.rights.components.*',
+
+        'application.components.Mails.*',
+        'application.extensions.yii-mail.*',
 	),
 
 	'charset' => 'UTF-8',
@@ -171,6 +174,15 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction' => 'site/error',
 		),
+
+        'mail' => array(
+            'class'         => 'ext.yii-mail.YiiMail',
+            'transportType' => 'php',
+            'viewPath'      => 'application.modules.admin.views.emails',
+            'logging'       => true,
+            'dryRun'        => false,
+        ),
+
 	),
 
 	// application-level parameters that can be accessed

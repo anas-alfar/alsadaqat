@@ -76,4 +76,12 @@
       getCitisUrl         = "'.Yii::app()->createUrl('admin/city/getcities').'";
      ', CClientScript::POS_END )
 ?>
-     
+
+<!-- Add Flash Massages -->
+<?php
+    $flashes = "";
+    foreach(Yii::app()->user->getFlashes() as $key => $message)
+        $flashes .= '<div class="alert alert-'.$key.' text-center">' . $message . '</div>';
+
+    Yii::app()->clientScript->registerScript('ADD_FLASHES', 'jQuery(\' '.str_replace("'", "\'", $flashes).' \' ).prependTo( ".container-fluid" );', CClientScript::POS_READY )
+?>

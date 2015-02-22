@@ -249,6 +249,15 @@ class OrganizationUser extends Aulaula {
 		return CHtml::listData($this->findAll($criteria), 'id', 'fullname');
 	}
 
+    public function sendPasswordResetLink() {
+
+        if( date("Y-m-d H:i:s") > date("Y-m-d H:i:s", strtotime( $this->forget_password_expiration ) ) )
+            $this->saveAttributes( array( 'perishable_token' => md5(microtime() . mt_rand(1, 10000) . $this->id), 'forget_password_expiration' => date("Y-m-d H:i:s", strtotime("+72 hours") ) ) ); 
+
+        $commonMail = new CommonMails;
+        $commonMail-> sendmail_forget_password( $this );
+    }
+
 	public function behaviors() {
 		return array(
 			'preview'        => array(

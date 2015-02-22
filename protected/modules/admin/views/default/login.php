@@ -43,6 +43,8 @@ $this->breadcrumbs=array(
     		<?php echo $form->label($model,Yii::t('app', 'rememberMe')); ?>
     		<?php echo $form->error($model,'rememberMe'); ?>
     	</div> -->
+
+    	<div><?php echo CHtml::link( Yii::t('app', 'Forget Password ?'), array('/admin/default/resetpassword') ) ?></div>
     	
         <div class="form-actions">
             <?php echo TbHtml::submitButton( Yii::t('app', 'Login'), array(

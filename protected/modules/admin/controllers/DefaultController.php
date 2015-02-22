@@ -12,7 +12,7 @@ class DefaultController extends RController {
 	}
 
 	public function allowedActions() {
-		return 'index,error,login,logout';
+		return 'index,error,login,logout,resetpassword';
 	}
 
 	public function actionIndex() {
@@ -66,4 +66,71 @@ class DefaultController extends RController {
 		Yii::app()->user->logout();
 		$this->redirect('/admin/default/login');
 	}
+
+    public function actionResetpassword() {
+        $this->layout     = 'column1';
+        $model = new Confirmation();
+        $url   = $this->createUrl('/admin/default/resetpassword');
+        $title = 'Reset Password';
+        
+        if( isset( $_GET['token'] ) AND !empty( $_GET['token'] ) ) {
+
+            $user = OrganizationUser::model()->findByAttributes( array('perishable_token' => $_GET['token']) );
+            if( $user AND $user->forget_password_expiration > date("Y-m-d H:i:s") ) {
+                $model = new ResetPasswordForm( );
+                $this -> render('resetPassword', array('model' => $model, 'url' => $url, 'token' => $_GET['token'], 'title' => $title)); 
+            } else {
+                Yii::app()->user->setFlash('error', 'Error in your confirmation. try again.');
+                $this -> render('requestResetPassword', array('model' => $model, 'url' => $url, 'title' => $title)); 
+            }
+
+        } else if( isset( $_POST['Confirmation']['username'] ) ) {
+
+            $model -> username = $_POST['Confirmation']['username'];
+            if( $model -> validate() ) {
+                $user =  OrganizationUser::model() -> findByAttributes( array( 'username' => $model -> username ) );
+                $user -> sendPasswordResetLink();
+
+                $flashMesage = Yii::t('reset_password', 'Please check your email for instructions on how to change your password');
+                Yii::app()->user->setFlash('success', $flashMesage);
+            }
+
+            $this -> render('requestResetPassword', array(
+                'model' => $model, 
+                'url'   => $url, 
+                'title' => $title
+            ));
+
+        } else if( isset( $_POST['ResetPasswordForm'] ) AND isset( $_POST['token'] ) ) {
+
+            $model  =  new ResetPasswordForm();
+            $model -> attributes = $_POST['ResetPasswordForm'];
+            $user   = OrganizationUser::model()->findByAttributes( array( 'perishable_token' => $_POST['token'] ) );
+
+            if( $model->validate() && $user) {
+
+                $user->saveAttributes( array('password' => Hash::hashPassword($model->password), 'forget_password_expiration' => date("Y-m-d H:i:s", strtotime("-1 hours") ) ) );
+
+                Yii::app()->user->setFlash('success', Yii::t('reset_password', 'Password successfully updated') );
+                $this->redirect('/admin/default/login');
+            }
+
+            $this -> render('resetPassword', array(
+                'model' => $model, 
+                'url'   => $url, 
+                'token' => $_POST['token'], 
+                'title' => $title 
+            )); 
+
+        } else {
+            $this -> render('requestResetPassword', array(
+                'model' => $model,
+                'url'   => $url, 
+                'title' => $title
+            ));
+        }
+
+
+        
+    }
 }
