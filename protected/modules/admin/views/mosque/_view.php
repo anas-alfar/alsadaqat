@@ -20,6 +20,10 @@
 	<?php echo CHtml::encode($data->contract_photo_path); ?>
 	<br />
 
+    <b><?php echo CHtml::encode($data->getAttributeLabel('real_construction_cost')); ?>:</b>
+    <?php echo CHtml::encode($data->real_construction_cost); ?>
+    <br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('construction_progress')); ?>:</b>
 	<?php echo CHtml::encode($data->construction_progress); ?>
 	<?php echo TbHtml::animatedProgressBar( $data->construction_progress, array('color' => TbHtml::PROGRESS_COLOR_SUCCESS) )?>

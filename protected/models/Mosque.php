@@ -10,6 +10,7 @@
  * @property string $contract_date
  * @property string $contract_photo_path
  * @property string $construction_progress
+ * @property double $real_construction_cost
  * @property string $donator_id
  * @property string $agent_id
  * @property string $mosque_type_id
@@ -47,8 +48,9 @@ class Mosque extends Aulaula {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contract_date, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id', 'required'),
+			array('name, address, contract_date, construction_progress, real_construction_cost, donator_id, agent_id, mosque_type_id, country_id, city_id', 'required'),
 			array('gallery_id', 'numerical', 'integerOnly'                                                                      => true),
+			array('real_construction_cost', 'numerical'),
 			array('name, address, contract_photo_path', 'length', 'max'                                                         => 255),
 			array('construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, owner_id', 'length', 'max' => 11),
 			array('notes, options', 'length', 'max'                                                                             => 1024),
@@ -58,7 +60,7 @@ class Mosque extends Aulaula {
 			array('created_at, updated_at', 'default', 'value' => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, address, contract_date, contract_photo_path, construction_progress, donator_id, agent_id, mosque_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on' => 'search'),
+			array('id, name, address, contract_date, contract_photo_path, construction_progress, real_construction_cost, donator_id, agent_id, mosque_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on' => 'search'),
 
 			array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false),
 		);
@@ -99,6 +101,7 @@ class Mosque extends Aulaula {
 			'contract_date'         => Yii::t('mosque', 'Contract Date'),
 			'contract_photo_path'   => Yii::t('mosque', 'Contract Photo Path'),
 			'construction_progress' => Yii::t('mosque', 'Construction Progress'),
+			'real_construction_cost'=> Yii::t('mosque', 'Real Construction Cost'),
 			'donator_id'            => Yii::t('mosque', 'Donator'),
 			'agent_id'              => Yii::t('mosque', 'Agent'),
 			'mosque_type_id'        => Yii::t('mosque', 'Mosque Type'),
@@ -136,6 +139,7 @@ class Mosque extends Aulaula {
 		$criteria->compare('contract_date', $this->contract_date, true);
 		$criteria->compare('contract_photo_path', $this->contract_photo_path, true);
 		$criteria->compare('construction_progress', $this->construction_progress);
+        $criteria->compare('real_construction_cost', $this->real_construction_cost);
 		$criteria->compare('donator_id', $this->donator_id);
 		$criteria->compare('agent_id', $this->agent_id);
 		$criteria->compare('mosque_type_id', $this->mosque_type_id, true);

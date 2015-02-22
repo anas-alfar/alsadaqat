@@ -29,6 +29,7 @@ $this->menu=array(
             'type'  => 'raw',
             'value' => $model->construction_progress . ' ' .TbHtml::animatedProgressBar( $model->construction_progress, array('color' => TbHtml::PROGRESS_COLOR_SUCCESS) )
         ),
+        'real_construction_cost',
         array(
             'name'  => 'donator_id',
             'value' => $model->donator->fullname

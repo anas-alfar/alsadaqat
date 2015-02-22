@@ -67,6 +67,8 @@
     
 
 	<?php echo $form->textFieldControlGroup($model,'construction_progress',array('class'=>'span5','maxlength'=>11)); ?>
+	
+	<?php echo $form->textFieldControlGroup($model, 'real_construction_cost', array('class'=>'span5')); ?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'donator_id', Donator::model()->getOptions(), array('empty' =>$model->getAttributeLabel('donator_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
