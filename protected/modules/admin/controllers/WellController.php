@@ -118,7 +118,13 @@ class WellController extends RController {
 	public function actionDelete($id) {
 		if (Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			//$this->loadModel($id)->delete();
+			$model = $this->loadModel($id);
+
+            if ( $model->gallery )
+                $model->gallery->delete();
+
+            $model->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if (!isset($_GET['ajax'])) {
