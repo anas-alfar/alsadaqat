@@ -70,8 +70,12 @@ class OrganizationUser extends Aulaula {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, fullname, ssn, email, date_of_birth, local_mobile, nationality_id', 'required'),
-			array('username, password, ssn', 'length', 'max'                                    => 32, 'except'                                    => 'update'),
+			array('username, password, fullname, ssn, email, date_of_birth, local_mobile, international_mobile, nationality_id', 'required'),
+			array('username, password, ssn', 'length', 'max'                                    => 32, 'except' => 'update'),
+            
+            //array( 'username, ssn, local_mobile, international_mobile, email', 'unique' , 'message' => Yii::t('error','{attribute} is already exists.') ),
+            array( 'username, ssn, local_mobile, international_mobile, email', 'checkIfExist' ),
+
 			array('password', 'length', 'max'                                                   => 128, 'on'                                                   => 'update'),
 			array('title', 'length', 'max'                                                      => 4),
 			array('fullname, email, personal_photo_path, passport_photo_path', 'length', 'max'  => 255),
@@ -86,20 +90,33 @@ class OrganizationUser extends Aulaula {
 			array('last_login_date', 'length', 'safe' => true, 'max' => 30),
 			array('created_at, updated_at', 'safe'),
 
-			array('updated_at', 'default', 'value'             => new CDbExpression('NOW()'), 'setOnEmpty'             => false, 'on'             => 'update'),
+			array('updated_at', 'default', 'value'             => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'update'),
 			array('created_at, updated_at', 'default', 'value' => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, username, password, title, fullname, ssn, gender, email, date_of_birth, home_phone, work_phone, local_mobile, international_mobile, nationality_id, organization_id, organization_branch_id, personal_photo_path, passport_photo_path, blocked, last_login_date, last_login_ip, created_at, updated_at', 'safe', 'on' => 'search'),
 
-			array('organization_id', 'default', 'value'        => Yii::app()->user->organization_id, 'setOnEmpty'        => false),
-			array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => false),
+
+
+			array('organization_id', 'default', 'value'        => Yii::app()->user->organization_id,         'setOnEmpty' => false),
+			array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id,  'setOnEmpty' => false),
 		);
 	}
 
+    public function checkIfExist($attribute,$params) {
+        if ( !empty($this->$attribute) ) {
+            $sql = "SELECT COUNT(1) as cnt FROM organization_user WHERE $attribute='".$this->$attribute."'";
+            $result = Yii::app()->db->createCommand($sql)->queryAll();
+            if ( $result ) {
+                if ( $result[0]['cnt'] > 0 )
+                    $this->addError($attribute, $this->getAttributeLabel($attribute) . ' ' . Yii::t('error', 'is already exists') );
+            }
+        }
+    }
+
 	public function defaultScope() {
 		if (empty(Yii::app()->user->organization_id)) {
-			return;
+			return array();
 		}
 		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
 			#override temporary ONLY to fix the rights module for now
