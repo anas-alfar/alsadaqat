@@ -1,7 +1,7 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::encode($data->id); ?>
+	<?php echo CHtml::encode( $widget->dataProvider->pagination->offset + $index+1 ); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('scientific_degree')); ?>:</b>

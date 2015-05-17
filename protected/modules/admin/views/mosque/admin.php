@@ -46,7 +46,12 @@ $this->widget('yiiwheels.widgets.grid.WhGridView', array(
 	'filter'=>$model,
 	'responsiveTable' => true,
 	'columns'=>array(
-		'id',
+       array(
+            'name'     => 'id',
+            'value'    => '$this->grid->dataProvider->pagination->offset + $row+1',       //  row is zero based
+            'filter'   => false,
+            'sortable' => false,
+        ),
 		'name',
 		'construction_progress',
         array(

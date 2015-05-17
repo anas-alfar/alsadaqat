@@ -76,20 +76,23 @@ class Aulaula extends CActiveRecord
     
     public function getOrganizationUsersByOrganizationId( $organizationId = null ) {
 
-        if ( empty($organizationId) )
-            $organizationId = Yii::app()->user->organization_id;
-
-        $users = OrganizationUser::model()->findAll( 
-            array(
-                'select'=> 'id, fullname', 
-                'condition' => 'organization_id = :organizationId', 
-                'params' => array(
-                    ':organizationId' => $organizationId
+        if ( ! Yii::app()->user->checkAccess(Rights::module()->superuserName) ) {
+            if ( empty($organizationId) )
+                $organizationId = Yii::app()->user->organization_id;
+    
+            $users = OrganizationUser::model()->findAll( 
+                array(
+                    'select'=> 'id, fullname', 
+                    'condition' => 'organization_id = :organizationId', 
+                    'params' => array(
+                        ':organizationId' => $organizationId
+                    ) 
                 ) 
-            ) 
-        );
-
-        return CHtml::listData( $users, 'id', 'fullname');
+            );
+            return CHtml::listData( $users, 'id', 'fullname');
+        } else {
+            return array();
+        }
     }
     
     public function getTranslatedGender($data) {

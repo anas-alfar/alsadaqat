@@ -43,7 +43,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+       array(
+            'name'     => 'id',
+            'value'    => '$this->grid->dataProvider->pagination->offset + $row+1',       //  row is zero based
+            'filter'   => false,
+            'sortable' => false,
+        ),
 		array(
             'name'  => 'event_id',
             'type'  => 'raw',
