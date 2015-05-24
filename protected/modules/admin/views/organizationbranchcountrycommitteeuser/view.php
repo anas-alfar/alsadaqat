@@ -25,15 +25,15 @@ $this->menu=array(
         ),
         array(
             'name'  => 'organization_user_id',
-            'value' => $model->organizationUser->fullname
+            'value' => isset($model->organizationUser) ? $model->organizationUser->fullname : ''
         ),
         array(
             'name'  => 'organization_position_id',
-            'value' => $model->organizationPosition->title
+            'value' => isset($model->organizationPosition) ? $model->organizationPosition->title : ''
         ),
         array(
             'name'  => 'owner_id',
-            'value' => $model->owner->fullname
+            'value' => isset($model->owner) ? $model->owner->fullname : ''
         ),
 		'created_at',
 		'updated_at',

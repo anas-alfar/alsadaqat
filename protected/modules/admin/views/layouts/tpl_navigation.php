@@ -124,7 +124,7 @@
                                     array('label' => Yii::t('app', 'Manage Organization') , 'url'=>'/admin/organization/admin'),
                                     array('label' => '&nbsp;&nbsp;<strong><i>' . Yii::t('app', 'Manage Organization Details') . '</i></strong>'),
                                     array('label' => Yii::t('app', 'Manage Organization Branch') , 'url'=>'/admin/organizationbranch/index'),
-                                    array('label' => Yii::t('app', 'Manage Organization Branch Country') , 'url'=>'/admin/organizationbranchcountry/index'),
+                                    //array('label' => Yii::t('app', 'Manage Organization Branch Country') , 'url'=>'/admin/organizationbranchcountry/index'),
                                     array('label' => Yii::t('app', 'Manage Organization Branch Country Committee') , 'url'=>'/admin/organizationbranchcountrycommittee/index'),
                                     array('label' => Yii::t('app', 'Manage Organization Branch Country Committee User') , 'url'=>'/admin/organizationbranchcountrycommitteeuser/index'),
                                     array('label' => Yii::t('app', 'Manage Organization Positions') , 'url'=>'/admin/organizationposition/index'),

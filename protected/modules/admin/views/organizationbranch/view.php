@@ -41,7 +41,7 @@ $this->menu=array(
 		'adress',
         array(
             'name'  => 'manager_id',
-            'value' => $model->manager->fullname,
+            'value' => isset($model->manager) ? $model->manager->fullname : '',
         ),
 		'work_days',
 		'work_hours',
@@ -53,7 +53,7 @@ $this->menu=array(
         ),
         array(
             'name'  => 'owner_id',
-            'value' => $model->owner->fullname,
+            'value' => isset($model->owner) ? $model->owner->fullname : '',
         ),
 		'created_at',
 		'updated_at',

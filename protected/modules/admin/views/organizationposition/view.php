@@ -24,7 +24,11 @@ $this->menu=array(
 		'description',
 		'qualifications',
 		'responsibilities',
-		'owner_id',
+		//'owner_id',
+		array(
+            'name'  => 'owner_id',
+            'value' => isset($model->owner) ? $model->owner->fullname : '',
+        ),
 		'created_at',
 		'updated_at',
 	),

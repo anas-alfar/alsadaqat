@@ -49,7 +49,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'filter'   => false,
             'sortable' => false,
         ),
-		'organization_branch_country_id',
+		//'organization_branch_country_id',
 		'name',
 		'description',
 		'agenda',

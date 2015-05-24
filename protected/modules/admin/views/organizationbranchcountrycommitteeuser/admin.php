@@ -55,15 +55,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
         ),
         array(
             'name'  => 'organization_user_id',
-            'value' => '$data->organizationUser->fullname'
+            'value' => isset($data->organizationUser) ? $data->organizationUser->fullname : ''
         ),
         array(
             'name'  => 'organization_position_id',
-            'value' => '$data->organizationPosition->title'
+            'value' => isset($data->organizationPosition) ? $data->organizationPosition->title : ''
         ),
         array(
             'name'  => 'owner_id',
-            'value' => '$data->owner->fullname'
+            'value' => isset($data->owner) ? $data->owner->fullname : ''
         ),
 		'created_at',
 		/*

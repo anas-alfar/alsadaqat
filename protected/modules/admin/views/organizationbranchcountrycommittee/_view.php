@@ -4,12 +4,8 @@
 	<?php echo CHtml::encode( $widget->dataProvider->pagination->offset + $index+1 ); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('organization_branch_country_id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode( (Yii::app()->language == 'ar') ? $data->organizationBranchCountry->country->name_ar : $data->organizationBranchCountry->country->name),array('view','id'=>$data->id)); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
+	<?php echo CHtml::link( CHtml::encode($data->name),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
@@ -25,7 +21,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('owner_id')); ?>:</b>
-	<?php echo CHtml::encode($data->owner->fullname); ?>
+	<?php echo isset($data->owner) ? CHtml::encode($data->owner->fullname) : ''; ?>
 	<br />
 
 	<?php /*

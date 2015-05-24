@@ -19,17 +19,17 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		array(
+		/*array(
             'name'  => 'organization_branch_country_id',
             'value' => (Yii::app()->language == 'ar') ? $model->organizationBranchCountry->country->name_ar : $model->organizationBranchCountry->country->name
-        ),
+        ),*/
 		'name',
 		'description',
 		'agenda',
 		'annual_plan',
 		array(
             'name'  => 'owner_id',
-            'value' => $model->owner->fullname
+            'value' => isset($model->owner) ? $model->owner->fullname : ''
         ),
 		'created_at',
 		'updated_at',

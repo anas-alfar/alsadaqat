@@ -62,7 +62,7 @@ class OrganizationBranchCountryCommittee extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'organizationBranchCountry' => array(self::BELONGS_TO, 'OrganizationBranchCountry', 'organization_branch_country_id'),
+			//'organizationBranchCountry' => array(self::BELONGS_TO, 'OrganizationBranchCountry', 'organization_branch_country_id'),
 			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_branch_country_committee_id'),
 		);
