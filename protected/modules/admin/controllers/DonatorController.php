@@ -18,6 +18,7 @@ class DonatorController extends RController {
 	}
 
 	public function allowedActions() {
+	    return 'actionGetDonators';
 		// return 'create';
 	}
 
@@ -36,6 +37,11 @@ class DonatorController extends RController {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate() {
+       $fancy = false;
+        if ( $fancy = Yii::app()->getRequest()->getParam('fancy') AND Yii::app()->getRequest()->getParam('fancy') == '1' ) {
+            $fancy = true;
+        }
+
 		$model = new Donator;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -43,16 +49,36 @@ class DonatorController extends RController {
 
 		if (isset($_POST['Donator'])) {
 			$model->attributes = $_POST['Donator'];
-			if ($model->save()) {
-				$this->checkImageUploaded($model, 'image', 'preview');
-				$this->redirect(array('view', 'id' => $model->id));
-			}
+            
+            if ( ! $fancy ) {
+    			if ($model->save()) {
+    				$this->checkImageUploaded($model, 'image', 'preview');
+    				$this->redirect(array('view', 'id' => $model->id));
+    			}
+            } else {
+                
+                if ($model->save()) {
+                    $this->checkImageUploaded($model, 'image', 'preview');
+                    Yii::app()->end();
+                } else {
+                    $this->performAjaxValidation($model);
+                }
+                
+            }
+                
 
 		}
 
-		$this->render('create', array(
-				'model' => $model,
+        if ( $fancy ) {
+            $this->renderPartial('_form',array(
+                'model' => $model,
+                'fancy' => true,
+            ), false, true);
+        } else {
+    		$this->render('create', array(
+    				'model' => $model,
 			));
+        }
 	}
 
 	/**
@@ -148,4 +174,10 @@ class DonatorController extends RController {
 			Yii::app()->end();
 		}
 	}
+    
+    public function actionGetDonators() {
+        echo json_encode(Donator::model()->getOptions());
+        Yii::app()->end();
+    }
+    
 }

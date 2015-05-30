@@ -74,6 +74,7 @@
     Yii::app()->clientScript->registerScript('INIT',
      'YII_CSRF_TOKEN      = "'.Yii::app()->request->csrfToken.'";
       getCitisUrl         = "'.Yii::app()->createUrl('admin/city/getcities').'";
+      getDonatorsUrl      = "'.Yii::app()->createUrl('admin/donator/getdonators').'";
      ', CClientScript::POS_END )
 ?>
 
@@ -84,4 +85,10 @@
         $flashes .= '<div class="alert alert-'.$key.' text-center">' . $message . '</div>';
 
     Yii::app()->clientScript->registerScript('ADD_FLASHES', 'jQuery(\' '.str_replace("'", "\'", $flashes).' \' ).prependTo( ".container-fluid" );', CClientScript::POS_READY )
+?>
+
+<?php 
+    Yii::app()->clientScript->registerScript('fancybox', "$('a.fancybox,button.fancybox').fancybox({type:'ajax', 'autoSize':true, arrows:false});");
+    Yii::app()->clientScript->registerScriptFile('/js/fancybox/source/jquery.fancybox.pack.js', CClientScript::POS_END);
+    Yii::app()->clientScript->registerCssFile('/js/fancybox/source/jquery.fancybox.css');
 ?>

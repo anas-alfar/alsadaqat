@@ -1,27 +1,72 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'donator-form',
-    'enableAjaxValidation'   => false,
-    'enableClientValidation' => true,
-    'htmlOptions' => array(
-        'class'   => 'well',
-        'enctype' => 'multipart/form-data',
-    ),
-    'clientOptions' => array(
-        'validateOnSubmit' => true,
-        'afterValidate'    => 'js:function(form, data, hasError) {
-            if(hasError) {
-              for(var i in data){
-                $("html, body").animate({
-                  scrollTop: $("div.error").offset().top - 100
-                 }, 1000);
-                 return false;
-              } 
-           }else{
-            return true;
-           }
-        }',
-    ),
-)); ?>
+<?php
+
+    $formRules = array(
+        'id'=>'donator-form',
+        'enableAjaxValidation'   => false,
+        'enableClientValidation' => true,
+        'htmlOptions' => array(
+            'class'     => 'well',
+            'enctype'   => 'multipart/form-data',
+        ),
+        'clientOptions' => array(
+            'validateOnSubmit' => true,
+            'afterValidate'    => 'js:function(form, data, hasError) {
+                if(hasError) {
+                  for(var i in data){
+                    $("html, body").animate({
+                      scrollTop: $("div.error").offset().top - 100
+                     }, 1000);
+                     return false;
+                  } 
+               }else{
+                return true;
+               }
+            }',
+        ),
+    );
+
+    if ( isset($fancy) ) {
+        Yii::app()->clientScript->scriptMap = array( 
+            'jquery.js'             => false, 
+            'jquery.min.js'         => false, 
+            'jquery-ui.min.js'      => false, 
+            'jquery.yiigridview.js' => false, 
+            'jquery.yiiactiveform.js' => false 
+        );
+        
+        $readOnly  = true;
+        $formRules = array( 
+            'id' => 'donator-form', 
+            'enableAjaxValidation'   => true,
+            'enableClientValidation' => true,
+            'htmlOptions' => array(
+                'class'     => 'well',
+                'enctype'   => 'multipart/form-data',
+            ),
+            'clientOptions'        => array(
+                'validateOnChange' => false,
+                'validateOnSubmit' => true,
+                'afterValidate'    => 'js:function(form, data, hasError) {
+                    if(hasError) {
+                        for(var i in data){
+                            $("html, body").animate({
+                              scrollTop: jQuery("div.error").offset().top - 100
+                             }, 1000);
+                             return false;
+                        }
+                    } else {
+                        jQuery.fancybox.close();
+                        updateDesireDropDown( getDonatorsUrl, "Mosque_donator_id", "Donator", "" )
+                        return false;
+                   }
+                }',
+            )
+        );
+
+    }
+
+?>
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', $formRules); ?>
 
 	<p class="help-block"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required' )?>.</p>
 

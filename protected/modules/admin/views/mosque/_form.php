@@ -70,7 +70,12 @@
 	
 	<?php echo $form->textFieldControlGroup($model, 'real_construction_cost', array('class'=>'span5')); ?>
 
-	<?php echo $form->dropDownListControlGroup($model, 'donator_id', Donator::model()->getOptions(), array('empty' =>$model->getAttributeLabel('donator_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+    <div class="col-lg-6">
+	   <?php echo $form->dropDownListControlGroup($model, 'donator_id', Donator::model()->getOptions(), array('empty' =>$model->getAttributeLabel('donator_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+   </div>
+    <div class="col-lg-6">
+        <b><?php echo TbHtml::em( CHtml::link( Yii::t('Donator', 'Create Donator'), $this->createUrl('/admin/donator/create', array('fancy' => true) ), array('class' => 'fancybox')) . ' ' . Yii::t('app', 'if not exist'), array('color' => TbHtml::TEXT_COLOR_WARNING)); ?></b>
+    </div>
 
 	<?php echo $form->dropDownListControlGroup($model, 'agent_id', MosqueAgent::model()->getOptions(), array('empty' =>$model->getAttributeLabel('agent_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
@@ -78,7 +83,12 @@
 
 	<?php echo $form->dropDownListControlGroup($model, 'country_id', Country::model()->getOptions(), array('empty' =>$model->getAttributeLabel('country_id'), 'class'=>'span5', 'maxlength'=>11, 'onChange' =>"updateCitiesDropDown( this.value, 'Mosque_city_id','".$model->getAttributeLabel('city')."')")); ?>
 
-	<?php echo $form->dropDownListControlGroup($model,'city_id', $this->cities, array('empty' =>$model->getAttributeLabel('city_id'), 'class'=>'span5','maxlength'=>11)); ?>
+    <div class="col-lg-6">
+        <?php echo $form->dropDownListControlGroup($model,'city_id', $this->cities, array('empty' =>$model->getAttributeLabel('city_id'), 'class'=>'span5','maxlength'=>11)); ?>
+    </div>
+    <div class="col-lg-6">
+        <b><?php echo TbHtml::em( CHtml::link( Yii::t('City', 'Create City'), $this->createUrl('/admin/city/create', array('fancy' => true) ), array('class' => 'fancybox')) . ' ' . Yii::t('app', 'if not exist'), array('color' => TbHtml::TEXT_COLOR_WARNING)); ?></b>
+    </div>
 
 	<?php //echo $form->textFieldControlGroup($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 

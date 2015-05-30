@@ -35,23 +35,48 @@ class CityController extends RController {
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate() {
-		$model = new City;
+    public function actionCreate() {
+       $fancy = false;
+        if ( $fancy = Yii::app()->getRequest()->getParam('fancy') AND Yii::app()->getRequest()->getParam('fancy') == '1' ) {
+            $fancy = true;
+        }
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+        $model = new City;
 
-		if (isset($_POST['City'])) {
-			$model->attributes = $_POST['City'];
-			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->id));
-			}
-		}
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
 
-		$this->render('create', array(
-				'model' => $model,
-			));
-	}
+        if (isset($_POST['City'])) {
+            $model->attributes = $_POST['City'];
+            
+            if ( ! $fancy ) {
+                if ($model->save()) {
+                    $this->redirect(array('view', 'id' => $model->id));
+                }
+            } else {
+
+                if ($model->save()) {
+                    Yii::app()->end();
+                } else {
+                    $this->performAjaxValidation($model);
+                }
+
+            }
+
+        }
+        
+        if ( $fancy ) {
+            $this->renderPartial('_form',array(
+                'model' => $model,
+                'fancy' => true,
+            ), false, true);
+        } else {
+            $this->render('create', array(
+                'model' => $model,
+            ));
+        }
+
+    }
 
 	/**
 	 * Updates a particular model.

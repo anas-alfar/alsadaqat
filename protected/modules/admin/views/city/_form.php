@@ -1,26 +1,71 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'city-form',
-    'enableAjaxValidation'   => false,
-    'enableClientValidation' => true,
-    'htmlOptions' => array(
-        'class' => 'well',
-    ),
-    'clientOptions' => array(
-        'validateOnSubmit' => true,
-        'afterValidate'    => 'js:function(form, data, hasError) {
-            if(hasError) {
-              for(var i in data){
-                $("html, body").animate({
-                  scrollTop: $("div.error").offset().top - 100
-                 }, 1000);
-                 return false;
-              } 
-           }else{
-            return true;
-           }
-        }',
-    ),
-)); ?>
+<?php
+
+    $formRules = array(
+        'id'=>'city-form',
+        'enableAjaxValidation'   => false,
+        'enableClientValidation' => true,
+        'htmlOptions' => array(
+            'class' => 'well',
+        ),
+        'clientOptions' => array(
+            'validateOnSubmit' => true,
+            'afterValidate'    => 'js:function(form, data, hasError) {
+                if(hasError) {
+                  for(var i in data){
+                    $("html, body").animate({
+                      scrollTop: $("div.error").offset().top - 100
+                     }, 1000);
+                     return false;
+                  } 
+               }else{
+                return true;
+               }
+            }',
+        ),
+    );
+
+    if ( isset($fancy) ) {
+        Yii::app()->clientScript->scriptMap = array( 
+            'jquery.js'             => false, 
+            'jquery.min.js'         => false, 
+            'jquery-ui.min.js'      => false, 
+            'jquery.yiigridview.js' => false, 
+            'jquery.yiiactiveform.js' => false 
+        );
+        
+        $readOnly  = true;
+        $formRules = array( 
+            'id' => 'city-form', 
+            'enableAjaxValidation'   => true,
+            'enableClientValidation' => true,
+            'clientOptions'          => array(
+                'validateOnChange' => false,
+                'validateOnSubmit' => true,
+                'afterValidate'    => 'js:function(form, data, hasError) {
+                    if(hasError) {
+                        for(var i in data){
+                            $("html, body").animate({
+                              scrollTop: jQuery("div.error").offset().top - 100
+                             }, 1000);
+                             return false;
+                        }
+                    } else {
+                        jQuery.fancybox.close();
+                        updateDesireDropDown( getCitisUrl, "Mosque_city_id", "City", jQuery("#Mosque_country_id").attr("value") )
+                        return false;
+                   }
+                }',
+            )
+        );
+
+    }
+
+?>
+
+
+
+
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', $formRules); ?>
 
 	<p class="help-block"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required' )?>.</p>
 
