@@ -56,7 +56,8 @@
                         }
                     } else {
                         jQuery.fancybox.close();
-                        updateDesireDropDown( getDonatorsUrl, "Mosque_donator_id", "Donator", "" )
+                        updateDesireDropDown( getDonatorsUrl, "Mosque_donator_id", "Donator", "" );
+                        setTimeout(function(){ $( "#Mosque_donator_id option[value="+data.id+"]" ).prop("selected", true)  }, 1000);
                         return false;
                    }
                 }',

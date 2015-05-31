@@ -49,23 +49,23 @@ class DonatorController extends RController {
 
 		if (isset($_POST['Donator'])) {
 			$model->attributes = $_POST['Donator'];
-            
+
             if ( ! $fancy ) {
     			if ($model->save()) {
     				$this->checkImageUploaded($model, 'image', 'preview');
     				$this->redirect(array('view', 'id' => $model->id));
     			}
             } else {
-                
+
                 if ($model->save()) {
                     $this->checkImageUploaded($model, 'image', 'preview');
+                    echo json_encode( array('id' => $model->id) );
                     Yii::app()->end();
                 } else {
                     $this->performAjaxValidation($model);
                 }
-                
+
             }
-                
 
 		}
 

@@ -51,7 +51,8 @@
                         }
                     } else {
                         jQuery.fancybox.close();
-                        updateDesireDropDown( getCitisUrl, "Mosque_city_id", "City", jQuery("#Mosque_country_id").attr("value") )
+                        updateDesireDropDown( getCitisUrl, "Mosque_city_id", "City", jQuery("#Mosque_country_id").attr("value") );
+                        setTimeout(function(){ $( "#Mosque_city_id option[value="+data.id+"]" ).prop("selected", true)  }, 1000);
                         return false;
                    }
                 }',

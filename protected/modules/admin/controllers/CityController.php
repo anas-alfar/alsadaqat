@@ -56,6 +56,7 @@ class CityController extends RController {
             } else {
 
                 if ($model->save()) {
+                    echo json_encode( array('id' => $model->id) );
                     Yii::app()->end();
                 } else {
                     $this->performAjaxValidation($model);
