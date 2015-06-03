@@ -190,9 +190,20 @@ class MosqueAgent extends Aulaula
 	public function getOptions(){
         $criteria         = new CDbCriteria;
         $criteria->select = 'id,company_name';
-        //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
 
-        return CHtml::listData($this->findAll($criteria),'id','company_name');
+        return CHtml::listData($this->findAll($criteria),'id','company_name' );
+    }
+    
+    public function getOptionsLabel(){
+        $result = $this->findAll();
+        $agents = array();
+
+        if ( $result ) {
+            foreach ($result as $value) {
+                $agents[$value->id] = array( 'label' => 'tooltips', 'title' => Yii::t('enumItem', $value->title) . ': ' . $value->fullname );
+            }
+        }
+        return $agents;
     }
     
     public function behaviors() {

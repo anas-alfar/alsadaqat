@@ -164,4 +164,17 @@ class MosqueType extends Aulaula {
 
 		return CHtml::listData($this->findAll($criteria), 'id', 'name');
 	}
+    
+    public function getOptionsLabel() {
+        $result = $this->findAll();
+        $mosqueType = array();
+
+        if ( $result ) {
+            foreach ($result as $value) {
+                $mosqueType[$value->id] = array( 'label' => 'tooltips', 'title' => $this->getAttributeLabel('construction_area') . ': ' . $value->construction_area . ', ' . $this->getAttributeLabel('number_of_people') . ': ' . $value->number_of_people );
+            }
+        }
+        return $mosqueType;
+    }
+    
 }

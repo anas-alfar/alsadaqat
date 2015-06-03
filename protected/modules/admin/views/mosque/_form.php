@@ -77,9 +77,9 @@
         <b><?php echo TbHtml::em( CHtml::link( Yii::t('Donator', 'Create Donator'), $this->createUrl('/admin/donator/create', array('fancy' => true) ), array('class' => 'fancybox')) . ' ' . Yii::t('app', 'if not exist'), array('color' => TbHtml::TEXT_COLOR_WARNING)); ?></b>
     </div>
 
-	<?php echo $form->dropDownListControlGroup($model, 'agent_id', MosqueAgent::model()->getOptions(), array('empty' =>$model->getAttributeLabel('agent_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+	<?php echo $form->dropDownListControlGroup($model, 'agent_id', MosqueAgent::model()->getOptions(), array('empty' =>$model->getAttributeLabel('agent_id'), 'class'=>'span5 tipster', 'maxlength'=>11, 'options' => MosqueAgent::model()->getOptionsLabel() )); ?>
 
-	<?php echo $form->dropDownListControlGroup($model, 'mosque_type_id', MosqueType::model()->getOptions(), array('empty' =>$model->getAttributeLabel('mosque_type_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+	<?php echo $form->dropDownListControlGroup($model, 'mosque_type_id', MosqueType::model()->getOptions(), array('empty' =>$model->getAttributeLabel('mosque_type_id'), 'class'=>'span5', 'maxlength'=>11, 'options' => MosqueType::model()->getOptionsLabel() )); ?>
 
 	<?php echo $form->dropDownListControlGroup($model, 'country_id', Country::model()->getOptions(), array('empty' =>$model->getAttributeLabel('country_id'), 'class'=>'span5', 'maxlength'=>11, 'onChange' =>"updateCitiesDropDown( this.value, 'Mosque_city_id','".$model->getAttributeLabel('city')."')")); ?>
 
