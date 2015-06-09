@@ -26,7 +26,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'organization_branch_country_id',array('class'=>'span5','maxlength'=>11)); ?>
+	<?php //echo $form->textFieldControlGroup($model,'organization_branch_country_id',array('class'=>'span5','maxlength'=>11)); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span5','maxlength'=>255)); ?>
 

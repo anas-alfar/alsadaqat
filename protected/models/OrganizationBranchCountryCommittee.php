@@ -37,8 +37,8 @@ class OrganizationBranchCountryCommittee extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('organization_branch_country_id, name, description', 'required'),
-			array('organization_branch_country_id, owner_id', 'length', 'max'=>11),
+			array('name, description', 'required'),
+			array('owner_id', 'length', 'max'=>11),
 			array('name', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
 			array('agenda, annual_plan', 'length', 'max'=>1024),
