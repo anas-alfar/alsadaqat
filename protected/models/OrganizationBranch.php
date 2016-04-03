@@ -65,8 +65,8 @@ class OrganizationBranch extends Aulaula {
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, name, description, website, phone, fax, mobile, country_id, city_id, adress, manager_id, work_days, work_hours, break_hours, geo_location, is_main_branch, owner_id, created_at, updated_at', 'safe', 'on' => 'search'),
 
-			array('owner_id', 'default', 'value'        => Yii::app()->user->id, 'setOnEmpty'        => false),
-			array('organization_id', 'default', 'value' => Yii::app()->user->organization_id, 'setOnEmpty' => false),
+			array('owner_id', 'default',         'value' => Yii::app()->user->id,              'setOnEmpty' => false),
+			array('organization_id', 'default',  'value' => Yii::app()->user->organization_id, 'setOnEmpty' => TRUE),
 		);
 	}
 
@@ -78,7 +78,7 @@ class OrganizationBranch extends Aulaula {
 		}
 		return array(    
 			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id . 
-							' AND ' . $this->getTableAlias(false, false) . '.id='. Yii::app()->user->organization_branch_id,
+				  ' AND ' . $this->getTableAlias(false, false) . '.id='. Yii::app()->user->organization_branch_id,
 		);
 	}
 

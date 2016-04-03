@@ -93,6 +93,11 @@
 
 	<?php //echo $form->dropDownListControlGroup($model, 'organization_branch_id', OrganizationBranch::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_branch_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
+    <?php if( Yii::app()->user->isSuperuser ): ?>
+        <?php echo $form->dropDownListControlGroup($model, 'organization_id', Organization::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+        <?php echo $form->dropDownListControlGroup($model, 'organization_branch_id', OrganizationBranch::model()->getOptions(), array('empty' => $model->getAttributeLabel('organization_branch_id'), 'class' => 'span5', 'maxlength' => 11));?>
+    <?php endif ?>
+
 	<?php echo $form->dropDownListControlGroup($model, 'donator_id', Donator::model()->getOptions(), array('empty' =>$model->getAttributeLabel('donator_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php //echo $form->textFieldControlGroup($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>

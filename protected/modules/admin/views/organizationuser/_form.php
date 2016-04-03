@@ -72,9 +72,13 @@
     
     <?php echo $form->dropDownListControlGroup($model, 'nationality_id', Country::model()->getOptions(), array('empty' => $model->getAttributeLabel('nationality_id'), 'class' => 'span5', 'maxlength' => 11));?>
     
-    <?php //echo $form->textFieldControlGroup($model, 'organization_id', array('class' => 'span5', 'maxlength' => 11));?>
+    <?php if( Yii::app()->user->isSuperuser ): ?>
+        <?php echo $form->dropDownListControlGroup($model, 'organization_id', Organization::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+        <?php echo $form->dropDownListControlGroup($model, 'organization_branch_id', OrganizationBranch::model()->getOptions(), array('empty' => $model->getAttributeLabel('organization_branch_id'), 'class' => 'span5', 'maxlength' => 11));?>
+    <?php endif ?>
     
-    <?php echo $form->dropDownListControlGroup($model, 'organization_branch_id', OrganizationBranch::model()->getOptions(), array('empty' => $model->getAttributeLabel('organization_branch_id'), 'class' => 'span5', 'maxlength' => 11));?>
+    <?php //echo $form->textFieldControlGroup($model, 'organization_id', array('class' => 'span5', 'maxlength' => 11));?>
+    <?php //echo $form->dropDownListControlGroup($model, 'organization_branch_id', OrganizationBranch::model()->getOptions(), array('empty' => $model->getAttributeLabel('organization_branch_id'), 'class' => 'span5', 'maxlength' => 11));?>
     
     <?php //echo $form->textFieldControlGroup($model,'personal_photo_path',array('class'=>'span5','maxlength'=>255)); ?>
     <div>

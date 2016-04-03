@@ -97,9 +97,9 @@ class OrganizationUser extends Aulaula {
 			array('id, username, password, title, fullname, ssn, gender, email, date_of_birth, home_phone, work_phone, local_mobile, international_mobile, nationality_id, organization_id, organization_branch_id, personal_photo_path, passport_photo_path, blocked, last_login_date, last_login_ip, created_at, updated_at', 'safe', 'on' => 'search'),
 
 
-
-			array('organization_id', 'default', 'value'        => Yii::app()->user->organization_id,         'setOnEmpty' => false),
-			array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id,  'setOnEmpty' => false),
+            array('organization_id, organization_branch_id', 'safe'),
+			array('organization_id', 'default',        'value' => Yii::app()->user->organization_id,         'setOnEmpty' => TRUE),
+			array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id,  'setOnEmpty' => TRUE),
 		);
 	}
 
@@ -118,16 +118,17 @@ class OrganizationUser extends Aulaula {
 		if (empty(Yii::app()->user->organization_id)) {
 			return array();
 		}
-		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+		//if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+        if ( Yii::app()->user->isSuperuser ) {
 			#override temporary ONLY to fix the rights module for now
-			return;
+			return array();
 			return array(
 				'condition' => $this->getTableAlias(false, false).'.id='.Yii::app()->user->organization_id,
 			);
 		}
 		return array(
 			'condition' => $this->getTableAlias(false, false).'.id='.Yii::app()->user->organization_id.
-			' AND '.$this->getTableAlias(false, false).'.organization_branch_id='.Yii::app()->user->organization_branch_id,
+			       ' AND '.$this->getTableAlias(false, false).'.organization_branch_id='.Yii::app()->user->organization_branch_id,
 		);
 	}
 
@@ -138,30 +139,70 @@ class OrganizationUser extends Aulaula {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'beneficiaries'                           => array(self::HAS_MANY, 'Beneficiary', 'donator_id'),
-			'beneficiaries1'                          => array(self::HAS_MANY, 'Beneficiary', 'owner_id'),
-			'beneficiaryDisableds'                    => array(self::HAS_MANY, 'BeneficiaryDisabled', 'owner_id'),
-			'beneficiaryFamilyMembers'                => array(self::HAS_MANY, 'BeneficiaryFamilyMembers', 'owner_id'),
-			'beneficiaryFinances'                     => array(self::HAS_MANY, 'BeneficiaryFinance', 'owner_id'),
-			'beneficiaryHomes'                        => array(self::HAS_MANY, 'BeneficiaryHome', 'owner_id'),
-			'beneficiaryOrphans'                      => array(self::HAS_MANY, 'BeneficiaryOrphan', 'owner_id'),
-			'beneficiaryPaterfamiliases'              => array(self::HAS_MANY, 'BeneficiaryPaterfamilias', 'owner_id'),
-			'beneficiaryPoors'                        => array(self::HAS_MANY, 'BeneficiaryPoor', 'owner_id'),
-			'beneficiaryRelations'                    => array(self::HAS_MANY, 'BeneficiaryRelation', 'owner_id'),
-			'beneficiaryResearchNotes'                => array(self::HAS_MANY, 'BeneficiaryResearchNotes', 'owner_id'),
-			'beneficiaryStudents'                     => array(self::HAS_MANY, 'BeneficiaryStudent', 'owner_id'),
-			'beneficiaryStudentClasses'               => array(self::HAS_MANY, 'BeneficiaryStudentClass', 'owner_id'),
-			'beneficiaryTeachers'                     => array(self::HAS_MANY, 'BeneficiaryTeacher', 'owner_id'),
-			'beneficiaryWidows'                       => array(self::HAS_MANY, 'BeneficiaryWidow', 'owner_id'),
-			'eventPhotos'                             => array(self::HAS_MANY, 'EventPhoto', 'owner_id'),
-			'mosques'                                 => array(self::HAS_MANY, 'Mosque', 'owner_id'),
-			'mosqueAgents'                            => array(self::HAS_MANY, 'MosqueAgent', 'owner_id'),
-			'mosquePhotos'                            => array(self::HAS_MANY, 'MosquePhoto', 'owner_id'),
-			'mosqueTypes'                             => array(self::HAS_MANY, 'MosqueType', 'owner_id'),
-			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_user_id'),
-			'nationality'                             => array(self::BELONGS_TO, 'Country', 'nationality_id'),
-			'organization'                            => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'organizationBranch'                      => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+			// 'beneficiaries'                           => array(self::HAS_MANY, 'Beneficiary', 'donator_id'),
+			// 'beneficiaries1'                          => array(self::HAS_MANY, 'Beneficiary', 'owner_id'),
+			// 'beneficiaryDisableds'                    => array(self::HAS_MANY, 'BeneficiaryDisabled', 'owner_id'),
+			// 'beneficiaryFamilyMembers'                => array(self::HAS_MANY, 'BeneficiaryFamilyMembers', 'owner_id'),
+			// 'beneficiaryFinances'                     => array(self::HAS_MANY, 'BeneficiaryFinance', 'owner_id'),
+			// 'beneficiaryHomes'                        => array(self::HAS_MANY, 'BeneficiaryHome', 'owner_id'),
+			// 'beneficiaryOrphans'                      => array(self::HAS_MANY, 'BeneficiaryOrphan', 'owner_id'),
+			// 'beneficiaryPaterfamiliases'              => array(self::HAS_MANY, 'BeneficiaryPaterfamilias', 'owner_id'),
+			// 'beneficiaryPoors'                        => array(self::HAS_MANY, 'BeneficiaryPoor', 'owner_id'),
+			// 'beneficiaryRelations'                    => array(self::HAS_MANY, 'BeneficiaryRelation', 'owner_id'),
+			// 'beneficiaryResearchNotes'                => array(self::HAS_MANY, 'BeneficiaryResearchNotes', 'owner_id'),
+			// 'beneficiaryStudents'                     => array(self::HAS_MANY, 'BeneficiaryStudent', 'owner_id'),
+			// 'beneficiaryStudentClasses'               => array(self::HAS_MANY, 'BeneficiaryStudentClass', 'owner_id'),
+			// 'beneficiaryTeachers'                     => array(self::HAS_MANY, 'BeneficiaryTeacher', 'owner_id'),
+			// 'beneficiaryWidows'                       => array(self::HAS_MANY, 'BeneficiaryWidow', 'owner_id'),
+			// 'eventPhotos'                             => array(self::HAS_MANY, 'EventPhoto', 'owner_id'),
+			// 'mosques'                                 => array(self::HAS_MANY, 'Mosque', 'owner_id'),
+			// 'mosqueAgents'                            => array(self::HAS_MANY, 'MosqueAgent', 'owner_id'),
+			// 'mosquePhotos'                            => array(self::HAS_MANY, 'MosquePhoto', 'owner_id'),
+			// 'mosqueTypes'                             => array(self::HAS_MANY, 'MosqueType', 'owner_id'),
+			// 'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_user_id'),
+			// 'nationality'                             => array(self::BELONGS_TO, 'Country', 'nationality_id'),
+			// 'organization'                            => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			// 'organizationBranch'                      => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+			
+			
+            'beneficiaries' => array(self::HAS_MANY, 'Beneficiary', 'donator_id'),
+            'beneficiaries1' => array(self::HAS_MANY, 'Beneficiary', 'owner_id'),
+            'beneficiaryDisableds' => array(self::HAS_MANY, 'BeneficiaryDisabled', 'owner_id'),
+            'beneficiaryFamilyMembers' => array(self::HAS_MANY, 'BeneficiaryFamilyMembers', 'owner_id'),
+            'beneficiaryFinances' => array(self::HAS_MANY, 'BeneficiaryFinance', 'owner_id'),
+            'beneficiaryHomes' => array(self::HAS_MANY, 'BeneficiaryHome', 'owner_id'),
+            'beneficiaryOrphans' => array(self::HAS_MANY, 'BeneficiaryOrphan', 'owner_id'),
+            'beneficiaryPaterfamiliases' => array(self::HAS_MANY, 'BeneficiaryPaterfamilias', 'owner_id'),
+            'beneficiaryPoors' => array(self::HAS_MANY, 'BeneficiaryPoor', 'owner_id'),
+            'beneficiaryRelations' => array(self::HAS_MANY, 'BeneficiaryRelation', 'owner_id'),
+            'beneficiaryResearchNotes' => array(self::HAS_MANY, 'BeneficiaryResearchNotes', 'owner_id'),
+            'beneficiaryStudents' => array(self::HAS_MANY, 'BeneficiaryStudent', 'owner_id'),
+            'beneficiaryStudentClasses' => array(self::HAS_MANY, 'BeneficiaryStudentClass', 'owner_id'),
+            'beneficiaryTeachers' => array(self::HAS_MANY, 'BeneficiaryTeacher', 'owner_id'),
+            'beneficiaryWidows' => array(self::HAS_MANY, 'BeneficiaryWidow', 'owner_id'),
+            'donators' => array(self::HAS_MANY, 'Donator', 'owner_id'),
+            'events' => array(self::HAS_MANY, 'Event', 'owner_id'),
+            'eventActivities' => array(self::HAS_MANY, 'EventActivity', 'owner_id'),
+            'eventAgendas' => array(self::HAS_MANY, 'EventAgenda', 'owner_id'),
+            'eventTypes' => array(self::HAS_MANY, 'EventType', 'owner_id'),
+            'galleries' => array(self::HAS_MANY, 'Gallery', 'owner_id'),
+            'mailInboxes' => array(self::HAS_MANY, 'MailInbox', 'owner_id'),
+            'mailOutboxes' => array(self::HAS_MANY, 'MailOutbox', 'owner_id'),
+            'mailTemplates' => array(self::HAS_MANY, 'MailTemplate', 'owner_id'),
+            'mailTypes' => array(self::HAS_MANY, 'MailType', 'owner_id'),
+            'mosques' => array(self::HAS_MANY, 'Mosque', 'owner_id'),
+            'mosqueAgents' => array(self::HAS_MANY, 'MosqueAgent', 'owner_id'),
+            'mosqueTypes' => array(self::HAS_MANY, 'MosqueType', 'owner_id'),
+            'organizationPositions' => array(self::HAS_MANY, 'OrganizationPosition', 'owner_id'),
+            'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+            'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+            'nationality' => array(self::BELONGS_TO, 'Country', 'nationality_id'),
+            'tasks' => array(self::HAS_MANY, 'Task', 'owner_id'),
+            'tasks1' => array(self::HAS_MANY, 'Task', 'assignee_id'),
+            'wells' => array(self::HAS_MANY, 'Well', 'owner_id'),
+            'wellTypes' => array(self::HAS_MANY, 'WellType', 'owner_id'),
+			
+			
 		);
 	}
 

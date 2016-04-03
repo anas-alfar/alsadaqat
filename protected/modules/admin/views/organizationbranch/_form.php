@@ -26,7 +26,9 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php //echo $form->textFieldControlGroup($model,'organization_id',array('class'=>'span5','maxlength'=>11)); ?>
+    <?php if( Yii::app()->user->isSuperuser ): ?>
+	   <?php echo $form->dropDownListControlGroup($model, 'organization_id', Organization::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
+	<?php endif ?>
 
 	<?php echo $form->textFieldControlGroup($model,'name',array('class'=>'span5','maxlength'=>255)); ?>
 

@@ -15,9 +15,9 @@
  * @property string $updated_at
  *
  * The followings are the available model relations:
- * @property OrganizationBranchCountryCommitteeUser[] $organizationBranchCountryCommitteeUsers
  * @property Organization $organization
- * @property Owner $owner
+ * @property OrganizationUser $owner
+ * @property OrganizationBranch $organizationBranch
  */
 class OrganizationPosition extends Aulaula
 {
@@ -38,26 +38,33 @@ class OrganizationPosition extends Aulaula
 		// will receive user inputs.
 		return array(
 			array('title, description', 'required'),
-			array('organization_id, owner_id', 'length', 'max'=>11),
+			array('organization_id, organization_branch_id, owner_id', 'length', 'max'=>11),
 			array('title, qualifications, responsibilities', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>512),
 			array('created_at, updated_at', 'safe'),
 			
-            array('updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
-            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
+            array('updated_at',             'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'update'),
+            array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, organization_id, title, description, qualifications, responsibilities, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, organization_id, organization_branch_id, title, description, qualifications, responsibilities, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 			
-            array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
-            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_id, organization_branch_id', 'safe'),
+            array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => FALSE ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => TRUE ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
 		);
 	}
 
 	public function defaultScope() {
-		return array(    
-			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
-		);
+	    if( ! Yii::app()->user->isSuperuser ) {
+	        return array(    
+                'condition' =>  $this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
+            );
+	    } else {
+	        return array();
+	    }
+		
 	}
 
 	/**
@@ -68,9 +75,14 @@ class OrganizationPosition extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'organizationBranchCountryCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCountryCommitteeUser', 'organization_position_id'),
-			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			//'organizationBranchCommitteeUsers' => array(self::HAS_MANY, 'OrganizationBranchCommitteeUser', 'organization_position_id'),
+			//'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			//'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			
+            'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+            'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+            'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+            
 		);
 	}
 
@@ -82,6 +94,7 @@ class OrganizationPosition extends Aulaula
 		return array(
 			'id' => Yii::t('organization_position','ID'),
 			'organization_id' => Yii::t('organization_position','Organization'),
+			'organization_branch_id' => Yii::t('organization_position','Organization Branch'),
 			'title' => Yii::t('organization_position','Title'),
 			'description' => Yii::t('organization_position','Description'),
 			'qualifications' => Yii::t('organization_position','Qualifications'),
@@ -112,6 +125,7 @@ class OrganizationPosition extends Aulaula
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('qualifications',$this->qualifications,true);
@@ -124,6 +138,14 @@ class OrganizationPosition extends Aulaula
 			'criteria'=>$criteria,
 		));
 	}
+    
+    public function getOptions() {
+        $criteria            = new CDbCriteria;
+        $criteria->select    = 'id,title';
+        $criteria->condition = 'organization_id = '.Yii::app()->user->organization_id;
+
+        return CHtml::listData($this->findAll($criteria), 'id', 'title');
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

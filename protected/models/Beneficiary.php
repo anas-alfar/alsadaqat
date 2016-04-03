@@ -91,20 +91,21 @@ class Beneficiary extends Aulaula
 			array('id, full_name, ssn, gender, date_of_birth, email, home_phone, mobile, address, personal_photo_path, nationality_id, country_id, city_id, beneficiary_type, has_paterfamilias, has_family_members, has_home, has_income, organization_id, organization_branch_id, donator_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on'=>'search'),
 
             array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
-            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
-            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => TRUE ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
 
 		);
 	}
 
 	public function defaultScope() {
-		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+		//if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+	    if ( Yii::app()->user->isSuperuser ) {
 			return array(    
 				'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
 			);
 		}
 		return array(    
-			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id,
+			'condition' => 	$this->getTableAlias(false, false) . '.organization_id='. Yii::app()->user->organization_id . ' AND ' . $this->getTableAlias(false, false) . '.organization_branch_id='. Yii::app()->user->organization_branch_id,
 		);
 	}
 

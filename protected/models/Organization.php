@@ -66,6 +66,7 @@ class Organization extends Aulaula
 
 	public function defaultScope() {
 		if (Rights::getAuthorizer()->isSuperuser(Yii::app()->user->id)) {
+		    return array();
 			//do nothing
 		} else {
 			return array(    
@@ -82,21 +83,24 @@ class Organization extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'beneficiaries' => array(self::HAS_MANY, 'Beneficiary', 'organization_id'),
-			'donators' => array(self::HAS_MANY, 'Donator', 'organization_id'),
-			'events' => array(self::HAS_MANY, 'Event', 'organization_id'),
-			'eventTypes' => array(self::HAS_MANY, 'EventType', 'organization_id'),
-			'mailInboxes' => array(self::HAS_MANY, 'MailInbox', 'organization_id'),
-			'mailOutboxes' => array(self::HAS_MANY, 'MailOutbox', 'organization_id'),
-			'mailTemplates' => array(self::HAS_MANY, 'MailTemplate', 'organization_id'),
-			'mailTypes' => array(self::HAS_MANY, 'MailType', 'organization_id'),
-			'mosqueAgents' => array(self::HAS_MANY, 'MosqueAgent', 'organization_id'),
-			'organizationType' => array(self::BELONGS_TO, 'OrganizationType', 'organization_type_id'),
-			'organizationAccessLevels' => array(self::HAS_MANY, 'OrganizationAccessLevel', 'organization_id'),
-			'organizationBranches' => array(self::HAS_MANY, 'OrganizationBranch', 'organization_id'),
-			'organizationPositions' => array(self::HAS_MANY, 'OrganizationPosition', 'organization_id'),
-			'organizationUsers' => array(self::HAS_MANY, 'OrganizationUser', 'organization_id'),
-			'tasks' => array(self::HAS_MANY, 'Tasks', 'organization_id'),
+            'beneficiaries' => array(self::HAS_MANY, 'Beneficiary', 'organization_id'),
+            'donators' => array(self::HAS_MANY, 'Donator', 'organization_id'),
+            'events' => array(self::HAS_MANY, 'Event', 'organization_id'),
+            'eventTypes' => array(self::HAS_MANY, 'EventType', 'organization_id'),
+            'galleries' => array(self::HAS_MANY, 'Gallery', 'organization_id'),
+            'mailInboxes' => array(self::HAS_MANY, 'MailInbox', 'organization_id'),
+            'mailOutboxes' => array(self::HAS_MANY, 'MailOutbox', 'organization_id'),
+            'mailTemplates' => array(self::HAS_MANY, 'MailTemplate', 'organization_id'),
+            'mailTypes' => array(self::HAS_MANY, 'MailType', 'organization_id'),
+            'mosques' => array(self::HAS_MANY, 'Mosque', 'organization_id'),
+            'mosqueAgents' => array(self::HAS_MANY, 'MosqueAgent', 'organization_id'),
+            'mosqueTypes' => array(self::HAS_MANY, 'MosqueType', 'organization_id'),
+            'organizationType' => array(self::BELONGS_TO, 'OrganizationType', 'organization_type_id'),
+            'organizationPositions' => array(self::HAS_MANY, 'OrganizationPosition', 'organization_id'),
+            'organizationUsers' => array(self::HAS_MANY, 'OrganizationUser', 'organization_id'),
+            'tasks' => array(self::HAS_MANY, 'Task', 'organization_id'),
+            'wells' => array(self::HAS_MANY, 'Well', 'organization_id'),
+            'wellTypes' => array(self::HAS_MANY, 'WellType', 'organization_id'),
 		);
 	}
 
@@ -162,6 +166,14 @@ class Organization extends Aulaula
 
     public function organizationTypeFilter($model) {
         return OrganizationType::model()->findByPk($model->organization_type_id)->title;
+    }
+    
+    public function getOptions(){
+        $criteria         = new CDbCriteria;
+        $criteria->select = 'id,name';
+        //$criteria->addCondition('iso3 is NOT NUll AND iso3 !=""');
+
+        return CHtml::listData($this->findAll($criteria),'id','name');
     }
 
 }

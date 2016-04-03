@@ -1,5 +1,5 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'organization-position-form',
+	'id'=>'organization-branch-committee-user-form',
     'enableAjaxValidation'   => false,
     'enableClientValidation' => true,
     'htmlOptions' => array(
@@ -25,19 +25,12 @@
 	<p class="help-block"><?php echo Yii::t('app', 'Fields with <span class="required">*</span> are required' )?>.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-    
-    <?php if( Yii::app()->user->isSuperuser ): ?>
-        <?php echo $form->dropDownListControlGroup($model, 'organization_id', Organization::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
-        <?php echo $form->dropDownListControlGroup($model, 'organization_branch_id', OrganizationBranch::model()->getOptions(), array('empty' => $model->getAttributeLabel('organization_branch_id'), 'class' => 'span5', 'maxlength' => 11));?>
-    <?php endif ?>
 
-	<?php echo $form->textFieldControlGroup($model,'title',array('class'=>'span5','maxlength'=>255)); ?>
+    <?php echo $form->dropDownListControlGroup($model, 'organization_branch_committee_id', OrganizationBranchCommittee::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_branch_committee_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'description',array('class'=>'span5','maxlength'=>512)); ?>
+	<?php echo $form->dropDownListControlGroup($model, 'organization_user_id', OrganizationUser::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_user_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'qualifications',array('class'=>'span5','maxlength'=>255)); ?>
-
-	<?php echo $form->textFieldControlGroup($model,'responsibilities',array('class'=>'span5','maxlength'=>255)); ?>
+    <?php echo $form->dropDownListControlGroup($model, 'organization_position_id', OrganizationPosition::model()->getOptions(), array('empty' =>$model->getAttributeLabel('organization_position_id'), 'class'=>'span5', 'maxlength'=>11)); ?>
 
 	<?php //echo $form->textFieldControlGroup($model,'owner_id',array('class'=>'span5','maxlength'=>11)); ?>
 

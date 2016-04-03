@@ -61,6 +61,10 @@ class Aulaula extends CActiveRecord
     public function organizationFilter($data) {
         return Organization::model()->findByPk($data->organization_id)->name;
     }
+    
+    public function organizationPositionFilter($data) {
+        return OrganizationPosition::model()->findByPk($data->organization_position_id)->title;
+    }
 
     public function organizationBranchFilter($data) {
         return OrganizationBranch::model()->findByPk($data->organization_branch_id)->name;
