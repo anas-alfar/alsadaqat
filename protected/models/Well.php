@@ -47,11 +47,11 @@ class Well extends Aulaula {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contract_date, construction_progress, real_construction_cost, donator_id, agent_id, well_type_id, country_id, city_id', 'required'),
+			array('organization_id, organization_branch_id, name, address, contract_date, construction_progress, real_construction_cost, donator_id, agent_id, well_type_id, country_id, city_id', 'required'),
 			array('gallery_id', 'numerical', 'integerOnly' => true),
 			array('real_construction_cost', 'numerical'),
 			array('name, address, contract_photo_path', 'length', 'max'                                                       => 255),
-			array('construction_progress, donator_id, agent_id, well_type_id, country_id, city_id, owner_id', 'length', 'max' => 11),
+			array('organization_id, organization_branch_id, construction_progress, donator_id, agent_id, well_type_id, country_id, city_id, owner_id', 'length', 'max' => 11),
 			array('notes, options', 'length', 'max'                                                                           => 1024),
 			array('created_at, updated_at', 'safe'),
 
@@ -59,9 +59,12 @@ class Well extends Aulaula {
 			array('created_at, updated_at', 'default', 'value' => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, address, contract_date, contract_photo_path, construction_progress, real_construction_cost, donator_id, agent_id, well_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on' => 'search'),
+			array('id, organization_id, organization_branch_id, name, address, contract_date, contract_photo_path, construction_progress, real_construction_cost, donator_id, agent_id, well_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on' => 'search'),
 
+            array('organization_id, organization_branch_id', 'safe'),
 			array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false),
+			array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
 		);
 	}
 
@@ -85,6 +88,8 @@ class Well extends Aulaula {
 			'city'     => array(self::BELONGS_TO, 'City', 'city_id'),
 			'owner'    => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
 			'gallery'  => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
+			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+            'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 		);
 	}
 
@@ -94,6 +99,8 @@ class Well extends Aulaula {
 	public function attributeLabels() {
 		return array(
 			'id'                     => Yii::t('well', 'ID'),
+			'organization_id'        => Yii::t('well','Organization'),
+            'organization_branch_id' => Yii::t('well','Organization Branch'),
 			'name'                   => Yii::t('well', 'Name'),
 			'address'                => Yii::t('well', 'Address'),
 			'contract_date'          => Yii::t('well', 'Contract Date'),
@@ -132,6 +139,8 @@ class Well extends Aulaula {
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
+        $criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('name', $this->name, true);
 		$criteria->compare('address', $this->address, true);
 		$criteria->compare('contract_date', $this->contract_date, true);

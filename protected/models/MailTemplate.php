@@ -41,8 +41,8 @@ class MailTemplate extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('mail_type_id, number, from_name, from_department, to_name, to_department, subject, description', 'required'),
-			array('organization_id, mail_type_id, owner_id', 'length', 'max'=>11),
+			array('organization_id, organization_branch_id, mail_type_id, number, from_name, from_department, to_name, to_department, subject, description', 'required'),
+			array('organization_id, organization_branch_id, mail_type_id, owner_id', 'length', 'max'=>11),
 			array('number, from_name, from_department, to_name, to_department, subject', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
 			
@@ -50,10 +50,12 @@ class MailTemplate extends Aulaula
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, organization_id, mail_type_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, organization_id, organization_branch_id, mail_type_id, number, from_name, from_department, to_name, to_department, subject, description, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 
+            array('organization_id, organization_branch_id', 'safe'),
             array('owner_id',        'default', 'value' => Yii::app()->user->id,              'setOnEmpty' => false ),
-            array('organization_id', 'default', 'value' => Yii::app()->user->organization_id, 'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => false ),
 		);
 	}
 
@@ -71,9 +73,10 @@ class MailTemplate extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
-			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
+			'organization'       => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+			'owner'              => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'mailType'           => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 		);
 	}
 
@@ -85,6 +88,7 @@ class MailTemplate extends Aulaula
 		return array(
 			'id' => Yii::t('mail_template','ID'),
 			'organization_id' => Yii::t('mail_template','Organization'),
+			'organization_branch_id' => Yii::t('mail_template','Organization Branch'),
 			'mail_type_id' => Yii::t('mail_template','Mail Type'),
 			'number' => Yii::t('mail_template','Number'),
 			'from_name' => Yii::t('mail_template','From Name'),
@@ -119,6 +123,7 @@ class MailTemplate extends Aulaula
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('mail_type_id',$this->mail_type_id,true);
 		$criteria->compare('number',$this->number,true);
 		$criteria->compare('from_name',$this->from_name,true);

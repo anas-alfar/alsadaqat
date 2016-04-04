@@ -57,8 +57,10 @@ class MailOutbox extends Aulaula
 			// @todo Please remove those attributes that should not be searched.
 			array('id, organization_id, mail_type_id, mail_template_id, number, from_mail, from_name, from_department, to_mail, to_name, to_department, subject, description, send_at, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 
+            array('organization_id, organization_branch_id', 'safe'),
             array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
             array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => false ),
 		);
 	}
 
@@ -76,9 +78,10 @@ class MailOutbox extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
-			'mailType' => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
+			'organization'       => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+			'owner'              => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'mailType'           => array(self::BELONGS_TO, 'MailType', 'mail_type_id'),
 		);
 	}
 
@@ -90,6 +93,7 @@ class MailOutbox extends Aulaula
 		return array(
 			'id' => Yii::t('mail_outbox','ID'),
 			'organization_id' => Yii::t('mail_outbox','Organization'),
+			'organization_branch_id' => Yii::t('mail_outbox','Organization Branch'),
 			'mail_type_id' => Yii::t('mail_outbox','Mail Type'),
 			'mail_template_id' => Yii::t('mail_outbox','Mail Template'),
 			'number' => Yii::t('mail_outbox','Number'),
@@ -128,6 +132,7 @@ class MailOutbox extends Aulaula
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('mail_type_id',$this->mail_type_id,true);
 		$criteria->compare('mail_template_id',$this->mail_template_id,true);
 		$criteria->compare('number',$this->number,true);

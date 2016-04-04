@@ -48,7 +48,7 @@ class Mosque extends Aulaula {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, address, contract_date, construction_progress, real_construction_cost, donator_id, agent_id, mosque_type_id, country_id, city_id', 'required'),
+			array('organization_id, organization_branch_id, name, address, contract_date, construction_progress, real_construction_cost, donator_id, agent_id, mosque_type_id, country_id, city_id', 'required'),
 			array('gallery_id', 'numerical', 'integerOnly'                                                                      => true),
 			array('real_construction_cost', 'numerical'),
 			array('name, address, contract_photo_path', 'length', 'max'                                                         => 255),
@@ -60,9 +60,14 @@ class Mosque extends Aulaula {
 			array('created_at, updated_at', 'default', 'value' => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, address, contract_date, contract_photo_path, construction_progress, real_construction_cost, donator_id, agent_id, mosque_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on' => 'search'),
+			array('id, organization_id, organization_branch_id, name, address, contract_date, contract_photo_path, construction_progress, real_construction_cost, donator_id, agent_id, mosque_type_id, country_id, city_id, gallery_id, owner_id, created_at, updated_at, notes, options', 'safe', 'on' => 'search'),
 
 			array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false),
+			
+            array('organization_id, organization_branch_id', 'safe'),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => TRUE ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
+            
 		);
 	}
 
@@ -85,8 +90,10 @@ class Mosque extends Aulaula {
 			'country'      => array(self::BELONGS_TO, 'Country', 'country_id'),
 			'city'         => array(self::BELONGS_TO, 'City', 'city_id'),
 			'owner'        => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
-			'mosquePhotos' => array(self::HAS_MANY, 'MosquePhoto', 'mosque_id'),
+			//'mosquePhotos' => array(self::HAS_MANY, 'MosquePhoto', 'mosque_id'),
 			'gallery'      => array(self::BELONGS_TO, 'Gallery', 'gallery_id'),
+			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+            'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 		);
 	}
 
@@ -109,6 +116,8 @@ class Mosque extends Aulaula {
 			'city_id'               => Yii::t('mosque', 'City'),
 			'gallery_id'            => Yii::t('mosque', 'Gallery'),
 			'owner_id'              => Yii::t('mosque', 'Owner'),
+			'organization_id'       => Yii::t('mosque','Organization'),
+            'organization_branch_id'=> Yii::t('mosque','Organization Branch'),
 			'created_at'            => Yii::t('mosque', 'Created At'),
 			'updated_at'            => Yii::t('mosque', 'Updated At'),
 			'notes'                 => Yii::t('mosque', 'Notes'),
@@ -147,6 +156,8 @@ class Mosque extends Aulaula {
 		$criteria->compare('city_id', $this->city_id, true);
 		$criteria->compare('gallery_id', $this->gallery_id);
 		$criteria->compare('owner_id', $this->owner_id, true);
+        $criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('created_at', $this->created_at, true);
 		$criteria->compare('updated_at', $this->updated_at, true);
 		$criteria->compare('notes', $this->notes, true);

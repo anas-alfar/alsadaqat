@@ -43,21 +43,26 @@ class MosqueType extends Aulaula {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, construction_area, construction_cost, construction_time, construction_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id', 'required'),
+			array('name, construction_area, construction_cost, construction_time, construction_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, agent_id, organization_id, organization_branch_id', 'required'),
 			array('construction_time, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances', 'numerical', 'integerOnly' => true),
 			array('construction_cost', 'numerical'),
 			array('name, construction_type, furniture_type', 'length', 'max'              => 255),
 			array('has_female_area, has_sound_system, has_air_condition', 'length', 'max' => 3),
-			array('agent_id, owner_id', 'length', 'max'                                   => 11),
+			array('organization_id, organization_branch_id, agent_id, owner_id', 'length', 'max'                                   => 11),
 			array('created_at, updated_at', 'safe'),
 
 			array('updated_at', 'default', 'value'             => new CDbExpression('NOW()'), 'setOnEmpty'             => false, 'on'             => 'update'),
 			array('created_at, updated_at', 'default', 'value' => new CDbExpression('NOW()'), 'setOnEmpty' => false, 'on' => 'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, construction_area, construction_cost, construction_time, construction_type, furniture_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, has_female_area, has_sound_system, has_air_condition, agent_id, owner_id, created_at, updated_at', 'safe', 'on' => 'search'),
+			array('id, name, construction_area, construction_cost, construction_time, construction_type, furniture_type, number_of_people, number_of_restrooms, number_of_floors, number_of_entrances, has_female_area, has_sound_system, has_air_condition, agent_id, owner_id, organization_id, organization_branch_id, created_at, updated_at', 'safe', 'on' => 'search'),
 
 			array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false),
+			
+            array('organization_id, organization_branch_id', 'safe'),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => TRUE ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
+            
 		);
 	}
 
@@ -74,9 +79,11 @@ class MosqueType extends Aulaula {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mosques' => array(self::HAS_MANY, 'Mosque', 'mosque_type_id'),
-			'agent'   => array(self::BELONGS_TO, 'MosqueAgent', 'agent_id'),
-			'owner'   => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'mosques'            => array(self::HAS_MANY, 'Mosque', 'mosque_type_id'),
+			'agent'              => array(self::BELONGS_TO, 'MosqueAgent', 'agent_id'),
+			'owner'              => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'organization'       => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+            'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 		);
 	}
 
@@ -85,7 +92,9 @@ class MosqueType extends Aulaula {
 	 */
 	public function attributeLabels() {
 		return array(
-			'id'                  => Yii::t('mosque_type', 'ID'),
+			'id'                     => Yii::t('mosque_type', 'ID'),
+			'organization_id'        => Yii::t('mosque_type','Organization'),
+            'organization_branch_id' => Yii::t('mosque_type','Organization Branch'),
 			'name'                => Yii::t('mosque_type', 'Name'),
 			'construction_area'   => Yii::t('mosque_type', 'Construction Area'),
 			'construction_cost'   => Yii::t('mosque_type', 'Construction Cost'),
@@ -139,6 +148,8 @@ class MosqueType extends Aulaula {
 		$criteria->compare('has_air_condition', $this->has_air_condition, true);
 		$criteria->compare('agent_id', $this->agent_id, true);
 		$criteria->compare('owner_id', $this->owner_id, true);
+        $criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('created_at', $this->created_at, true);
 		$criteria->compare('updated_at', $this->updated_at, true);
 

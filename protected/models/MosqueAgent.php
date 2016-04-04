@@ -67,10 +67,13 @@ class MosqueAgent extends Aulaula
             array('created_at, updated_at', 'default', 'value' => new CDbExpression( 'NOW()' ), 'setOnEmpty' => false, 'on'=>'insert'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, company_name, title, fullname, ssn, gender, email, home_phone, work_phone, mobile, address, bank_name, bank_branch_name, bank_branch_number, bank_swift_code, bank_account_number, personal_photo_path, country_id, city_id, organization_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, company_name, title, fullname, ssn, gender, email, home_phone, work_phone, mobile, address, bank_name, bank_branch_name, bank_branch_number, bank_swift_code, bank_account_number, personal_photo_path, country_id, city_id, organization_id, organization_branch_id, owner_id, created_at, updated_at', 'safe', 'on'=>'search'),
 			
+            array('organization_id, organization_branch_id', 'safe'),
+            
             array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
-            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => TRUE ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
 		);
 	}
 
@@ -88,12 +91,21 @@ class MosqueAgent extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mosques' => array(self::HAS_MANY, 'Mosque', 'agent_id'),
-			'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
-			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
-			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
-			'mosqueTypes' => array(self::HAS_MANY, 'MosqueType', 'agent_id'),
+			'mosques'            => array(self::HAS_MANY, 'Mosque', 'agent_id'),
+			'mosqueTypes'        => array(self::HAS_MANY, 'MosqueType', 'agent_id'),
+			
+			'country'            => array(self::BELONGS_TO, 'Country', 'country_id'),
+			'city'               => array(self::BELONGS_TO, 'City', 'city_id'),
+			
+			'organization'       => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+			
+            'wells'              => array(self::HAS_MANY, 'Well', 'agent_id'),
+            'wellTypes'          => array(self::HAS_MANY, 'WellType', 'agent_id'),
+			
+			'owner'              => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			
+			
 		);
 	}
 
@@ -123,6 +135,7 @@ class MosqueAgent extends Aulaula
 			'country_id' => Yii::t('mosque_agent','Country'),
 			'city_id' => Yii::t('mosque_agent','City'),
 			'organization_id' => Yii::t('mosque_agent','Organization'),
+			'organization_branch_id'=> Yii::t('mosque_agent','Organization Branch'),
 			'owner_id' => Yii::t('mosque_agent','Owner'),
 			'created_at' => Yii::t('mosque_agent','Created At'),
 			'updated_at' => Yii::t('mosque_agent','Updated At'),
@@ -167,6 +180,7 @@ class MosqueAgent extends Aulaula
 		$criteria->compare('country_id',$this->country_id,true);
 		$criteria->compare('city_id',$this->city_id,true);
 		$criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('owner_id',$this->owner_id,true);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);

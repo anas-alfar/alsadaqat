@@ -39,8 +39,8 @@ class Task extends Aulaula
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, start_at, end_at', 'required'),
-			array('organization_id, owner_id, assignee_id, status', 'length', 'max'=>11),
+			array('organization_id, organization_branch_id, title, description, start_at, end_at', 'required'),
+			array('organization_id, organization_branch_id, owner_id, assignee_id, status', 'length', 'max'=>11),
 			array('title', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>1024),
 			array('start_at, end_at, created_at, updated_at', 'safe'),
@@ -50,10 +50,12 @@ class Task extends Aulaula
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, organization_id, title, description, owner_id, assignee_id, status, start_at, end_at, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, organization_id, organization_branch_id, title, description, owner_id, assignee_id, status, start_at, end_at, created_at, updated_at', 'safe', 'on'=>'search'),
 			
+            array('organization_id, organization_branch_id', 'safe'),
             array('owner_id',               'default', 'value' => Yii::app()->user->id,                     'setOnEmpty' => false ),
             array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
 		);
 	}
 
@@ -71,9 +73,10 @@ class Task extends Aulaula
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
-			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
-			'assignee' => array(self::BELONGS_TO, 'OrganizationUser', 'assignee_id'),
+			'organization'       => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+			'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
+			'owner'              => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'assignee'           => array(self::BELONGS_TO, 'OrganizationUser', 'assignee_id'),
 		);
 	}
 
@@ -84,7 +87,8 @@ class Task extends Aulaula
 	{
 		return array(
 			'id' => 'ID',
-			'organization_id' => 'Organization',
+			'organization_id' => Yii::t('task','Organization'),
+            'organization_branch_id' => Yii::t('task','Organization Branch'),
 			'title' => 'Title',
 			'description' => 'Description',
 			'owner_id' => 'Owner',
@@ -117,6 +121,7 @@ class Task extends Aulaula
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('owner_id',$this->owner_id,true);

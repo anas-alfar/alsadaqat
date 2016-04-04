@@ -43,11 +43,11 @@ class WellType extends Aulaula {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, construction_cost, construction_time, number_of_people, agent_id', 'required'),
+			array('organization_id, organization_branch_id, name, construction_cost, construction_time, number_of_people, agent_id', 'required'),
 			array('construction_time, number_of_people', 'numerical', 'integerOnly' => true),
 			array('construction_cost', 'numerical'),
 			array('name', 'length', 'max'               => 255),
-			array('agent_id, owner_id', 'length', 'max' => 11),
+			array('organization_id, organization_branch_id, agent_id, owner_id', 'length', 'max' => 11),
 			array('created_at, updated_at', 'safe'),
 
 			array('updated_at', 'default', 'value'             => new CDbExpression('NOW()'), 'setOnEmpty'             => false, 'on'             => 'update'),
@@ -56,7 +56,10 @@ class WellType extends Aulaula {
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, construction_cost, construction_time, number_of_people, agent_id, owner_id, created_at, updated_at', 'safe', 'on' => 'search'),
 
+            array('organization_id, organization_branch_id', 'safe'),
 			array('owner_id', 'default', 'value' => Yii::app()->user->id, 'setOnEmpty' => false),
+			array('organization_id',        'default', 'value' => Yii::app()->user->organization_id,        'setOnEmpty' => false ),
+            array('organization_branch_id', 'default', 'value' => Yii::app()->user->organization_branch_id, 'setOnEmpty' => TRUE ),
 		);
 	}
 
@@ -76,6 +79,8 @@ class WellType extends Aulaula {
 			'wells' => array(self::HAS_MANY, 'Well', 'well_type_id'),
 			'agent' => array(self::BELONGS_TO, 'MosqueAgent', 'agent_id'),
 			'owner' => array(self::BELONGS_TO, 'OrganizationUser', 'owner_id'),
+			'organization' => array(self::BELONGS_TO, 'Organization', 'organization_id'),
+            'organizationBranch' => array(self::BELONGS_TO, 'OrganizationBranch', 'organization_branch_id'),
 		);
 	}
 
@@ -85,6 +90,8 @@ class WellType extends Aulaula {
 	public function attributeLabels() {
 		return array(
 			'id'                => Yii::t('well_type', 'ID'),
+			'organization_id'   => Yii::t('well_type','Organization'),
+            'organization_branch_id' => Yii::t('well_type','Organization Branch'),
 			'name'              => Yii::t('well_type', 'Name'),
 			'construction_cost' => Yii::t('well_type', 'Construction Cost'),
 			'construction_time' => Yii::t('well_type', 'Construction Time'),
@@ -114,6 +121,8 @@ class WellType extends Aulaula {
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
+        $criteria->compare('organization_id',$this->organization_id,true);
+        $criteria->compare('organization_branch_id',$this->organization_branch_id,true);
 		$criteria->compare('name', $this->name, true);
 		$criteria->compare('construction_cost', $this->construction_cost);
 		$criteria->compare('construction_time', $this->construction_time);
